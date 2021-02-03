@@ -1,0 +1,63 @@
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'component_video' %}
+      {% assign id = block.settings.id_video %}
+      {% assign platform = block.settings.platform_video %}
+      {% include 'component-video' %}
+  {% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Sections",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "component_video",
+      "name": {
+        "en": "Video",
+        "fr": "Vidéo"
+      },
+      "settings": [
+        {
+          "type": "select",
+          "id": "platform_video",
+          "label": {
+            "en": "Which platform?",
+            "fr": "Quelle plateforme ?"
+          },
+          "default": "youtube",
+          "options": [
+            {
+              "value": "youtube",
+              "label": "Youtube"
+            },
+            {
+              "value": "vimeo",
+              "label": "Vimeo"
+            },
+            {
+              "value": "dailymotion",
+              "label": "Dailymotion"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "id_video",
+          "label": {
+            "en": "Video ID",
+            "fr": "ID de la vidéo"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
