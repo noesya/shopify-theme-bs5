@@ -1,0 +1,72 @@
+{% case section.settings.platform_video %}
+  {% when "vimeo" %}
+    {% assign url = 'https://player.vimeo.com/video/' %}
+    {% assign options = '' %}
+  {% when "dailymotion" %}
+    {% assign url = 'https://www.dailymotion.com/embed/video/' %}
+    {% assign options = '?autoplay=1' %}
+  {% else %}
+    {% assign url = 'https://www.youtube.com/embed/' %}
+    {% assign options = '?rel=0&hd=1' %}
+{% endcase %}
+
+<div class="container">
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe src="{{ url }}{{ section.settings.id_video }}{{ options }}" class="embed-responsive-item" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Video",
+    "fr": "Vidéo"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "platform_video",
+      "label": {
+        "en": "Which platform?",
+        "fr": "Quelle plateforme ?"
+      },
+      "default": "youtube",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "Youtube"
+        },
+        {
+          "value": "vimeo",
+          "label": "Vimeo"
+        },
+        {
+          "value": "dailymotion",
+          "label": "Dailymotion"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "id_video",
+      "label": {
+        "en": "Video ID",
+        "fr": "ID de la vidéo"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Video",
+        "fr": "Vidéo"
+      },
+      "category": {
+        "en": "Video",
+        "fr": "Video"
+      }
+    }
+  ]
+}
+{% endschema %}

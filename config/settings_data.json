@@ -1,6 +1,31 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "16123678841886b99d": {
+        "type": "component-video",
+        "settings": {
+          "platform_video": "vimeo",
+          "id_video": "3251262"
+        }
+      },
+      "16123678890fa67a87": {
+        "type": "component-video",
+        "settings": {
+          "platform_video": "youtube",
+          "id_video": "zpOULjyy-n8"
+        }
+      }
+    },
+    "content_for_index": [
+      "16123678841886b99d",
+      "16123678890fa67a87"
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+      "content_for_index": [
+        "component-video"
+      ]
+    }
   }
 }
