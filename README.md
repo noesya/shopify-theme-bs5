@@ -1,5 +1,6 @@
 # shopify-themekit
 Thème basic fournit par themekit.
+[https://sebousan-test.myshopify.com](https://sebousan-test.myshopify.com) / duremu
 
 ## Modifications
 Attention chaque personnalisation de thème génère une modification du nœud 'current' dans le fichier config/settings_data.json
