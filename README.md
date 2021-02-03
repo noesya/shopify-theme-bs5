@@ -1,5 +1,6 @@
 # shopify-themekit
 Thème basic fournit par themekit.
+
 [https://sebousan-test.myshopify.com](https://sebousan-test.myshopify.com) / duremu
 
 ## Modifications
@@ -8,10 +9,10 @@ Attention chaque personnalisation de thème génère une modification du nœud '
 ### Templates
 
 #### index.liquid
-ajout de {{ content_for_index }}, il se base sur le presets 'content_for_index' du fichier config/settings_data.json
+ajout de ```{{ content_for_index }}```, il se base sur le presets 'content_for_index' du fichier config/settings_data.json
 
 #### page.liquid
-ajout de {% section 'components' %}, il va chercher le fichier sections/components.liquid
+ajout de ```{% section 'components' %}```, il va chercher le fichier sections/components.liquid
 
 ### Sections
 
