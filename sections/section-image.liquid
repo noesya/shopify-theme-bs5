@@ -1,0 +1,35 @@
+{% assign id = section.settings.id_image %}
+
+{% include 'component-image' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Image",
+    "fr": "Image"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "id_image",
+      "label": {
+        "en": "Add image",
+        "fr": "Ajouter l’image"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Image",
+        "fr": "Image"
+      },
+      "category": {
+        "en": "Image",
+        "fr": "Image"
+      }
+    }
+  ]
+}
+{% endschema %}

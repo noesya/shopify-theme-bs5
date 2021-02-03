@@ -1,9 +1,12 @@
 {% for block in section.blocks %}
   {% case block.type %}
-    {% when 'section-video' %}
+    {% when 'video' %}
       {% assign id = block.settings.id_video %}
       {% assign platform = block.settings.platform_video %}
       {% include 'component-video' %}
+    {% when 'image' %}
+      {% assign id = block.settings.id_image %}
+      {% include 'component-image' %}
   {% endcase %}
 {% endfor %}
 
@@ -13,7 +16,7 @@
   "settings": [],
   "blocks": [
     {
-      "type": "section-video",
+      "type": "video",
       "name": {
         "en": "Video",
         "fr": "Vidéo"
@@ -48,6 +51,23 @@
           "label": {
             "en": "Video ID",
             "fr": "ID de la vidéo"
+          }
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": {
+        "en": "Image",
+        "fr": "Image"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "id_image",
+          "label": {
+            "en": "Add image",
+            "fr": "Ajouter l’image"
           }
         }
       ]

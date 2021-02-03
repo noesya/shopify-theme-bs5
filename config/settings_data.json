@@ -1,23 +1,6 @@
 {
   "current": {
     "sections": {
-      "components": {
-        "type": "components",
-        "blocks": {
-          "a66a8f6d-28e7-40c3-b78f-f574196900e9": {
-            "type": "section-video",
-            "settings": {
-              "platform_video": "youtube",
-              "id_video": "TPh12MhNzUg"
-            }
-          }
-        },
-        "block_order": [
-          "a66a8f6d-28e7-40c3-b78f-f574196900e9"
-        ],
-        "settings": {
-        }
-      },
       "16123678841886b99d": {
         "type": "section-video",
         "settings": {
@@ -31,17 +14,40 @@
           "platform_video": "youtube",
           "id_video": "zpOULjyy-n8"
         }
+      },
+      "1612375225ed3bfe11": {
+        "type": "section-image",
+        "settings": {
+          "id_image": "shopify:\/\/shop_images\/phone.jpg"
+        }
+      },
+      "components": {
+        "type": "components",
+        "blocks": {
+          "e68fa191-f37b-4c42-baec-e58f5bd53e04": {
+            "type": "image",
+            "settings": {
+              "id_image": "shopify:\/\/shop_images\/phone.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "e68fa191-f37b-4c42-baec-e58f5bd53e04"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
       "16123678841886b99d",
-      "16123678890fa67a87"
+      "16123678890fa67a87",
+      "1612375225ed3bfe11"
     ]
   },
   "presets": {
     "Default": {
       "content_for_index": [
-        "section-video"
+
       ]
     }
   }
