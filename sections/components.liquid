@@ -1,6 +1,6 @@
 {% for block in section.blocks %}
   {% case block.type %}
-    {% when 'component_video' %}
+    {% when 'section-video' %}
       {% assign id = block.settings.id_video %}
       {% assign platform = block.settings.platform_video %}
       {% include 'component-video' %}
@@ -13,7 +13,7 @@
   "settings": [],
   "blocks": [
     {
-      "type": "component_video",
+      "type": "section-video",
       "name": {
         "en": "Video",
         "fr": "Vidéo"

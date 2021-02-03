@@ -1,15 +1,32 @@
 {
   "current": {
     "sections": {
+      "components": {
+        "type": "components",
+        "blocks": {
+          "a66a8f6d-28e7-40c3-b78f-f574196900e9": {
+            "type": "section-video",
+            "settings": {
+              "platform_video": "youtube",
+              "id_video": "TPh12MhNzUg"
+            }
+          }
+        },
+        "block_order": [
+          "a66a8f6d-28e7-40c3-b78f-f574196900e9"
+        ],
+        "settings": {
+        }
+      },
       "16123678841886b99d": {
-        "type": "component-video",
+        "type": "section-video",
         "settings": {
           "platform_video": "vimeo",
           "id_video": "3251262"
         }
       },
       "16123678890fa67a87": {
-        "type": "component-video",
+        "type": "section-video",
         "settings": {
           "platform_video": "youtube",
           "id_video": "zpOULjyy-n8"
@@ -24,7 +41,7 @@
   "presets": {
     "Default": {
       "content_for_index": [
-        "component-video"
+        "section-video"
       ]
     }
   }
