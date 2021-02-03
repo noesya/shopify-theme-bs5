@@ -1,5 +1,5 @@
 # shopify-themekit
-Thème basic fournit par themekit. 
+Thème basic fournit par themekit.
 
 ## Modifications
 
@@ -8,13 +8,16 @@ Thème basic fournit par themekit.
 #### index.liquid
 ajout de {{ content_for_index }}, il utilise le schema du fichier config/settings_data.json
 
+#### page.liquid
+ajout de {% section 'components' %}, il va chercher le fichier sections/components.liquid
+
 ### Sections
 
 #### section-video.liquid
-ajout du fichier compronant un schema pour la config de composants dynamique en home page
+ajout du fichier comprenant un schema pour la config de composants dynamique en home page
 
 #### components.liquid
-ajout du fichier compronant un schema pour la config de composants dynamique en dehors de la home page
+ajout du fichier comprenant un schema pour la config de composants dynamique en dehors de la home page
 
 ### Snippets
 
