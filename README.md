@@ -27,13 +27,11 @@ ajout du fichier comprenant un schema pour la config de composants dynamique en 
 ### Snippets
 
 #### Components
-***component-external-video.liquid***
+* ***component-external-video.liquid***
 ajout du fichier rendu du composant external-video permettant l’affichage d’un embed, il est appelé par components.liquid et section-external-video.liquid
-
-***component-image.liquid***
+* ***component-image.liquid***
 ajout du fichier rendu du composant image permettant l’affichage d’une image, il est appelé par components.liquid et section-image.liquid
-
-***component-featured-product.liquid***
+* ***component-featured-product.liquid***
 ajout du fichier rendu du composant featured-product permettant l’affichage d’un produit star, il est appelé par components.liquid et section-featured-product.liquid
 
 #### Commons
