@@ -8,11 +8,17 @@ Attention chaque personnalisation de thème génère une modification du fichier
 
 ### Templates
 
-***index.liquid***
+* ***index.liquid***
 ajout de ```{{ content_for_index }}```, il va chercher les sections contenant des schemas avec settings
-
-***page.liquid***
+* ***page.liquid***
 ajout de ```{% section 'components' %}```, il va chercher le fichier sections/components.liquid
+
+* ***product.liquid***
+* ***collection.liquid***
+* ***collection.list.liquid***
+* ***list-collections.liquid***
+* ***search.liquid***
+* ***blog.liquid***
 
 ### Sections
 
@@ -35,8 +41,10 @@ ajout du fichier rendu du composant image permettant l’affichage d’une image
 ajout du fichier rendu du composant featured-product permettant l’affichage d’un produit star, il est appelé par components.liquid et section-featured-product.liquid
 
 #### Commons
+* ***article.liquid***
 * ***cover.liquid***
 * ***external-video.liquid***
 * ***image.liquid***
+* ***pagination.liquid***
 * ***product.liquid***
 * ***video.liquid***
