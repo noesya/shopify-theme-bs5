@@ -1,5 +1,9 @@
+{%- assign loading = 'loading="lazy"' -%}
+{%- if lazy == false -%}
+  {%- assign loading = '' -%}
+{%- endif -%}
 <img
+  src="{{ src | img_url: size }}"
+  alt="{{ alt | escape }}"
   class="{{ class }}"
-  src="{{ image.src | img_url: 'large' }}"
-  alt="{{ image.alt | escape }}"
-  lazyload>
+  {{ loading }}>
