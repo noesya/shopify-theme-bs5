@@ -1,0 +1,13 @@
+<section class="container-fluid bg-light position-relative mb-5 p-0">
+  {% case featured_media.media_type %}
+    {% when 'image' %}
+      {%- include 'image', src: featured_media, size: '1600x400', class: "card-img" -%}
+    {% when 'external_video' %}
+      {%- include 'external-video', media: featured_media -%}
+    {% when 'video' %}
+    {%- include 'video', media: featured_media, ratio: 'calc(9 / 30 * 100%)', poster: "1600x450", muted: true, autoplay: true -%}
+  {% endcase %}
+  <!-- <div class="position-absolute d-flex align-items-center justify-content-center">
+    <h1>{{ title }}</h1>
+  </div> -->
+</section>
