@@ -1,11 +1,13 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 {%- assign featured_media = product.featured_media -%}
+{%- assign poster = "256x150" -%}
 <div class="card">
 
   {% if featured %}
-  <div class="row no-gutters align-items-center">
-    <div class="col-md-6">
+    {%- assign poster = "635x400" -%}
+    <div class="row no-gutters align-items-center">
+      <div class="col-md-6">
   {% endif %}
 
   {%- if featured_media -%}
@@ -14,6 +16,8 @@
         {% include 'image', src: featured_image, alt: product.title, class: 'card-img-top' %}
       {% when 'external_video' %}
         {% include 'external-video', media: featured_media %}
+      {% when 'video' %}
+        {% include 'video', media: featured_media, poster: poster %}
     {% endcase %}
   {%- endif -%}
 
@@ -29,7 +33,7 @@
       <a href="{{ product.url }}" class="btn btn-primary stretched-link">Découvrir le produit</a>
     </div>
   {% if featured %}
+      </div>
     </div>
-  </div>
   {% endif %}
 </div>
