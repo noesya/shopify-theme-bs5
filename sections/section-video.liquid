@@ -1,6 +1,5 @@
-{% assign id = section.settings.id_video %}
-{% assign platform = section.settings.platform_video %}
-
+{%- assign id = section.settings.id_video -%}
+{%- assign platform = section.settings.platform_video -%}
 {% include 'component-video' %}
 
 {% schema %}
@@ -9,7 +8,8 @@
     "en": "Video",
     "fr": "Vidéo"
   },
-  "class": "index-section",
+  "tag": "section",
+  "class": "section--video",
   "settings": [
     {
       "type": "select",

@@ -1,5 +1,4 @@
-{% assign id = section.settings.id_image %}
-
+{%- assign id = section.settings.id_image -%}
 {% include 'component-image' %}
 
 {% schema %}
@@ -8,7 +7,8 @@
     "en": "Image",
     "fr": "Image"
   },
-  "class": "index-section",
+  "tag": "section",
+  "class": "section--image",
   "settings": [
     {
       "type": "image_picker",
