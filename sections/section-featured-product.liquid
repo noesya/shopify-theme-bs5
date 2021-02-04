@@ -1,0 +1,35 @@
+{%- assign id = section.settings.id_featured_product -%}
+{% include 'component-featured-product' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Featured product",
+    "fr": "Produit mis en avant"
+  },
+  "tag": "section",
+  "class": "section--featured-product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "id_featured_product",
+      "label": {
+        "en": "Product",
+        "fr": "Produit"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Featured product",
+        "fr": "Produit mis en avant"
+      },
+      "category": {
+        "en": "Product",
+        "fr": "Produit"
+      }
+    }
+  ]
+}
+{% endschema %}
