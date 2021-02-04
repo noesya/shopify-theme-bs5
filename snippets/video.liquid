@@ -1,0 +1,21 @@
+{%- assign custom_muted = false -%}
+{%- assign custom_autoplay = false -%}
+
+{%- if ratio -%}
+  {%- assign custom_ratio = ratio -%}
+{%- else -%}
+  {%- assign calcul_ratio = media.aspect_ratio | plus: 1 -%}
+  {%- assign custom_ratio = 100 | divided_by: calcul_ratio | append: '%' -%}
+{%- endif -%}
+
+{%- if muted -%}
+  {%- assign custom_muted = muted -%}
+{%- endif -%}
+
+{%- if autoplay -%}
+  {%- assign custom_autoplay = autoplay -%}
+{%- endif -%}
+
+<div class="ratio" style="--aspect-ratio: {{ custom_ratio }}">
+  {{ media | video_tag: image_size: poster, autoplay: custom_autoplay, muted: custom_muted }}
+</div>
