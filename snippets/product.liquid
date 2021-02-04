@@ -17,7 +17,7 @@
       {% when 'external_video' %}
         {% include 'external-video', media: featured_media %}
       {% when 'video' %}
-        {% include 'video', media: featured_media, poster: poster %}
+        {% include 'video', media: featured_media, ratio: 'calc(9 / 16 * 100%)', poster: poster, autoplay: true, mutted: true %}
     {% endcase %}
   {%- endif -%}
 
@@ -27,6 +27,7 @@
   {% endif %}
 
     <div class="card-body">
+      {% unless product.available %}<span class="badge badge-danger">sold out</span>{% endunless %}
       <h5 class="card-title">{{ product.title }}</h5>
       <p class="card-text">{{ current_variant.price | money }}</p>
       <p class="card-text">{{ product.description }}</p>

@@ -1,3 +1,10 @@
-<div class="ratio ratio-16x9">
+{%- if ratio -%}
+  {%- assign custom_ratio = ratio -%}
+{%- else -%}
+  {%- assign calcul_ratio = media.aspect_ratio | plus: 1 -%}
+  {%- assign custom_ratio = 100 | divided_by: calcul_ratio | append: '%' -%}
+{%- endif -%}
+
+<div class="ratio" style="--aspect-ratio: {{ custom_ratio }}">
   {{ media | external_video_tag }}
 </div>
