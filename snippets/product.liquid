@@ -1,0 +1,23 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+<div class="card">
+  {% if featured %}
+  <div class="row no-gutters align-items-center">
+    <div class="col-md-6">
+  {% endif %}
+  {% include 'image', image: featured_image, class: 'card-img-top' %}
+  {% if featured %}
+    </div>
+    <div class="col-md-6">
+  {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ current_variant.price | money }}</p>
+      <p class="card-text">{{ product.description }}</p>
+      <a href="{{ product.url }}" class="btn btn-primary">Découvrir le produit</a>
+    </div>
+  {% if featured %}
+    </div>
+  </div>
+  {% endif %}
+</div>
