@@ -1,21 +1,27 @@
 <!-- /templates/customers/register.liquid -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Register</h2>
+      {% form 'create_customer' %}
 
-{% form 'create_customer' %}
+      {{ form.errors | default_errors }}
 
-{{ form.errors | default_errors }}
+      <label for="first_name" class="form-label">First Name</label>
+      <input type="text" value="" class="form-control" name="customer[first_name]" size="30" />
 
-<label for="first_name">First Name</label>
-<input type="text" value="" name="customer[first_name]" size="30" />
+      <label for="last_name" class="form-label">Last Name</label>
+      <input type="text" value="" class="form-control" name="customer[last_name]" size="30" />
 
-<label for="last_name">Last Name</label>
-<input type="text" value="" name="customer[last_name]" size="30" />
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" value="" class="form-control" name="customer[email]" size="30" />
 
-<label for="email">Email Address</label>
-<input type="email" value="" name="customer[email]" size="30" />
+      <label for="password" class="form-label">Password</label>
+      <input type="password" value="" class="form-control" name="customer[password]" size="30" />
 
-<label for="password">Password</label>
-<input type="password" value="" name="customer[password]" size="30" />
+      <input type="submit" value="Create" class="btn btn-primary" />
 
-<input type="submit" value="Create" />
-
-{% endform %}
+      {% endform %}
+    </div>
+  </div>
+</div>

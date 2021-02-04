@@ -1,28 +1,41 @@
 <!-- /templates/customers/login.liquid -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Login</h2>
+      {% form 'customer_login' %}
 
-<h2>Login</h2>
-{% form 'customer_login' %}
+      {{ form.errors | default_errors }}
 
-{{ form.errors | default_errors }}
+      <div class="mb-3">
+        <label for="customer_email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="customer[email]" />
+      </div>
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="customer[email]" />
+      <div class="mb-3">
+        <label for="customer_password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="customer[password]" />
+      </div>
 
-<label for="customer_password">Password</label>
-<input type="password" name="customer[password]" />
+      <input type="submit" value="Sign In" class="btn btn-primary" />
 
-<input type="submit" value="Sign In" />
+      {% endform %}
 
-{% endform %}
+      <hr>
 
-<h2>Forgot Password</h2>
-{% form 'recover_customer_password' %}
+      <h3>Forgot Password</h3>
+      {% form 'recover_customer_password' %}
 
-{{ form.errors | default_errors }}
+      {{ form.errors | default_errors }}
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="email" />
+      <div class="mb-3">
+        <label for="customer_email">Email Address</label>
+        <input type="email" name="email" class="form-control" />
+      </div>
 
-<input type="submit" value="Submit" />
+      <input type="submit" value="Submit" class="btn btn-secondary" />
 
-{% endform %}
+      {% endform %}
+    </div>
+  </div>
+</div>
