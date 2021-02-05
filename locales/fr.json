@@ -1,7 +1,7 @@
 {
   "general": {
     "404": {
-      "title": "Introuvable",
+      "title": "Erreur 404 - Introuvable",
       "subtext_html": "Cette page n’existe pas"
     },
     "pagination": {

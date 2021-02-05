@@ -1,7 +1,7 @@
 {
   "general": {
     "404": {
-      "title": "Not found",
+      "title": "404 error - Not found",
       "subtext_html": "The page you were looking for does not exist"
     },
     "pagination": {
