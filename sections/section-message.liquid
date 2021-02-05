@@ -1,0 +1,85 @@
+{%- assign id = section.settings.id_message -%}
+{%- assign type = section.settings.id_type_message -%}
+{%- assign center = section.settings.id_center_message -%}
+{% include 'component-message' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Message",
+    "fr": "Message"
+  },
+  "tag": "section",
+  "class": "section--message py-5",
+  "settings": [
+    {
+      "type": "select",
+      "id": "id_type_message",
+      "label": {
+        "en": "Which type?",
+        "fr": "Quel type ?"
+      },
+      "default": "warning",
+      "options": [
+        {
+          "value": "info",
+          "label": "Info"
+        },
+        {
+          "value": "danger",
+          "label": "Danger"
+        },
+        {
+          "value": "warning",
+          "label": "Warning"
+        },
+        {
+          "value": "succes",
+          "label": "Succes"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "id": "id_message",
+      "label": {
+        "en": "Message",
+        "fr": "Message"
+      },
+      "placeholder": {
+        "en": "Message",
+        "fr": "Message"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_center_message",
+      "default": false,
+      "label": {
+        "en": "Center text?",
+        "fr": "Centrer le texte ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Alert message",
+        "fr": "Message d’alerte"
+      },
+      "category": {
+        "en": "Text",
+        "fr": "Texte"
+      }
+    }
+  ]
+}
+{% endschema %}

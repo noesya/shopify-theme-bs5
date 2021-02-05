@@ -1,0 +1,9 @@
+{%- assign align = '' -%}
+{%- if center -%}
+  {%- assign align = ' text-center' -%}
+{%- endif -%}
+<div class="container">
+  <div class="alert alert-{{ type }}{{ align }}" role="alert">
+    {{ id }}
+  </div>
+</div>
