@@ -1,63 +1,24 @@
 <!doctype html>
-<html>
+<html lang="{{ shop.locale }}">
 <head>
-  <title>{{ page_title }}</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="{{ page_description | escape }}">
-  <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+  {% include 'seo' %}
+
   {{ content_for_header }} <!-- Header hook for plugins -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-
-      <a class="navbar-brand" href="/">Logo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {% for link in linklists.main-menu.links %}
-          <li class="nav-item">
-            {% assign child_list_handle = link.title | handleize %}
-            {% if linklists[child_list_handle].links != blank %}
-              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
-              [{% for childlink in linklists[child_list_handle].links %}
-                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-              {% endfor %}]
-            {% else %}
-              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-
-        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a href="/cart" class="nav-link">cart</a></li>
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <li class="nav-item"><a href="/account" class="nav-link">account</a></li>
-              <li class="nav-item">{{ 'log out'  | customer_logout_link | replace: '<a', '<a class="nav-link"' }}</li>
-            {% else %}
-              <li class="nav-item">{{ 'log in' | customer_login_link | replace: '<a', '<a class="nav-link"' }}</li>
-              <li class="nav-item">{{ 'register' | customer_register_link | replace: '<a', '<a class="nav-link"' }}</li>
-            {% endif %}
-          {% endif %}
-        </ul>
-      </div>
-
-    </div>
-  </nav>
-
+  {%- include 'header' -%}
   <main role="main">
     {{ content_for_layout }}
   </main>
+  {%- include 'footer' -%}
 </body>
 </html>
