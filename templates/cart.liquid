@@ -20,9 +20,9 @@
                   </a>
                 </td>
                 <td>
-                  <a href="{{ item.url }}">{{ item.product.title }}</a>
-                  {{ item.variant.title }}
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+                  <h5><a href="{{ item.url }}">{{ item.product.title }}</a></h5>
+                  <p>{{ item.variant.title }}</p>
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-danger">remove</a>
                 </td>
                 <td>{{ item.price | money }}</td>
                 <td>
@@ -37,10 +37,11 @@
             {% endfor %}
           </tbody>
         </table>
+        <button type="submit" name="update" class="btn btn-secondary">Update</button>
       </div>
       <div class="col-md-3">
-        <p>sub total : {{ cart.total_price | money }}</p>
-        <button type="submit" name="update" class="btn btn-secondary">Update</button>
+        <h2>Résumé</h2>
+        <p>Sub total : {{ cart.total_price | money }}</p>
         <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
       </div>
     </div>
