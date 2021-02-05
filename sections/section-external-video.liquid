@@ -1,5 +1,5 @@
 {%- assign id = section.settings.id_video -%}
-{%- assign platform = section.settings.platform_video -%}
+{%- assign platform = section.settings.id_platform_video -%}
 {% include 'component-external-video' %}
 
 {% schema %}
@@ -13,7 +13,7 @@
   "settings": [
     {
       "type": "select",
-      "id": "platform_video",
+      "id": "id_platform_video",
       "label": {
         "en": "Which platform?",
         "fr": "Quelle plateforme ?"

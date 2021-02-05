@@ -1,30 +1,35 @@
 {% for block in section.blocks %}
-  {% case block.type %}
-    {% when 'video' %}
-      {% assign id = block.settings.id_video %}
-      {% assign platform = block.settings.platform_video %}
-      {% include 'component-video' %}
-    {% when 'image' %}
-      {% assign id = block.settings.id_image %}
-      {% include 'component-image' %}
-  {% endcase %}
+  <section class="section--{{ block.type }} py-5">
+    {% case block.type %}
+      {% when 'external_video' %}
+        {% assign id = block.settings.id_video %}
+        {% assign platform = block.settings.id_platform_video %}
+        {% include 'component-external-video' %}
+      {% when 'image' %}
+        {% assign id = block.settings.id_image %}
+        {% include 'component-image' %}
+    {% endcase %}
+  </section>
 {% endfor %}
 
 {% schema %}
 {
-  "name": "Sections",
+  "name": {
+    "en": "Sections",
+    "fr": "Sections"
+  },
   "settings": [],
   "blocks": [
     {
-      "type": "video",
+      "type": "external_video",
       "name": {
-        "en": "Video",
-        "fr": "Vidéo"
+        "en": "External Video",
+        "fr": "Vidéo externe"
       },
       "settings": [
         {
           "type": "select",
-          "id": "platform_video",
+          "id": "id_platform_video",
           "label": {
             "en": "Which platform?",
             "fr": "Quelle plateforme ?"
