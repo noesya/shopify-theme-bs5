@@ -1,5 +1,28 @@
 <footer class="bg-light py-4">
   <div class="container">
-    Footer
+    <div class="row">
+      <div class="col">
+        Footer
+      </div>
+      <div class="col">
+        {%- if linklists.footer -%}
+        <ul class="nav">
+          {% for link in linklists.footer.links %}
+          <li class="nav-item">
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+              [{% for childlink in linklists[child_list_handle].links %}
+                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              {% endfor %}]
+            {% else %}
+              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {%- endif -%}
+      </div>
+    </div>
   </div>
 </footer>
