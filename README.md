@@ -24,8 +24,9 @@ ajout de ```{% section 'components' %}```, il va chercher le fichier sections/co
 
 fichiers comprenant un schema pour la config de composants dynamique en home page :
 * ***section-external-video.liquid***
-* ***section-image.liquid***
 * ***section-featured-product.liquid***
+* ***section-image.liquid***
+* ***section-message.liquid***
 
 ajout du fichier comprenant un schema pour la config de composants dynamique en dehors de la home page :
 * ***components.liquid***
@@ -35,10 +36,12 @@ ajout du fichier comprenant un schema pour la config de composants dynamique en 
 #### Components
 * ***component-external-video.liquid***
 ajout du fichier rendu du composant external-video permettant l’affichage d’un embed, il est appelé par components.liquid et section-external-video.liquid
-* ***component-image.liquid***
-ajout du fichier rendu du composant image permettant l’affichage d’une image, il est appelé par components.liquid et section-image.liquid
 * ***component-featured-product.liquid***
 ajout du fichier rendu du composant featured-product permettant l’affichage d’un produit star, il est appelé par components.liquid et section-featured-product.liquid
+* ***component-image.liquid***
+ajout du fichier rendu du composant image permettant l’affichage d’une image, il est appelé par components.liquid et section-image.liquid
+* ***component-message.liquid***
+ajout du fichier rendu du composant message permettant l’affichage d’une alerte (warning, danger, info...), il est appelé par components.liquid et section-message.liquid
 
 #### Commons
 * ***article.liquid***
@@ -48,3 +51,7 @@ ajout du fichier rendu du composant featured-product permettant l’affichage d�
 * ***pagination.liquid***
 * ***product.liquid***
 * ***video.liquid***
+
+* ***footer.liquid***
+* ***header.liquid***
+* ***seo.liquid***
