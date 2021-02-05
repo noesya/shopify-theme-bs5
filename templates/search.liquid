@@ -1,22 +1,31 @@
-<div class="container">
+<div class="container py-5">
   {% paginate search.results by 10 %}
     <form action="/search" method="get" role="search">
-      <input type="search" name="q" value="{{ search.terms | escape }}">
-      <button type="submit">search</button>
+      <input type="search" class="form-control" name="q" value="{{ search.terms | escape }}">
+      <button type="submit" class="btn btn-primary">search</button>
     </form>
 
+    <hr class="my-5">
+
     {% if search.performed %}
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
       {% for item in search.results %}
-        {% if item.featured_image %}
-          <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-            {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-          </a>
-        {% endif %}
-        <h5>{{ item.title | link_to: item.url }}</h5>
-        <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+        <div class="col">
+          <div class="card h-100">
+            {% if item.featured_image %}
+              {% include 'image', src: item.featured_image, alt: item.title, size: 'medium', class: 'card-img-top' %}
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title | link_to: item.url }}</h5>
+              <p class="card-text">{{ item.content | strip_html | truncatewords: 50 }}</p>
+              <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="btn btn-primary stretched-link">Découvrir le produit</a>
+            </div>
+          </div>
+        </div>
       {% else %}
-        no results
+        <p>no results</p>
       {% endfor %}
+      </div>
     {% endif %}
 
     {% if paginate.pages > 1 %}
