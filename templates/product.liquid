@@ -4,16 +4,17 @@
 
 {%- include 'cover', featured_media: featured_media, title: product.title -%}
 
-<div class="container">
+<div class="container py-5">
   <div class="row">
     <div class="col-md-6">
-      {%- include 'image', src: featured_image, size: '600x600', class: "img-fluid" -%}
-      <!-- <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"> -->
-      {% for image in product.images %}
-        <a href="{{ image.src | img_url: 'large' }}">
-          <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-        </a>
-      {% endfor %}
+      {%- include 'image', src: featured_image, size: '600x600', alt: featured_image.alt | escape, class: "img-fluid mb-3" -%}
+      <div class="d-flex">
+        {% for image in product.images %}
+          <a href="{{ image.src | img_url: 'large' }}">
+            <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+          </a>
+        {% endfor %}
+      </div>
     </div>
     <div class="col-md-6">
       <h1 class="mb-0">{{ product.title }}</h1>
@@ -30,7 +31,7 @@
                 </option>
               {% else %}
                 <option disabled="disabled">
-                  {{ variant.title }} — sold out
+                  {{ variant.title }} — {{ "products.product.sold_out" | t }}
                 </option>
               {% endif %}
             {% endfor %}
@@ -38,13 +39,13 @@
         </div>
         <div class="row align-items-center">
           <div class="col-auto">
-            <label for="Quantity" class="sr-only">Quantity</label>
+            <label for="Quantity" class="sr-only">{{ "products.product.quantity" | t }}</label>
           </div>
           <div class="col-auto">
             <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control">
           </div>
           <div class="col-auto">
-            <button type="submit" name="add" class="btn btn-primary" id="AddToCart">Add to cart — {{ current_variant.price | money }}</button>
+            <button type="submit" name="add" class="btn btn-primary" id="AddToCart">{{ "products.product.add_to_cart" | t }} — <span class="js-addtocart-price">{{ current_variant.price | money }}</span></button>
           </div>
         </div>
       </form>
