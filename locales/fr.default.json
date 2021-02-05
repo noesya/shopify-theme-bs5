@@ -1,0 +1,12 @@
+{
+  "general": {
+    "404": {
+      "title": "Introuvable",
+      "subtext_html": "Cette page n’existe pas"
+    },
+    "pagination": {
+      "next": "Suivant",
+      "previous": "Précédent"
+    }
+  }
+}
