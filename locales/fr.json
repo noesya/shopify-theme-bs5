@@ -8,5 +8,20 @@
       "next": "Suivant",
       "previous": "Précédent"
     }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Épuisé",
+      "sale": "Promo",
+      "unavailable": "Non disponible",
+      "compare_at": "Prix normal",
+      "quantity": "Quantité",
+      "add_to_cart": "Ajouter au panier",
+      "sale_price": "Prix réduit",
+      "regular_price": "Prix régulier",
+      "description": "Description",
+      "full_details": "Tous les détails",
+      "unit_price_label": "Prix unitaire"
+    }
   }
 }

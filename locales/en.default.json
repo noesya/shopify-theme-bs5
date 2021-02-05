@@ -8,5 +8,20 @@
       "next": "Next",
       "previous": "Previous"
     }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Sold Out",
+      "sale": "Sale",
+      "unavailable": "Unavailable",
+      "compare_at": "Compare at",
+      "quantity": "Quantity",
+      "add_to_cart": "Add to Cart",
+      "sale_price": "Sale price",
+      "regular_price": "Regular price",
+      "description": "Description",
+      "full_details": "Full details",
+      "unit_price_label": "Unit price"
+    }
   }
 }
