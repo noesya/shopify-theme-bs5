@@ -1,6 +1,9 @@
 <div class="container">
   {% paginate collection.products by 2 %}
     <h1>{{ collection.title }}</h1>
+    {%- if collection.image -%}
+      {%- include 'image', src: collection.image -%}
+    {%- endif -%}
     {%- if collection.description != blank -%}
       <div>{{ collection.description }}</div>
     {%- endif -%}

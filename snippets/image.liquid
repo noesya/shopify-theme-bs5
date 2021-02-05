@@ -2,8 +2,12 @@
 {%- if lazy == false -%}
   {%- assign loading = '' -%}
 {%- endif -%}
+{%- assign custom_size = 'large' -%}
+{%- if size -%}
+  {%- assign custom_size = size -%}
+{%- endif -%}
 <img
-  src="{{ src | img_url: size }}"
+  src="{{ src | img_url: custom_size }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {{ loading }}>
