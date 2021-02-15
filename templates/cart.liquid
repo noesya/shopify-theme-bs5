@@ -22,6 +22,23 @@
                 <td>
                   <h5><a href="{{ item.url }}">{{ item.product.title }}</a></h5>
                   <p>{{ item.variant.title }}</p>
+
+                  {% assign property_size = item.properties | size %}
+                  {% if property_size > 0 %}
+                    {% for p in item.properties %}
+                      {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                      {% unless p.last == blank or first_character_in_key == '_' %}
+                        {{ p.first }}:
+                        {% if p.last contains '/uploads/' %}
+                          <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                        <br>
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-danger">remove</a>
                 </td>
                 <td>{{ item.price | money }}</td>

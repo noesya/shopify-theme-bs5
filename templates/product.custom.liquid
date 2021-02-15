@@ -1,0 +1,70 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{% assign featured_media = product.featured_media %}
+
+{%- include 'cover', featured_media: featured_media, title: product.title -%}
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      {%- include 'image', src: featured_image, size: '600x600', alt: featured_image.alt | escape, class: "img-fluid mb-3" -%}
+      <div class="d-flex">
+        {% for image in product.images %}
+          <a href="{{ image.src | img_url: 'large' }}">
+            <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h1 class="mb-0">{{ product.title }}</h1>
+      <p class="mb-2">{{ current_variant.price | money }}</p>
+      <div>{{ product.description }}</div>
+      <hr>
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+        {% if variant %}
+        <div class="mb-4">
+          <select name="id" id="productSelect" class="form-select">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                <option value="{{ variant.id }}">
+                  {{ variant.title }} — {{ variant.price | money }}
+                </option>
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} — {{ "products.product.sold_out" | t }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        {% else %}
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <input type="hidden" name="id" value="{{ variant.id }}">
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <div class="mb-4">
+          <label for="engraving" class="form-label">Engraving</label>
+          <input type="text" name="properties[Engraving]" id="engraving" class="form-control" placeholder="Name" value="">
+        </div>
+        <div class="mb-4">
+          <label for="file" class="form-label">File</label>
+          <input type="file" name="properties[File]" id="file" class="form-control" value="">
+        </div>
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <label for="Quantity" class="sr-only">{{ "products.product.quantity" | t }}</label>
+          </div>
+          <div class="col-auto">
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control">
+          </div>
+          <div class="col-auto">
+            <button type="submit" name="add" class="btn btn-primary" id="AddToCart">{{ "products.product.add_to_cart" | t }} — <span class="js-addtocart-price">{{ current_variant.price | money }}</span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
