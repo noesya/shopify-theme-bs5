@@ -22,6 +22,7 @@
       <div>{{ product.description }}</div>
       <hr>
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+        {% if variant %}
         <div class="mb-4">
           <select name="id" id="productSelect" class="form-select">
             {% for variant in product.variants %}
@@ -37,6 +38,13 @@
             {% endfor %}
           </select>
         </div>
+        {% else %}
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <input type="hidden" name="id" value="{{ variant.id }}">
+            {% endif %}
+          {% endfor %}
+        {% endif %}
         <div class="row align-items-center">
           <div class="col-auto">
             <label for="Quantity" class="sr-only">{{ "products.product.quantity" | t }}</label>
