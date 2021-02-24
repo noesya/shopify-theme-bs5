@@ -1,5 +1,6 @@
 {%- assign id = section.settings.id_video -%}
 {%- assign platform = section.settings.id_platform_video -%}
+{%- assign background = section.settings.id_background -%}
 {% include 'component-external-video' %}
 
 {% schema %}
@@ -9,7 +10,7 @@
     "fr": "Vidéo"
   },
   "tag": "section",
-  "class": "section--external-video py-5",
+  "class": "section--external-video",
   "settings": [
     {
       "type": "select",
@@ -41,17 +42,26 @@
         "en": "Video ID",
         "fr": "ID de la vidéo"
       }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
     }
   ],
   "presets": [
     {
       "name": {
-        "en": "Video",
-        "fr": "Vidéo"
+        "en": "External video",
+        "fr": "Vidéo externe"
       },
       "category": {
-        "en": "Video",
-        "fr": "Video"
+        "en": "Media",
+        "fr": "Media"
       }
     }
   ]

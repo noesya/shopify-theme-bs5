@@ -1,6 +1,7 @@
 {%- assign id = section.settings.id_message -%}
 {%- assign type = section.settings.id_type_message -%}
 {%- assign center = section.settings.id_center_message -%}
+{%- assign background = section.settings.id_background -%}
 {% include 'component-message' %}
 
 {% schema %}
@@ -10,7 +11,7 @@
     "fr": "Message"
   },
   "tag": "section",
-  "class": "section--message py-5",
+  "class": "section--message",
   "settings": [
     {
       "type": "select",
@@ -73,7 +74,16 @@
       "default": false,
       "label": {
         "en": "Center text?",
-        "fr": "Centrer le texte ?"
+        "fr": "Centrer le texte ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
       }
     }
   ],

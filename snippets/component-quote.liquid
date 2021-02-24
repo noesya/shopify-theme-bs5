@@ -1,0 +1,24 @@
+{% case position %}
+  {% when "center" %}
+    {%- assign align_class = "text-center" -%}
+  {% when "right" %}
+    {%- assign align_class = "text-right" -%}
+  {% else %}
+    {%- assign align_class = "" -%}
+{% endcase %}
+{%- assign custom_background = "" -%}
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    <div class="row offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+      <blockquote class="blockquote {{ align_class }}">
+        <p>{{ quote }}</p>
+        {%- if cite != '' -%}
+          <p class="blockquote-footer mb-0"><cite>{{ cite }}</cite></p>
+        {%- endif -%}
+      </blockquote>
+    </div>
+  </div>
+</div>

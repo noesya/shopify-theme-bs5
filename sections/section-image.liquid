@@ -1,4 +1,5 @@
 {%- assign id = section.settings.id_image -%}
+{%- assign background = section.settings.id_background -%}
 {% include 'component-image' %}
 
 {% schema %}
@@ -8,7 +9,7 @@
     "fr": "Image"
   },
   "tag": "section",
-  "class": "section--image py-5",
+  "class": "section--image",
   "settings": [
     {
       "type": "image_picker",
@@ -16,6 +17,15 @@
       "label": {
         "en": "Add image",
         "fr": "Ajouter l’image"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
       }
     }
   ],
@@ -26,8 +36,8 @@
         "fr": "Image"
       },
       "category": {
-        "en": "Image",
-        "fr": "Image"
+        "en": "Media",
+        "fr": "Media"
       }
     }
   ]

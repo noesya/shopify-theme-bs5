@@ -1,0 +1,142 @@
+{%- assign image = section.settings.id_image -%}
+{%- assign title = section.settings.id_title -%}
+{%- assign subtitle = section.settings.id_subtitle -%}
+{%- assign type = section.settings.id_type -%}
+{%- assign position = section.settings.id_position -%}
+{%- assign id = section.settings.id_page -%}
+{%- assign item = pages[id] -%}
+{%- assign background = section.settings.id_background -%}
+{% include 'component-push' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Page",
+    "fr": "Page"
+  },
+  "tag": "section",
+  "class": "section--push",
+  "settings": [
+    {
+      "type": "page",
+      "id": "id_page",
+      "label": {
+        "en": "Which page?",
+        "fr": "Quelle page ?"
+      }
+    },
+    {
+      "type": "select",
+      "id": "id_position",
+      "label": {
+        "en": "Text position?",
+        "fr": "Position du texte ?"
+      },
+      "default": "center",
+      "options": [
+        {
+          "value": "center",
+          "label": {
+            "en": "Center",
+            "fr": "Centrer"
+          }
+        },
+        {
+          "value": "left",
+          "label": {
+            "en": "Left",
+            "fr": "Gauche"
+          }
+        },
+        {
+          "value": "right",
+          "label": {
+            "en": "Right",
+            "fr": "Droite"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "id_type",
+      "label": {
+        "en": "Which format?",
+        "fr": "Quel format ?"
+      },
+      "default": "push",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "push",
+          "label": "Push"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "id_image",
+      "label": {
+        "en": "Add image (not required)",
+        "fr": "Ajouter l’image (factultatif)"
+      }
+    },
+    {
+      "type": "text",
+      "id": "id_title",
+      "label": {
+        "en": "Title (not required)",
+        "fr": "Titre (factultatif)"
+      },
+      "info": {
+        "en": "Default: Page title",
+        "fr": "Par défaut : Titre de la page "
+      }
+    },
+    {
+      "type": "text",
+      "id": "id_subtitle",
+      "label": {
+        "en": "Subtitle (not required)",
+        "fr": "Sous-titre (factultatif)"
+      },
+      "info": {
+        "en": "Default: Page description ",
+        "fr": "Par défaut : Description de la page "
+      }
+    },
+    {
+      "type": "text",
+      "id": "id_cta",
+      "label": {
+        "en": "Button text (not required)",
+        "fr": "Texte du bouton (factultatif)"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Page",
+        "fr": "Page"
+      },
+      "category": {
+        "en": "Push",
+        "fr": "Push"
+      }
+    }
+  ]
+}
+{% endschema %}

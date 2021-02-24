@@ -2,8 +2,13 @@
 {%- if center -%}
   {%- assign align = ' text-center' -%}
 {%- endif -%}
-<div class="container">
-  <div class="alert alert-{{ type }}{{ align }}" role="alert">
-    {{ id }}
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    <div class="alert alert-{{ type }}{{ align }} mb-0" role="alert">
+      {{ id }}
+    </div>
   </div>
 </div>

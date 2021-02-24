@@ -1,0 +1,47 @@
+{%- assign container_class = "container" -%}
+{%- assign custom_title = item.title -%}
+{%- assign custom_subtitle = item.description | strip_html | truncatewords: 100 -%}
+{%- if title != '' -%}
+  {%- assign custom_title = title -%}
+{%- endif -%}
+{%- if subtitle != '' -%}
+  {%- assign custom_subtitle = subtitle -%}
+{%- endif -%}
+{%- if type == 'cover' -%}
+  {%- assign padding_class = "" -%}
+  {%- assign container_class = "container-fluid p-0" -%}
+{%- else -%}
+  {%- assign padding_class = "py-5" -%}
+{%- endif -%}
+{% case position %}
+  {% when "center" %}
+    {%- assign row_class = "align-items-center" -%}
+    {%- assign col_class = "offset-md-4 text-center" -%}
+  {% when "right" %}
+    {%- assign row_class = "align-items-end" -%}
+    {%- assign col_class = "offset-md-8" -%}
+  {% else %}
+    {%- assign row_class = "align-items-end" -%}
+    {%- assign col_class = "offset-md-1" -%}
+{% endcase %}
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="{{ custom_background }} {{ padding_class }}">
+  <div class="{{ container_class }} position-relative">
+    <div class="ratio ratio-21x9 bg-light">
+      {%- if image -%}
+        <img src="{{ image | img_url: 'x450' }}" alt="{{ title }}" class="img-fluid" style="object-fit:cover">
+      {%- elsif item.image -%}
+        <img src="{{ item.image | img_url: '400x400', crop: 'bottom' }}" alt="" class="img-fluid" style="object-fit:cover">
+      {%- endif -%}
+    </div>
+    <div class="row {{ row_class }} position-absolute h-100 w-100 py-5 text-white" style="top: 0">
+      <div class="col-md-4 {{ col_class }}">
+        <h2 class="display-4">{{ custom_title }}</h2>
+        <p>{{ custom_subtitle }}</p>
+        <a href="{{ item.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a>
+      </div>
+    </div>
+  </div>
+</div>

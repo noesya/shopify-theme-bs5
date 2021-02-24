@@ -1,3 +1,8 @@
-<div class="container">
-  <img src="{{ id | img_url: '400x400', crop: 'bottom' }}" alt="" class="img-fluid">
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    <img src="{{ id | img_url: '400x400', crop: 'bottom' }}" alt="" class="img-fluid">
+  </div>
 </div>

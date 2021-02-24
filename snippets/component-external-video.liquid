@@ -9,9 +9,13 @@
     {% assign url = 'https://www.youtube.com/embed/' %}
     {% assign options = '?rel=0&hd=1' %}
 {% endcase %}
-
-<div class="container">
-  <div class="ratio ratio-16x9">
-    <iframe src="{{ url }}{{ id }}{{ options }}" title="{{ platform }} video" frameborder="0" allowfullscreen></iframe>
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    <div class="ratio ratio-16x9">
+      <iframe src="{{ url }}{{ id }}{{ options }}" title="{{ platform }} video" frameborder="0" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
