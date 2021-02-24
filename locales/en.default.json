@@ -4,6 +4,15 @@
       "title": "404 error - Not found",
       "subtext_html": "The page you were looking for does not exist"
     },
+    "form": {
+      "name" : "Name",
+      "email" : "Email address",
+      "message" : "Message",
+      "submit" : "Send"
+    },
+    "navigation": {
+      "read_more" : "Read more"
+    },
     "pagination": {
       "next": "Next",
       "previous": "Previous"

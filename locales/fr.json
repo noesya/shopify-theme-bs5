@@ -4,6 +4,15 @@
       "title": "Erreur 404 - Introuvable",
       "subtext_html": "Cette page n’existe pas"
     },
+    "form": {
+      "name" : "Nom",
+      "email" : "Adresse email",
+      "message" : "Message",
+      "submit" : "Envoyer"
+    },
+    "navigation": {
+      "read_more" : "En savoir plus"
+    },
     "pagination": {
       "next": "Suivant",
       "previous": "Précédent"

@@ -1,13 +1,13 @@
 <div class="card">
   {% include 'image', src: article.image, alt: article.title, class: 'card-img-top' %}
   <div class="card-body">
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    <p class="card-text">{{ article.author }}</p>
+    <h2>{{ article.title }}</h2>
     {% if article.excerpt.size > 0 %}
-      <p class="card-text">{{ article.excerpt }}</p>
+      <p class="card-text text-muted">{{ article.excerpt }}</p>
     {% else %}
-      <p class="card-text">{{ article.content | strip_html | truncatewords: 100 }}</p>
+      <p class="card-text text-muted">{{ article.content | strip_html | truncatewords: 100 }}</p>
     {% endif %}
+    <p><a href="{{ article.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a></p>
+    <p class="card-text"><small class="text-muted">{{ article.created_at | date: "%b %d" }}</small></p>
   </div>
-  <div class="card-footer text-muted">{{ article.created_at }}</div>
 </div>

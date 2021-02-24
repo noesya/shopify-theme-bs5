@@ -1,9 +1,15 @@
 <div class="container py-5">
   {% paginate search.results by 10 %}
-    <form action="/search" method="get" role="search">
-      <input type="search" class="form-control" name="q" value="{{ search.terms | escape }}">
-      <button type="submit" class="btn btn-primary">search</button>
-    </form>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form action="/search" method="get" role="search" class="bg-light border p-5">
+          <div class="input-group">
+            <input type="search" class="form-control" name="q" value="{{ search.terms | escape }}">
+            <button type="submit" class="btn btn-primary">search</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <hr class="my-5">
 
@@ -16,7 +22,7 @@
               {% include 'image', src: item.featured_image, alt: item.title, size: 'medium', class: 'card-img-top' %}
             {% endif %}
             <div class="card-body">
-              <h5 class="card-title">{{ item.title | link_to: item.url }}</h5>
+              <h5 class="card-title">{{ item.title }}</h5>
               <p class="card-text">{{ item.content | strip_html | truncatewords: 50 }}</p>
               <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="btn btn-primary stretched-link">Découvrir le produit</a>
             </div>

@@ -1,27 +1,30 @@
 <!-- /templates/customers/login.liquid -->
-<div class="container">
+<div class="container py-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h2>Login</h2>
-      {% form 'customer_login' %}
 
-      {{ form.errors | default_errors }}
+      <div class="border bg-light p-5">
+        <h2>Login</h2>
+        {% form 'customer_login' %}
 
-      <div class="mb-3">
-        <label for="customer_email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" name="customer[email]" />
+        {{ form.errors | default_errors }}
+
+        <div class="mb-3">
+          <label for="customer_email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" name="customer[email]">
+        </div>
+
+        <div class="mb-3">
+          <label for="customer_password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="customer[password]">
+        </div>
+
+        <input type="submit" value="Sign In" class="btn btn-primary">
       </div>
-
-      <div class="mb-3">
-        <label for="customer_password" class="form-label">Password</label>
-        <input type="password" class="form-control" name="customer[password]" />
-      </div>
-
-      <input type="submit" value="Sign In" class="btn btn-primary" />
 
       {% endform %}
 
-      <hr>
+      <hr class="my-5">
 
       <h3>Forgot Password</h3>
       {% form 'recover_customer_password' %}
@@ -29,8 +32,8 @@
       {{ form.errors | default_errors }}
 
       <div class="mb-3">
-        <label for="customer_email">Email Address</label>
-        <input type="email" name="email" class="form-control" />
+        <label for="customer_email" class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-control">
       </div>
 
       <input type="submit" value="Submit" class="btn btn-secondary" />

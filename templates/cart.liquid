@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container py-5">
   <h1>Cart</h1>
   {% if cart.item_count > 0 %}
     <form action="/cart" method="post" novalidate>
     <div class="row">
-      <div class="col-md-9">
-        <table class="table">
+      <div class="col-md-8">
+        <table class="table table-striped">
           <thead>
             <th colspan="2">Prod</th>
             <th>Price</th>
@@ -56,7 +56,7 @@
         </table>
         <button type="submit" name="update" class="btn btn-secondary">Update</button>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 offset-md-1">
         <h2>Résumé</h2>
         <p>Sub total : {{ cart.total_price | money }}</p>
         <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
