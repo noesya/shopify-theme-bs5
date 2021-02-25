@@ -1,0 +1,69 @@
+{%- assign id = section.id -%}
+{%- assign title = section.settings.id_title -%}
+{%- assign subtitle = section.settings.id_subtitle -%}
+{%- assign background = section.settings.id_background -%}
+{% include 'component-newsletter' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Newsletter",
+    "fr": "Newsletter"
+  },
+  "class": "section--newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "id_title",
+      "label": {
+        "en": "Heading",
+        "fr": "En-tête"
+      },
+      "default": {
+        "en": "Subscribe to our newsletter",
+        "fr": "S'inscrire à la newsletter"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "id_subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      },
+      "default": {
+        "en": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
+        "fr": "<p>Promotions, nouveaux produits et soldes. Directement dans votre boîte de réception.</p>"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "en": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)",
+        "fr": "Un compte sera créé dans Shopify pour les clients qui s'inscrivent. [Afficher les clients](/admin/customers?query=&accepts_marketing=1)"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Newsletter",
+        "fr": "Newsletter"
+      },
+      "category": {
+        "en": "Promotional",
+        "fr": "Promotionnel"
+      }
+    }
+  ]
+}
+{% endschema %}

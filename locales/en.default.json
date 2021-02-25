@@ -15,6 +15,12 @@
       "discover_product" : "Discover product",
       "read_more" : "Read more"
     },
+    "newsletter_form": {
+      "newsletter_email": "Subscribe to our mailing list",
+      "email_placeholder": "Email address",
+      "confirmation": "Thanks for subscribing!",
+      "submit": "Subscribe"
+    },
     "pagination": {
       "next": "Next",
       "previous": "Previous"

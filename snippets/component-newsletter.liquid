@@ -1,0 +1,58 @@
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+
+        {% if title != blank %}
+          <h2 class="h2">{{ title | escape }}</h2>
+        {% endif %}
+        {% if subtitle != blank %}
+          <div class="rte">{{ subtitle }}</div>
+        {% endif %}
+
+        {%- assign formId = 'Contact_' | append: id -%}
+        {% form 'customer', id: formId %}
+          {%- if form.posted_successfully? -%}
+            <p class="alert alert-succes" tabindex="-1" data-form-status>
+              {{ 'general.newsletter_form.confirmation' | t }}
+            </p>
+          {%- endif -%}
+
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="input-group mb-3">
+            <input type="email"
+              name="contact[email]"
+              id="{{ formId }}-email"
+              class="form-control {% if form.errors %} is-invalid{% endif %}"
+              value="{{ form.email }}"
+              placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="{{ formId }}-email-error"
+                data-form-status
+              {% endif %}
+              required
+              >
+            <button type="submit" class="btn btn-primary" name="commit">{{ 'general.newsletter_form.submit' | t }}</button>
+          </div>
+
+          {%- if form.errors contains 'email' -%}
+            <span id="{{ formId }}-email-error" class="alert alert-danger">
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </span>
+          {%- endif -%}
+        {% endform %}
+
+      </div>
+    </div>
+  </div>
+</div>
