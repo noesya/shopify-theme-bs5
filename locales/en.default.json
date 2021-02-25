@@ -11,6 +11,8 @@
       "submit" : "Send"
     },
     "navigation": {
+      "discover_collection" : "Discover collection",
+      "discover_product" : "Discover product",
       "read_more" : "Read more"
     },
     "pagination": {

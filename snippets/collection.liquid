@@ -1,0 +1,15 @@
+{% if collection.image %}
+  {%- assign collection_image = collection.image -%}
+{% elsif collection.products.first and collection.products.first.media != empty %}
+  {%- assign collection_image = collection.products.first.featured_media.preview_image -%}
+{% else %}
+  {% assign collection_image = blank %}
+{% endif %}
+
+<div class="card">
+  {% include 'image', src: collection_image, alt: collection.title, class: 'card-img-top' %}
+  <div class="card-body">
+    <h2>{{ collection.title }}</h2>
+    <a href="{{ collection.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.discover_collection' | t }}</a>
+  </div>
+</div>

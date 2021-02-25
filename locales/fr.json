@@ -11,6 +11,8 @@
       "submit" : "Envoyer"
     },
     "navigation": {
+      "discover_collection" : "Découvrir la collection",
+      "discover_product" : "Découvrir le product",
       "read_more" : "En savoir plus"
     },
     "pagination": {

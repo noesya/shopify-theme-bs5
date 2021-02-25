@@ -1,0 +1,100 @@
+{%- assign grid = section.settings.id_grid -%}
+{%- assign title = section.settings.id_title -%}
+{%- assign subtitle = section.settings.id_subtitle -%}
+{%- assign background = section.settings.id_background -%}
+{%- if section.blocks.size != 0 -%}
+  {% include 'component-featured-products' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Featured products",
+    "fr": "Produits mis en avant"
+  },
+  "class": "section--featured-products",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "id_title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      },
+      "default": {
+        "en": "Products",
+        "fr": "Produits"
+      }
+    },
+    {
+      "type": "text",
+      "id": "id_subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "range",
+      "id": "id_grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_product",
+      "name": {
+        "en": "Product",
+        "fr": "Produit"
+      },
+      "settings": [
+        {
+          "label": {
+            "en": "Product",
+            "fr": "Produit"
+          },
+          "id": "id_product",
+          "type": "product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Products",
+        "fr": "Produits"
+      },
+      "category": {
+        "en": "Featured",
+        "fr": "Mis en avant"
+      },
+      "blocks": [
+        {
+          "type": "featured_product"
+        },
+        {
+          "type": "featured_product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

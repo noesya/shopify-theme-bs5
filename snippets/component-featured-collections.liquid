@@ -1,0 +1,33 @@
+{% case grid %}
+  {% when 1 %}
+    {%- assign col = 'col-12' -%}
+  {% when 2 %}
+    {%- assign col = 'col-md-6' -%}
+  {% when 3 %}
+    {%- assign col = 'col-md-4' -%}
+  {% when 4 %}
+    {%- assign col = 'col-md-3' -%}
+{% endcase %}
+
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    {% if title != blank %}
+      <div class="text-center">
+        <h2>{{ title | escape }}</h2>
+        <p>{{ subtitle | escape }}</p>
+      </div>
+    {% endif %}
+    <div class="row">
+      {% for block in section.blocks limit: section.blocks.size %}
+        <div class="{{ col }}" {{ block.shopify_attributes }}>
+          {%- assign collection = collections[block.settings.id_collection] -%}
+          {% include 'collection', collection: collection %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
