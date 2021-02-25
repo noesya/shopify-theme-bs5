@@ -1,15 +1,17 @@
-{%- assign container_class = "container" -%}
 {%- assign custom_title = item.title -%}
 {%- assign custom_subtitle = item.description | strip_html | truncatewords: 100 -%}
+{%- assign custom_cta = 'general.navigation.read_more' | t -%}
 {%- if title != '' -%}
   {%- assign custom_title = title -%}
 {%- endif -%}
 {%- if subtitle != '' -%}
   {%- assign custom_subtitle = subtitle -%}
 {%- endif -%}
-{%- if type == 'cover' -%}
+{%- if cta != '' -%}
+  {%- assign custom_cta = cta -%}
+{%- endif -%}
+{%- if container != 'container' -%}
   {%- assign padding_class = "" -%}
-  {%- assign container_class = "container-fluid p-0" -%}
 {%- else -%}
   {%- assign padding_class = "py-5" -%}
 {%- endif -%}
@@ -28,8 +30,8 @@
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
 <div class="{{ custom_background }} {{ padding_class }}">
-  <div class="{{ container_class }} position-relative">
-    <div class="ratio ratio-21x9 bg-light">
+  <div class="{{ container }} position-relative">
+    <div class="ratio {{ ratio }} bg-light">
       {%- if image -%}
         <img src="{{ image | img_url: 'x450' }}" alt="{{ title }}" class="img-fluid" style="object-fit:cover">
       {%- elsif item.image -%}
@@ -40,7 +42,7 @@
       <div class="col-md-4 {{ col_class }}">
         <h2 class="display-4">{{ custom_title }}</h2>
         <p>{{ custom_subtitle }}</p>
-        <a href="{{ item.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a>
+        <a href="{{ item.url }}" class="btn {{ cta_style }} stretched-link">{{ custom_cta }}</a>
       </div>
     </div>
   </div>

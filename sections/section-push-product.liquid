@@ -1,10 +1,13 @@
+{%- assign id = section.settings.id_product -%}
+{%- assign item = all_products[id] -%}
 {%- assign image = section.settings.id_image -%}
 {%- assign title = section.settings.id_title -%}
 {%- assign subtitle = section.settings.id_subtitle -%}
-{%- assign type = section.settings.id_type -%}
+{%- assign container = section.settings.id_container -%}
+{%- assign ratio = section.settings.id_ratio -%}
 {%- assign position = section.settings.id_position -%}
-{%- assign id = section.settings.id_product -%}
-{%- assign item = all_products[id] -%}
+{%- assign cta = section.settings.id_cta -%}
+{%- assign cta_style = section.settings.id_cta_style -%}
 {%- assign background = section.settings.id_background -%}
 {% include 'component-push' %}
 
@@ -59,20 +62,53 @@
     },
     {
       "type": "select",
-      "id": "id_type",
+      "id": "id_container",
       "label": {
-        "en": "Which format?",
-        "fr": "Quel format ?"
+        "en": "Which container?",
+        "fr": "Quel container ?"
       },
-      "default": "push",
+      "default": "container",
       "options": [
         {
-          "value": "cover",
-          "label": "Cover"
+          "value": "container-fluid p-0",
+          "label": {
+            "en": "Fluid",
+            "fr": "Fluide"
+          }
         },
         {
-          "value": "push",
-          "label": "Push"
+          "value": "container",
+          "label": {
+            "en": "Limit",
+            "fr": "Limité"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "id_ratio",
+      "label": {
+        "en": "Which ratio?",
+        "fr": "Quel ratio ?"
+      },
+      "default": "ratio-21x9",
+      "options": [
+        {
+          "value": "ratio-1x1",
+          "label": "1x1"
+        },
+        {
+          "value": "ratio-4x3",
+          "label": "4x3"
+        },
+        {
+          "value": "ratio-16x9",
+          "label": "16x9"
+        },
+        {
+          "value": "ratio-21x9",
+          "label": "21x9"
         }
       ]
     },
@@ -115,6 +151,65 @@
         "en": "Button text (not required)",
         "fr": "Texte du bouton (factultatif)"
       }
+    },
+    {
+      "type": "select",
+      "id": "id_cta_style",
+      "label": {
+        "en": "Which button style?",
+        "fr": "Quel style pour le bouton ?"
+      },
+      "default": "btn-primary",
+      "options": [
+        {
+          "value": "btn-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "btn-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "btn-danger",
+          "label": "Danger"
+        },
+        {
+          "value": "btn-warning",
+          "label": "Warning"
+        },
+        {
+          "value": "btn-light",
+          "label": "Light"
+        },
+        {
+          "value": "btn-dark",
+          "label": "Dark"
+        },
+        {
+          "value": "btn-outline-primary",
+          "label": "Outline primary"
+        },
+        {
+          "value": "btn-outline-secondary",
+          "label": "Outline secondary"
+        },
+        {
+          "value": "btn-outline-danger",
+          "label": "Outline danger"
+        },
+        {
+          "value": "btn-outline-warning",
+          "label": "Outline warning"
+        },
+        {
+          "value": "btn-outline-light",
+          "label": "Outline light"
+        },
+        {
+          "value": "btn-outline-dark",
+          "label": "Outline dark"
+        }
+      ]
     },
     {
       "type": "checkbox",

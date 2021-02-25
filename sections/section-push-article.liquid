@@ -1,5 +1,5 @@
-{%- assign id = section.settings.id_collection -%}
-{%- assign item = collections[id] -%}
+{%- assign id = section.settings.id_article -%}
+{%- assign item = articles[id] -%}
 {%- assign image = section.settings.id_image -%}
 {%- assign title = section.settings.id_title -%}
 {%- assign subtitle = section.settings.id_subtitle -%}
@@ -14,18 +14,18 @@
 {% schema %}
 {
   "name": {
-    "en": "Collection",
-    "fr": "Collection"
+    "en": "Article",
+    "fr": "Article"
   },
   "tag": "section",
   "class": "section--push",
   "settings": [
     {
-      "type": "collection",
-      "id": "id_collection",
+      "type": "article",
+      "id": "id_article",
       "label": {
-        "en": "Which collection?",
-        "fr": "Quelle collection ?"
+        "en": "Which article?",
+        "fr": "Quelle article ?"
       }
     },
     {
@@ -128,8 +128,8 @@
         "fr": "Titre (factultatif)"
       },
       "info": {
-        "en": "Collection title default",
-        "fr": "Titre de la collection par défaut"
+        "en": "Default: Article title",
+        "fr": "Par défaut : Titre de l’article "
       }
     },
     {
@@ -140,8 +140,8 @@
         "fr": "Sous-titre (factultatif)"
       },
       "info": {
-        "en": "Collection description default",
-        "fr": "Description de la collection par défaut"
+        "en": "Default: Article description ",
+        "fr": "Par défaut : Description de l’article "
       }
     },
     {
@@ -224,8 +224,8 @@
   "presets": [
     {
       "name": {
-        "en": "Collection",
-        "fr": "Collection"
+        "en": "Article",
+        "fr": "Article"
       },
       "category": {
         "en": "Push",
