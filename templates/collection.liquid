@@ -5,22 +5,14 @@
       {%- include 'image', src: collection.image -%}
     {%- endif -%}
     {%- if collection.description != blank -%}
-      <div>{{ collection.description }}</div>
+      <div class="rte">{{ collection.description }}</div>
+      <hr class="my-5">
     {%- endif -%}
-    <hr class="my-5">
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
       {% for product in collection.products %}
         <div class="col">
           {% include 'product', product: product %}
         </div>
-        <!-- <div>
-          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          {{ product.price | money }}
-          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-          <a href="{{ product.url | within: collection }}">
-            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-          </a>
-        </div> -->
       {% else %}
         <p>no matches</p>
       {% endfor %}

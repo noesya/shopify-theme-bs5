@@ -8,89 +8,7 @@
     "theme_support_url": "https://github.com/sebousan/shopify-themekit/issues"
   },
   {
-    "name": {
-      "en": "Message",
-      "fr": "Message"
-    },
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": {
-          "en": "Informative message at the top of the page.",
-          "fr": "Message informatif en haut de la page."
-        }
-      },
-      {
-        "type": "select",
-        "id": "top_type_message",
-        "label": {
-          "en": "Which type?",
-          "fr": "Quel type ?"
-        },
-        "default": "warning",
-        "options": [
-          {
-            "value": "primary",
-            "label": "Primary"
-          },
-          {
-            "value": "secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "info",
-            "label": "Info"
-          },
-          {
-            "value": "danger",
-            "label": "Danger"
-          },
-          {
-            "value": "warning",
-            "label": "Warning"
-          },
-          {
-            "value": "success",
-            "label": "Success"
-          },
-          {
-            "value": "light",
-            "label": "Light"
-          },
-          {
-            "value": "dark",
-            "label": "Dark"
-          }
-        ]
-      },
-      {
-        "type": "textarea",
-        "id": "top_message",
-        "label": {
-          "en": "Message",
-          "fr": "Message"
-        },
-        "placeholder": {
-          "en": "Message",
-          "fr": "Message"
-        }
-      },
-      {
-        "type": "checkbox",
-        "id": "top_align_message",
-        "default": false,
-        "label": {
-          "en": "Center text?",
-          "fr": "Centrer le texte ?"
-        }
-      }
-    ]
-  },
-  {
-    "name": {
-      "en": "Header",
-      "fr": "Header"
-    },
+    "name": "Header",
     "settings": [
       {
         "type": "image_picker",
@@ -109,14 +27,10 @@
         },
         "default": true
       }
-
     ]
   },
   {
-    "name": {
-      "en": "Footer",
-      "fr": "Footer"
-    },
+    "name": "Footer",
     "settings": [
       {
         "type": "checkbox",

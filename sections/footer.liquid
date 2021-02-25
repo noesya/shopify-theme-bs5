@@ -1,12 +1,15 @@
+{%- assign copyright = section.settings.footer_copyright -%}
+
 <footer class="bg-light py-4">
   <div class="container">
     <div class="row">
-      <div class="col">
-        Footer
+      <div class="col-md-4">
+        <p>{{ shop.name }}</p>
+        <p>{{ shop.description }}</p>
       </div>
-      <div class="col">
+      <div class="col-md-4">
         {%- if linklists.footer -%}
-        <ul class="nav">
+        <ul class="nav flex-column">
           {% for link in linklists.footer.links %}
           <li class="nav-item">
             {% assign child_list_handle = link.title | handleize %}
@@ -23,6 +26,49 @@
         </ul>
         {%- endif -%}
       </div>
+      <div class="col-md-4">
+        <ul class="nav flex-column">
+          {% for link in linklists.main-menu.links %}
+          <li class="nav-item">
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+              [{% for childlink in linklists[child_list_handle].links %}
+                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              {% endfor %}]
+            {% else %}
+              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
+  {%- if copyright != blank -%}
+  <div class="container text-center">
+    <hr>
+    <p class="mb-0"><small>{{ copyright }}</small></p>
+  </div>
+  {%- endif -%}
 </footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "html",
+      "id": "footer_copyright",
+      "label": {
+        "en": "Copyright",
+        "fr": "Copyright"
+      },
+      "default": {
+        "en": "Website by Rue Pavée",
+        "fr": "Site internet par Rue Pavée"
+      }
+    }
+  ]
+}
+{% endschema %}
