@@ -1,10 +1,249 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Themekit w/ bootstrap 5",
+    "theme_name": "Themekit w/ Bootstrap 5",
     "theme_version": "1.0.0",
     "theme_author": "Sébastien Moulène",
     "theme_documentation_url": "https://github.com/sebousan/shopify-themekit",
     "theme_support_url": "https://github.com/sebousan/shopify-themekit/issues"
+  },
+  {
+    "name": {
+      "en": "Message",
+      "fr": "Message"
+    },
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": {
+          "en": "Informative message at the top of the page.",
+          "fr": "Message informatif en haut de la page."
+        }
+      },
+      {
+        "type": "select",
+        "id": "top_type_message",
+        "label": {
+          "en": "Which type?",
+          "fr": "Quel type ?"
+        },
+        "default": "warning",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "info",
+            "label": "Info"
+          },
+          {
+            "value": "danger",
+            "label": "Danger"
+          },
+          {
+            "value": "warning",
+            "label": "Warning"
+          },
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "light",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "top_message",
+        "label": {
+          "en": "Message",
+          "fr": "Message"
+        },
+        "placeholder": {
+          "en": "Message",
+          "fr": "Message"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "top_align_message",
+        "default": false,
+        "label": {
+          "en": "Center text?",
+          "fr": "Centrer le texte ?"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Header",
+      "fr": "Header"
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "header_logo",
+        "label": {
+          "en": "Logo",
+          "fr": "Logo"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "header_show_socials",
+        "label": {
+          "en": "Show socials menu",
+          "fr": "Afficher le menu des réseaux sociaux"
+        },
+        "default": true
+      }
+
+    ]
+  },
+  {
+    "name": {
+      "en": "Footer",
+      "fr": "Footer"
+    },
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "footer_show_socials",
+        "label": {
+          "en": "Show socials menu",
+          "fr": "Afficher le menu des réseaux sociaux"
+        },
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Social media",
+      "fr": "Médias sociaux"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Social sharing options",
+          "fr": "Options de partage sur les médias sociaux"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": {
+          "en": "Share on Facebook",
+          "fr": "Partager sur Facebook"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": {
+          "en": "Tweet on Twitter",
+          "fr": "Tweeter sur Twitter"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": {
+          "en": "Pin on Pinterest",
+          "fr": "Épingler sur Pinterest"
+        },
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Social accounts",
+          "fr": "Médias sociaux"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https://facebook.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "http://instagram.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "https://pinterest.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat",
+        "info": "https://www.snapchat.com/add/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr",
+        "info": "http://shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https://twitter.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo",
+        "info": "https://vimeo.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube",
+        "info": "https://www.youtube.com/shopify"
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Favicon",
+      "fr": "Favicon"
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": {
+          "en": "Favicon image",
+          "fr": "Image favicon"
+        },
+        "info": {
+          "en": "Will be scaled down to 32 x 32px",
+          "fr": "L'image sera réduite à 32 x 32 px"
+        }
+      }
+    ]
   }
 ]

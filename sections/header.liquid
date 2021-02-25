@@ -1,7 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  {%- assign message = settings.top_message -%}
+  {%- if message != blank -%}
+    {%- assign align = '' -%}
+    {%- if settings.top_align_message -%}
+      {%- assign align = ' text-center' -%}
+    {%- endif -%}
+    <div class="alert alert-{{ settings.top_type_message }}{{ align }} mb-0 py-1 text-uppercase border-0 rounded-0" role="alert">
+      <div class="container">
+        <small>{{ message }}</small>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- assign logo = settings.header_logo -%}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="/">Logo</a>
+    <a class="navbar-brand" href="{{ shop.secure_url }}">
+      {%- if logo -%}
+        <img src="{{ logo | img_url }}" alt="{{ shop.name }}">
+      {%- else -%}
+        {{ shop.name }}
+      {%- endif -%}
+    </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
