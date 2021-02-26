@@ -1,41 +1,39 @@
-<div class="container py-5">
-  {% paginate search.results by 10 %}
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <form action="/search" method="get" role="search" class="bg-light border p-5">
-          <div class="input-group">
-            <input type="search" class="form-control" name="q" value="{{ search.terms | escape }}">
-            <button type="submit" class="btn btn-primary">search</button>
-          </div>
-        </form>
-      </div>
+{% paginate search.results by 10 %}
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form action="/search" method="get" role="search" class="bg-light border p-5">
+        <div class="input-group">
+          <input type="search" class="form-control" name="q" value="{{ search.terms | escape }}">
+          <button type="submit" class="btn btn-primary">search</button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <hr class="my-5">
+  <hr class="my-5">
 
-    {% if search.performed %}
-      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-      {% for item in search.results %}
-        <div class="col">
-          <div class="card h-100">
-            {% if item.featured_image %}
-              {% include 'image', src: item.featured_image, alt: item.title, size: 'medium', class: 'card-img-top' %}
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text">{{ item.content | strip_html | truncatewords: 50 }}</p>
-              <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="btn btn-primary stretched-link">Découvrir le produit</a>
-            </div>
+  {% if search.performed %}
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for item in search.results %}
+      <div class="col">
+        <div class="card h-100">
+          {% if item.featured_image %}
+            {% include 'image', src: item.featured_image, alt: item.title, size: 'medium', class: 'card-img-top' %}
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.content | strip_html | truncatewords: 50 }}</p>
+            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="btn btn-primary stretched-link">Découvrir le produit</a>
           </div>
         </div>
-      {% else %}
-        <p>no results</p>
-      {% endfor %}
       </div>
-    {% endif %}
+    {% else %}
+      <p>no results</p>
+    {% endfor %}
+    </div>
+  {% endif %}
 
-    {% if paginate.pages > 1 %}
-      {%- include 'pagination', paginate: paginate -%}
-    {% endif %}
-  {% endpaginate %}
-</div>
+  {% if paginate.pages > 1 %}
+    {%- include 'pagination', paginate: paginate -%}
+  {% endif %}
+{% endpaginate %}

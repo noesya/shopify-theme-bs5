@@ -4,7 +4,7 @@
     {%- if section.settings.top_align_message -%}
       {%- assign align = ' text-center' -%}
     {%- endif -%}
-    <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 py-1 text-uppercase border-0 rounded-0" role="alert">
+    <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 py-1 text-uppercase" role="alert">
       <div class="container">
         <small>{{ message }}</small>
       </div>
@@ -45,11 +45,11 @@
       </ul>
 
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a href="/cart" class="nav-link">cart</a></li>
+        <li class="nav-item"><a href="{{ routes.cart_url }}" class="nav-link">cart</a></li>
         {% if shop.customer_accounts_enabled %}
           {% if customer %}
-            <li class="nav-item"><a href="/account" class="nav-link">account</a></li>
-            <li class="nav-item">{{ 'log out'  | customer_logout_link | replace: '<a', '<a class="nav-link"' }}</li>
+            <li class="nav-item"><a href="{{ routes.account_url }}" class="nav-link">{{ 'customer.account.title' | t }}</a></li>
+            <li class="nav-item">{{ 'log out' | customer_logout_link | replace: '<a', '<a class="nav-link"' }}</li>
           {% else %}
             <li class="nav-item">{{ 'log in' | customer_login_link | replace: '<a', '<a class="nav-link"' }}</li>
             <li class="nav-item">{{ 'register' | customer_register_link | replace: '<a', '<a class="nav-link"' }}</li>

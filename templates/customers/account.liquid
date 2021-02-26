@@ -1,27 +1,27 @@
-<!-- /templates/customers/account.liquid -->
-<div class="container py-5">
-  {% if customer.default_address %}
-    <h2>Address</h2>
-    <p>{{ customer.default_address.address1 }}</p>
-    {% if customer.default_address.address2 != "" %}
-      <p>{{ customer.default_address.address2 }}</p>
-    {% endif %}
-    <p>{{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
-    <p>{{ customer.default_address.zip }}</p>
-    <p>{{ customer.default_address.phone }}</p>
-  {% endif %}
+<h1 class="mb-5">{{ 'customer.account.title' | t }}</h1>
 
-  <div id="customer_orders">
-    <h2>Orders</h2>
-    {% paginate customer.orders by 10 %}
-    {% if customer.orders.size != 0 %}
-      {% for order in customer.orders %}
-        <!-- order details here -->
-      {% endfor %}
-    {% else %}
-      <p>You haven't placed any orders yet.</p>
+<div class="row">
+  <div class="col-md-8">
+    <div id="customer_orders">
+      <h2>Orders</h2>
+      {% paginate customer.orders by 10 %}
+      {% if customer.orders.size != 0 %}
+        {% for order in customer.orders %}
+          <!-- order details here -->
+        {% endfor %}
+      {% else %}
+        <p>You haven't placed any orders yet.</p>
+      {% endif %}
+      {{ paginate | default_pagination }}
+      {% endpaginate %}
+    </div>
+  </div>
+  <div class="col-md-3 offset-md-1">
+    <h2>{{ 'customer.addresses.title' | t }}</h2>
+    {% if customer.default_address %}
+      {{ customer.default_address | format_address }}
     {% endif %}
-    {{ paginate | default_pagination }}
-    {% endpaginate %}
+    <p><a href="{{ routes.account_addresses_url }}" class="btn btn-outline-primary">{{ 'customer.account.add_addresses' | t }}</a></p>
+    {{ 'customer.account.log_out' | t | customer_logout_link | replace: '<a', '<a class="btn btn-outline-danger"' }}
   </div>
 </div>

@@ -1,24 +1,22 @@
-<div class="container py-5">
-  {% paginate collection.products by 2 %}
-    <h1>{{ collection.title }}</h1>
-    {%- if collection.image -%}
-      {%- include 'image', src: collection.image -%}
-    {%- endif -%}
-    {%- if collection.description != blank -%}
-      <div class="rte">{{ collection.description }}</div>
-      <hr class="my-5">
-    {%- endif -%}
-    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-      {% for product in collection.products %}
-        <div class="col">
-          {% include 'product', product: product %}
-        </div>
-      {% else %}
-        <p>no matches</p>
-      {% endfor %}
-    </div>
-    {% if paginate.pages > 1 %}
-      {%- include 'pagination', paginate: paginate -%}
-    {% endif %}
-  {% endpaginate %}
-</div>
+{% paginate collection.products by 2 %}
+  <h1>{{ collection.title }}</h1>
+  {%- if collection.image -%}
+    {%- include 'image', src: collection.image -%}
+  {%- endif -%}
+  {%- if collection.description != blank -%}
+    <div class="rte">{{ collection.description }}</div>
+    <hr class="my-5">
+  {%- endif -%}
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for product in collection.products %}
+      <div class="col">
+        {% include 'product', product: product %}
+      </div>
+    {% else %}
+      <p>no matches</p>
+    {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}
+    {%- include 'pagination', paginate: paginate -%}
+  {% endif %}
+{% endpaginate %}

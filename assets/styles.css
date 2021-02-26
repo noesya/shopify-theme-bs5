@@ -3512,8 +3512,9 @@ textarea.form-control-lg {
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0;
-  margin-bottom: 1rem;
+  padding: 15px 0;
+  margin-bottom: 0;
+  font-size: 0.75rem;
   list-style: none; }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -3522,7 +3523,7 @@ textarea.form-control-lg {
     float: left;
     padding-right: 0.5rem;
     color: #6c757d;
-    content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */; }
+    content: var(--bs-breadcrumb-divider, ">") /* rtl: var(--bs-breadcrumb-divider, ">") */; }
 .breadcrumb-item.active {
   color: #6c757d; }
 
@@ -4878,7 +4879,7 @@ textarea.form-control-lg {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex {
+.d-flex, .middle {
   display: flex !important; }
 
 .d-inline-flex {
@@ -5067,7 +5068,7 @@ textarea.form-control-lg {
 .h-75 {
   height: 75% !important; }
 
-.h-100 {
+.h-100, .middle {
   height: 100% !important; }
 
 .h-auto {
@@ -5142,7 +5143,7 @@ textarea.form-control-lg {
 .justify-content-end {
   justify-content: flex-end !important; }
 
-.justify-content-center {
+.justify-content-center, .middle {
   justify-content: center !important; }
 
 .justify-content-between {
@@ -5160,7 +5161,7 @@ textarea.form-control-lg {
 .align-items-end {
   align-items: flex-end !important; }
 
-.align-items-center {
+.align-items-center, .middle {
   align-items: center !important; }
 
 .align-items-baseline {
@@ -8275,7 +8276,8 @@ a {
 .card-img-overlay {
   color: #fff; }
 
-.ratio img {
+.ratio img,
+.ratio video {
   object-fit: cover; }
 
 /*# sourceMappingURL=styles.css.map */

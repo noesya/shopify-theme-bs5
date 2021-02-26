@@ -1,0 +1,10 @@
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
+
+{{ 'styles.css' | asset_url | stylesheet_tag }}
+{{ 'application.js' | asset_url | script_tag }}
+
+{%- if settings.favicon != blank -%}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+{%- endif -%}

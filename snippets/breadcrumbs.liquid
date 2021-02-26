@@ -1,0 +1,40 @@
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+<nav role="navigation" aria-label="breadcrumbs" class="border-bottom border-top">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/" title="Home">Home</a></li>
+      {% if template contains 'page' %}
+        <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+      {% elsif template contains 'product' %}
+        {% if collection.url %}
+          <li class="breadcrumb-item">{{ collection.title | link_to: collection.url }}</li>
+        {% endif %}
+        <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+      {% elsif template contains 'collection' and collection.handle %}
+        {% if current_tags %}
+          {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+          <li class="breadcrumb-item">{{ collection.title | link_to: url }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ current_tags | join: " + " }}</li>
+        {% else %}
+          <li class="breadcrumb-item active" aria-current="page">{{ collection.title }}</li>
+        {% endif %}
+      {% elsif template == 'blog' %}
+        {% if current_tags %}
+          <li class="breadcrumb-item">{{ blog.title | link_to: blog.url }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ current_tags | join: " + " }}</li>
+        {% else %}
+          <li class="breadcrumb-item active" aria-current="page">{{ blog.title }}</li>
+        {% endif %}
+      {% elsif template == 'article' %}
+        <li class="breadcrumb-item">{{ blog.title | link_to: blog.url }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+      {% elsif template contains 'customer' %}
+        <li class="breadcrumb-item">{{ 'customer.account.title' | t | link_to: routes.account_url }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      {% else %}
+       <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+      {% endif %}
+    </ol>
+  </div>
+</nav>
+{% endunless %}
