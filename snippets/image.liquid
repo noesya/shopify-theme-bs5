@@ -7,7 +7,8 @@
   {%- assign custom_size = size -%}
 {%- endif -%}
 <img
-  src="{{ src | img_url: custom_size }}"
+  src="{{ src | img_url: custom_size, crop: 'center' }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
-  {{ loading }}>
+  {{ loading }}
+  >

@@ -1,13 +1,19 @@
-<section class="container-fluid bg-light position-relative p-0">
-  {% case featured_media.media_type %}
-    {% when 'image' %}
-      {%- include 'image', src: featured_media, size: '1600x400', class: "card-img" -%}
-    {% when 'external_video' %}
-      {%- include 'external-video', ratio: 'calc(9 / 30 * 100%)', media: featured_media -%}
-    {% when 'video' %}
-    {%- include 'video', media: featured_media, ratio: 'calc(9 / 30 * 100%)', poster: "1600x450", muted: true, autoplay: true -%}
-  {% endcase %}
-  <!-- <div class="position-absolute d-flex align-items-center justify-content-center">
-    <h1>{{ title }}</h1>
-  </div> -->
+<section class="container-fluid bg-light p-0">
+  <div class="card">
+    {% case featured_media.media_type %}
+      {% when 'image' %}
+        <div class="ratio ratio-21x9">
+          {%- include 'image', src: featured_media, size: '1600x400', class: "card-img" -%}
+        </div>
+      {% when 'external_video' %}
+        {%- include 'external-video', ratio: 'calc(9 / 30 * 100%)', media: featured_media -%}
+      {% when 'video' %}
+      {%- include 'video', media: featured_media, ratio: 'calc(9 / 30 * 100%)', poster: "1600x450", muted: true, autoplay: true -%}
+    {% endcase %}
+    <div class="card-img-overlay">
+      <div class="d-flex align-items-center justify-content-center h-100">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+  </div>
 </section>

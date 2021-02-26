@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="ratio {{ ratio }} bg-light">
+    {%- if image -%}
+      <img src="{{ image | img_url: 'x450' }}" alt="{{ custom_title }}" class="img-fluid">
+    {%- elsif item.image -%}
+      <img src="{{ item.image | img_url: '400x400', crop: 'bottom' }}" alt="{{ custom_title }}" class="img-fluid">
+    {%- endif -%}
+  </div>
+  <div class="card-img-overlay">
+    <div class="row {{ row_class }} h-100">
+      <div class="col-md-4 {{ col_class }}">
+        <h2 class="display-4">{{ custom_title }}</h2>
+        <p>{{ custom_subtitle }}</p>
+        <a href="{{ item.url }}" class="btn {{ cta_style }} stretched-link">{{ custom_cta }}</a>
+      </div>
+    </div>
+  </div>
+</div>
