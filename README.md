@@ -59,3 +59,6 @@ ajout du fichier rendu du composant message permettant l’affichage d’une ale
 * ***footer.liquid***
 * ***header.liquid***
 * ***seo.liquid***
+
+## SASS
+```sass --watch styles/main.sass:assets/styles.css```
