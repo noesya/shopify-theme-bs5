@@ -1,3 +1,4 @@
 .DS_Store
 .sass-cache
 assets/styles.css.map
+node_modules

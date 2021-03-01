@@ -8,45 +8,45 @@
 
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label for="first_name" class="form-label">First Name</label>
-        <input type="text" class="form-control" value="" name="address[first_name]" size="30" />
+        <label for="first_name" class="form-label">{{ 'customer.addresses.first_name' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[first_name]" id="first_name" size="30" />
       </div>
       <div class="col-md-6 mb-3">
-        <label for="last_name" class="form-label">Last Name</label>
-        <input type="text" class="form-control" value="" name="address[last_name]" size="30" />
+        <label for="last_name" class="form-label">{{ 'customer.addresses.last_name' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[last_name]" id="last_name" size="30" />
       </div>
       <div class="col-12 mb-3">
-        <label for="company" class="form-label">Company</label>
-        <input type="text" class="form-control" value="" name="address[company]" />
+        <label for="company" class="form-label">{{ 'customer.addresses.company' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[company]" id="company" />
       </div>
       <div class="col-12 mb-3">
-        <label for="address1" class="form-label">Address</label>
-        <input type="text" class="form-control" value="" name="address[address1]" />
+        <label for="address1" class="form-label">{{ 'customer.addresses.address1' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[address1]" id="address1" />
       </div>
       <div class="col-12 mb-3">
-        <label for="address2" class="form-label">Address 2</label>
-        <input type="text" class="form-control" value="" name="address[address2]" />
+        <label for="address2" class="form-label">{{ 'customer.addresses.address2' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[address2]" id="address2" />
       </div>
       <div class="col-md-6 mb-3">
-        <label for="city" class="form-label">City</label>
-        <input type="text" class="form-control" value="" name="address[city]" />
+        <label for="city" class="form-label">{{ 'customer.addresses.city' | t }}</label>
+        <input type="text" class="form-control" value="" name="address[city]" id="city" />
       </div>
       <div class="col-md-6 mb-3">
-        <label for="zip" class="form-label">Zip/Post Code</label>
-        <input type="text" value="" name="address[zip]" class="form-control">
+        <label for="zip" class="form-label">{{ 'customer.addresses.zip' | t }}</label>
+        <input type="text" value="" name="address[zip]" class="form-control" id="zip">
       </div>
       <div class="col-md-6 mb-3">
-        <label for="province" class="form-label">Province</label>
-        <select name="address[province]" class="form-control"></select>
+        <label for="province" class="form-label">{{ 'customer.addresses.province' | t }}</label>
+        <select name="address[province]" class="form-control" id="province"></select>
       </div>
       <div class="col-md-6 mb-3">
         <!-- See docs for @shopify/theme-addresses to support Country and Province -->
-        <label for="country" class="form-label">Country</label>
-        <select name="address[country]" class="form-control"></select>
+        <label for="country" class="form-label">{{ 'customer.addresses.country' | t }}</label>
+        <select name="address[country]" class="form-control" id="country"></select>
       </div>
       <div class="col-md-6">
-        <label for="phone" class="form-label">Phone Number</label>
-        <input type="tel" value="" name="address[phone]" class="form-control">
+        <label for="phone" class="form-label">{{ 'customer.addresses.phone' | t }}</label>
+        <input type="tel" value="" name="address[phone]" class="form-control" id="phone">
       </div>
   </div>
 </div>

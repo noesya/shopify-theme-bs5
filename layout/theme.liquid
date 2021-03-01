@@ -8,7 +8,7 @@
   {% include 'header-seo' %}
   {{ content_for_header }}
 </head>
-<body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
+<body class="{{ page_title | handle }} {{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
   {%- section 'header' -%}
   {%- include 'breadcrumbs' -%}
   <main role="main">

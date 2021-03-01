@@ -12,8 +12,8 @@
       {% if article.excerpt.size > 0 %}
         <p class="lead">{{ article.excerpt }}</p>
       {% endif %}
-      <p class="mb-0"><small><strong>{{ article.author }}</strong></small></p>
-      <p>{{ article.published_at | date: '%Y-%m-%d' }}</p>
+      <p class="mb-0"><strong>{{ article.author }}</strong></p>
+      <p><small class="card-text">{{ article.published_at | time_tag: format: 'abbreviated_date' }}</small></p>
       <div>{{ article.content }}</div>
     </article>
 

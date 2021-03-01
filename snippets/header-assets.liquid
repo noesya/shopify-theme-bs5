@@ -3,6 +3,10 @@
 <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
 
 {{ 'styles.css' | asset_url | stylesheet_tag }}
+
+{%- if request.page_type contains 'customers/' -%}
+  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+{%- endif -%}
 {{ 'application.js' | asset_url | script_tag }}
 
 {%- if settings.favicon != blank -%}

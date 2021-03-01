@@ -8,6 +8,6 @@
       <p class="card-text text-muted">{{ article.content | strip_html | truncatewords: 100 }}</p>
     {% endif %}
     <p><a href="{{ article.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a></p>
-    <p class="card-text"><small class="text-muted">{{ article.created_at | date: "%b %d" }}</small></p>
+    <p class="card-text"><small class="text-muted">{{ article.created_at | time_tag: format: 'abbreviated_date' }}</small></p>
   </div>
 </div>
