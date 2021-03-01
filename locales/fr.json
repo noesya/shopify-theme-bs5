@@ -40,5 +40,15 @@
       "full_details": "Tous les détails",
       "unit_price_label": "Prix unitaire"
     }
+  },
+  "customer": {
+    "account": {
+      "log_out": "Se déconnecter",
+      "log_in": "Se connecter",
+      "create": "Créer un compte",
+      "title": "Mon compte",
+      "details": "Détails du compte",
+      "return": "Return to Account Details"
+    }
   }
 }

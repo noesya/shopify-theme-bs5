@@ -5089,7 +5089,7 @@ textarea.form-control-lg {
 .flex-row {
   flex-direction: row !important; }
 
-.flex-column {
+.flex-column, .middle {
   flex-direction: column !important; }
 
 .flex-row-reverse {
@@ -8279,5 +8279,8 @@ a {
 .ratio img,
 .ratio video {
   object-fit: cover; }
+.ratio--contain img,
+.ratio--contain video {
+  object-fit: contain; }
 
 /*# sourceMappingURL=styles.css.map */

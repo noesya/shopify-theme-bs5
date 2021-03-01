@@ -1,10 +1,10 @@
 {% assign cover_ratio = 'calc(9 / 30 * 100%)' %}
-<section class="container-fluid bg-light p-0">
-  <div class="card">
+<section class="container-fluid p-0">
+  <div class="card bg-secondary">
     {% case featured_media.media_type %}
       {% when 'image' %}
         <div class="ratio" style="--bs-aspect-ratio: {{ cover_ratio }}">
-          {%- include 'image', src: featured_media, size: '1600x400', class: "card-img" -%}
+          {%- include 'image', src: featured_media, size: '1600x400' -%}
         </div>
       {% when 'external_video' %}
         {%- include 'external-video', ratio: cover_ratio, media: featured_media -%}

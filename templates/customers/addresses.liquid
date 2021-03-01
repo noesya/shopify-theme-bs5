@@ -1,55 +1,43 @@
+<h1>Addresses</h1>
 <div class="row">
-  <div class="col-md-8 offset-md-2">
-
-    <h1>New Address</h1>
-    {% form 'customer_address', customer.new_address %}
-
-    {{ form.errors | default_errors }}
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="first_name" class="form-label">{{ 'customer.addresses.first_name' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[first_name]" id="first_name" size="30" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="last_name" class="form-label">{{ 'customer.addresses.last_name' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[last_name]" id="last_name" size="30" />
-      </div>
-      <div class="col-12 mb-3">
-        <label for="company" class="form-label">{{ 'customer.addresses.company' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[company]" id="company" />
-      </div>
-      <div class="col-12 mb-3">
-        <label for="address1" class="form-label">{{ 'customer.addresses.address1' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[address1]" id="address1" />
-      </div>
-      <div class="col-12 mb-3">
-        <label for="address2" class="form-label">{{ 'customer.addresses.address2' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[address2]" id="address2" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="city" class="form-label">{{ 'customer.addresses.city' | t }}</label>
-        <input type="text" class="form-control" value="" name="address[city]" id="city" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="zip" class="form-label">{{ 'customer.addresses.zip' | t }}</label>
-        <input type="text" value="" name="address[zip]" class="form-control" id="zip">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="province" class="form-label">{{ 'customer.addresses.province' | t }}</label>
-        <select name="address[province]" class="form-control" id="province"></select>
-      </div>
-      <div class="col-md-6 mb-3">
-        <!-- See docs for @shopify/theme-addresses to support Country and Province -->
-        <label for="country" class="form-label">{{ 'customer.addresses.country' | t }}</label>
-        <select name="address[country]" class="form-control" id="country"></select>
-      </div>
-      <div class="col-md-6">
-        <label for="phone" class="form-label">{{ 'customer.addresses.phone' | t }}</label>
-        <input type="tel" value="" name="address[phone]" class="form-control" id="phone">
-      </div>
-  </div>
-</div>
+  {% for address in customer.addresses %}
+    <div class="col-md-4 mb-3">
+      {{ address | format_address }}
+      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#addressModal_{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
+      <!-- {{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }} | -->
+      <!-- <button class="btn btn-danger" type="button" onclick='Shopify.CustomerAddress.destroy("{{ address.url | url_encode }}", "{{ 'customer.addresses.delete_confirm' | t | strip }}")'>{{ 'customer.addresses.delete' | t }}</button> -->
+      {{ 'customer.addresses.delete' | t | delete_customer_address_link: address.url | replace: '<a', '<a class="btn btn-outline-danger"' }}
+      {%- include 'modal-address', address: address, edit: true -%}
+    </div>
+  {% endfor %}
 </div>
 
-{% endform %}
+<hr class="my-5">
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal_0">
+  {{ 'customer.addresses.add_new' | t }}</a>
+</button>
+{%- include 'modal-address', address: customer.new_address -%}
+
+<script>
+  // Initialize observers on address selectors
+  new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
+    hideElement: 'AddressProvinceContainerNew'
+  });
+
+  // Setup province selector on each customer address
+  {% for address in customer.addresses %}
+    new Shopify.CountryProvinceSelector('AddressCountry_{{address.id}}', 'AddressProvince_{{address.id}}', {
+      hideElement: 'AddressProvinceContainer_{{address.id}}'}
+    );
+  {% endfor %}
+
+  // Modified contents of customer_area.js (global asset)
+  // Shopify.CustomerAddress = {
+  //   destroy: function(url, confirm_msg) {
+  //     if (confirm(confirm_msg || {{ 'customer.addresses.delete_confirm' | t | json }})) {
+  //       Shopify.postLink(url, {'parameters': {'_method': 'delete'}});
+  //     }
+  //   }
+  // }
+</script>

@@ -48,7 +48,6 @@
       "create": "Create account",
       "title": "My Account",
       "details": "Account Details",
-      "add_addresses": "Add Addresses",
       "return": "Return to Account Details"
     },
     "activate_account": {
@@ -61,7 +60,7 @@
     },
     "addresses": {
       "title": "Your Addresses",
-      "default": "Default",
+      "default": "Default address",
       "add_new": "Add a New Address",
       "edit_address": "Edit address",
       "first_name": "First Name",
@@ -80,7 +79,8 @@
       "cancel": "Cancel",
       "edit": "Edit",
       "delete": "Delete",
-      "delete_confirm": "Are you sure you wish to delete this address?"
+      "delete_confirm": "Are you sure you wish to delete this address?",
+      "view": "View addresses"
     },
     "login": {
       "title": "Login",

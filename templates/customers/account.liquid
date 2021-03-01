@@ -18,10 +18,11 @@
   </div>
   <div class="col-md-3 offset-md-1">
     <h2>{{ 'customer.addresses.title' | t }}</h2>
+    <p class="mb-0"><strong>{{ 'customer.addresses.default' | t }}</strong></p>
     {% if customer.default_address %}
       {{ customer.default_address | format_address }}
     {% endif %}
-    <p><a href="{{ routes.account_addresses_url }}" class="btn btn-outline-primary">{{ 'customer.account.add_addresses' | t }}</a></p>
+    <p><a href="{{ routes.account_addresses_url }}" class="btn btn-outline-primary">{{ 'customer.addresses.view' | t }}</a></p>
     {{ 'customer.account.log_out' | t | customer_logout_link | replace: '<a', '<a class="btn btn-outline-danger"' }}
   </div>
 </div>

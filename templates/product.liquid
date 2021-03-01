@@ -19,10 +19,12 @@
     <div class="col-md-6">
       <h1 class="mb-0">{{ product.title }}</h1>
       <p class="mb-2">{{ current_variant.price | money }}</p>
-      <div>{{ product.description }}</div>
+      <div>{{ product.description | strip }}</div>
       <hr>
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-        {% if variant %}
+        {% if product.has_only_default_variant %}
+          <input name="id" value="{{ variant.id }}" type="hidden">
+        {% else %}
         <div class="mb-4">
           <select name="id" id="productSelect" class="form-select">
             {% for variant in product.variants %}
@@ -38,12 +40,6 @@
             {% endfor %}
           </select>
         </div>
-        {% else %}
-          {% for variant in product.variants %}
-            {% if variant.available %}
-              <input type="hidden" name="id" value="{{ variant.id }}">
-            {% endif %}
-          {% endfor %}
         {% endif %}
         <div class="row align-items-center">
           <div class="col-auto">
@@ -59,4 +55,26 @@
       </form>
     </div>
   </div>
+
+  <hr>
+  collections
+  {% for collection in product.collections %}
+      {{ collection.title }}
+  {% endfor %}
+  <hr>
+  tags
+  {% for tag in product.tags %}
+    {% if tag contains 'product' %}
+      {% assign tag_split = tag | split: "-" %}
+      {% assign id_product = tag_split[1] %}
+      {{ id_product }}
+      {{ all_products[id_product] }}
+    {% endif %}
+  {% endfor %}
+  <hr>
+  vendor
+  {% for vendor in product.vendor %}
+    {{ vendor }}
+  {% endfor %}
+
 </div>
