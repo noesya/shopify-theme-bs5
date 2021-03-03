@@ -9,7 +9,9 @@
       {% when 'external_video' %}
         {%- include 'external-video', ratio: cover_ratio, media: featured_media -%}
       {% when 'video' %}
-      {%- include 'video', media: featured_media, ratio: cover_ratio, poster: "1600x450", muted: true, autoplay: true -%}
+        {%- include 'video', media: featured_media, ratio: cover_ratio, poster: "1600x450", muted: true, autoplay: true -%}
+      {% else %}
+        <div class="ratio" style="--bs-aspect-ratio: {{ cover_ratio }}"></div>
     {% endcase %}
     <div class="card-img-overlay">
       <div class="middle">
