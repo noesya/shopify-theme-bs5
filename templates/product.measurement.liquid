@@ -1,0 +1,85 @@
+{% layout 'theme.fluid' %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{% assign featured_media = product.featured_media %}
+
+{%- include 'cover', featured_media: featured_media, title: product.title -%}
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      {%- include 'image', src: featured_image, size: '450x450', alt: featured_image.alt | escape, class: "img-fluid mb-3" -%}
+      {% for image in product.images %}
+        <a href="{{ image.src | img_url: 'large' }}" class="d-block mb-3">
+          {%- include 'image', src: featured_image, size: '450x450', alt: featured_image.alt | escape, class: "img-fluid" -%}
+        </a>
+      {% endfor %}
+    </div>
+    <div class="col-md-6">
+      <h1 class="mb-0">{{ product.title }}</h1>
+      <div class="mb-2">
+        {%- include 'product-price', p: current_variant -%}
+      </div>
+      <div class="rte">{{ product.description | strip }}</div>
+      <hr>
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+        {% if product.has_only_default_variant %}
+          <input name="id" value="{{ current_variant.id }}" type="hidden">
+        {% else %}
+          <div class="mb-4">
+            <select name="id" id="productSelect" class="form-select">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id }}">
+                    {{ variant.title }} — {{ variant.price | money }}
+                  </option>
+                {% else %}
+                  <option disabled="disabled">
+                    {{ variant.title }} — {{ "products.product.sold_out" | t }}
+                  </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <div class="input-group">
+              <label for="Quantity" class="visually-hidden-focusable">{{ "products.product.quantity" | t }}</label>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-addtocart-quantity">
+              {% if current_variant.unit_price_measurement %}
+                <span class="input-group-text">{{ current_variant.unit_price_measurement.reference_unit }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" name="add" class="btn btn-primary" id="AddToCart">{{ "products.product.add_to_cart" | t }} — <span class="js-addtocart-price">{{ current_variant.price | money }}</span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+  collections
+  {% for collection in product.collections %}
+      {{ collection.title }}
+  {% endfor %}
+  <hr>
+  tags
+  {% for tag in product.tags %}
+    {% if tag contains 'product' %}
+      {% assign tag_split = tag | split: "-" %}
+      {% assign id_product = tag_split[1] %}
+      {{ id_product }}
+      {{ all_products[id_product] }}
+    {% endif %}
+  {% endfor %}
+  <hr>
+  vendor
+  {% for vendor in product.vendor %}
+    {{ vendor }}
+  {% endfor %}
+
+</div>

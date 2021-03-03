@@ -18,12 +18,12 @@
     </div>
     <div class="col-md-6">
       <h1 class="mb-0">{{ product.title }}</h1>
-      <p class="mb-2">{{ current_variant.price | money }}</p>
-      <div>{{ product.description | strip }}</div>
+      <p class="mb-2 price">{{ current_variant.price | money }}</p>
+      <div class="rte">{{ product.description | strip }}</div>
       <hr>
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         {% if product.has_only_default_variant %}
-          <input name="id" value="{{ variant.id }}" type="hidden">
+          <input name="id" value="{{ current_variant.id }}" type="hidden">
         {% else %}
         <div class="mb-4">
           <select name="id" id="productSelect" class="form-select">
@@ -43,10 +43,10 @@
         {% endif %}
         <div class="row align-items-center">
           <div class="col-auto">
-            <label for="Quantity" class="sr-only">{{ "products.product.quantity" | t }}</label>
+            <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
           </div>
           <div class="col-auto">
-            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control">
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-addtocart-quantity">
           </div>
           <div class="col-auto">
             <button type="submit" name="add" class="btn btn-primary" id="AddToCart">{{ "products.product.add_to_cart" | t }} — <span class="js-addtocart-price">{{ current_variant.price | money }}</span></button>
@@ -55,26 +55,4 @@
       </form>
     </div>
   </div>
-
-  <hr>
-  collections
-  {% for collection in product.collections %}
-      {{ collection.title }}
-  {% endfor %}
-  <hr>
-  tags
-  {% for tag in product.tags %}
-    {% if tag contains 'product' %}
-      {% assign tag_split = tag | split: "-" %}
-      {% assign id_product = tag_split[1] %}
-      {{ id_product }}
-      {{ all_products[id_product] }}
-    {% endif %}
-  {% endfor %}
-  <hr>
-  vendor
-  {% for vendor in product.vendor %}
-    {{ vendor }}
-  {% endfor %}
-
 </div>

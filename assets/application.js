@@ -1,5 +1,7 @@
-Shopify.CustomerAddress = Shopify.CustomerAddress || {};
+Shopify = Shopify || {};
 
+// ACCOUNT
+Shopify.CustomerAddress = Shopify.CustomerAddress || {};
 Shopify.CustomerAddress = {
   init: function (e, t) {
     this.initDelete();
@@ -13,11 +15,8 @@ Shopify.CustomerAddress = {
           var target = evt.target.dataset.target,
               confirmMessage = evt.target.dataset.confirmMessage;
 
-          // eslint-disable-next-line no-alert
           if (
-            confirm(
-              confirmMessage || 'Are you sure you wish to delete this address?'
-            )
+            confirm(confirmMessage || 'Are you sure you wish to delete this address?')
           ) {
             Shopify.postLink(target, {
               parameters: { _method: 'delete' }

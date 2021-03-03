@@ -20,7 +20,9 @@
                 </td>
                 <td>
                   <h5><a href="{{ item.url }}">{{ item.product.title }}</a></h5>
-                  <p>{{ item.variant.title }}</p>
+                  {% unless item.product.has_only_default_variant %}
+                    <p>{{ item.variant.title }}</p>
+                  {% endunless %}
 
                   {% assign property_size = item.properties | size %}
                   {% if property_size > 0 %}
@@ -40,9 +42,17 @@
 
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-danger">remove</a>
                 </td>
-                <td>{{ item.price | money }}</td>
                 <td>
-                  <input type="number" class="form-control" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" max="100">
+                  {{ item.price | money }}
+                  {%- if item.unit_price_measurement -%}/{{ item.unit_price_measurement.reference_unit }}{%- endif -%}
+                </td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" max="100">
+                    {% if item.unit_price_measurement %}
+                      <span class="input-group-text">{{ item.unit_price_measurement.reference_unit }}</span>
+                    {% endif %}
+                  </div>
                 </td>
                 <td>
                   {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}

@@ -25,7 +25,7 @@
       <hr>
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         {% if product.has_only_default_variant %}
-          <input name="id" value="{{ variant.id }}" type="hidden">
+          <input name="id" value="{{ current_variant.id }}" type="hidden">
         {% else %}
         <div class="mb-4">
           <select name="id" id="productSelect" class="form-select">
@@ -53,7 +53,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-auto">
-            <label for="Quantity" class="sr-only">{{ "products.product.quantity" | t }}</label>
+            <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
           </div>
           <div class="col-auto">
             <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control">
