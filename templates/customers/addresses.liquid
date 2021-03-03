@@ -1,43 +1,39 @@
-<h1>Addresses</h1>
+<h1>{{ 'customer.addresses.title' | t }}</h1>
 <div class="row">
   {% for address in customer.addresses %}
     <div class="col-md-4 mb-3">
-      {{ address | format_address }}
-      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#addressModal_{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
-      <!-- {{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }} | -->
-      <!-- <button class="btn btn-danger" type="button" onclick='Shopify.CustomerAddress.destroy("{{ address.url | url_encode }}", "{{ 'customer.addresses.delete_confirm' | t | strip }}")'>{{ 'customer.addresses.delete' | t }}</button> -->
-      {{ 'customer.addresses.delete' | t | delete_customer_address_link: address.url | replace: '<a', '<a class="btn btn-outline-danger"' }}
-      {%- include 'modal-address', address: address, edit: true -%}
+      <div class="card h-100">
+        {% if customer.default_address.id == address.id %}
+          <div class="card-header">{{ 'customer.addresses.default' | t }}</div>
+        {% endif %}
+        <div class="card-body">
+          {{ address | format_address }}
+          <button
+            class="btn btn-link"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#addressModal_{{ address.id }}"
+          >
+            {{ 'customer.addresses.edit' | t }}
+          </button>
+          <button
+            class="btn btn-outline-danger js-address-delete"
+            type="button"
+            data-target="{{ address.url }}"
+            data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
+          >
+            {{ 'customer.addresses.delete' | t }}
+          </button>
+          {%- include 'modal-address', address: address, edit: true -%}
+        </div>
+      </div>
     </div>
   {% endfor %}
 </div>
 
 <hr class="my-5">
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal_0">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal_new">
   {{ 'customer.addresses.add_new' | t }}</a>
 </button>
 {%- include 'modal-address', address: customer.new_address -%}
-
-<script>
-  // Initialize observers on address selectors
-  new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
-    hideElement: 'AddressProvinceContainerNew'
-  });
-
-  // Setup province selector on each customer address
-  {% for address in customer.addresses %}
-    new Shopify.CountryProvinceSelector('AddressCountry_{{address.id}}', 'AddressProvince_{{address.id}}', {
-      hideElement: 'AddressProvinceContainer_{{address.id}}'}
-    );
-  {% endfor %}
-
-  // Modified contents of customer_area.js (global asset)
-  // Shopify.CustomerAddress = {
-  //   destroy: function(url, confirm_msg) {
-  //     if (confirm(confirm_msg || {{ 'customer.addresses.delete_confirm' | t | json }})) {
-  //       Shopify.postLink(url, {'parameters': {'_method': 'delete'}});
-  //     }
-  //   }
-  // }
-</script>
