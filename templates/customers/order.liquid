@@ -3,8 +3,8 @@
   {%- assign alert = 'danger' -%}
 {%- elsif order.financial_status contains 'refunded' -%}
   {%- assign alert = 'info' -%}
-  {%- elsif order.financial_status contains 'paid' -%}
-    {%- assign alert = 'success' -%}
+{%- elsif order.financial_status contains 'paid' -%}
+  {%- assign alert = 'success' -%}
 {%- endif -%}
 
 <h1>{{ 'customer.order.title' | t: name: order.name }}</h1>

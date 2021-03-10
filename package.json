@@ -1,0 +1,11 @@
+{
+  "name": "shopify-themekit",
+  "scripts": {
+    "watch": "theme watch",
+    "watchlive": "theme watch --allow-live",
+    "styles": "sass --watch styles/main.sass:assets/styles.css"
+  },
+  "dependencies": {
+    "@shopify/theme-cart": "^4.1.0"
+  }
+}

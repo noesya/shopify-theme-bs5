@@ -60,5 +60,13 @@ ajout du fichier rendu du composant message permettant l’affichage d’une ale
 * ***header.liquid***
 * ***seo.liquid***
 
-## SASS
-```sass --watch styles/main.sass:assets/styles.css```
+## Commands
+
+Theme watch
+```yarn watch```
+
+Theme watch (prod theme)
+```yarn watchlive```
+
+SASS watch
+```yarn styles```

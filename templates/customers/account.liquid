@@ -6,7 +6,8 @@
       <h2>Orders</h2>
       {% paginate customer.orders by 10 %}
       {% if customer.orders.size != 0 %}
-      <table class="table">
+      <div class="table-responsive">
+      <table class="table align-middle">
         <thead>
           <tr>
             <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
@@ -20,16 +21,35 @@
         {% for order in customer.orders %}
           <tr>
             <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
-              <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+              <a href="{{ order.customer_url }}" class="btn btn-secondary btn-sm" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
             </th>
             <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-            <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+            {%- if order.financial_status == 'unfulfilled' -%}
+              {%- assign financial_status = 'danger' -%}
+            {%- elsif order.financial_status contains 'refunded' -%}
+              {%- assign financial_status = 'info' -%}
+            {%- elsif order.financial_status contains 'paid' -%}
+              {%- assign financial_status = 'success' -%}
+            {%- else -%}
+              {%- assign financial_status = 'warning' -%}
+            {%- endif -%}
+            <td data-label="{{ 'customer.orders.payment_status' | t }}"><span class="badge bg-{{ financial_status }}">{{ order.financial_status_label }}</span></td>
+            {%- if order.fulfillment_status == 'unfulfilled' -%}
+              {%- assign fulfillment_status = 'danger' -%}
+            {%- elsif order.fulfillment_status contains 'refunded' -%}
+              {%- assign fulfillment_status = 'info' -%}
+              {%- elsif order.fulfillment_status == 'fulfilled' -%}
+                {%- assign fulfillment_status = 'success' -%}
+              {%- else -%}
+                {%- assign fulfillment_status = 'warning' -%}
+              {%- endif -%}
+            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}"><span class="badge bg-{{ fulfillment_status }}">{{ order.fulfillment_status_label }}</span></td>
             <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
+      </div>
       {% else %}
         <p>You haven't placed any orders yet.</p>
       {% endif %}
