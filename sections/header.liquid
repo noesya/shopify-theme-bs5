@@ -4,7 +4,7 @@
     {%- if section.settings.top_align_message -%}
       {%- assign align = ' text-center' -%}
     {%- endif -%}
-    <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 py-1 text-uppercase" role="alert">
+    <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 border-0 py-1 text-uppercase" role="alert">
       <div class="container">
         <small>{{ message }}</small>
       </div>
