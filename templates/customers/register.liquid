@@ -1,24 +1,35 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <h2>Register</h2>
-    {% form 'create_customer' %}
 
-    {{ form.errors | default_errors }}
+    <div class="border bg-light p-4">
+      <h2>{{ 'customer.register.title' | t }}</h2>
+      {% form 'create_customer' %}
 
-    <label for="first_name" class="form-label">First Name</label>
-    <input type="text" value="" class="form-control" name="customer[first_name]" size="30" />
+      {{ form.errors | default_errors }}
 
-    <label for="last_name" class="form-label">Last Name</label>
-    <input type="text" value="" class="form-control" name="customer[last_name]" size="30" />
+      <div class="form-floating mb-3">
+        <input type="text" value="" class="form-control" name="customer[first_name]" size="30" />
+        <label for="first_name" class="form-label">{{ 'customer.register.first_name' | t }}</label>
+      </div>
 
-    <label for="email" class="form-label">Email Address</label>
-    <input type="email" value="" class="form-control" name="customer[email]" size="30" />
+      <div class="form-floating mb-3">
+        <input type="text" value="" class="form-control" name="customer[last_name]" size="30" />
+        <label for="last_name" class="form-label">{{ 'customer.register.last_name' | t }}</label>
+      </div>
 
-    <label for="password" class="form-label">Password</label>
-    <input type="password" value="" class="form-control" name="customer[password]" size="30" />
+      <div class="form-floating mb-3">
+        <input type="email" value="" class="form-control" name="customer[email]" size="30" />
+        <label for="email" class="form-label">{{ 'customer.register.email' | t }}</label>
+      </div>
 
-    <input type="submit" value="Create" class="btn btn-primary" />
+      <div class="form-floating mb-3">
+        <input type="password" value="" class="form-control" name="customer[password]" size="30" />
+        <label for="password" class="form-label">{{ 'customer.register.password' | t }}</label>
+      </div>
 
-    {% endform %}
+      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn-primary" />
+
+      {% endform %}
+    </div>
   </div>
 </div>
