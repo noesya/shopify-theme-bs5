@@ -68,6 +68,10 @@
       <div class="col-md-3 offset-md-1">
         <h2>Résumé</h2>
         <p>Sub total : {{ cart.total_price | money }}</p>
+        <p class="cart-attribute__field">
+          <label for="isGift">Ceci est un cadeau ?</label>
+          <input id="isGift" type="checkbox" name="attributes[gift]" value="true">
+        </p>
         <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
       </div>
     </div>
