@@ -2,6 +2,7 @@
 import {src, dest, watch, parallel, series} from 'gulp';
 import del from 'del';
 import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 import minifycss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import babel from 'gulp-babel';
@@ -45,16 +46,17 @@ const sources = {
 export const buildStyles = () => src(sources.styles)
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(gulpif(production, minifycss()))
+    .pipe(sourcemaps.write('.'))
     .pipe(dest(dirs.dest));
 
 // Scripts
 export const buildScripts = () => src(sources.scripts)
-    // .pipe(babel({ presets: ['es2015'] }))
+    .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat('application.js'))
     .pipe(gulpif(production, uglify()))
+    .pipe(sourcemaps.write('.'))
     .pipe(dest(dirs.dest));
-    // .pipe(livereload());
 
 // Clean
 export const clean = () => del(['build']);
