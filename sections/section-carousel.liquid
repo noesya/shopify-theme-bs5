@@ -1,0 +1,236 @@
+{%- assign container = section.settings.id_container -%}
+{%- assign ratio = section.settings.id_ratio -%}
+{%- assign background = section.settings.id_background -%}
+{%- assign blocks = section.blocks -%}
+{%- if blocks.size > 0 -%}
+  {% include 'component-carousel' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Carousel",
+    "fr": "Carousel"
+  },
+  "tag": "section",
+  "class": "section--push",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "slide",
+      "name": {
+        "en": "Slide",
+        "fr": "Diapositive"
+      },
+      "settings": [
+        {
+          "type": "url",
+          "id": "id_url",
+          "label": {
+            "en": "Which link?",
+            "fr": "Quel lien ?"
+          }
+        },
+        {
+          "type": "select",
+          "id": "id_position",
+          "label": {
+            "en": "Text position?",
+            "fr": "Position du texte ?"
+          },
+          "default": "center",
+          "options": [
+            {
+              "value": "center",
+              "label": {
+                "en": "Center",
+                "fr": "Centrer"
+              }
+            },
+            {
+              "value": "left",
+              "label": {
+                "en": "Left",
+                "fr": "Gauche"
+              }
+            },
+            {
+              "value": "right",
+              "label": {
+                "en": "Right",
+                "fr": "Droite"
+              }
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "id_image",
+          "label": {
+            "en": "Add image",
+            "fr": "Ajouter l’image"
+          }
+        },
+        {
+          "type": "text",
+          "id": "id_title",
+          "label": {
+            "en": "Title",
+            "fr": "Titre"
+          }
+        },
+        {
+          "type": "text",
+          "id": "id_subtitle",
+          "label": {
+            "en": "Subtitle",
+            "fr": "Sous-titre"
+          }
+        },
+        {
+          "type": "text",
+          "id": "id_cta",
+          "label": {
+            "en": "Button text",
+            "fr": "Texte du bouton"
+          }
+        },
+        {
+          "type": "select",
+          "id": "id_cta_style",
+          "label": {
+            "en": "Which button style?",
+            "fr": "Quel style pour le bouton ?"
+          },
+          "default": "btn-primary",
+          "options": [
+            {
+              "value": "btn-primary",
+              "label": "Primary"
+            },
+            {
+              "value": "btn-secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "btn-danger",
+              "label": "Danger"
+            },
+            {
+              "value": "btn-warning",
+              "label": "Warning"
+            },
+            {
+              "value": "btn-light",
+              "label": "Light"
+            },
+            {
+              "value": "btn-dark",
+              "label": "Dark"
+            },
+            {
+              "value": "btn-outline-primary",
+              "label": "Outline primary"
+            },
+            {
+              "value": "btn-outline-secondary",
+              "label": "Outline secondary"
+            },
+            {
+              "value": "btn-outline-danger",
+              "label": "Outline danger"
+            },
+            {
+              "value": "btn-outline-warning",
+              "label": "Outline warning"
+            },
+            {
+              "value": "btn-outline-light",
+              "label": "Outline light"
+            },
+            {
+              "value": "btn-outline-dark",
+              "label": "Outline dark"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "id_container",
+      "label": {
+        "en": "Which container?",
+        "fr": "Quel container ?"
+      },
+      "default": "container",
+      "options": [
+        {
+          "value": "container-fluid p-0",
+          "label": {
+            "en": "Fluid",
+            "fr": "Fluide"
+          }
+        },
+        {
+          "value": "container",
+          "label": {
+            "en": "Limit",
+            "fr": "Limité"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "id_ratio",
+      "label": {
+        "en": "Which ratio?",
+        "fr": "Quel ratio ?"
+      },
+      "default": "ratio-21x9",
+      "options": [
+        {
+          "value": "ratio-1x1",
+          "label": "1x1"
+        },
+        {
+          "value": "ratio-4x3",
+          "label": "4x3"
+        },
+        {
+          "value": "ratio-16x9",
+          "label": "16x9"
+        },
+        {
+          "value": "ratio-21x9",
+          "label": "21x9"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Carousel",
+        "fr": "Carousel"
+      },
+      "category": {
+        "en": "Push",
+        "fr": "Push"
+      }
+    }
+  ]
+}
+{% endschema %}

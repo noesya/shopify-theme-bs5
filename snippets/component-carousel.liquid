@@ -1,0 +1,33 @@
+{%- if container != 'container' -%}
+  {%- assign padding_class = "" -%}
+{%- else -%}
+  {%- assign padding_class = "py-5" -%}
+{%- endif -%}
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="{{ custom_background }} {{ padding_class }}">
+  <div class="{{ container }}">
+    {%- for block in blocks -%}
+      {%- assign item.url = block.settings.id_url -%}
+      {%- assign image = block.settings.id_image -%}
+      {%- assign custom_title = block.settings.id_title -%}
+      {%- assign custom_subtitle = block.settings.id_subtitle -%}
+      {%- assign position = block.settings.id_position -%}
+      {%- assign custom_cta = block.settings.id_cta -%}
+      {%- assign cta_style = block.settings.id_cta_style -%}
+      {% case position %}
+        {% when "center" %}
+          {%- assign row_class = "align-items-center" -%}
+          {%- assign col_class = "offset-md-4 text-center" -%}
+        {% when "right" %}
+          {%- assign row_class = "align-items-end" -%}
+          {%- assign col_class = "offset-md-8" -%}
+        {% else %}
+          {%- assign row_class = "align-items-end" -%}
+          {%- assign col_class = "offset-md-1" -%}
+      {% endcase %}
+      {% include 'push' %}
+    {%- endfor -%}
+  </div>
+</div>
