@@ -12,13 +12,6 @@
     "watch": "theme watch",
     "watchlive": "theme watch --allow-live"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env"
-      ]
-    ]
-  },
   "dependencies": {
     "@shopify/theme-cart": "^4.1.0",
     "gulp-uglify": "^3.0.2",
