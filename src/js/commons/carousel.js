@@ -4,21 +4,24 @@
 window.stk.Carousel = {
     init: function () {
         'use strict';
-        var slider = null;
         this.sliderElm = document.querySelectorAll('.js-carousel');
-        if (this.sliderElm === null) {
-            return;
+        if (this.sliderElm !== null) {
+            this.set();
         }
-        slider = tns({
+    },
+    set: function () {
+        'use strict';
+        tns({
             container: '.js-carousel',
             items: 1,
-            slideBy: 'page',
-            autoplay: true
+            autoplay: true,
+            autoplayButtonOutput: false,
+            loop: false
         });
     }
 };
 
-window.addEventListener('scroll', function () {
+document.addEventListener('DOMContentLoaded', function () {
     'use strict';
     window.stk.Carousel.init();
 });

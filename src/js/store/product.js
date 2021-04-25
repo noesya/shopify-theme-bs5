@@ -4,10 +4,9 @@ window.stk.Product = {
         this.addtocartElm = document.querySelectorAll('.js-addtocart');
         this.formElm = document.querySelector('.js-addtocart-form');
         this.widgetElm = document.querySelector('.js-addtocart-widget');
-        if (this.addtocartElm === null) {
-            return;
+        if (this.addtocartElm !== null) {
+            this.form();
         }
-        this.form();
     },
     form: function () {
         'use strict';
