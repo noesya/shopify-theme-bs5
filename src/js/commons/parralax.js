@@ -2,7 +2,7 @@
 /*
 const Rellax import 'rellax';
 
-window.jd.Parallax = {
+window.stk.Parallax = {
     init: function () {
         'use strict';
         this.elm = document.querySelector('.js-rellax');
@@ -19,6 +19,6 @@ window.jd.Parallax = {
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    window.jd.Parallax.init();
+    window.stk.Parallax.init();
 });
 */

@@ -1,9 +1,12 @@
-window.jd.Product = {
+window.stk.Product = {
     init: function () {
         'use strict';
         this.addtocartElm = document.querySelectorAll('.js-addtocart');
         this.formElm = document.querySelector('.js-addtocart-form');
         this.widgetElm = document.querySelector('.js-addtocart-widget');
+        if (this.addtocartElm === null) {
+            return;
+        }
         this.form();
     },
     form: function () {
@@ -29,5 +32,5 @@ window.jd.Product = {
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    window.jd.Product.init();
+    window.stk.Product.init();
 });

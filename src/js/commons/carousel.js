@@ -1,7 +1,7 @@
 /* global tns */
-import { tns } from './node_modules/tiny-slider/src/tiny-slider'
+// import { tns } from './node_modules/tiny-slider/src/tiny-slider'
 
-window.jd.Carousel = {
+window.stk.Carousel = {
     init: function () {
         'use strict';
         var slider = null;
@@ -20,5 +20,5 @@ window.jd.Carousel = {
 
 window.addEventListener('scroll', function () {
     'use strict';
-    window.jd.Carousel.init();
+    window.stk.Carousel.init();
 });

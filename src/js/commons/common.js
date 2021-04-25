@@ -1,22 +1,22 @@
-window.jd.Common = {
+window.stk.Common = {
     scroll: function () {
         'use strict';
-        window.jd.position.x = window.pageXOffset;
-        window.jd.position.y = window.pageYOffset;
+        window.stk.position.x = window.pageXOffset;
+        window.stk.position.y = window.pageYOffset;
 
-        if (!window.jd.Product.widgetElm) {
+        if (!window.stk.Product.widgetElm) {
             return null;
         }
-        window.jd.Product.widget();
+        window.stk.Product.widget();
     }
 };
 
-window.jd.position = {
+window.stk.position = {
     x: 0,
     y: 0
 };
 
 window.addEventListener('scroll', function () {
     'use strict';
-    window.jd.Common.scroll();
+    window.stk.Common.scroll();
 });

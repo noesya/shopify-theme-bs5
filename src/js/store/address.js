@@ -1,4 +1,5 @@
-window.jd.CustomerAddress = {
+/* global Shopify */
+window.stk.CustomerAddress = {
     init: function () {
         'use strict';
         this.initDelete();
@@ -41,5 +42,5 @@ window.jd.CustomerAddress = {
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    window.jd.CustomerAddress.init();
+    window.stk.CustomerAddress.init();
 });

@@ -1,1 +1,1 @@
-window.jd = {};
+window.stk = {};

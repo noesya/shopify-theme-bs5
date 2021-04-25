@@ -1,4 +1,4 @@
-window.jd.SortBy = {
+window.stk.SortBy = {
     init: function () {
         'use strict';
         this.sortSelect = document.querySelector('.js-sortby');
@@ -35,5 +35,5 @@ window.jd.SortBy = {
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    window.jd.SortBy.init();
+    window.stk.SortBy.init();
 });
