@@ -12,11 +12,12 @@ window.stk.Carousel = {
     set: function () {
         'use strict';
         tns({
-            container: '.js-carousel',
-            items: 1,
             autoplay: true,
             autoplayButtonOutput: false,
-            loop: false
+            container: '.js-carousel',
+            items: 1,
+            loop: false,
+            mouseDrag: true
         });
     }
 };

@@ -1,10 +1,10 @@
 window.stk.Product = {
     init: function () {
         'use strict';
-        this.addtocartElm = document.querySelectorAll('.js-addtocart');
         this.formElm = document.querySelector('.js-addtocart-form');
-        this.widgetElm = document.querySelector('.js-addtocart-widget');
-        if (this.addtocartElm !== null) {
+        if (this.formElm !== null) {
+            this.addtocartElm = document.querySelectorAll('.js-addtocart');
+            this.widgetElm = document.querySelector('.js-addtocart-widget');
             this.form();
         }
     },

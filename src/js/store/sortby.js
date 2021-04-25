@@ -2,7 +2,6 @@ window.stk.SortBy = {
     init: function () {
         'use strict';
         this.sortSelect = document.querySelector('.js-sortby');
-        console.log(this.sortSelect);
         if (this.sortSelect !== null) {
             this.initChange();
         }
