@@ -1,11 +1,42 @@
 {
   "name": "shopify-themekit",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Sébastien Moulène",
+  "bugs": "https://github.com/sebousan/shopify-themekit/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebousan/shopify-themekit.git"
+  },
   "scripts": {
     "watch": "theme watch",
-    "watchlive": "theme watch --allow-live",
-    "styles": "sass --watch styles/main.sass:assets/styles.css"
+    "watchlive": "theme watch --allow-live"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
   },
   "dependencies": {
-    "@shopify/theme-cart": "^4.1.0"
+    "@shopify/theme-cart": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "rellax": "^1.12.1",
+    "tiny-slider": "^2.9.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/register": "^7.13.16",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
+    "gulp-sass": "^4.1.0",
+    "yargs": "^16.2.0"
   }
 }
