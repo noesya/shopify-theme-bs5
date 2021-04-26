@@ -5,7 +5,7 @@ Thème basic fournit par themekit.
 
 ## Configuration
 * Gulp 4
-* Babel
+* Webpack stream
 
 ## Frameworks and plugins front
 * Bootstrap 5

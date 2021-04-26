@@ -18,19 +18,13 @@
     "tiny-slider": "^2.9.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.16",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/register": "^7.13.16",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-browserify": "^0.5.1",
     "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
+    "webpack-stream": "^6.1.2",
     "yargs": "^16.2.0"
   }
 }

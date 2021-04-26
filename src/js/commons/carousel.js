@@ -1,5 +1,6 @@
 /* global tns */
 // import { tns } from './node_modules/tiny-slider/src/tiny-slider'
+import { tns } from 'tiny-slider/src/tiny-slider';
 
 window.stk.Carousel = {
     init: function () {
