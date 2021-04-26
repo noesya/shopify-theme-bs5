@@ -1,0 +1,65 @@
+{%- if section.settings.id_column_1 != blank -%}
+<hr>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 mb-5 mb-md-3">
+  {%- if section.settings.id_column_1 != blank -%}
+    <div class="col mb-3">
+      <div class="small">
+        {{ section.settings.id_column_1 }}
+      </div>
+    </div>
+  {%- endif -%}
+  {%- if section.settings.id_column_2 != blank -%}
+    <div class="col mb-3">
+      <div class="small">
+        {{ section.settings.id_column_2 }}
+      </div>
+    </div>
+  {%- endif -%}
+  {%- if section.settings.id_column_3 != blank -%}
+    <div class="col mb-3">
+      <div class="small">
+        {{ section.settings.id_column_3 }}
+      </div>
+    </div>
+  {%- endif -%}
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Reassurance",
+    "fr": "Réassurance"
+  },
+  "tag": "section",
+  "class": "section--reassurance",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "id_column_1",
+      "label": {
+        "en": "Column 1",
+        "fr": "Colonne 1"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "id_column_2",
+      "label": {
+        "en": "Column 2",
+        "fr": "Colonne 2"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "id_column_3",
+      "label": {
+        "en": "Column 3",
+        "fr": "Colonne 3"
+      }
+    }
+  ]
+}
+{% endschema %}

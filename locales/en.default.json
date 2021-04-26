@@ -26,6 +26,33 @@
       "previous": "Previous"
     }
   },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "remove": "Remove",
+      "gift": "This is a gift?",
+      "note": "Special instructions for seller",
+      "subtotal": "Subtotal",
+      "savings_html": "You're saving {{ price }}",
+      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
+      "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "update": "Update Cart",
+      "checkout": "Check Out",
+      "empty": "Your cart is currently empty.",
+      "cookies_required": "Enable cookies to use the shopping cart",
+      "continue_browsing_html": "Continue browsing <a href=\"{{ link }}\">here</a>.",
+      "continue_shopping": "Continue shopping"
+    },
+    "label": {
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "add_note": "Add a note to your order"
+    }
+  },
   "products": {
     "product": {
       "sold_out": "Sold Out",

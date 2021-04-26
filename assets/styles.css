@@ -7407,6 +7407,10 @@ textarea.form-control-lg {
 a {
   text-underline-position: under; }
 
+.btn .material-icons-outlined {
+  display: inline-block;
+  vertical-align: middle; }
+
 .card-img-overlay {
   color: #fff; }
 

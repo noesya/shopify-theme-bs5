@@ -26,6 +26,33 @@
       "previous": "Précédent"
     }
   },
+  "cart": {
+    "general": {
+      "title": "Panier",
+      "remove": "Supprimer",
+      "note": "Instructions spéciales pour la commande",
+      "gift": "Est-ce un cadeau ?",
+      "subtotal": "Sous-total",
+      "savings_html": "Vous économisez {{ price }}",
+      "taxes_and_shipping_at_checkout": "Taxes et frais de port calculés à l'étape de paiement",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes et <a href=\"{{ link }}\">frais de port</a> calculés à l'étape de paiement",
+      "taxes_included_but_shipping_at_checkout": "Taxes incluses et frais de port calculés à l'étape de paiement",
+      "taxes_included_and_shipping_policy_html": "Taxes incluses. <a href=\"{{ link }}\">Frais de port</a> calculés à l'étape de paiement.",
+      "update": "Mettre à jour",
+      "checkout": "Procéder au paiement",
+      "empty": "Votre panier est vide.",
+      "cookies_required": "Activer les cookies pour utiliser le panier",
+      "continue_browsing_html": "<a href=\"{{ link }}\">Retourner vers la boutique</a>.",
+      "continue_shopping": "Continuer vos achats"
+    },
+    "label": {
+      "product": "Produit",
+      "price": "Prix",
+      "quantity": "Quantité",
+      "total": "Total",
+      "add_note": "Ajouter une note à votre commande"
+    }
+  },
   "products": {
     "product": {
       "sold_out": "Épuisé",
