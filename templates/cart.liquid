@@ -17,8 +17,8 @@
                   <div class="row align-items-center">
                     <div class="col cart__image">
                       <a href="{{ item.url | within: collections.all }}">
-                        <div class="ratio ratio-5x6">
-                          {%- include 'image', src: item, size: '200x', alt:'{{ item.title | escape }}' -%}
+                        <div class="ratio ratio-1x1">
+                          {%- include 'image', src: item, size: '200x200', alt:'{{ item.title | escape }}' -%}
                         </div>
                       </a>
                     </div>

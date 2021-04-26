@@ -4,6 +4,7 @@
   <div class="row row-cols-1 row-cols-md-3 mb-5 mb-md-3">
   {%- if section.settings.id_column_1 != blank -%}
     <div class="col mb-3">
+      <span class="material-icons-outlined">{{ section.settings.icon_column_1 }}</span>
       <div class="small">
         {{ section.settings.id_column_1 }}
       </div>
@@ -11,6 +12,7 @@
   {%- endif -%}
   {%- if section.settings.id_column_2 != blank -%}
     <div class="col mb-3">
+      <span class="material-icons-outlined">{{ section.settings.icon_column_2 }}</span>
       <div class="small">
         {{ section.settings.id_column_2 }}
       </div>
@@ -18,6 +20,7 @@
   {%- endif -%}
   {%- if section.settings.id_column_3 != blank -%}
     <div class="col mb-3">
+      <span class="material-icons-outlined">{{ section.settings.icon_column_3 }}</span>
       <div class="small">
         {{ section.settings.id_column_3 }}
       </div>
@@ -37,6 +40,14 @@
   "class": "section--reassurance",
   "settings": [
     {
+      "type": "text",
+      "id": "icon_column_1",
+      "label": {
+        "en": "Column icon 1",
+        "fr": "Icon Colonne 1"
+      }
+    },
+    {
       "type": "richtext",
       "id": "id_column_1",
       "label": {
@@ -45,11 +56,27 @@
       }
     },
     {
+      "type": "text",
+      "id": "icon_column_2",
+      "label": {
+        "en": "Column icon 2",
+        "fr": "Icon Colonne 2"
+      }
+    },
+    {
       "type": "richtext",
       "id": "id_column_2",
       "label": {
         "en": "Column 2",
         "fr": "Colonne 2"
+      }
+    },
+    {
+      "type": "text",
+      "id": "icon_column_3",
+      "label": {
+        "en": "Column icon 3",
+        "fr": "Icon Colonne 3"
       }
     },
     {

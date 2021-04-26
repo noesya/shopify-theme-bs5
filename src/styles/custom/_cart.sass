@@ -1,0 +1,17 @@
+.cart
+    &__image
+        max-width: calc(200px + #{$grid-gutter-width})
+
+    @include media-breakpoint-up(md)
+        &__qty,
+        &__price,
+        &__total
+            width: 150px
+        &__delete
+            width: 24px
+
+    @include media-breakpoint-up(lg)
+        &__qty,
+        &__price,
+        &__total
+            width: 200px
