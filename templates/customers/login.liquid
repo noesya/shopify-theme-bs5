@@ -8,12 +8,12 @@
       {{ form.errors | default_errors }}
 
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" name="customer[email]">
+        <input type="email" class="form-control" name="customer[email]" required>
         <label for="customer_email" class="form-label">{{ 'customer.login.email' | t }}</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="password" class="form-control" name="customer[password]">
+        <input type="password" class="form-control" name="customer[password]" required>
         <label for="customer_password" class="form-label">{{ 'customer.login.password' | t }}</label>
       </div>
 
@@ -30,7 +30,7 @@
     {{ form.errors | default_errors }}
 
     <div class="form-floating mb-3">
-      <input type="email" name="email" class="form-control">
+      <input type="email" name="email" class="form-control" required>
       <label for="customer_email" class="form-label">{{ 'customer.login.email' | t }}</label>
     </div>
 
