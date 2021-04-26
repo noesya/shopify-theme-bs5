@@ -13,18 +13,10 @@ Thème basic fournit par themekit.
 * Rellax (paralax)
 
 ## Commands
-
-Theme watch
-```yarn watch```
-
-Theme watch (prod theme)
-```yarn watchlive```
-
-SASS
-```gulp buildStyles```
-
-JS
-```gulp buildScripts```
+* Theme watch ```yarn watch```
+* Theme watch (prod theme) ```yarn watchlive```
+* SASS ```gulp buildStyles```
+* JS ```gulp buildScripts```
 
 ## Components
 * ***Carousel***
