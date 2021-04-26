@@ -1,6 +1,7 @@
 {%- assign custom_title = item.title -%}
 {%- assign custom_subtitle = item.description | strip_html | truncatewords: 100 -%}
 {%- assign custom_cta = 'general.navigation.read_more' | t -%}
+{%- assign custom_url = item.url -%}
 {%- if title != '' -%}
   {%- assign custom_title = title -%}
 {%- endif -%}
