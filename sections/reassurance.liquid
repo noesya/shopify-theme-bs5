@@ -1,33 +1,23 @@
-{%- if section.settings.id_column_1 != blank -%}
-<hr>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 mb-5 mb-md-3">
-  {%- if section.settings.id_column_1 != blank -%}
-    <div class="col mb-3">
-      <span class="material-icons-outlined">{{ section.settings.icon_column_1 }}</span>
-      <div class="small">
-        {{ section.settings.id_column_1 }}
+{%- assign background = section.settings.id_background -%}
+{%- assign blocks = section.blocks -%}
+{%- if blocks.size > 0 -%}
+  <hr class="mb-0">
+  {%- if background -%}
+    {%- assign custom_background = 'bg-light' -%}
+  {%- endif -%}
+  <section class="{{ custom_background }} py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-{{ blocks.size }}">
+        {%- for block in blocks -%}
+          <div class="col mb-3 mb-lg-0">
+            <span class="material-icons-outlined">{{ block.settings.icon }}</span>
+            <h5>{{ block.settings.title }}</h5>
+            <div class="text-muted">{{ block.settings.text }}</div>
+          </div>
+        {%- endfor -%}
       </div>
     </div>
-  {%- endif -%}
-  {%- if section.settings.id_column_2 != blank -%}
-    <div class="col mb-3">
-      <span class="material-icons-outlined">{{ section.settings.icon_column_2 }}</span>
-      <div class="small">
-        {{ section.settings.id_column_2 }}
-      </div>
-    </div>
-  {%- endif -%}
-  {%- if section.settings.id_column_3 != blank -%}
-    <div class="col mb-3">
-      <span class="material-icons-outlined">{{ section.settings.icon_column_3 }}</span>
-      <div class="small">
-        {{ section.settings.id_column_3 }}
-      </div>
-    </div>
-  {%- endif -%}
-  </div>
-</div>
+  </section>
 {%- endif -%}
 
 {% schema %}
@@ -38,53 +28,51 @@
   },
   "tag": "section",
   "class": "section--reassurance",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "block",
+      "name": {
+        "en": "Block",
+        "fr": "Block"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": {
+            "en": "Icon",
+            "fr": "Icon"
+          },
+          "info": "Material Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "en": "Title",
+            "fr": "Titre"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": {
+            "en": "Text",
+            "fr": "Texte"
+          }
+        }
+      ]
+    }
+  ],
   "settings": [
     {
-      "type": "text",
-      "id": "icon_column_1",
+      "type": "checkbox",
+      "id": "id_background",
+      "default": false,
       "label": {
-        "en": "Column icon 1",
-        "fr": "Icon Colonne 1"
-      }
-    },
-    {
-      "type": "richtext",
-      "id": "id_column_1",
-      "label": {
-        "en": "Column 1",
-        "fr": "Colonne 1"
-      }
-    },
-    {
-      "type": "text",
-      "id": "icon_column_2",
-      "label": {
-        "en": "Column icon 2",
-        "fr": "Icon Colonne 2"
-      }
-    },
-    {
-      "type": "richtext",
-      "id": "id_column_2",
-      "label": {
-        "en": "Column 2",
-        "fr": "Colonne 2"
-      }
-    },
-    {
-      "type": "text",
-      "id": "icon_column_3",
-      "label": {
-        "en": "Column icon 3",
-        "fr": "Icon Colonne 3"
-      }
-    },
-    {
-      "type": "richtext",
-      "id": "id_column_3",
-      "label": {
-        "en": "Column 3",
-        "fr": "Colonne 3"
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
       }
     }
   ]
