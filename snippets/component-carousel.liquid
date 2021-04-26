@@ -10,13 +10,17 @@
   <div class="{{ container }}">
     <div class="js-carousel" data-next="<span>{{ 'general.pagination.next' | t }}</span>" data-prev="<span>{{ 'general.pagination.previous' | t }}</span>">
       {%- for block in blocks -%}
-        {%- assign url = block.settings.id_url -%}
-        {%- assign image = block.settings.id_image -%}
-        {%- assign custom_title = block.settings.id_title -%}
-        {%- assign custom_subtitle = block.settings.id_subtitle -%}
-        {%- assign position = block.settings.id_position -%}
-        {%- assign custom_cta = block.settings.id_cta -%}
-        {%- assign cta_style = block.settings.id_cta_style -%}
+        {%- assign url = block.settings.url -%}
+        {%- assign image = block.settings.image -%}
+        {%- assign custom_title = block.settings.title -%}
+        {%- assign custom_subtitle = block.settings.subtitle -%}
+        {%- assign position = block.settings.position -%}
+        {%- assign cta = block.settings.cta -%}
+        {%- assign cta_style = block.settings.cta_style -%}
+        {%- assign custom_cta = 'general.navigation.read_more' | t -%}
+        {%- if cta != '' -%}
+          {%- assign custom_cta = cta -%}
+        {%- endif -%}
         {% case position %}
           {% when "center" %}
             {%- assign row_class = "align-items-center" -%}
