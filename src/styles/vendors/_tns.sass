@@ -13,21 +13,36 @@
             appearance: none
             background: transparent
             border: 0
+            padding: 0
             pointer-events: auto
     &-controls
         justify-content: space-between
         top: 50%
+        transform: translateY(-50%)
+        button
+            color: $white
+            font-size: px2rem(60)
+            &[data-controls="prev"]
+                &::before
+                    content: $prev
+                    font-family: $font-family-icon
+            &[data-controls="next"]
+                &::after
+                    content: $next
+                    font-family: $font-family-icon
+            span
+                display: none
+
     &-nav
-        bottom: -$grid-gutter-width/2
+        bottom: $grid-gutter-width
         justify-content: center
         button
-            background-color: $primary
+            background-color: $white
             border-radius: 50%
             display: block
             height: 10px
             margin: 0 5px
             opacity: .5
-            padding: 0
             transition: opacity .3s ease
             width: 10px
             &.tns-nav-active
