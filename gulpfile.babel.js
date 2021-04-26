@@ -45,6 +45,7 @@ const sources = {
 // Styles
 export const buildStyles = () => src(sources.styles)
     .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sourcemaps.init())
     .pipe(gulpif(production, minifycss()))
     .pipe(sourcemaps.write('.'))
     .pipe(dest(dirs.dest));
@@ -65,7 +66,7 @@ export const clean = () => del(['build']);
 export const devWatch = () => {
     // livereload.listen();
     watch(sources.styles, buildStyles);
-    // watch(sources.scripts, buildScripts);
+    watch(sources.scripts, buildScripts);
 };
 
 // Development Task

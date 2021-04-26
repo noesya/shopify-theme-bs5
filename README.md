@@ -15,6 +15,7 @@ Thème basic fournit par themekit.
 ## Commands
 * Theme watch ```yarn watch```
 * Theme watch (prod theme) ```yarn watchlive```
+* Watch ```gulp```
 * SASS ```gulp buildStyles```
 * JS ```gulp buildScripts```
 
