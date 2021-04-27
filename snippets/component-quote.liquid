@@ -14,8 +14,11 @@
   <div class="container">
     <div class="row offset-md-2 col-md-8 offset-lg-3 col-lg-6">
       <blockquote class="blockquote {{ align_class }}">
-        <p>{{ quote }}</p>
-        {%- if cite != '' -%}
+        {%- if title != blank -%}
+          <h2>{{ title }}</h2>
+        {%- endif -%}
+        <div>{{ quote }}</div>
+        {%- if cite != blank -%}
           <p class="blockquote-footer mb-0"><cite>{{ cite }}</cite></p>
         {%- endif -%}
       </blockquote>

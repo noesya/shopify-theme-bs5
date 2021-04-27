@@ -1,3 +1,4 @@
+{%- assign title = section.settings.title -%}
 {%- assign quote = section.settings.quote -%}
 {%- assign position = section.settings.position -%}
 {%- assign cite = section.settings.cite -%}
@@ -14,7 +15,15 @@
   "class": "section--message",
   "settings": [
     {
-      "type": "textarea",
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title (not required)",
+        "fr": "Titre (facultatif)"
+      }
+    },
+    {
+      "type": "richtext",
       "id": "quote",
       "label": {
         "en": "Quote",
@@ -25,7 +34,7 @@
       "type": "text",
       "id": "cite",
       "label": {
-        "en": "Cite",
+        "en": "Cite (not required)",
         "fr": "Auteur (facultatif)"
       }
     },
