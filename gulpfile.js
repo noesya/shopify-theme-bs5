@@ -73,5 +73,6 @@ const devWatch = () => {
     watch(sources.scripts, buildScripts);
 };
 
+exports.watch = devWatch;
 exports.dev = series(clean, parallel(buildStyles, buildScripts), devWatch);
 exports.default = series(clean, parallel(buildStyles, buildScripts));
