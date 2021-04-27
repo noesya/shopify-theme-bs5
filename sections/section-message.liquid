@@ -1,7 +1,7 @@
-{%- assign id = section.settings.id_message -%}
-{%- assign type = section.settings.id_type_message -%}
-{%- assign center = section.settings.id_center_message -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign message = section.settings.message -%}
+{%- assign type = section.settings.type_message -%}
+{%- assign center = section.settings.center_message -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-message' %}
 
 {% schema %}
@@ -15,7 +15,7 @@
   "settings": [
     {
       "type": "select",
-      "id": "id_type_message",
+      "id": "type_message",
       "label": {
         "en": "Which type?",
         "fr": "Quel type ?"
@@ -58,7 +58,7 @@
     },
     {
       "type": "textarea",
-      "id": "id_message",
+      "id": "message",
       "label": {
         "en": "Message",
         "fr": "Message"
@@ -70,7 +70,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_center_message",
+      "id": "center_message",
       "default": false,
       "label": {
         "en": "Center text?",
@@ -79,7 +79,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

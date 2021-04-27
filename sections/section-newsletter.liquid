@@ -1,7 +1,7 @@
 {%- assign id = section.id -%}
-{%- assign title = section.settings.id_title -%}
-{%- assign subtitle = section.settings.id_subtitle -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-newsletter' %}
 
 {% schema %}
@@ -14,7 +14,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "id_title",
+      "id": "title",
       "label": {
         "en": "Heading",
         "fr": "En-tête"
@@ -26,7 +26,7 @@
     },
     {
       "type": "richtext",
-      "id": "id_subtitle",
+      "id": "subtitle",
       "label": {
         "en": "Subtitle",
         "fr": "Sous-titre"
@@ -38,7 +38,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

@@ -16,6 +16,10 @@
   {%- assign custom_autoplay = autoplay -%}
 {%- endif -%}
 
+{%- if ratio != false -%}
 <div class="ratio" style="--bs-aspect-ratio: {{ custom_ratio }}">
+{%- endif -%}
   {{ media | video_tag: image_size: poster, autoplay: custom_autoplay, muted: custom_muted }}
+{%- if ratio != false -%}
 </div>
+{%- endif -%}

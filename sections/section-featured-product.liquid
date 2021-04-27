@@ -1,5 +1,5 @@
-{%- assign id = section.settings.id_featured_product -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign id = section.settings.id_product -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-featured-product' %}
 
 {% schema %}
@@ -13,7 +13,7 @@
   "settings": [
     {
       "type": "product",
-      "id": "id_featured_product",
+      "id": "id_product",
       "label": {
         "en": "Product",
         "fr": "Produit"
@@ -21,7 +21,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

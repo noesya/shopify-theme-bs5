@@ -1,6 +1,6 @@
-{%- assign container = section.settings.id_container -%}
-{%- assign ratio = section.settings.id_ratio -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign container = section.settings.container -%}
+{%- assign ratio = section.settings.ratio -%}
+{%- assign background = section.settings.background -%}
 {%- assign blocks = section.blocks -%}
 {%- if blocks.size > 0 -%}
   {% include 'component-carousel' %}
@@ -160,7 +160,7 @@
   "settings": [
     {
       "type": "select",
-      "id": "id_container",
+      "id": "container",
       "label": {
         "en": "Which container?",
         "fr": "Quel container ?"
@@ -185,7 +185,7 @@
     },
     {
       "type": "select",
-      "id": "id_ratio",
+      "id": "ratio",
       "label": {
         "en": "Which ratio?",
         "fr": "Quel ratio ?"
@@ -212,7 +212,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

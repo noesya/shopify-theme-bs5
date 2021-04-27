@@ -1,7 +1,7 @@
-{%- assign quote = section.settings.id_quote -%}
-{%- assign position = section.settings.id_position -%}
-{%- assign cite = section.settings.id_cite -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign quote = section.settings.quote -%}
+{%- assign position = section.settings.position -%}
+{%- assign cite = section.settings.cite -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-quote' %}
 
 {% schema %}
@@ -15,7 +15,7 @@
   "settings": [
     {
       "type": "textarea",
-      "id": "id_quote",
+      "id": "quote",
       "label": {
         "en": "Quote",
         "fr": "Citation"
@@ -23,7 +23,7 @@
     },
     {
       "type": "text",
-      "id": "id_cite",
+      "id": "cite",
       "label": {
         "en": "Cite",
         "fr": "Auteur (facultatif)"
@@ -31,7 +31,7 @@
     },
     {
       "type": "select",
-      "id": "id_position",
+      "id": "position",
       "label": {
         "en": "Text position?",
         "fr": "Position du texte ?"
@@ -63,7 +63,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

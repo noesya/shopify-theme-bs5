@@ -4,7 +4,7 @@
 <div class="py-5 {{ custom_background }}">
   <div class="container text-center">
     <div class="row">
-      <div class="col-md-6 offset-md-3">
+      <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-6">
 
         {% if title != blank %}
           <h2 class="h2">{{ title | escape }}</h2>
@@ -24,6 +24,7 @@
           <input type="hidden" name="contact[tags]" value="newsletter">
           <div class="input-group mb-3">
             <input type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               name="contact[email]"
               id="{{ formId }}-email"
               class="form-control {% if form.errors %} is-invalid{% endif %}"

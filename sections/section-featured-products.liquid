@@ -1,7 +1,7 @@
-{%- assign grid = section.settings.id_grid -%}
-{%- assign title = section.settings.id_title -%}
-{%- assign subtitle = section.settings.id_subtitle -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign grid = section.settings.grid -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign background = section.settings.background -%}
 {%- if section.blocks.size != 0 -%}
   {% include 'component-featured-products' %}
 {%- endif -%}
@@ -17,7 +17,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "id_title",
+      "id": "title",
       "label": {
         "en": "Title",
         "fr": "Titre"
@@ -29,7 +29,7 @@
     },
     {
       "type": "text",
-      "id": "id_subtitle",
+      "id": "subtitle",
       "label": {
         "en": "Subtitle",
         "fr": "Sous-titre"
@@ -37,7 +37,7 @@
     },
     {
       "type": "range",
-      "id": "id_grid",
+      "id": "grid",
       "label": {
         "en": "Number of column",
         "fr": "Nombre de colonne"
@@ -49,7 +49,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",
@@ -70,8 +70,8 @@
             "en": "Product",
             "fr": "Produit"
           },
-          "id": "id_product",
-          "type": "product"
+          "id": "product",
+          "type": "id_product"
         }
       ]
     }

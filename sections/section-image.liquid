@@ -1,5 +1,5 @@
-{%- assign id = section.settings.id_image -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign image = section.settings.image -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-image' %}
 
 {% schema %}
@@ -13,7 +13,7 @@
   "settings": [
     {
       "type": "image_picker",
-      "id": "id_image",
+      "id": "image",
       "label": {
         "en": "Add image",
         "fr": "Ajouter l’image"
@@ -21,7 +21,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

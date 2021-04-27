@@ -1,4 +1,4 @@
-{%- assign background = section.settings.id_background -%}
+{%- assign background = section.settings.background -%}
 {%- assign blocks = section.blocks -%}
 {%- if blocks.size > 0 -%}
   <hr class="mb-0">
@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-{{ blocks.size }}">
         {%- for block in blocks -%}
-          <div class="col mb-3 mb-lg-0">
+          <div class="col mb-3 mb-lg-0" {{ block.shopify_attributes }}>
             <span class="material-icons-outlined">{{ block.settings.icon }}</span>
             <h5>{{ block.settings.title }}</h5>
             <div class="text-muted">{{ block.settings.text }}</div>
@@ -68,7 +68,7 @@
   "settings": [
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

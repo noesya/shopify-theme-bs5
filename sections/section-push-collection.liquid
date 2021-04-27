@@ -1,14 +1,14 @@
 {%- assign id = section.settings.id_collection -%}
 {%- assign item = collections[id] -%}
-{%- assign image = section.settings.id_image -%}
-{%- assign title = section.settings.id_title -%}
-{%- assign subtitle = section.settings.id_subtitle -%}
-{%- assign container = section.settings.id_container -%}
-{%- assign ratio = section.settings.id_ratio -%}
-{%- assign position = section.settings.id_position -%}
-{%- assign cta = section.settings.id_cta -%}
-{%- assign cta_style = section.settings.id_cta_style -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign image = section.settings.image -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign container = section.settings.container -%}
+{%- assign ratio = section.settings.ratio -%}
+{%- assign position = section.settings.position -%}
+{%- assign cta = section.settings.cta -%}
+{%- assign cta_style = section.settings.cta_style -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-push' %}
 
 {% schema %}
@@ -30,7 +30,7 @@
     },
     {
       "type": "select",
-      "id": "id_position",
+      "id": "position",
       "label": {
         "en": "Text position?",
         "fr": "Position du texte ?"
@@ -62,7 +62,7 @@
     },
     {
       "type": "select",
-      "id": "id_container",
+      "id": "container",
       "label": {
         "en": "Which container?",
         "fr": "Quel container ?"
@@ -87,7 +87,7 @@
     },
     {
       "type": "select",
-      "id": "id_ratio",
+      "id": "ratio",
       "label": {
         "en": "Which ratio?",
         "fr": "Quel ratio ?"
@@ -114,7 +114,7 @@
     },
     {
       "type": "image_picker",
-      "id": "id_image",
+      "id": "image",
       "label": {
         "en": "Add image (not required)",
         "fr": "Ajouter l’image (factultatif)"
@@ -122,7 +122,7 @@
     },
     {
       "type": "text",
-      "id": "id_title",
+      "id": "title",
       "label": {
         "en": "Title (not required)",
         "fr": "Titre (factultatif)"
@@ -134,7 +134,7 @@
     },
     {
       "type": "text",
-      "id": "id_subtitle",
+      "id": "subtitle",
       "label": {
         "en": "Subtitle (not required)",
         "fr": "Sous-titre (factultatif)"
@@ -146,7 +146,7 @@
     },
     {
       "type": "text",
-      "id": "id_cta",
+      "id": "cta",
       "label": {
         "en": "Button text (not required)",
         "fr": "Texte du bouton (factultatif)"
@@ -154,7 +154,7 @@
     },
     {
       "type": "select",
-      "id": "id_cta_style",
+      "id": "cta_style",
       "label": {
         "en": "Which button style?",
         "fr": "Quel style pour le bouton ?"
@@ -213,7 +213,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

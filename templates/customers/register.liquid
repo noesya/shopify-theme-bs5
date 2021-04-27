@@ -8,22 +8,22 @@
       {{ form.errors | default_errors }}
 
       <div class="form-floating mb-3">
-        <input type="text" value="" class="form-control" name="customer[first_name]" size="30" />
+        <input type="text" placeholder="{{ 'customer.register.first_name' | t }}" value="" class="form-control" name="customer[first_name]" size="30" />
         <label for="first_name" class="form-label">{{ 'customer.register.first_name' | t }}</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" value="" class="form-control" name="customer[last_name]" size="30" />
+        <input type="text" placeholder="{{ 'customer.register.last_name' | t }}" value="" class="form-control" name="customer[last_name]" size="30" />
         <label for="last_name" class="form-label">{{ 'customer.register.last_name' | t }}</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="email" value="" class="form-control" name="customer[email]" size="30" />
+        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="{{ 'customer.register.email' | t }}" value="" class="form-control" name="customer[email]" size="30" />
         <label for="email" class="form-label">{{ 'customer.register.email' | t }}</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="password" value="" class="form-control" name="customer[password]" size="30" />
+        <input type="password" placeholder="{{ 'customer.register.password' | t }}" value="" class="form-control" name="customer[password]" size="30" />
         <label for="password" class="form-label">{{ 'customer.register.password' | t }}</label>
       </div>
 

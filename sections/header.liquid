@@ -1,12 +1,12 @@
-  {%- assign message = section.settings.top_message -%}
-  {%- if message != blank -%}
+  {%- assign top_message = section.settings.top_message -%}
+  {%- if top_message != blank -%}
     {%- assign align = '' -%}
     {%- if section.settings.top_align_message -%}
       {%- assign align = ' text-center' -%}
     {%- endif -%}
     <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 border-0 py-1 text-uppercase" role="alert">
       <div class="container">
-        <small>{{ message }}</small>
+        <small>{{ top_message }}</small>
       </div>
     </div>
   {%- endif -%}

@@ -1,6 +1,6 @@
-{%- assign id = section.settings.id_video -%}
-{%- assign platform = section.settings.id_platform_video -%}
-{%- assign background = section.settings.id_background -%}
+{%- assign video = section.settings.video -%}
+{%- assign platform = section.settings.platform_video -%}
+{%- assign background = section.settings.background -%}
 {% include 'component-external-video' %}
 
 {% schema %}
@@ -14,7 +14,7 @@
   "settings": [
     {
       "type": "select",
-      "id": "id_platform_video",
+      "id": "platform_video",
       "label": {
         "en": "Which platform?",
         "fr": "Quelle plateforme ?"
@@ -37,7 +37,7 @@
     },
     {
       "type": "text",
-      "id": "id_video",
+      "id": "video",
       "label": {
         "en": "Video ID",
         "fr": "ID de la vidéo"
@@ -45,7 +45,7 @@
     },
     {
       "type": "checkbox",
-      "id": "id_background",
+      "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",

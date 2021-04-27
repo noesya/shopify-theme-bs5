@@ -18,7 +18,7 @@
         {% when 'external_video' %}
           {% include 'external-video', media: featured_media %}
         {% when 'video' %}
-          {% include 'video', media: featured_media, ratio: 'calc(9 / 16 * 100%)', poster: poster, autoplay: true, mutted: true %}
+          {% include 'video', media: featured_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
       {% endcase %}
     {%- endif -%}
   </div>

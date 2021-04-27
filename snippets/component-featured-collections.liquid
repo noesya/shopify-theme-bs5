@@ -1,12 +1,16 @@
 {% case grid %}
   {% when 1 %}
-    {%- assign col = 'col-12' -%}
+    {%- assign col = '' -%}
+    {%- assign mb = '' -%}
   {% when 2 %}
-    {%- assign col = 'col-md-6' -%}
+    {%- assign col = 'row-cols-md-2' -%}
+    {%- assign mb = 'mb-3 mb-md-0' -%}
   {% when 3 %}
-    {%- assign col = 'col-md-4' -%}
+    {%- assign col = 'row-cols-md-3' -%}
+    {%- assign mb = 'mb-3 mb-md-0' -%}
   {% when 4 %}
-    {%- assign col = 'col-md-3' -%}
+  {%- assign col = 'row-cols-md-3 row-cols-lg-4' -%}
+  {%- assign mb = 'mb-3 mb-md-0' -%}
 {% endcase %}
 
 {%- if background -%}
@@ -18,12 +22,14 @@
     {% if title != blank %}
       <div class="text-center">
         <h2>{{ title | escape }}</h2>
-        <p>{{ subtitle | escape }}</p>
+        {% if subtitle != blank %}
+          <p>{{ subtitle | escape }}</p>
+        {% endif %}
       </div>
     {% endif %}
-    <div class="row">
+    <div class="row row-cols-1 {{ col }}">
       {% for block in section.blocks limit: section.blocks.size %}
-        <div class="{{ col }}" {{ block.shopify_attributes }}>
+        <div class="col {{ mb }}" {{ block.shopify_attributes }}>
           {%- assign collection = collections[block.settings.id_collection] -%}
           {% include 'collection', collection: collection %}
         </div>
