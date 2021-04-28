@@ -1,0 +1,100 @@
+{%- assign grid = section.settings.grid -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign background = section.settings.background -%}
+{%- if section.blocks.size != 0 -%}
+  {% include 'component-featured-pages' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Featured pages",
+    "fr": "Pages mis en avant"
+  },
+  "class": "section--featured-pages",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      },
+      "default": {
+        "en": "Pages",
+        "fr": "Pages"
+      }
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_page",
+      "name": {
+        "en": "Page",
+        "fr": "Page"
+      },
+      "settings": [
+        {
+          "label": {
+            "en": "Page",
+            "fr": "Page"
+          },
+          "id": "id_page",
+          "type": "page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Pages",
+        "fr": "Pages"
+      },
+      "category": {
+        "en": "Featured",
+        "fr": "Mis en avant"
+      },
+      "blocks": [
+        {
+          "type": "featured_page"
+        },
+        {
+          "type": "featured_page"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

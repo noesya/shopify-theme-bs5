@@ -1,0 +1,13 @@
+<div class="card">
+  <!-- {% include 'image', src: page.image, alt: page.title, class: 'card-img-top' %} -->
+  <div class="card-body">
+    <h2>{{ page.title }}</h2>
+    <p class="card-text text-muted">{{ page.excerpt }}</p>
+    {% if page.excerpt.size > 0 %}
+      <p class="card-text text-muted">{{ page.excerpt }}</p>
+    {% else %}
+      <p class="card-text text-muted">{{ page.content | strip_html | truncatewords: 20 }}</p>
+    {% endif %}
+    <p><a href="{{ page.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a></p>
+  </div>
+</div>
