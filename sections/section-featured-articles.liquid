@@ -1,0 +1,103 @@
+{%- assign grid = section.settings.grid -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign background = section.settings.background -%}
+{%- if section.blocks.size != 0 -%}
+  {% include 'component-featured-articles' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Featured articles",
+    "fr": "Articles mis en avant"
+  },
+  "class": "section--featured-articles",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      },
+      "default": {
+        "en": "Articles",
+        "fr": "Articles"
+      }
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_article",
+      "name": {
+        "en": "Article",
+        "fr": "Article"
+      },
+      "settings": [
+        {
+          "label": {
+            "en": "Article",
+            "fr": "Article"
+          },
+          "id": "id_article",
+          "type": "article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Articles",
+        "fr": "Articles"
+      },
+      "category": {
+        "en": "Featured",
+        "fr": "Mis en avant"
+      },
+      "blocks": [
+        {
+          "type": "featured_article"
+        },
+        {
+          "type": "featured_article"
+        },
+        {
+          "type": "featured_article"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
