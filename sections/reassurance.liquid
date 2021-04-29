@@ -1,13 +1,18 @@
 {%- assign background = section.settings.background -%}
+{%- assign center = section.settings.center -%}
 {%- assign blocks = section.blocks -%}
 {%- if blocks.size > 0 -%}
   <hr class="mb-0">
   {%- if background -%}
     {%- assign custom_background = 'bg-light' -%}
   {%- endif -%}
+  {%- assign align = '' -%}
+  {%- if center -%}
+    {%- assign align = 'justify-content-md-center' -%}
+  {%- endif -%}
   <section class="{{ custom_background }} py-5">
     <div class="container">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-{{ blocks.size }}">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-{{ blocks.size }} {{ align }}">
         {%- for block in blocks -%}
           <div class="col mb-3 mb-lg-0" {{ block.shopify_attributes }}>
             <span class="material-icons-outlined">{{ block.settings.icon }}</span>
@@ -68,12 +73,44 @@
   "settings": [
     {
       "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center blocks?",
+        "fr": "Centrer les blocs ?"
+      }
+    },
+    {
+      "type": "checkbox",
       "id": "background",
       "default": false,
       "label": {
         "en": "Grey background?",
         "fr": "Arrière plan gris ?"
       }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Reassurance",
+        "fr": "Réassurance"
+      },
+      "category": {
+        "en": "Editorial",
+        "fr": "Éditorial"
+      },
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
     }
   ]
 }
