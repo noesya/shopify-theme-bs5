@@ -1,0 +1,184 @@
+{%- assign grid = section.settings.grid -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign cta = section.settings.cta -%}
+{%- assign cta_url = section.settings.cta_url -%}
+{%- assign cta_style = section.settings.cta_style -%}
+{%- assign background = section.settings.background -%}
+{%- assign center = section.settings.center -%}
+{%- if section.blocks.size != 0 -%}
+  {% include 'component-images' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Images",
+    "fr": "Images"
+  },
+  "class": "section--images",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      }
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": {
+        "en": "Button text (not required)",
+        "fr": "Texte du bouton (factultatif)"
+      }
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": {
+        "en": "Button URL (not required)",
+        "fr": "URL du bouton (factultatif)"
+      }
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": {
+        "en": "Which button style?",
+        "fr": "Quel style pour le bouton ?"
+      },
+      "default": "btn-primary",
+      "options": [
+        {
+          "value": "btn-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "btn-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "btn-danger",
+          "label": "Danger"
+        },
+        {
+          "value": "btn-warning",
+          "label": "Warning"
+        },
+        {
+          "value": "btn-light",
+          "label": "Light"
+        },
+        {
+          "value": "btn-dark",
+          "label": "Dark"
+        },
+        {
+          "value": "btn-outline-primary",
+          "label": "Outline primary"
+        },
+        {
+          "value": "btn-outline-secondary",
+          "label": "Outline secondary"
+        },
+        {
+          "value": "btn-outline-danger",
+          "label": "Outline danger"
+        },
+        {
+          "value": "btn-outline-warning",
+          "label": "Outline warning"
+        },
+        {
+          "value": "btn-outline-light",
+          "label": "Outline light"
+        },
+        {
+          "value": "btn-outline-dark",
+          "label": "Outline dark"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center blocks?",
+        "fr": "Centrer les blocs ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": {
+        "en": "Block",
+        "fr": "Bloc"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "en": "Image",
+            "fr": "Image"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Images",
+        "fr": "Images"
+      },
+      "category": {
+        "en": "Media",
+        "fr": "Media"
+      },
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
