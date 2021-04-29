@@ -1,0 +1,12 @@
+{%- assign align = '' -%}
+{%- if center -%}
+  {%- assign align = ' text-center' -%}
+{%- endif -%}
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    <h2>{{ title }}</h2>
+  </div>
+</div>

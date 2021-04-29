@@ -1,0 +1,59 @@
+{%- assign title = section.settings.title -%}
+{%- assign center = section.settings.center -%}
+{%- assign background = section.settings.background -%}
+{% include 'component-title' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Message",
+    "fr": "Message"
+  },
+  "tag": "section",
+  "class": "section--message",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      },
+      "placeholder": {
+        "en": "Message",
+        "fr": "Message"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center title?",
+        "fr": "Centrer le titre ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Alert message",
+        "fr": "Message d’alerte"
+      },
+      "category": {
+        "en": "Editorial",
+        "fr": "Éditorial"
+      }
+    }
+  ]
+}
+{% endschema %}
