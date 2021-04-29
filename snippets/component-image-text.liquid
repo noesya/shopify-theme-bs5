@@ -1,0 +1,25 @@
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- else -%}
+  {%- assign custom_background = '' -%}
+{%- endif -%}
+
+{%- if container != false -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+{%- endif -%}
+    <div class="row align-items-center {% if inverse %}flex-row-reverse{% endif %}">
+      <div class="col-md-6">
+        <img src="{{ image | img_url: 'grande' }}" alt="" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h2>{{ title }}</h2>
+        <div class="rte">
+          {{ text | newline_to_br }}
+        </div>
+      </div>
+    </div>
+{%- if container != false -%}
+  </div>
+</div>
+{%- endif -%}

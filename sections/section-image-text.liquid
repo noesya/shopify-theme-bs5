@@ -1,0 +1,73 @@
+{%- assign image = section.settings.image -%}
+{%- assign title = section.settings.title -%}
+{%- assign text = section.settings.text -%}
+{%- assign inverse = section.settings.inverse -%}
+{%- assign background = section.settings.background -%}
+{% include 'component-image-text' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Image and text",
+    "fr": "Image et texte"
+  },
+  "tag": "section",
+  "class": "section--image-text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": {
+        "en": "Add image",
+        "fr": "Ajouter l’image"
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "richtext",
+      "label": {
+        "en": "Text",
+        "fr": "Texte"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "inverse",
+      "default": false,
+      "label": {
+        "en": "Inverse?",
+        "fr": "Inverser le sens ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Image and text",
+        "fr": "Image et texte"
+      },
+      "category": {
+        "en": "Editorial",
+        "fr": "Éditorial"
+      }
+    }
+  ]
+}
+{% endschema %}
