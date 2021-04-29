@@ -1,0 +1,17 @@
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+<div class="py-5 {{ custom_background }}">
+  <div class="container text-center">
+    <video
+      poster="{{ poster.src }}"
+      playsinline
+      {% if autoplay %}autoplay{% endif %}
+      {% if controls %}controls{% endif %}
+      {% if loop %}loop{% endif %}
+      {% if muted %}muted{% endif %}
+      >
+      <source src="{{ video }}" type="video/mp4">
+    </video>
+  </div>
+</div>

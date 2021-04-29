@@ -1,0 +1,93 @@
+{%- assign poster = section.settings.video_poster -%}
+{%- assign video = section.settings.video -%}
+{%- assign autoplay = section.settings.autoplay -%}
+{%- assign controls = section.settings.controls -%}
+{%- assign loop = section.settings.loop -%}
+{%- assign muted = section.settings.muted -%}
+{%- assign background = section.settings.background -%}
+{% include 'component-video' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Video",
+    "fr": "Vidéo"
+  },
+  "tag": "section",
+  "class": "section--video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "video",
+      "label": {
+        "en": "Video URL",
+        "fr": "URL de la vidéo"
+      }
+    },{
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": {
+        "en": "Video poster",
+        "fr": "Poster de la vidéo"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "controls",
+      "default": true,
+      "label": {
+        "en": "Controls show?",
+        "fr": "Afficher les controles ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "default": false,
+      "label": {
+        "en": "Autoplay?",
+        "fr": "Autoplay ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "default": false,
+      "label": {
+        "en": "Loop?",
+        "fr": "En boucle ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "default": false,
+      "label": {
+        "en": "Muted?",
+        "fr": "Sans son ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Video",
+        "fr": "Vidéo"
+      },
+      "category": {
+        "en": "Media",
+        "fr": "Media"
+      }
+    }
+  ]
+}
+{% endschema %}
