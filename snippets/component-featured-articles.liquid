@@ -13,6 +13,13 @@
   {%- assign mb = 'mb-3 mb-md-0' -%}
 {% endcase %}
 
+{%- assign align_text = '' -%}
+{%- assign align_col = '' -%}
+{%- if center -%}
+  {%- assign align_text = 'text-md-center' -%}
+  {%- assign align_col = 'justify-content-md-center' -%}
+{%- endif -%}
+
 {%- if background -%}
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
@@ -20,14 +27,14 @@
 <div class="py-5 {{ custom_background }}">
   <div class="container">
     {% if title != blank %}
-      <div class="text-center">
+      <div class="{{ align_text }}">
         <h2>{{ title | escape }}</h2>
         {% if subtitle != blank %}
           <p>{{ subtitle | escape }}</p>
         {% endif %}
       </div>
     {% endif %}
-    <div class="row row-cols-1 {{ col }}">
+    <div class="row row-cols-1 {{ col }} {{ align_col }}">
       {% for block in section.blocks limit: section.blocks.size %}
         <div class="col {{ mb }}" {{ block.shopify_attributes }}>
           {%- assign article = articles[block.settings.id_article] -%}

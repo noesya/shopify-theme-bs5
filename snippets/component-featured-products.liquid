@@ -9,6 +9,13 @@
   {%- assign col = 'row-cols-2 row-cols-md-3 row-cols-lg-4' -%}
 {% endcase %}
 
+{%- assign align_text = '' -%}
+{%- assign align_col = '' -%}
+{%- if center -%}
+  {%- assign align_text = 'text-md-center' -%}
+  {%- assign align_col = 'justify-content-md-center' -%}
+{%- endif -%}
+
 {%- if background -%}
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
@@ -16,14 +23,14 @@
 <div class="py-5 {{ custom_background }}">
   <div class="container">
     {% if title != blank %}
-      <div class="text-center">
+      <div class="{{ align_text }}">
         <h2>{{ title | escape }}</h2>
         {% if subtitle != blank %}
           <p>{{ subtitle | escape }}</p>
         {% endif %}
       </div>
     {% endif %}
-    <div class="row {{ col }}">
+    <div class="row {{ col }} {{ align_col }}">
       {% for block in section.blocks limit: section.blocks.size %}
         <div class="col" {{ block.shopify_attributes }}>
           {%- assign product = all_products[block.settings.id_product] -%}

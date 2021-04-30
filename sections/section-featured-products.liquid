@@ -1,6 +1,7 @@
 {%- assign grid = section.settings.grid -%}
 {%- assign title = section.settings.title -%}
 {%- assign subtitle = section.settings.subtitle -%}
+{%- assign center = section.settings.center_message -%}
 {%- assign background = section.settings.background -%}
 {%- if section.blocks.size != 0 -%}
   {% include 'component-featured-products' %}
@@ -46,6 +47,15 @@
       "max": 4,
       "step": 1,
       "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center?",
+        "fr": "Centrer ?"
+      }
     },
     {
       "type": "checkbox",
