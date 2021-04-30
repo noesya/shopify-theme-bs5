@@ -29,7 +29,7 @@
   {% endif %}
 
     <div class="card-body">
-      {% unless product.available %}<span class="badge badge-danger">{{ "products.product.sold_out" | t }}</span>{% endunless %}
+      {% unless product.available %}<span class="badge bg-danger">{{ "products.product.sold_out" | t }}</span>{% endunless %}
       <h5 class="card-title{% if featured %} h1{% endif %}">{{ product.title }}</h5>
       <p class="card-text">{{ current_variant.price | money }}</p>
       <p class="card-text">{{ product.description }}</p>
