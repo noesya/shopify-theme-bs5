@@ -1,0 +1,76 @@
+{% assign related_products = "" %}
+{% for tag in product.tags %}
+  {% if tag contains 'related' %}
+    {% assign id_tag = tag | split: "_"  %}
+    {% assign related_products = related_products | append: id_tag.last %}
+  {% endif %}
+{% endfor %}
+
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign grid = section.settings.grid -%}
+{%- assign center = section.settings.center -%}
+{%- assign background = section.settings.background -%}
+
+{% if related_products %}
+  {% include 'products', grid_products: related_products %}
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Related product",
+    "fr": "Produit en relation"
+  },
+  "tag": "section",
+  "class": "product__related",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      }
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": {
+        "en": "Sub title",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center?",
+        "fr": "Centrer ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ]
+}
+{% endschema %}

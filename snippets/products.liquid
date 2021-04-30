@@ -1,0 +1,48 @@
+{% case grid %}
+  {% when 1 %}
+    {%- assign col = '' -%}
+    {%- assign mb = '' -%}
+  {% when 2 %}
+    {%- assign col = 'row-cols-md-2' -%}
+    {%- assign mb = 'mb-3 mb-md-0' -%}
+  {% when 3 %}
+    {%- assign col = 'row-cols-md-3' -%}
+    {%- assign mb = 'mb-3 mb-md-0' -%}
+  {% when 4 %}
+    {%- assign col = 'row-cols-md-3 row-cols-lg-4' -%}
+    {%- assign mb = 'mb-3 mb-md-0' -%}
+{% endcase %}
+
+{% case center %}
+  {% when "center" %}
+    {%- assign align_text = "text-center" -%}
+    {%- assign align_col = "justify-content-md-center" -%}
+  {% else %}
+    {%- assign align_text = "" -%}
+    {%- assign align_col = "" -%}
+{% endcase %}
+
+{%- if background -%}
+  {%- assign custom_background = 'bg-light' -%}
+{%- endif -%}
+
+<div class="py-5 {{ custom_background }}">
+  <div class="container">
+    {% if title != blank %}
+      <div class="{{ align_text }}">
+        <h2>{{ title | escape }}</h2>
+        {% if subtitle != blank %}
+          <p>{{ subtitle | escape }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="row row-cols-1 {{ col }} {{ align_col }}">
+      {% for grid_product in grid_products %}
+        <div class="col {{ mb }}">
+          {%- assign product = all_products[grid_product] -%}
+          {% include 'product', product: product %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
