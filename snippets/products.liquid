@@ -13,14 +13,12 @@
     {%- assign mb = 'mb-3 mb-md-0' -%}
 {% endcase %}
 
-{% case center %}
-  {% when "center" %}
-    {%- assign align_text = "text-center" -%}
-    {%- assign align_col = "justify-content-md-center" -%}
-  {% else %}
-    {%- assign align_text = "" -%}
-    {%- assign align_col = "" -%}
-{% endcase %}
+{%- assign align_text = '' -%}
+{%- assign align_col = '' -%}
+{%- if center -%}
+  {%- assign align_text = 'text-md-center' -%}
+  {%- assign align_col = 'justify-content-md-center' -%}
+{%- endif -%}
 
 {%- if background -%}
   {%- assign custom_background = 'bg-light' -%}
