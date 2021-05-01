@@ -1,18 +1,5 @@
-  {%- assign top_message = section.settings.top_message -%}
-  {%- if top_message != blank -%}
-    {%- assign align = '' -%}
-    {%- if section.settings.top_align_message -%}
-      {%- assign align = ' text-center' -%}
-    {%- endif -%}
-    <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 border-0 py-1 text-uppercase" role="alert">
-      <div class="container">
-        <small>{{ top_message }}</small>
-      </div>
-    </div>
-  {%- endif -%}
-
-  {%- assign logo = settings.header_logo -%}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+{%- assign logo = settings.header_logo -%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="{{ shop.secure_url }}">
@@ -22,6 +9,8 @@
         {{ shop.name }}
       {%- endif -%}
     </a>
+
+    <a href="{{ routes.cart_url }}" class="ms-auto me-2 d-lg-none" title="{{ 'cart.general.title' | t }}"><span class="material-icons-outlined">shopping_bag</span></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -45,7 +34,7 @@
       </ul>
 
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a href="{{ routes.cart_url }}" class="nav-link" title="cart"><span class="material-icons-outlined">shopping_bag</span></a></li>
+        <li class="nav-item"><a href="{{ routes.cart_url }}" class="nav-link" title="{{ 'cart.general.title' | t }}"><span class="material-icons-outlined">shopping_bag</span></a></li>
         {% if shop.customer_accounts_enabled %}
           {% if customer %}
             <li class="nav-item"><a href="{{ routes.account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">{{ 'customer.account.title' | t }}</a></li>
@@ -64,6 +53,7 @@
 {% schema %}
 {
   "name": "Header",
+  "class": "sticky-top",
   "settings": [
     {
       "type": "paragraph",
