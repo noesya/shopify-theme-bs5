@@ -12,7 +12,7 @@
 {%- assign center = section.settings.center -%}
 {%- assign background = section.settings.background -%}
 
-{% if related_products %}
+{% if related_products != blank %}
   {% include 'products', grid_products: related_products %}
 {% endif %}
 
@@ -25,6 +25,13 @@
   "tag": "section",
   "class": "product__related",
   "settings": [
+    {
+      "type": "paragraph",
+      "content": {
+        "en": "For adding some related products, you need to add a tag begin by “related_“ then the “handle“",
+        "fr": "Pour ajouter un related product, il faut ajouter une balise commençant par “related_“ puis le “handle“ du produit dans la fiche produit."
+      }
+    },
     {
       "type": "text",
       "id": "title",

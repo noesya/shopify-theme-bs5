@@ -1,0 +1,83 @@
+{% if product.has_only_default_variant %}
+  <input name="id" value="{{ current_variant.id }}" type="hidden">
+{% else %}
+  {% unless product.has_only_default_variant %}
+    {% for option in product.options_with_values %}
+      <div class="mb-4">
+        {% if section.settings.product_selector == 'radio' %}
+          <fieldset>
+            <legend>{{ option.name | escape }}</legend>
+            {% assign option_index = forloop.index %}
+            {% for value in option.values %}
+              {% assign variant_label_state = true %}
+              {% if product.options.size == 1 %}
+                {% unless product.variants[forloop.index0].available  %}
+                  {% assign variant_label_state = false %}
+                {% endunless %}
+              {% endif %}
+              <div class="form-check form-check-inline">
+                <input type="radio"
+                  {% if option.selected_value == value %} checked="checked"{% endif %}
+                  {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                  value="{{ value | escape }}"
+                  name="option{{ option.position }}"
+                  class="form-check-input{% unless variant_label_state %} disabled{% endunless %} js-product-variant"
+                  id="variant-{{ option.name | handleize }}-{{ value | escape }}">
+                <label class="form-check-label" for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
+              </div>
+            {% endfor %}
+          </fieldset>
+        {% else %}
+          <label class="form-label" for="variant-{{ forloop.index0 }}">
+            {{ option.name | escape }}
+          </label>
+          <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
+            {% for value in option.values %}
+              <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
+            {% endfor %}
+          </select>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% endunless %}
+
+  <select name="id" class="product__variant js-product-id">
+    {% for variant in product.variants %}
+      <option
+        {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
+        data-sku="{{ variant.sku }}"
+        value="{{ variant.id }}">
+        {{ variant.title }}
+      </option>
+    {% endfor %}
+  </select>
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Variants",
+    "fr": "Variants "
+  },
+  "tag": "div",
+  "class": "product__variants",
+  "settings": [
+    {
+      "type": "select",
+      "id": "product_selector",
+      "label": "Type",
+      "options": [
+        {
+          "value": "radio",
+          "label": "Radio"
+        },
+        {
+          "value": "select",
+          "label": "Select"
+        }
+      ],
+      "default": "select"
+    }
+  ]
+}
+{% endschema %}

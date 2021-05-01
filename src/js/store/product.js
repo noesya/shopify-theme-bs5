@@ -1,31 +1,71 @@
+import * as cart from '@shopify/theme-cart';
+
 window.stk.Product = {
     init: function () {
         'use strict';
         this.formElm = document.querySelector('.js-addtocart-form');
         if (this.formElm !== null) {
             this.addtocartElm = document.querySelectorAll('.js-addtocart');
-            this.widgetElm = document.querySelector('.js-addtocart-widget');
-            this.form();
+            this.variantElm = document.querySelectorAll('.js-product-variant');
+            this.idElm = document.querySelector('.js-product-id');
+            this.qtyElm = document.querySelector('.js-product-qty');
+            this.submit();
+            if (this.variantElm.length > 0) {
+                this.select();
+            }
         }
     },
-    form: function () {
+    select: function () {
         'use strict';
-        console.log('form');
-        this.formElm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            console.log('submit');
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = true;
+        var that = this;
+        this.variantElm.forEach(function (variant) {
+            variant.addEventListener('change', function (e) {
+                e.preventDefault();
+                that.getCurrentOptions();
+                that.setCurrentOptions();
             });
+        });
+    },
+    getCurrentOptions: function () {
+        'use strict';
+        this.currentOptions = [];
+        this.variantElm.forEach(function (variant) {
+            if (variant.type === 'radio' && variant.checked) {
+                this.currentOptions.push(variant.value);
+            } else if (variant.type !== 'radio') {
+                this.currentOptions.push(variant.value);
+            }
         }.bind(this));
     },
-    widget: function () {
+    setCurrentOptions: function () {
         'use strict';
-        if (window.jd.position.y > 300) {
-            this.widgetElm.classList.add('show');
-        } else {
-            this.widgetElm.classList.remove('show');
-        }
+        var that = this,
+            selected = this.currentOptions.join(' / '),
+            options = Array.from(this.idElm.options);
+        options.forEach(function (option, i) {
+            if (option.text === selected) {
+                that.idElm.selectedIndex = i;
+            }
+        });
+    },
+    submit: function () {
+        'use strict';
+        var that = this;
+        this.formElm.addEventListener('submit', function (e) {
+            var id = Number(that.idElm.value),
+                quantity = Number(that.qtyElm.value),
+                properties = '';
+            that.addtocartElm.forEach(function (elm) {
+                elm.disabled = true;
+            });
+            cart.addItem(id, { quantity, properties }).then(item => {
+                console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
+                that.addtocartElm.forEach(function (elm) {
+                    elm.disabled = false;
+                });
+            });
+            e.preventDefault();
+        });
     }
 };
 
