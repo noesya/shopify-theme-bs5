@@ -7437,6 +7437,13 @@ a {
 .cart__image {
   max-width: calc(200px + 30px); }
 
+.cart__notif {
+  position: relative; }
+  .cart__notif .notif {
+    position: absolute;
+    right: -4px;
+    top: -4px; }
+
 @media (min-width: 768px) {
   .cart__qty, .cart__price, .cart__total {
     width: 150px; }
@@ -7446,6 +7453,23 @@ a {
 @media (min-width: 992px) {
   .cart__qty, .cart__price, .cart__total {
     width: 200px; } }
+
+.notif {
+  align-items: center;
+  background-color: #dc3545;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.5rem;
+  font-weight: bold;
+  height: 16px;
+  justify-content: center;
+  opacity: 1;
+  text-align: center;
+  transition: opacity .3s ease;
+  width: 16px; }
+  .notif:empty {
+    opacity: 0; }
 
 .tns-outer {
   position: relative; }

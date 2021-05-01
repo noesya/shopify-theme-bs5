@@ -4540,6 +4540,7 @@ window.stk.Product = {
             this.variantElm = document.querySelectorAll('.js-product-variant');
             this.idElm = document.querySelector('.js-product-id');
             this.qtyElm = document.querySelector('.js-product-qty');
+            this.notifElm = document.querySelector('.js-cart-notif');
             this.submit();
             if (this.variantElm.length > 0) {
                 this.select();
@@ -4585,7 +4586,8 @@ window.stk.Product = {
         this.formElm.addEventListener('submit', function (e) {
             var id = Number(that.idElm.value),
                 quantity = Number(that.qtyElm.value),
-                properties = '';
+                properties = '',
+                notif = Number(that.notifElm.innerHTML);
             that.addtocartElm.forEach(function (elm) {
                 elm.disabled = true;
             });
@@ -4594,6 +4596,7 @@ window.stk.Product = {
                 that.addtocartElm.forEach(function (elm) {
                     elm.disabled = false;
                 });
+                that.notifElm.innerHTML = notif + quantity;
             });
             e.preventDefault();
         });

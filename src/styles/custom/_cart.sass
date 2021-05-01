@@ -1,6 +1,12 @@
 .cart
     &__image
         max-width: calc(200px + #{$grid-gutter-width})
+    &__notif
+        position: relative
+        .notif
+            position: absolute
+            right: -4px
+            top: -4px
 
     @include media-breakpoint-up(md)
         &__qty,
