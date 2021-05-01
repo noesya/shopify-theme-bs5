@@ -9,6 +9,7 @@
   {{ content_for_header }}
 </head>
 <body class="{{ page_title | handle }} {{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
+  {%- section 'top' -%}
   {%- section 'header' -%}
   {%- include 'breadcrumbs' -%}
   <main>
