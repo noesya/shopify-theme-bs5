@@ -15,15 +15,15 @@
                   {% assign variant_label_state = false %}
                 {% endunless %}
               {% endif %}
-              <div class="form-check form-check-inline">
+              <div class="product__variant__radio">
                 <input type="radio"
                   {% if option.selected_value == value %} checked="checked"{% endif %}
                   {% unless variant_label_state %} disabled="disabled"{% endunless %}
                   value="{{ value | escape }}"
                   name="option{{ option.position }}"
-                  class="form-check-input{% unless variant_label_state %} disabled{% endunless %} js-product-variant"
+                  class="{% unless variant_label_state %} disabled{% endunless %} js-product-variant"
                   id="variant-{{ option.name | handleize }}-{{ value | escape }}">
-                <label class="form-check-label" for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
+                <label for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
               </div>
             {% endfor %}
           </fieldset>

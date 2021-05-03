@@ -1,0 +1,19 @@
+.product
+    &__variant
+        display: none
+        &__radio
+            display: inline-block
+            margin-right: 1rem
+            input
+                display: none
+                &:checked + label
+                    background-color: $gray-800
+                    color: $white
+            label
+                border: $border-width solid $border-color
+                cursor: pointer
+                padding: 5px 15px
+                user-select: none
+                &:hover,
+                &:focus
+                    background-color: $gray-100

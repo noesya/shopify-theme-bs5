@@ -37,16 +37,17 @@
         {% capture "form_classes" %}js-addtocart-form{%- endcapture %}
         {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
         {% form 'product', product, class:form_classes, id:form_id %}
-          <input type="hidden" name="quantity" value="1" min="1" max="1" class="js-product-qty">
 
           {%- section 'product-variant' -%}
 
+          <hr>
+          
           <div class="row align-items-center">
             <div class="col-auto">
               <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
             </div>
             <div class="col-auto">
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control">
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty">
             </div>
             <div class="col-auto">
               <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }} — <span class="js-product-price">{{ current_variant.price | money }}</span></button>

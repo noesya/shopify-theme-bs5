@@ -4571,14 +4571,30 @@ window.stk.Product = {
     },
     setCurrentOptions: function () {
         'use strict';
-        var that = this,
+        var isAvailable = false,
+            that = this,
             selected = this.currentOptions.join(' / '),
             options = Array.from(this.idElm.options);
         options.forEach(function (option, i) {
             if (option.text === selected) {
+                isAvailable = true;
                 that.idElm.selectedIndex = i;
             }
         });
+        this.setAddtocart(isAvailable);
+
+    },
+    setAddtocart: function (isAvailable) {
+        'use strict';
+        if (!isAvailable) {
+            this.addtocartElm.forEach(function (elm) {
+                elm.disabled = true;
+            });
+        } else {
+            this.addtocartElm.forEach(function (elm) {
+                elm.disabled = false;
+            });
+        }
     },
     submit: function () {
         'use strict';
