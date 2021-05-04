@@ -19,46 +19,66 @@
 
 <div class="row">
   <div class="col-md-6 mb-3">
-    <label for="first_name_{{ id }}" class="form-label">{{ 'customer.addresses.first_name' | t }}</label>
-    <input type="text" class="form-control" value="{{form.first_name}}" name="address[first_name]" id="first_name_{{ id }}" size="30" required>
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.first_name}}" name="address[first_name]" id="first_name_{{ id }}" size="30" placeholder="{{ 'customer.addresses.first_name' | t }}" required>
+      <label for="first_name_{{ id }}" class="form-label">{{ 'customer.addresses.first_name' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="last_name_{{ id }}" class="form-label">{{ 'customer.addresses.last_name' | t }}</label>
-    <input type="text" class="form-control" value="{{form.last_name}}" name="address[last_name]" id="last_name_{{ id }}" size="30" required>
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.last_name}}" name="address[last_name]" id="last_name_{{ id }}" size="30" placeholder="{{ 'customer.addresses.last_name' | t }}" required>
+      <label for="last_name_{{ id }}" class="form-label">{{ 'customer.addresses.last_name' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="company_{{ id }}" class="form-label">{{ 'customer.addresses.company' | t }}</label>
-    <input type="text" class="form-control" value="{{form.company}}" name="address[company]" id="company_{{ id }}">
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.company}}" name="address[company]" id="company_{{ id }}" placeholder="{{ 'customer.addresses.company' | t }}">
+      <label for="company_{{ id }}" class="form-label">{{ 'customer.addresses.company' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="phone_{{ id }}" class="form-label">{{ 'customer.addresses.phone' | t }}</label>
-    <input type="tel" class="form-control" value="{{form.phone}}" name="address[phone]" id="phone_{{ id }}" required>
+    <div class="form-floating">
+      <input type="tel" class="form-control" value="{{form.phone}}" name="address[phone]" id="phone_{{ id }}" placeholder="{{ 'customer.addresses.phone' | t }}" required>
+      <label for="phone_{{ id }}" class="form-label">{{ 'customer.addresses.phone' | t }}</label>
+    </div>
   </div>
   <div class="col-12 mb-3">
-    <label for="address1_{{ id }}" class="form-label">{{ 'customer.addresses.address1' | t }}</label>
-    <input type="text" class="form-control" value="{{form.address1}}" name="address[address1]" id="address1_{{ id }}" required>
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.address1}}" name="address[address1]" id="address1_{{ id }}" placeholder="{{ 'customer.addresses.address1' | t }}" required>
+      <label for="address1_{{ id }}" class="form-label">{{ 'customer.addresses.address1' | t }}</label>
+    </div>
   </div>
   <div class="col-12 mb-3">
-    <label for="address2_{{ id }}" class="form-label">{{ 'customer.addresses.address2' | t }}</label>
-    <input type="text" class="form-control" value="{{form.address2}}" name="address[address2]" id="address2_{{ id }}">
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.address2}}" name="address[address2]" id="address2_{{ id }}" placeholder="{{ 'customer.addresses.address2' | t }}">
+      <label for="address2_{{ id }}" class="form-label">{{ 'customer.addresses.address2' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="city_{{ id }}" class="form-label">{{ 'customer.addresses.city' | t }}</label>
-    <input type="text" class="form-control" value="{{form.phone}}" name="address[city]" id="city_{{ id }}" required>
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.city}}" name="address[city]" id="city_{{ id }}" placeholder="{{ 'customer.addresses.city' | t }}" required>
+      <label for="city_{{ id }}" class="form-label">{{ 'customer.addresses.city' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3">
-    <label for="zip_{{ id }}" class="form-label">{{ 'customer.addresses.zip' | t }}</label>
-    <input type="text" class="form-control" value="{{form.zip}}" name="address[zip]" id="zip_{{ id }}" required>
+    <div class="form-floating">
+      <input type="text" class="form-control" value="{{form.zip}}" name="address[zip]" id="zip_{{ id }}" autocapitalize="characters" placeholder="" required>
+      <label for="zip_{{ id }}" class="form-label">{{ 'customer.addresses.zip' | t }}</label>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <div class="form-floating">
+      <select name="address[country]" class="form-select js-address-country" id="country_{{ id }}" data-form-id="{{ form.id }}" data-default="{{form.country}}" required>
+        {{ all_country_option_tags }}
+      </select>
+      <label for="country_{{ id }}" class="form-label">{{ 'customer.addresses.country' | t }}</label>
+    </div>
   </div>
   <div class="col-md-6 mb-3" id="province_container_{{ id }}">
-    <label for="province_{{ id }}" class="form-label">{{ 'customer.addresses.province' | t }}</label>
-    <select class="form-select" name="address[province]" id="province_{{ id }}"></select>
-  </div>
-  <div class="col-md-6 mb-3">
-    <label for="country_{{ id }}" class="form-label">{{ 'customer.addresses.country' | t }}</label>
-    <select name="address[country]" class="form-select js-address-country" data-form-id="{{ form.id }}" id="country_{{ id }}" required>
-      {{ all_country_option_tags }}
-    </select>
+    <div class="form-floating">
+      <select class="form-select" name="address[province]" id="province_{{ id }}" data-default="{{form.province}}"></select>
+      <label for="province_{{ id }}" class="form-label">{{ 'customer.addresses.province' | t }}</label>
+    </div>
   </div>
   <div class="col-12 mb-3">
     <div class="form-check form-check-inline mb-3">
