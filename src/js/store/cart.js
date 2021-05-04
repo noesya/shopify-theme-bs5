@@ -31,15 +31,26 @@ window.stk.Cart = {
         'use strict';
         return Number(this.notifElm[0].innerHTML);
     },
+    addFromForm: function (form, quantity) {
+        'use strict';
+        cart.addItemFromForm(form).then(item => {
+            console.log(`An item was added to your cart:`, item);
+            window.stk.Product.stateAddtocart(false);
+            this.setNotif(this.getNotif() + quantity)
+        });
+    },
+    add: function (id, quantity, properties) {
+        'use strict';
+        cart.addItem(id, { quantity, properties }).then(item => {
+            console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
+            window.stk.Product.stateAddtocart(false);
+            this.setNotif(this.getNotif() + quantity)
+        });
+    },
     update: function (key, quantity) {
         'use strict';
-        var that = this;
         cart.updateItem(key, { quantity }).then(state => {
             document.location.reload();
-            // var item = state.items.find(item => item.key === key);
-            // that.setNotif(state.item_count);
-            // console.log(state);
-            // console.log(`The item with key '${key}' now has quantity ${item.quantity}`);
         });
     }
 };

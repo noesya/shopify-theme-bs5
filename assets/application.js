@@ -4556,15 +4556,26 @@ window.stk.Cart = {
         'use strict';
         return Number(this.notifElm[0].innerHTML);
     },
+    addFromForm: function (form, quantity) {
+        'use strict';
+        _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__["addItemFromForm"](form).then(item => {
+            console.log(`An item was added to your cart:`, item);
+            window.stk.Product.stateAddtocart(false);
+            this.setNotif(this.getNotif() + quantity)
+        });
+    },
+    add: function (id, quantity, properties) {
+        'use strict';
+        _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__["addItem"](id, { quantity, properties }).then(item => {
+            console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
+            window.stk.Product.stateAddtocart(false);
+            this.setNotif(this.getNotif() + quantity)
+        });
+    },
     update: function (key, quantity) {
         'use strict';
-        var that = this;
         _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__["updateItem"](key, { quantity }).then(state => {
             document.location.reload();
-            // var item = state.items.find(item => item.key === key);
-            // that.setNotif(state.item_count);
-            // console.log(state);
-            // console.log(`The item with key '${key}' now has quantity ${item.quantity}`);
         });
     }
 };
@@ -4581,13 +4592,8 @@ document.addEventListener('DOMContentLoaded', function () {
 /*!*********************************!*\
   !*** ./src/js/store/product.js ***!
   \*********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shopify/theme-cart */ "./node_modules/@shopify/theme-cart/theme-cart.js");
-
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 window.stk.Product = {
     init: function () {
@@ -4642,47 +4648,31 @@ window.stk.Product = {
             }
         });
         this.setAddtocart(isAvailable);
-
     },
     setAddtocart: function (isAvailable) {
         'use strict';
         if (!isAvailable) {
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = true;
-            });
+            this.stateAddtocart(true);
         } else {
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
+            this.stateAddtocart(false);
         }
+    },
+    stateAddtocart: function (state) {
+        'use strict';
+        this.addtocartElm.forEach(function (elm) {
+            elm.disabled = state;
+        });
     },
     submit: function (form) {
         'use strict';
         var quantity = Number(this.qtyElm.value);
-        this.addtocartElm.forEach(function (elm) {
-            elm.disabled = true;
-        });
-        _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__["addItemFromForm"](form).then(item => {
-            console.log(`An item was added to your cart:`, item);
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
-            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
-        });
+        this.stateAddtocart(true);
+        window.stk.Cart.addFromForm(form, quantity);
     },
     add: function (id, quantity, properties) {
         'use strict';
-        var that = this;
-        this.addtocartElm.forEach(function (elm) {
-            elm.disabled = true;
-        });
-        _shopify_theme_cart__WEBPACK_IMPORTED_MODULE_0__["addItem"](id, { quantity, properties }).then(item => {
-            console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
-            that.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
-            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
-        });
+        this.stateAddtocart(true);
+        window.stk.Cart.add(id, quantity, properties);
     },
     widget: function () {
         'use strict';

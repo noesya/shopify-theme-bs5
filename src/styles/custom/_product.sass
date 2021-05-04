@@ -21,6 +21,7 @@
     &__widget
         background-color: $white
         bottom: 0
+        box-shadow: $box-shadow
         display: none
         left: 0
         padding-bottom: $grid-gutter-width/2
@@ -29,7 +30,11 @@
         right: 0
         z-index: $zindex-fixed
         .container
+            align-items: center
             display: flex
+        .h2
+            margin-bottom: 0
+            margin-right: $grid-gutter-width/2
         .btn
             margin-left: auto
         &.show

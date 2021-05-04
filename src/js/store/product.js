@@ -1,5 +1,3 @@
-import * as cart from '@shopify/theme-cart';
-
 window.stk.Product = {
     init: function () {
         'use strict';
@@ -53,47 +51,31 @@ window.stk.Product = {
             }
         });
         this.setAddtocart(isAvailable);
-
     },
     setAddtocart: function (isAvailable) {
         'use strict';
         if (!isAvailable) {
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = true;
-            });
+            this.stateAddtocart(true);
         } else {
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
+            this.stateAddtocart(false);
         }
+    },
+    stateAddtocart: function (state) {
+        'use strict';
+        this.addtocartElm.forEach(function (elm) {
+            elm.disabled = state;
+        });
     },
     submit: function (form) {
         'use strict';
         var quantity = Number(this.qtyElm.value);
-        this.addtocartElm.forEach(function (elm) {
-            elm.disabled = true;
-        });
-        cart.addItemFromForm(form).then(item => {
-            console.log(`An item was added to your cart:`, item);
-            this.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
-            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
-        });
+        this.stateAddtocart(true);
+        window.stk.Cart.addFromForm(form, quantity);
     },
     add: function (id, quantity, properties) {
         'use strict';
-        var that = this;
-        this.addtocartElm.forEach(function (elm) {
-            elm.disabled = true;
-        });
-        cart.addItem(id, { quantity, properties }).then(item => {
-            console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
-            that.addtocartElm.forEach(function (elm) {
-                elm.disabled = false;
-            });
-            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
-        });
+        this.stateAddtocart(true);
+        window.stk.Cart.add(id, quantity, properties);
     },
     widget: function () {
         'use strict';

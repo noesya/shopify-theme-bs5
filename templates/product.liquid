@@ -28,36 +28,36 @@
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-          <p class="mb-2 price js-product-price" itemprop="price">{{ current_variant.price | money }}</p>
+          <p class="mb-2 lead js-product-price" itemprop="price">{{ current_variant.price | money }}</p>
         </div>
 
         <div class="rte" itemprop="description">{{ product.description | strip }}</div>
         <hr>
 
         {% capture "form_classes" %}js-addtocart-form{%- endcapture %}
-        {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
-        {% form 'product', product, class:form_classes, id:form_id %}
+        {% form 'product', product, class:form_classes, data-product-form: '', data-product-handle: product.handle %}
 
           {%- section 'product-variant' -%}
 
           <hr>
 
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
+          <div class="row align-items-center flex-nowrap">
+            <div class="col-4">
+              <div class="form-floating">
+                <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty" placeholder="1">
+                <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
+              </div>
             </div>
-            <div class="col-auto">
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty">
-            </div>
-            <div class="col-auto">
-              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }} — <span class="js-product-price">{{ current_variant.price | money }}</span></button>
+            <div class="col">
+              <button type="submit" name="add" class="btn btn-lg btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
             </div>
           </div>
 
           <div class="product__widget js-addtocart-widget">
             <div class="container">
               <span class="h2">{{ product.title }}</span>
-              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }} — <span class="js-product-price">{{ current_variant.price | money }}</span></button>
+              <span class="js-product-price">{{ current_variant.price | money }}</span>
+              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
             </div>
           </div>
 

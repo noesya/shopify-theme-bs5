@@ -1,6 +1,4 @@
-{% if product.has_only_default_variant %}
-  <input name="id" value="{{ current_variant.id }}" type="hidden">
-{% else %}
+
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
       <div class="mb-4">
@@ -51,7 +49,6 @@
       </option>
     {% endfor %}
   </select>
-{% endif %}
 
 {% schema %}
 {
