@@ -4,28 +4,30 @@ window.stk.Product = {
     init: function () {
         'use strict';
         this.formElm = document.querySelector('.js-addtocart-form');
+        this.widgetElm = document.querySelector('.js-addtocart-widget');
         if (this.formElm !== null) {
             this.addtocartElm = document.querySelectorAll('.js-addtocart');
             this.variantElm = document.querySelectorAll('.js-product-variant');
-            this.idElm = document.querySelector('.js-product-id');
             this.qtyElm = document.querySelector('.js-product-qty');
-            this.notifElm = document.querySelector('.js-cart-notif');
-            this.submit();
-            if (this.variantElm.length > 0) {
-                this.select();
-            }
+            this.events();
         }
     },
-    select: function () {
+    events: function () {
         'use strict';
         var that = this;
-        this.variantElm.forEach(function (variant) {
-            variant.addEventListener('change', function (e) {
-                e.preventDefault();
-                that.getCurrentOptions();
-                that.setCurrentOptions();
-            });
+        this.formElm.addEventListener('submit', function (e) {
+            that.submit(this);
+            e.preventDefault();
         });
+        if (this.variantElm.length > 0) {
+            this.idElm = document.querySelector('.js-product-id');
+            this.variantElm.forEach(function (variant) {
+                variant.addEventListener('change', function () {
+                    that.getCurrentOptions();
+                    that.setCurrentOptions();
+                });
+            });
+        }
     },
     getCurrentOptions: function () {
         'use strict';
@@ -65,30 +67,52 @@ window.stk.Product = {
             });
         }
     },
-    submit: function () {
+    submit: function (form) {
+        'use strict';
+        var quantity = Number(this.qtyElm.value);
+        this.addtocartElm.forEach(function (elm) {
+            elm.disabled = true;
+        });
+        cart.addItemFromForm(form).then(item => {
+            console.log(`An item was added to your cart:`, item);
+            this.addtocartElm.forEach(function (elm) {
+                elm.disabled = false;
+            });
+            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
+        });
+    },
+    add: function (id, quantity, properties) {
         'use strict';
         var that = this;
-        this.formElm.addEventListener('submit', function (e) {
-            var id = Number(that.idElm.value),
-                quantity = Number(that.qtyElm.value),
-                properties = '',
-                notif = Number(that.notifElm.innerHTML);
-            that.addtocartElm.forEach(function (elm) {
-                elm.disabled = true;
-            });
-            cart.addItem(id, { quantity, properties }).then(item => {
-                console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
-                that.addtocartElm.forEach(function (elm) {
-                    elm.disabled = false;
-                });
-                that.notifElm.innerHTML = notif + quantity;
-            });
-            e.preventDefault();
+        this.addtocartElm.forEach(function (elm) {
+            elm.disabled = true;
         });
+        cart.addItem(id, { quantity, properties }).then(item => {
+            console.log(`An item with a quantity of ${quantity} was added to your cart:`, item);
+            that.addtocartElm.forEach(function (elm) {
+                elm.disabled = false;
+            });
+            window.stk.Cart.setNotif(window.stk.Cart.getNotif() + quantity)
+        });
+    },
+    widget: function () {
+        'use strict';
+        if (window.stk.position.y > 200) {
+            this.widgetElm.classList.add('show');
+        } else {
+            this.widgetElm.classList.remove('show');
+        }
     }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
     window.stk.Product.init();
+});
+
+window.addEventListener('scroll', function () {
+    'use strict';
+    if (window.stk.Product.widgetElm !== null) {
+        window.stk.Product.widget();
+    }
 });

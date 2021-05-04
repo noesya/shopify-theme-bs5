@@ -17,3 +17,20 @@
                 &:hover,
                 &:focus
                     background-color: $gray-100
+
+    &__widget
+        background-color: $white
+        bottom: 0
+        display: none
+        left: 0
+        padding-bottom: $grid-gutter-width/2
+        padding-top: $grid-gutter-width/2
+        position: fixed
+        right: 0
+        z-index: $zindex-fixed
+        .container
+            display: flex
+        .btn
+            margin-left: auto
+        &.show
+            display: block

@@ -1,6 +1,5 @@
-/* global require */
 /*
-const Rellax import 'rellax';
+import * as Rellax import 'rellax';
 
 window.stk.Parallax = {
     init: function () {

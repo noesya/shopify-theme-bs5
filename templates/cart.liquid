@@ -1,133 +1,137 @@
 
   <h1>{{ 'cart.general.title' | t }}</h1>
   {% if cart.item_count > 0 %}
-    <form action="/cart" method="post" novalidate>
-        <table class="table align-middle cart">
-          <thead>
-            <th class="cart__product">{{ 'cart.label.product' | t }}</th>
-            <th class="cart__price">{{ 'cart.label.price' | t }}</th>
-            <th class="cart__qty">{{ 'cart.label.quantity' | t }}</th>
-            <th class="cart__total">{{ 'cart.label.total' | t }}</th>
-            <th class="cart__delete"></th>
-          </thead>
-          <tbody>
-            {% for item in cart.items %}
-              <tr>
-                <td>
-                  <div class="row align-items-center">
-                    <div class="col cart__image">
-                      <a href="{{ item.url | within: collections.all }}">
-                        <div class="ratio ratio-1x1">
-                          {%- include 'image', src: item, size: '200x200', alt:'{{ item.title | escape }}' -%}
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col">
 
-                      <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
-                      {% unless item.product.has_only_default_variant %}
-                        <p>{{ item.variant.title }}</p>
-                      {% endunless %}
+    <form class="js-cart-form" action="{{ routes.cart_url }}" method="post">
+      <table class="table align-middle cart">
+        <thead>
+          <th class="cart__product" colspan="2">{{ 'cart.label.product' | t }}</th>
+          <th class="cart__price">{{ 'cart.label.price' | t }}</th>
+          <th class="cart__qty">{{ 'cart.label.quantity' | t }}</th>
+          <th class="cart__total">{{ 'cart.label.total' | t }}</th>
+          <th class="cart__delete"></th>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+            <tr>
+              <td class="cart__image">
+                <a href="{{ item.url | within: collections.all }}">
+                  <div class="ratio ratio-1x1">
+                    {%- include 'image', src: item, size: '200x200', alt:'{{ item.title | escape }}' -%}
+                  </div>
+                </a>
+              </td>
+              <td class="cart__product">
+                <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+                {% unless item.product.has_only_default_variant %}
+                  <p class="mb-0">{{ item.variant.title }}</p>
+                {% endunless %}
 
-                      {% assign property_size = item.properties | size %}
-                      {% if property_size > 0 %}
-                        {% for p in item.properties %}
-                          {% assign first_character_in_key = p.first | truncate: 1, '' %}
-                          {% unless p.last == blank or first_character_in_key == '_' %}
-                            {{ p.first }}:
-                            {% if p.last contains '/uploads/' %}
-                              <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-                            {% else %}
-                              {{ p.last }}
-                            {% endif %}
-                            <br>
-                          {% endunless %}
-                        {% endfor %}
+                {% assign property_size = item.properties | size %}
+                {% if property_size > 0 %}
+                  {% for p in item.properties %}
+                    {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                    {% unless p.last == blank or first_character_in_key == '_' %}
+                      {{ p.first }}:
+                      {% if p.last contains '/uploads/' %}
+                        <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                        {{ p.last }}
                       {% endif %}
+                      <br>
+                    {% endunless %}
+                  {% endfor %}
+                {% endif %}
+              </td>
+              <td class="cart__price">
+                <div class="price">
+                  {% if item.original_price != item.price %}
+                    <del>{{ item.original_price | money }}</del>
+                  {% endif %}
+                  <span>{{ item.price | money }}</span>
+                </div>
+              </td>
+              <td class="cart__qty">
+                <label for="updates_{{ item.key }}" class="form-label d-none" aria-label="{{ 'cart.label.quantity' | t }}">
+                  {{ 'cart.label.qty' | t }} {{ item.successfully_fulfilled_quantity }}
+                </label>
+                <input
+                  id="updates_{{ item.key }}"
+                  class="form-control form-control-sm js-cart-qty"
+                  data-key="{{ item.key }}"
+                  max="100"
+                  min="1"
+                  name="updates[]"
+                  type="number"
+                  value="{{ item.quantity }}">
+              </td>
+              <td class="cart__total">
+                <div class="price">
+                  {% if item.original_line_price != item.line_price %}
+                    <del>{{ item.original_line_price | money }}</del>
+                  {% elsif item.compare_at_price > item.line_price %}
+                    <del>{{ item.compare_at_price | money }}</del>
+                  {% endif %}
+                  <span>{{ item.line_price | money }}</span>
+                  {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                </div>
+              </td>
+              <td class="cart__delete">
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-danger" title="{{ 'cart.general.remove' | t }}">
+                  <span class="material-icons-outlined">highlight_off</span>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="price">
-                    {% if item.original_price != item.price %}
-                      <del>{{ item.original_price | money }}</del>
-                    {% endif %}
-                    <span>{{ item.price | money }}</span>
-                  </div>
-                </td>
-                <td>
-                  <input type="number" class="form-control form-control-sm w-50" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" max="100">
-                </td>
-                <td>
-                  <div class="price">
-                    {% if item.original_line_price != item.line_price %}
-                      <del>{{ item.original_line_price | money }}</del>
-                    {% elsif item.compare_at_price > item.line_price %}
-                      <del>{{ item.compare_at_price | money }}</del>
-                    {% endif %}
-                    <span>{{ item.line_price | money }}</span>
-                    {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-                  </div>
-                </td>
-                <td>
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-danger" title="{{ 'cart.general.remove' | t }}">
-                    <span class="material-icons-outlined">highlight_off</span>
-                  </a>
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      {%- capture taxes_shipping_checkout -%}
+        {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
+          {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+        {%- elsif shop.taxes_included -%}
+          {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+        {%- elsif shop.shipping_policy.body != blank -%}
+          {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+        {%- else -%}
+          {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+        {%- endif -%}
+      {%- endcapture -%}
 
-        {%- capture taxes_shipping_checkout -%}
-          {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
-            {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-          {%- elsif shop.taxes_included -%}
-            {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
-          {%- elsif shop.shipping_policy.body != blank -%}
-            {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-          {%- else -%}
-            {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="form-floating">
+            <textarea name="note" class="form-control" placeholder="{{ 'cart.general.note' | t }}" id="note" rows="5"></textarea>
+            <label for="note">{{ 'cart.general.note' | t }}</label>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>{{ taxes_shipping_checkout }}</p>
+
+          {%- if cart.cart_level_discount_applications != blank -%}
+              {% for discount_application in cart.cart_level_discount_applications %}
+                {%- assign amount = discount_application.total_allocated_amount | money -%}
+                <p class="text-danger lead">{{ 'cart.general.savings_html' | t: price: amount }}</p>
+              {% endfor %}
           {%- endif -%}
-        {%- endcapture -%}
 
-        <div class="row">
-          <div class="col">
-            <div class="form-floating">
-              <textarea name="note" class="form-control" placeholder="{{ 'cart.general.note' | t }}" id="note" rows="5"></textarea>
-              <label for="note">{{ 'cart.general.note' | t }}</label>
-            </div>
-          </div>
-          <div class="col text-end">
-            <p>{{ taxes_shipping_checkout }}</p>
-
-            {%- if cart.cart_level_discount_applications != blank -%}
-                {% for discount_application in cart.cart_level_discount_applications %}
-                  {%- assign amount = discount_application.total_allocated_amount | money -%}
-                  <p class="text-danger lead">{{ 'cart.general.savings_html' | t: price: amount }}</p>
-                {% endfor %}
-            {%- endif -%}
-
-            <p class="lead">{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
-          </div>
+          <p class="lead">{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
         </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="attributes[gift]" value="true" id="isGift">
-          <label class="form-check-label" for="isGift">
-            {{ 'cart.general.gift' | t }}
-          </label>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <a href="{{ routes.all_products_collection_url }}" class="btn btn-outline-primary"><span class="material-icons-outlined">arrow_back</span> {{ 'cart.general.continue_shopping' | t }}</a>
-          <button type="submit" name="checkout" class="btn btn-primary"><span class="material-icons-outlined">shopping_cart</span> {{ 'cart.general.checkout' | t }}</button>
-        </div>
-
       </div>
-    </div>
-  </form>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="attributes[gift]" value="true" id="isGift">
+        <label class="form-check-label" for="isGift">
+          {{ 'cart.general.gift' | t }}
+        </label>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-outline-primary"><span class="material-icons-outlined">arrow_back</span> {{ 'cart.general.continue_shopping' | t }}</a>
+        <button type="submit" name="checkout" class="btn btn-primary"><span class="material-icons-outlined">shopping_cart</span> {{ 'cart.general.checkout' | t }}</button>
+      </div>
+
+    </form>
   {% else %}
     <p>{{ 'cart.general.empty' | t }}</p>
   {% endif %}

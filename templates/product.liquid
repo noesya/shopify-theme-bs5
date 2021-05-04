@@ -41,7 +41,7 @@
           {%- section 'product-variant' -%}
 
           <hr>
-          
+
           <div class="row align-items-center">
             <div class="col-auto">
               <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
@@ -50,6 +50,13 @@
               <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty">
             </div>
             <div class="col-auto">
+              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }} — <span class="js-product-price">{{ current_variant.price | money }}</span></button>
+            </div>
+          </div>
+
+          <div class="product__widget js-addtocart-widget">
+            <div class="container">
+              <span class="h2">{{ product.title }}</span>
               <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }} — <span class="js-product-price">{{ current_variant.price | money }}</span></button>
             </div>
           </div>

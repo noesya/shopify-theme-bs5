@@ -44,7 +44,7 @@
         <li class="nav-item">
           <a href="{{ routes.cart_url }}" class="nav-link cart__notif" title="{{ 'cart.general.title' | t }}">
             <span class="material-icons-outlined">shopping_bag</span>
-            <span class="notif js-cart-notif"></span>
+            <span class="notif js-cart-notif">{{ itemCart }}</span>
           </a>
         </li>
         {% if shop.customer_accounts_enabled %}
