@@ -1,11 +1,13 @@
 <h1>{{ 'customer.addresses.title' | t }}</h1>
-<div class="row">
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal_new">
+  {{ 'customer.addresses.add_new' | t }}</a>
+</button>
+
+<div class="row mt-5">
   {% for address in customer.addresses %}
     <div class="col-md-4 mb-3">
-      <div class="card h-100">
-        {% if customer.default_address.id == address.id %}
-          <div class="card-header">{{ 'customer.addresses.default' | t }}</div>
-        {% endif %}
+      <div class="card h-100 {% if customer.default_address.id == address.id %}bg-light{% endif %}">
         <div class="card-body">
           {{ address | format_address }}
           <button
@@ -26,14 +28,12 @@
           </button>
           {%- include 'modal-address', address: address, edit: true -%}
         </div>
+        {% if customer.default_address.id == address.id %}
+          <div class="card-footer">{{ 'customer.addresses.default' | t }}</div>
+        {% endif %}
       </div>
     </div>
   {% endfor %}
 </div>
 
-<hr class="my-5">
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal_new">
-  {{ 'customer.addresses.add_new' | t }}</a>
-</button>
 {%- include 'modal-address', address: customer.new_address -%}
