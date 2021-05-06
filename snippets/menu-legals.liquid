@@ -1,0 +1,9 @@
+{%- if linklists.legals-menu -%}
+<ul class="nav">
+  {% for link in linklists.legals-menu.links %}
+  <li class="nav-item">
+    <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{%- endif -%}

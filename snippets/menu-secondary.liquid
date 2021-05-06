@@ -1,0 +1,19 @@
+{%- if linklists.secondary-menu -%}
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  {% for link in linklists.secondary-menu.links %}
+  <li class="nav-item dropdown">
+    {% assign child_list_handle = link.title | handleize %}
+    {% if linklists[child_list_handle].links != blank %}
+      <a href="{{ link.url }}" class="nav-link dropdown-toggle" id="submenu-{{ link.title | uglify }}" data-bs-toggle="dropdown" aria-expanded="false">{{ link.title }}</a>
+      <div class="dropdown-menu" aria-labelledby="submenu-{{ link.title | uglify }}">
+      {% for childlink in linklists[child_list_handle].links %}
+        <a href="{{ childlink.url }}" class="dropdown-item">{{ childlink.title | escape }}</a>
+      {% endfor %}
+      </div>
+    {% else %}
+      <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{%- endif -%}
