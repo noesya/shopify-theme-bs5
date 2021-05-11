@@ -14,7 +14,7 @@ window.stk.SortBy = {
     },
     onChange: function () {
         'use strict';
-        this.queryParams.sortBy = this.getSortValue();
+        this.queryParams.sort_by = this.getSortValue();
 
         if (this.queryParams.page) {
             delete this.queryParams.page;
