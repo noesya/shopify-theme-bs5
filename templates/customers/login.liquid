@@ -4,38 +4,38 @@
     <div class="border bg-light p-4">
       <h2>{{ 'customer.login.title' | t }}</h2>
       {% form 'customer_login' %}
+        {{ form.errors | default_errors }}
 
-      {{ form.errors | default_errors }}
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" name="customer[email]" required>
+          <label for="customer_email" class="form-label">{{ 'customer.login.email' | t }}</label>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" name="customer[email]" required>
-        <label for="customer_email" class="form-label">{{ 'customer.login.email' | t }}</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" name="customer[password]" required>
+          <label for="customer_password" class="form-label">{{ 'customer.login.password' | t }}</label>
+          <p><a href="#collapsePassword" data-bs-toggle="collapse" data-bs-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" name="customer[password]" required>
-        <label for="customer_password" class="form-label">{{ 'customer.login.password' | t }}</label>
-      </div>
+        <input type="submit" value="{{ 'customer.login.sign_in' | t }}" class="btn btn-primary">
+      {% endform %}
+    </div>
+    
+    <p>{{ 'customer.account.create' | t | customer_register_link }}</p>
 
-      <input type="submit" value="{{ 'customer.login.sign_in' | t }}" class="btn btn-primary">
+    <div class="collapse" id="collapsePassword">
+      <h3>{{ 'customer.recover_password.title' | t }}</h3>
+      {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <label for="customer_email" class="form-label">{{ 'customer.recover_password.email' | t }}</label>
+        </div>
+
+        <input type="submit" value="{{ 'customer.recover_password.submit' | t }}" class="btn btn-outline-dark" />
+      {% endform %}
     </div>
 
-    {% endform %}
-
-    <hr class="my-5">
-
-    <p>{{ 'customer.login.forgot_password' | t }}</p>
-    {% form 'recover_customer_password' %}
-
-    {{ form.errors | default_errors }}
-
-    <div class="form-floating mb-3">
-      <input type="email" name="email" class="form-control" required>
-      <label for="customer_email" class="form-label">{{ 'customer.login.email' | t }}</label>
-    </div>
-
-    <input type="submit" value="{{ 'customer.login.sign_in' | t }}" class="btn btn-outline-dark" />
-
-    {% endform %}
   </div>
 </div>
