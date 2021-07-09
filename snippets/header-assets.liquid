@@ -3,9 +3,6 @@
 <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
 <link rel="preload" href="{{ 'application.js' | asset_url }}" as="script">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
 {{ 'styles.css' | asset_url | stylesheet_tag }}
-
-{%- if settings.favicon != blank -%}
-  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
-{%- endif -%}

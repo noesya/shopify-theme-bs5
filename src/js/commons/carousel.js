@@ -1,4 +1,3 @@
-/* global tns */
 import { tns } from 'tiny-slider/src/tiny-slider';
 
 window.stk.Carousel = {

@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@shopify/theme-cart": "^4.1.0",
+    "glightbox": "^3.0.9",
     "rellax": "^1.12.1",
     "tiny-slider": "^2.9.3"
   },
