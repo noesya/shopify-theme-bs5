@@ -10,7 +10,8 @@ Thème basic fournit par themekit.
 ## Frameworks and plugins front
 * Bootstrap 5
 * Tiny Slider
-* Rellax (paralax)
+* GLightbox
+* Rellax (parallax)
 
 ## Commands
 * Theme watch ```yarn watch```
