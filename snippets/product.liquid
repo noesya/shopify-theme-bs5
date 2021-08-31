@@ -1,6 +1,6 @@
-{%- assign current_variant = product.selected_or_first_available_variant -%}
-{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
-{%- assign featured_media = product.featured_media -%}
+{%- assign current_variant = item.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: item.featured_image -%}
+{%- assign featured_media = item.featured_media -%}
 {%- assign poster = "256x150" -%}
 <div class="card">
 
@@ -14,7 +14,7 @@
     {%- if featured_media -%}
       {% case featured_media.media_type %}
         {% when 'image' %}
-          {% include 'image', src: featured_image, size: '352x352', alt: product.title, class: 'card-img-top' %}
+          {% include 'image', src: featured_image, size: '352x352', alt: item.title, class: 'card-img-top' %}
         {% when 'external_video' %}
           {% include 'external-video', media: featured_media %}
         {% when 'video' %}
@@ -29,11 +29,11 @@
   {% endif %}
 
     <div class="card-body">
-      {% unless product.available %}<span class="badge bg-danger">{{ "products.product.sold_out" | t }}</span>{% endunless %}
-      <h5 class="card-title{% if featured %} h1{% endif %}">{{ product.title }}</h5>
+      {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
+      <p class="h5 card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">{{ current_variant.price | money }}</p>
-      <p class="card-text">{{ product.description }}</p>
-      <a href="{{ product.url | within: collection }}" class="btn btn-primary stretched-link">{{ 'general.navigation.discover_product' | t }}</a>
+      <p class="card-text">{{ item.description }}</p>
+      <a href="{{ item.url | within: collection }}" class="btn btn-primary stretched-link">{{ 'general.navigation.discover_product' | t }}</a>
     </div>
   {% if featured %}
       </div>

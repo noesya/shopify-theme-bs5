@@ -1,4 +1,3 @@
-TEMPLATE LIST COLLECTION
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
     <section class="py-5">
@@ -14,7 +13,7 @@ TEMPLATE LIST COLLECTION
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in collection.products limit:5 %}
           <div class="col">
-            {% include 'product', product: product %}
+            {% include 'product', item: product %}
           </div>
         {% endfor %}
       </div>

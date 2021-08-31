@@ -10,5 +10,11 @@
   src="{{ src | img_url: custom_size, crop: 'center' }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
+  {%- if src.height -%}
+    height="{{src.height}}"
+  {%- endif -%}
+  {%- if src.width -%}
+    width="{{src.width}}"
+  {%- endif -%}
   {{ loading }}
   >

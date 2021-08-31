@@ -37,8 +37,8 @@
     <div class="row row-cols-1 {{ col }} {{ align_col }}">
       {% for grid_product in grid_products %}
         <div class="col {{ mb }}">
-          {%- assign product = all_products[grid_product] -%}
-          {% include 'product', product: product %}
+          {%- assign all_products = all_products[grid_product] -%}
+          {% include 'product', item: all_products %}
         </div>
       {% endfor %}
     </div>
