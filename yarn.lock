@@ -1855,6 +1855,11 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+glightbox@^3.0.9:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/glightbox/-/glightbox-3.1.0.tgz#cd78d72978271e19711163367d7730036ef6d6dd"
+  integrity sha512-QVWU40Eao1+1yH7pb/knwbte0qSXxn2Rfrs7H30G/2+9fXW52woCTBA4kKLtoEHPZxXI+JECj+GBqtRGzfBILQ==
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -3650,11 +3655,6 @@ regex-not@^1.0.0, regex-not@^1.0.2:
   dependencies:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
-
-rellax@^1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/rellax/-/rellax-1.12.1.tgz#1b433ef7ac4aa3573449a33efab391c112f6b34d"
-  integrity sha512-XBIi0CDpW5FLTujYjYBn1CIbK2CJL6TsAg/w409KghP2LucjjzBjsujXDAjyBLWgsfupfUcL5WzdnIPcGfK7XA==
 
 remove-bom-buffer@^3.0.0:
   version "3.0.0"
