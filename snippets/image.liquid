@@ -1,13 +1,9 @@
-{%- assign loading = 'loading="lazy"' -%}
-{%- if lazy == false -%}
-  {%- assign loading = '' -%}
-{%- endif -%}
-{%- assign custom_size = 'large' -%}
-{%- if size -%}
-  {%- assign custom_size = size -%}
-{%- endif -%}
+{%- unless alt -%}
+  {% assign alt = src.alt %}
+{%- endunless -%}
+
 <img
-  src="{{ src | img_url: custom_size, crop: 'center' }}"
+  src="{{ src | img_url: size, crop: 'center' }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {%- if src.height -%}
@@ -16,5 +12,5 @@
   {%- if src.width -%}
     width="{{src.width}}"
   {%- endif -%}
-  {{ loading }}
+  loading="lazy"
   >

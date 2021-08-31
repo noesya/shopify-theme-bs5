@@ -3,6 +3,6 @@
 {%- endif -%}
 <div class="py-5 {{ custom_background }}">
   <div class="container">
-    <img src="{{ image | img_url: '400x400', crop: 'bottom' }}" alt="" class="img-fluid">
+    {%- include 'image', src: image, class: 'img-fluid' -%}
   </div>
 </div>
