@@ -45,9 +45,47 @@
           "inverse": false,
           "background": false
         }
+      },
+      "16304200643eacae48": {
+        "type": "section-carousel",
+        "blocks": {
+          "b99ae1c3-b1b3-4bbd-bea1-48be934f14ca": {
+            "type": "slide",
+            "settings": {
+              "url": "shopify:\/\/collections\/adele",
+              "position": "center",
+              "image": "shopify:\/\/shop_images\/phone.jpg",
+              "title": "Slide 1",
+              "subtitle": "Lorem ipsum",
+              "cta": "",
+              "cta_style": "btn-primary"
+            }
+          },
+          "a2d0bc3c-c264-47eb-8942-a645e3ef9844": {
+            "type": "slide",
+            "settings": {
+              "url": "shopify:\/\/products\/engraving",
+              "position": "center",
+              "title": "Lorem",
+              "subtitle": "",
+              "cta": "",
+              "cta_style": "btn-primary"
+            }
+          }
+        },
+        "block_order": [
+          "b99ae1c3-b1b3-4bbd-bea1-48be934f14ca",
+          "a2d0bc3c-c264-47eb-8942-a645e3ef9844"
+        ],
+        "settings": {
+          "container": "container-fluid p-0",
+          "ratio": "ratio-21x9",
+          "background": false
+        }
       }
     },
     "content_for_index": [
+      "16304200643eacae48",
       "163041873489b86fd0"
     ]
   },
