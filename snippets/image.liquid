@@ -2,6 +2,10 @@
   {% assign alt = src.alt %}
 {%- endunless -%}
 
+{%- unless size -%}
+  {% assign size = 'large' %}
+{%- endunless -%}
+
 <img
   src="{{ src | img_url: size, crop: 'center' }}"
   alt="{{ alt | escape }}"
