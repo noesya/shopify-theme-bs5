@@ -41,7 +41,7 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/phone.jpg",
           "title": "Lorem ipsum",
-          "richtext": "Lorem ipsum",
+          "text": "<p>Lorem <strong>ipsum<\/strong><\/p>",
           "inverse": false,
           "background": false
         }
