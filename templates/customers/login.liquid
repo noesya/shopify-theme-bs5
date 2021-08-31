@@ -2,10 +2,10 @@
   <div class="col-md-6 offset-md-3">
 
     <div>
-      {{ 'customer.account.create' | t | customer_register_link | replace: '<a', '<a class="btn btn-primary"' }}
+      {{ 'customer.account.create' | t | customer_register_link | replace: '<a', '<a class="d-block btn-lg btn btn-primary"' }}
     </div>
 
-    <hr>
+    <hr class="my-5">
 
     <div class="border bg-light p-4">
       <h2>{{ 'customer.login.title' | t }}</h2>
@@ -20,7 +20,7 @@
         <div class="form-floating mb-3">
           <input type="password" class="form-control" name="customer[password]" required>
           <label for="customer_password" class="form-label">{{ 'customer.login.password' | t }}</label>
-          <p><a href="#collapsePassword" data-bs-toggle="collapse" data-bs-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+          <small><a href="#collapsePassword" data-bs-toggle="collapse" data-bs-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">{{ 'customer.login.forgot_password' | t }}</a></small>
         </div>
 
         <input type="submit" value="{{ 'customer.login.sign_in' | t }}" class="btn btn-primary">
