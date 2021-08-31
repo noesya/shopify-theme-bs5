@@ -7,8 +7,8 @@
 
     <hr class="my-5">
 
-    <div class="border bg-light p-4">
-      <h2>{{ 'customer.login.title' | t }}</h2>
+    <div class="border bg-light p-4 mb-2">
+      <h1>{{ 'customer.login.title' | t }}</h1>
       {% form 'customer_login' %}
         {{ form.errors | default_errors }}
 
@@ -28,7 +28,7 @@
     </div>
 
     <div class="collapse" id="collapsePassword">
-      <h3>{{ 'customer.recover_password.title' | t }}</h3>
+      <p class="mb-1">{{ 'customer.recover_password.title' | t }}</p>
       {% form 'recover_customer_password' %}
         {{ form.errors | default_errors }}
 
