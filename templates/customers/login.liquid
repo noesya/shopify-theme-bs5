@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
 
+    <div>
+      {{ 'customer.account.create' | t | customer_register_link | replace: '<a', '<a class="btn btn-primary"' }}
+    </div>
+
+    <hr>
+
     <div class="border bg-light p-4">
       <h2>{{ 'customer.login.title' | t }}</h2>
       {% form 'customer_login' %}
@@ -20,8 +26,6 @@
         <input type="submit" value="{{ 'customer.login.sign_in' | t }}" class="btn btn-primary">
       {% endform %}
     </div>
-    
-    <p>{{ 'customer.account.create' | t | customer_register_link }}</p>
 
     <div class="collapse" id="collapsePassword">
       <h3>{{ 'customer.recover_password.title' | t }}</h3>
