@@ -2,7 +2,6 @@
   <li class="nav-item">
     <a href="{{ routes.search_url }}" class="nav-link" title="{{ 'general.search.title' | t }}">
       <span class="material-icons-outlined">search</span>
-      {{ 'general.search.title' | t }}
     </a>
   </li>
   <li class="nav-item">
@@ -16,11 +15,14 @@
       <li class="nav-item">
         <a href="{{ routes.account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
           <span class="material-icons-outlined">person_outline</span>
-          {{ 'customer.account.title' | t }}
         </a>
       </li>
     {% else %}
-      <li class="nav-item">{{ 'log in' | customer_login_link | replace: '<a', '<a class="nav-link"' | replace: '">', '"><span class="material-icons-outlined">person_outline</span> ' }}</li>
+      <li class="nav-item">
+        <a href="{{ routes.account_login_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
+          <span class="material-icons-outlined">person_outline</span>
+        </a>
+      </li>
     {% endif %}
   {% endif %}
 </ul>
