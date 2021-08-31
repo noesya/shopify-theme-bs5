@@ -1,26 +1,6 @@
 {
   "current": {
     "sections": {
-      "16123678841886b99d": {
-        "type": "section-video",
-        "settings": {
-          "platform_video": "vimeo",
-          "id_video": "3251262"
-        }
-      },
-      "16123678890fa67a87": {
-        "type": "section-video",
-        "settings": {
-          "platform_video": "youtube",
-          "id_video": "zpOULjyy-n8"
-        }
-      },
-      "1612375225ed3bfe11": {
-        "type": "section-image",
-        "settings": {
-          "id_image": "shopify:\/\/shop_images\/phone.jpg"
-        }
-      },
       "components": {
         "type": "components",
         "blocks": {
@@ -36,12 +16,39 @@
         ],
         "settings": {
         }
+      },
+      "top": {
+        "type": "top",
+        "settings": {
+          "top_message": "",
+          "top_type_message": "warning",
+          "top_align_message": false
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_copyright": "Website by Rue Pavée"
+        }
+      },
+      "163041873489b86fd0": {
+        "type": "section-image-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/phone.jpg",
+          "title": "Lorem ipsum",
+          "richtext": "Lorem ipsum",
+          "inverse": false,
+          "background": false
+        }
       }
     },
     "content_for_index": [
-      "16123678841886b99d",
-      "16123678890fa67a87",
-      "1612375225ed3bfe11"
+      "163041873489b86fd0"
     ]
   },
   "presets": {
