@@ -10,13 +10,15 @@
 {%- endif -%}
     <div class="row align-items-center {% if inverse %}flex-row-reverse{% endif %}">
       <div class="col-md-6">
-        <img src="{{ image | img_url: 'grande' }}" alt="" class="img-fluid">
+        {%- include 'image', src: image -%}
       </div>
       <div class="col-md-6">
         <h2>{{ title }}</h2>
+        {%- if text != blank -%}
         <div class="rte">
           {{ text | newline_to_br }}
         </div>
+        {%- endif -%}
       </div>
     </div>
 {%- if container != false -%}
