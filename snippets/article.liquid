@@ -3,7 +3,7 @@
   <div class="card-body">
     {% assign type = article.handle | split: '/' | first %}
     <p class="card-text text-muted small">{{ blogs[type].title }}</p>
-    <h2>{{ article.title }}</h2>
+    <p class="h2 card-title">{{ article.title }}</p>
     {% if article.excerpt.size > 0 %}
       <p class="card-text text-muted">{{ article.excerpt }}</p>
     {% else %}
