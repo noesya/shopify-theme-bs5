@@ -31,13 +31,11 @@
       <p class="mb-1">{{ 'customer.recover_password.title' | t }}</p>
       {% form 'recover_customer_password' %}
         {{ form.errors | default_errors }}
-
-        <div class="form-floating mb-3">
+        <div class="input-group">
+          <label for="customer_email" class="d-none">{{ 'customer.recover_password.email' | t }}</label>
           <input type="email" name="email" class="form-control" placeholder="{{ 'customer.recover_password.email' | t }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-          <label for="customer_email">{{ 'customer.recover_password.email' | t }}</label>
+          <button class="btn btn-outline-primary" type="button">{{ 'customer.recover_password.submit' | t }}</button>
         </div>
-
-        <input type="submit" value="{{ 'customer.recover_password.submit' | t }}" class="btn btn-outline-dark" />
       {% endform %}
     </div>
 
