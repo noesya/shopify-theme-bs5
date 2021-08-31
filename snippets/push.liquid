@@ -1,9 +1,9 @@
 <div class="card">
   <div class="ratio {{ ratio }} bg-light">
     {%- if image -%}
-      <img src="{{ image | img_url: 'x450' }}" alt="{{ custom_title }}" class="img-fluid">
+      {%- include 'image', src: image, size: 'x450', alt: custom_title, class: 'img-fluid' -%}
     {%- elsif item.image -%}
-      <img src="{{ item.image | img_url: '400x400', crop: 'bottom' }}" alt="{{ custom_title }}" class="img-fluid">
+      {%- include 'image', src: item.image, size: 'x450', alt: custom_title, class: 'img-fluid' -%}
     {%- endif -%}
   </div>
   <div class="card-img-overlay">
