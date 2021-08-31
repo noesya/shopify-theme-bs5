@@ -24,6 +24,9 @@
     "pagination": {
       "next": "Next",
       "previous": "Previous"
+    },
+    "search": {
+      "title": "Search"
     }
   },
   "cart": {

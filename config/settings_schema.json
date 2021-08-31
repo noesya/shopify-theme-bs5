@@ -1,11 +1,11 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Themekit w/ Bootstrap 5",
+    "name": "noesya_default_theme",
+    "theme_name": "Default theme Bootstrap 5",
     "theme_version": "1.0.0",
-    "theme_author": "Sébastien Moulène",
-    "theme_documentation_url": "https://github.com/sebousan/shopify-themekit",
-    "theme_support_url": "https://github.com/sebousan/shopify-themekit/issues"
+    "theme_author": "Noesya",
+    "theme_documentation_url": "https://github.com/noesya/shopify-theme-bs5",
+    "theme_support_url": "https://github.com/sebousan/shopify-theme-bs5/issues"
   },
   {
     "name": "Header",
