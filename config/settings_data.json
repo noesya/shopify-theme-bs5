@@ -66,6 +66,7 @@
             "settings": {
               "url": "shopify:\/\/products\/engraving",
               "position": "center",
+              "image": "shopify:\/\/shop_images\/image.jpg",
               "title": "Lorem",
               "subtitle": "",
               "cta": "",
