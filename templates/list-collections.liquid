@@ -1,22 +1,9 @@
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
-    <section class="py-5">
-      {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-      {%- if collection.image -%}
-        {%- include 'image', src: collection.image -%}
-      {%- endif -%}
-      <h2>{{ collection_title }}</h2>
-      {%- if collection.description != blank -%}
-        <div>{{ collection.description }}</div>
-      {%- endif -%}
-      <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for product in collection.products limit:5 %}
-          <div class="col">
-            {% include 'product', item: product %}
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+    <div class="col">
+      {%- include 'collection' -%}
+    </div>
   {% endunless %}
 {% endfor %}
+</div>

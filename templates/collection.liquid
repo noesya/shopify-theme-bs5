@@ -15,7 +15,7 @@
 
 <hr>
 
-{% paginate collection.products by 2 %}
+{% paginate collection.products by 12 %}
   <div class="d-md-flex justify-content-between">
     <h2>{{ 'collections.products.title' | t }}</h2>
     {%- include 'collection-sorting' -%}
