@@ -12,7 +12,7 @@
 
 
 <img
-  src="{{ src | img_url: size, crop: crop }}"
+  src="{{ src | img_url: size }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {%- if src.height -%}
