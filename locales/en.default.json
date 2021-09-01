@@ -57,6 +57,9 @@
     }
   },
   "collections": {
+    "products": {
+      "title": "Products"
+    },
     "sorting": {
       "title": "Sort by"
     }

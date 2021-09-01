@@ -1,8 +1,17 @@
-{%- include 'push', custom_title: collection.title, custom_subtitle: collection.description, image: collection.image -%}
+{%- if collection.image -%}
+  {%- include 'push', ratio: 'ratio-21x9', custom_title: collection.title, custom_subtitle: collection.description, image: collection.image -%}
+{%- else -%}
+  <h1>{{ collection.title }}</h1>
+  <div class="rte">
+    {{ collection.description }}
+  </div>
+{%- endif -%}
+
+<hr>
 
 {% paginate collection.products by 2 %}
-  <div class="d-md-flex">
-    <h1>{{ collection.title }}</h1>
+  <div class="d-md-flex justify-content-between">
+    <h2>{{ 'collections.products.title' | t }}</h2>
     {%- include 'collection-sorting' -%}
   </div>
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
