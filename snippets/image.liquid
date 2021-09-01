@@ -6,12 +6,12 @@
   {% assign size = 'large' %}
 {%- endunless -%}
 
-<img
-  {%- if crop -%}
+<img 
+  {% if crop %}
     src="{{ src | img_url: size, crop: crop }}"
-  {%- else -%}
+  {% else %}
     src="{{ src | img_url: size }}"
-  {%- endif -%}
+  {% endif %}
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {%- if src.height -%}
