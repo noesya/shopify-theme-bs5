@@ -56,6 +56,11 @@
       "add_note": "Ajouter une note à votre commande"
     }
   },
+  "collections": {
+    "sorting": {
+      "title": "Trier par"
+    }
+  },
   "products": {
     "product": {
       "sold_out": "Épuisé",

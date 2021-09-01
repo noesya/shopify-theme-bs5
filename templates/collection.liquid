@@ -1,14 +1,10 @@
-<h1>{{ collection.title }}</h1>
-{%- if collection.image -%}
-  {%- include 'image', src: collection.image -%}
-{%- endif -%}
-{%- if collection.description != blank -%}
-  <div class="rte">{{ collection.description }}</div>
-  <hr class="my-5">
-{%- endif -%}
+{%- include 'push', custom_title: collection.title, custom_subtitle: collection.description, image: collection.image -%}
 
 {% paginate collection.products by 2 %}
-  {%- include 'collection-sorting' -%}
+  <div class="d-md-flex">
+    <h1>{{ collection.title }}</h1>
+    {%- include 'collection-sorting' -%}
+  </div>
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
     {% for product in collection.products %}
       <div class="col">

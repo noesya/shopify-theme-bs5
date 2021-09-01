@@ -15,7 +15,9 @@
         {%- if custom_subtitle != blank -%}
           <p>{{ custom_subtitle }}</p>
         {%- endif -%}
-        <a href="{{ custom_url }}" class="btn {{ cta_style }} stretched-link">{{ custom_cta }} <span class="material-icons-outlined">trending_flat</span></a>
+        {%- if custom_url != blank -%}
+          <a href="{{ custom_url }}" class="btn {{ cta_style }} stretched-link">{{ custom_cta }} <span class="material-icons-outlined">trending_flat</span></a>
+        {%- endif -%}
       </div>
     </div>
   </div>
