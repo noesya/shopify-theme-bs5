@@ -19,7 +19,7 @@
       "newsletter_email": "Inscrivez-vous à notre newsletter",
       "email_placeholder": "Adresse e-mail",
       "confirmation": "Merci de vous être abonné(e) !",
-      "submit": "S'inscrire"
+      "submit": "S’inscrire"
     },
     "pagination": {
       "next": "Suivant",
@@ -57,6 +57,9 @@
     }
   },
   "collections": {
+    "products": {
+      "title": "Produits"
+    },
     "sorting": {
       "title": "Trier par"
     }
@@ -85,7 +88,101 @@
       "details": "Détails du compte",
       "return": "Retourner vers mon compte"
     },
+    "activate_account": {
+      "title": "Activer mon compte",
+      "subtext": "Create your password to activate your account.",
+      "password": "Mot de passe",
+      "password_confirm": "Confirmer le mot de passe",
+      "submit": "Activer mon compte",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Vos adresses",
+      "default": "Adresse par défaut",
+      "add_new": "Ajouter une nouvelle adresse",
+      "edit_address": "Modifier l’adresse",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "company": "Société",
+      "address1": "Adresse",
+      "address2": "Apartment, suite, etc.",
+      "city": "Ville",
+      "country": "Pays\/Région",
+      "province": "Province",
+      "zip": "Code postal",
+      "phone": "Téléphone",
+      "set_default": "Définir comme adresse par défaut",
+      "add": "Ajouter une adresse",
+      "update": "Modifier une adresse",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "delete_confirm": "Êtes-vous sûr de vouloir supprimer cette adresse ?",
+      "view": "Voir les adresses",
+      "submit": "Enregistrer"
+    },
+    "login": {
+      "title": "Login",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "forgot_password": "Mot de passe oublié ?",
+      "sign_in": "Se connecter",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "orders": {
+      "title": "Commandes",
+      "order_number": "Commande",
+      "order_number_link": "Commande numéro {{ number }}",
+      "date": "Date",
+      "payment_status": "Statut du paiement",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date_html": "Placed on {{ date }}",
+      "cancelled_html": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "fulfilled_at_html": "Fulfilled {{ date }}",
+      "subtotal": "Subtotal",
+      "track_shipment": "Track shipment"
+    },
+    "recover_password": {
+      "title": "Réinitialiser votre mot de passe",
+      "email": "Email",
+      "submit": "Réinitialiser",
+      "cancel": "Annuler",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for {{ email }}",
+      "password": "Mot de passe",
+      "password_confirm": "Confirme mot de passe",
+      "submit": "Reset Password"
+    },
     "register": {
+      "title": "Créer un compte",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Créer",
       "marketing": "S’inscrire à la newsletter"
     }
   }

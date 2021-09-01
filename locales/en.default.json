@@ -181,9 +181,7 @@
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
-    },
-    "register": {
+      "submit": "Create",
       "marketing": "Subscribe to the newsletter"
     }
   }
