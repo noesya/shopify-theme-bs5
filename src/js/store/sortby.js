@@ -3,23 +3,25 @@ window.stk.SortBy = {
         'use strict';
         this.sortSelect = document.querySelector('.js-sortby');
         if (this.sortSelect !== null) {
-            this.initChange();
+            this.params();
+            this.event();
         }
     },
-    initChange: function () {
+    params: function () {
         'use strict';
         this.queryParams = {};
         this.defaultSort = this.getDefaultSortValue();
+    },
+    event: function () {
+        'use strict';
         this.sortSelect.addEventListener('change', this.onChange.bind(this));
     },
     onChange: function () {
         'use strict';
         this.queryParams.sort_by = this.getSortValue();
-
         if (this.queryParams.page) {
             delete this.queryParams.page;
         }
-
         window.location.search = decodeURIComponent(new URLSearchParams(Object.entries(this.queryParams)).toString());
     },
     getSortValue: function () {
