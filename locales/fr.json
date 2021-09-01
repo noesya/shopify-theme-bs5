@@ -83,7 +83,10 @@
       "create": "Créer un compte",
       "title": "Mon compte",
       "details": "Détails du compte",
-      "return": "Return to Account Details"
+      "return": "Retourner vers mon compte"
+    },
+    "register": {
+      "marketing": "S’inscrire à la newsletter"
     }
   }
 }

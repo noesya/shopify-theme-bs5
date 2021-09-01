@@ -182,6 +182,9 @@
       "email": "Email",
       "password": "Password",
       "submit": "Create"
+    },
+    "register": {
+      "marketing": "Subscribe to the newsletter"
     }
   }
 }
