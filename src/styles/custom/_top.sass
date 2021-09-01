@@ -1,12 +1,8 @@
 .top
     background-color: $primary
-    padding-bottom: $grid-gutter-width/2
-    padding-top: $grid-gutter-width/2
     text-align: center
+    .container
+        padding-bottom: map-get($spacers, 1)
+        padding-top: map-get($spacers, 1)
     &, a
         color: $white
-    .container
-        position: relative
-    &__link
-        left: 0
-        position: absolute
