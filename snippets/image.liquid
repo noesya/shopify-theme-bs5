@@ -6,8 +6,13 @@
   {% assign size = 'large' %}
 {%- endunless -%}
 
+{%- unless crop -%}
+  {% assign crop = 'center' %}
+{%- endunless -%}
+
+
 <img
-  src="{{ src | img_url: size, crop: 'center' }}"
+  src="{{ src | img_url: size, crop: crop }}"
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {%- if src.height -%}
