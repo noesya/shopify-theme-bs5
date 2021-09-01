@@ -1,13 +1,8 @@
 {%- assign top_message = section.settings.top_message -%}
+
 {%- if top_message != blank -%}
-  {%- assign align = '' -%}
-  {%- if section.settings.top_align_message -%}
-    {%- assign align = ' text-center' -%}
-  {%- endif -%}
-  <div class="alert alert-{{ section.settings.top_type_message }}{{ align }} mb-0 border-0 py-1 text-uppercase" role="alert">
-    <div class="container">
-      <small>{{ top_message }}</small>
-    </div>
+  <div class="container">
+    <small>{{ top_message }}</small>
   </div>
 {%- endif -%}
 
@@ -34,58 +29,6 @@
       "placeholder": {
         "en": "Message",
         "fr": "Message"
-      }
-    },
-    {
-      "type": "select",
-      "id": "top_type_message",
-      "label": {
-        "en": "Which type?",
-        "fr": "Quel type ?"
-      },
-      "default": "warning",
-      "options": [
-        {
-          "value": "primary",
-          "label": "Primary"
-        },
-        {
-          "value": "secondary",
-          "label": "Secondary"
-        },
-        {
-          "value": "info",
-          "label": "Info"
-        },
-        {
-          "value": "danger",
-          "label": "Danger"
-        },
-        {
-          "value": "warning",
-          "label": "Warning"
-        },
-        {
-          "value": "success",
-          "label": "Success"
-        },
-        {
-          "value": "light",
-          "label": "Light"
-        },
-        {
-          "value": "dark",
-          "label": "Dark"
-        }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "id": "top_align_message",
-      "default": false,
-      "label": {
-        "en": "Center text?",
-        "fr": "Centrer le texte ?"
       }
     }
   ]
