@@ -1,5 +1,11 @@
 {%- if collection.image -%}
-  {%- include 'push', ratio: 'ratio-21x9', custom_title: collection.title, custom_subtitle: collection.description, image: collection.image -%}
+  {%- include 'push',
+    ratio: 'ratio-21x9',
+    custom_title: collection.title,
+    custom_subtitle: collection.description,
+    image: collection.image,
+    row_class: 'align-items-center',
+    col_class: 'offset-md-4 text-center'-%}
 {%- else -%}
   <h1>{{ collection.title }}</h1>
   <div class="rte">
