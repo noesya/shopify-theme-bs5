@@ -7,11 +7,11 @@
 {%- endunless -%}
 
 <img
-  {%- unless crop -%}
-    src="{{ src | img_url: size }}"
-  {%- else -%}
+  {%- if crop -%}
     src="{{ src | img_url: size, crop: crop }}"
-  {%- endunless -%}
+  {%- else -%}
+    src="{{ src | img_url: size }}"
+  {%- endif -%}
   alt="{{ alt | escape }}"
   class="{{ class }}"
   {%- if src.height -%}
