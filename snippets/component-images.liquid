@@ -38,7 +38,7 @@
     <div class="row row-cols-1 {{ col }} {{ align }}">
       {% for block in section.blocks limit: section.blocks.size %}
         <div class="col {{ mb }}" {{ block.shopify_attributes }}>
-          <img src="{{ block.settings.image | img_url: '400x400', crop: 'bottom' }}" alt="" class="img-fluid">
+          {%- include 'image', src: block.settings.image, size: '400x400', crop: 'bottom' img_class: 'img-fluid' -%}
         </div>
       {% endfor %}
     </div>
