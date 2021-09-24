@@ -1,24 +1,19 @@
-{%- unless alt -%}
-  {% assign alt = src.alt %}
-{%- endunless -%}
+{% assign breakpoints = 375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920 %}
 
-{%- unless size -%}
-  {% assign size = 'large' %}
+{% comment %} IMG TAG {% endcomment %}
+{%- assign img_tag = '<img' -%}
+{%- assign img_tag = img_tag | append: ' src="' | append: img | img_url | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' height="' | append: img.height | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' width="' | append: img.width | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' alt="' | append: img.alt | escape | append: '"' -%}
+{%- unless no_lazy -%}
+  {%- assign img_tag = img_tag | append: ' loading="lazy"' -%}
 {%- endunless -%}
+{%- if img_class -%}
+  {%- assign img_tag = img_tag | append: ' class="' | apped: img_class | append: '"' -%}
+{%- endif -%}
+{%- assign img_tag = img_tag | append: '>' -%}
 
-<img 
-  {% if crop %}
-    src="{{ src | img_url: size, crop: crop }}"
-  {% else %}
-    src="{{ src | img_url: size }}"
-  {% endif %}
-  alt="{{ alt | escape }}"
-  class="{{ class }}"
-  {%- if src.height -%}
-    height="{{src.height}}"
-  {%- endif -%}
-  {%- if src.width -%}
-    width="{{src.width}}"
-  {%- endif -%}
-  loading="lazy"
-  >
+<picture>
+  {{img_tag}}
+</picture>
