@@ -27,25 +27,24 @@
   {% assign img_desktop_url_2x = img_url_2x %}
   {% assign img_url = src | img_url: mobile_size, crop: crop %}
   {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: crop %}
-  {% assign source_mobile = '<source srcset="' | append: img_desktop_url | append: ', ' | append: img_desktop_url_2x | append: ' 2x" media="(min-width: 768px)">' -%}
+  {% assign source_desktop = '<source srcset="' | append: img_desktop_url | append: ', ' | append: img_desktop_url_2x | append: ' 2x" media="(min-width: 768px)">' %}
 {%- endif -%}
 
 {% comment %} IMG TAG {% endcomment %}
-{%- assign img_tag = '<img' -%}
-{%- assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' srcset="' | append: img_url_2x | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' height="' | append: img_height | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' width="' | append: img_width | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' alt="' | append: img_alt | append: '"' -%}
+{% assign img_tag = '<img' %}
+{% assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' %}
+{% assign img_tag = img_tag | append: ' height="' | append: img_height | append: '"' %}
+{% assign img_tag = img_tag | append: ' width="' | append: img_width | append: '"' %}
+{% assign img_tag = img_tag | append: ' alt="' | append: img_alt | append: '"' %}
 {%- unless no_lazy -%}
-  {%- assign img_tag = img_tag | append: ' loading="lazy"' -%}
+  {% assign img_tag = img_tag | append: ' loading="lazy"' %}
 {%- endunless -%}
 {%- if img_class -%}
-  {%- assign img_tag = img_tag | append: ' class="' | append: img_class | append: '"' -%}
+  {% assign img_tag = img_tag | append: ' class="' | append: img_class | append: '"' %}
 {%- endif -%}
-{%- assign img_tag = img_tag | append: '>' -%}
+{% assign img_tag = img_tag | append: '>' %}
 
 <picture>
-  {{source_mobile}}
+  {{source_desktop}}
   {{img_tag}}
 </picture>
