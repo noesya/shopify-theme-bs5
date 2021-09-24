@@ -14,7 +14,7 @@
     {%- if featured_media -%}
       {% case featured_media.media_type %}
         {% when 'image' %}
-          {% include 'image', src: featured_image, size: '352x352', alt: item.title, class: 'card-img-top' %}
+          {% include 'image', src: featured_image, size: '352x352', alt: item.title, img_class: 'card-img-top' %}
         {% when 'external_video' %}
           {% include 'external-video', media: featured_media %}
         {% when 'video' %}
