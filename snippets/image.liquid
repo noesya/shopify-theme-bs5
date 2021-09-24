@@ -16,6 +16,7 @@
 {% assign img_height = src.height %}
 {% assign img_width = src.width | escape %}
 
+{% comment %} MOBILE SOURCE {% endcomment %}
 {% assign source_mobile = null %}
 {%- if mobile_size -%}
   {% assign img_mobile_url = src | img_url: mobile_size, crop: 'center' %}
