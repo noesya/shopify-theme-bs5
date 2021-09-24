@@ -1,9 +1,13 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
 
 {% comment %} IMG DATAS {% endcomment %}
+{% assign crop = 'center' %}
+{%- if crop -%}
+  {% assign crop = crop %}
+{%- endif -%}
 {%- if size -%}
-  {% assign img_url = src | img_url: size, crop: 'center' %}
-  {% assign img_url_2x = src | img_url: size, scale: 2, crop: 'center' %}
+  {% assign img_url = src | img_url: size, crop: crop %}
+  {% assign img_url_2x = src | img_url: size, scale: 2, crop: crop %}
 {%- else -%}
   {% assign img_url = src | img_url: 'large' %}
   {% assign img_url_2x = src | img_url: 'large', scale: 2 %}
@@ -21,8 +25,8 @@
 {%- if mobile_size -%}
   {% assign img_desktop_url = img_url %}
   {% assign img_desktop_url_2x = img_url_2x %}
-  {% assign img_url = src | img_url: mobile_size, crop: 'center' %}
-  {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: 'center' %}
+  {% assign img_url = src | img_url: mobile_size, crop: crop %}
+  {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: crop %}
   {% assign source_mobile = '<source srcset="' | append: img_desktop_url | append: ', ' | append: img_desktop_url_2x | append: ' 2x" media="(min-width: 768px)">' -%}
 {%- endif -%}
 
