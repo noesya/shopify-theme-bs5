@@ -1,4 +1,6 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
+
+{% comment %} IMG DATAS {% endcomment %}
 {%- if size -%}
   {% assign img_url = src | img_url: size, crop: 'center' %}
 {%- else -%}
