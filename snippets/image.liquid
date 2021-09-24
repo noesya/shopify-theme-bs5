@@ -1,50 +1,36 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
 
-{% comment %} IMG DATAS {% endcomment %}
-{% assign crop = 'center' %}
 {%- if crop -%}
-  {% assign crop = crop %}
+    {% assign crop = crop %}
+{%- else -%}
+    {% assign crop = 'center' %}
 {%- endif -%}
+
 {%- if size -%}
-  {% assign img_url = src | img_url: size, crop: crop %}
-  {% assign img_url_2x = src | img_url: size, scale: 2, crop: crop %}
+    {% assign img_url = src | img_url: size, crop: crop %}
+    {% assign img_url_2x = src | img_url: size, scale: 2, crop: crop %}
 {%- else -%}
-  {% assign img_url = src | img_url: 'large' %}
-  {% assign img_url_2x = src | img_url: 'large', scale: 2 %}
+    {% assign img_url = src | img_url: 'large' %}
+    {% assign img_url_2x = src | img_url: 'large', scale: 2 %}
 {%- endif -%}
+
 {%- if alt -%}
-  {% assign img_alt = alt | escape %}
+    {% assign img_alt = alt | escape %}
 {%- else -%}
-  {% assign img_alt = src.alt | escape %}
+    {% assign img_alt = src.alt | escape %}
 {%- endif -%}
+
 {% assign img_height = src.height %}
+
 {% assign img_width = src.width | escape %}
 
-{% comment %} MOBILE SOURCE {% endcomment %}
-{% assign source_mobile = null %}
-{%- if mobile_size -%}
-  {% assign img_desktop_url = img_url %}
-  {% assign img_desktop_url_2x = img_url_2x %}
-  {% assign img_url = src | img_url: mobile_size, crop: crop %}
-  {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: crop %}
-  {% assign source_desktop = '<source srcset="' | append: img_desktop_url | append: ', ' | append: img_desktop_url_2x | append: ' 2x" media="(min-width: 768px)">' %}
-{%- endif -%}
-
-{% comment %} IMG TAG {% endcomment %}
-{% assign img_tag = '<img' %}
-{% assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' %}
-{% assign img_tag = img_tag | append: ' height="' | append: img_height | append: '"' %}
-{% assign img_tag = img_tag | append: ' width="' | append: img_width | append: '"' %}
-{% assign img_tag = img_tag | append: ' alt="' | append: img_alt | append: '"' %}
-{%- unless no_lazy -%}
-  {% assign img_tag = img_tag | append: ' loading="lazy"' %}
-{%- endunless -%}
-{%- if img_class -%}
-  {% assign img_tag = img_tag | append: ' class="' | append: img_class | append: '"' %}
-{%- endif -%}
-{% assign img_tag = img_tag | append: '>' %}
-
 <picture>
-  {{source_desktop}}
-  {{img_tag}}
+    {%- if mobile_size -%}
+        {% assign img_desktop_url = img_url %}
+        {% assign img_desktop_url_2x = img_url_2x %}
+        {% assign img_url = src | img_url: mobile_size, crop: crop %}
+        {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: crop %}
+        <source srcset="{{ img_desktop_url }}, {{ img_desktop_url_2x }} 2x" media="(min-width: 768px)">
+    {%- endif -%}
+    <img src="{{ img_url }}" height="{{ img_height }}" width="{{ img_width }}" alt="{{ img_alt }}"{%- unless no_lazy -%} loading="lazy"{%- endunless -%}{%- if img_class -%} class="{{ img_class }}"{%- endif -%}>
 </picture>
