@@ -1,12 +1,11 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
-{% assign img = src %}
 
 {% comment %} IMG TAG {% endcomment %}
 {%- assign img_tag = '<img' -%}
-{%- assign img_tag = img_tag | append: ' src="' | append: img | img_url | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' height="' | append: img.height | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' width="' | append: img.width | append: '"' -%}
-{%- assign img_tag = img_tag | append: ' alt="' | append: img.alt | escape | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' src="' | append: src | img_url | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' height="' | append: src.height | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' width="' | append: src.width | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' alt="' | append: src.alt | escape | append: '"' -%}
 {%- unless no_lazy -%}
   {%- assign img_tag = img_tag | append: ' loading="lazy"' -%}
 {%- endunless -%}
