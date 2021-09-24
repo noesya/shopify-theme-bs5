@@ -3,8 +3,10 @@
 {% comment %} IMG DATAS {% endcomment %}
 {%- if size -%}
   {% assign img_url = src | img_url: size, crop: 'center' %}
+  {% assign img_url_2x = src | img_url: size, scale: 2, crop: 'center' %}
 {%- else -%}
   {% assign img_url = src | img_url: 'large' %}
+  {% assign img_url_2x = src | img_url: 'large', scale: 2 %}
 {%- endif -%}
 {%- if alt -%}
   {% assign img_alt = alt | escape %}
@@ -17,6 +19,7 @@
 {% comment %} IMG TAG {% endcomment %}
 {%- assign img_tag = '<img' -%}
 {%- assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' -%}
+{%- assign img_tag = img_tag | append: ' srcset="' | append: img_url_2x | append: '"' -%}
 {%- assign img_tag = img_tag | append: ' height="' | append: img_height | append: '"' -%}
 {%- assign img_tag = img_tag | append: ' width="' | append: img_width | append: '"' -%}
 {%- assign img_tag = img_tag | append: ' alt="' | append: img_alt | append: '"' -%}
