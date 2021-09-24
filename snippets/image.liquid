@@ -1,5 +1,5 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
-{% assign img_url = src | img_url %}
+{% assign img_url = src | img_url: 'large' %}
 {% assign img_alt = src.alt | escape %}
 {% assign img_height = src.height %}
 {% assign img_width = src.width | escape %}
