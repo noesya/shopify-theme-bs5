@@ -1,5 +1,9 @@
 {% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
-{% assign img_url = src | img_url: size, crop: 'center' %}
+{%- if size -%}
+  {% assign img_url = src | img_url: size, crop: 'center' %}
+{%- else -%}
+  {% assign img_url = src | img_url: 'large' %}
+{%- endif -%}
 {%- if alt -%}
   {% assign img_alt = alt | escape %}
 {%- else -%}
