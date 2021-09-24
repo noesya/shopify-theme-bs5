@@ -19,7 +19,7 @@
 {% assign source_mobile = null %}
 {%- if mobile_size -%}
   {% assign img_mobile_url = src | img_url: mobile_size, crop: 'center' %}
-  {%- assign source_mobile = '<source srcset="' | append: img_mobile_url | append: ' media="(min-width: 768px)">' -%}
+  {%- assign source_mobile = '<source srcset="' | append: img_mobile_url | append: ' media="(max-width: 767px)">' -%}
 {%- endif -%}
 
 {% comment %} IMG TAG {% endcomment %}
