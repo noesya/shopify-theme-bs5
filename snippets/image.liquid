@@ -16,6 +16,12 @@
 {% assign img_height = src.height %}
 {% assign img_width = src.width | escape %}
 
+{% assign source_mobile = null %}
+{%- if mobile_size -%}
+  {% assign img_mobile_url = src | img_url: mobile_size, crop: 'center' %}
+  {%- assign source_mobile = '<source srcset="' | append: img_mobile_url | append: ' media="(min-width: 768px)">' -%}
+{%- endif -%}
+
 {% comment %} IMG TAG {% endcomment %}
 {%- assign img_tag = '<img' -%}
 {%- assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' -%}
@@ -32,5 +38,6 @@
 {%- assign img_tag = img_tag | append: '>' -%}
 
 <picture>
+  {{source_mobile}}
   {{img_tag}}
 </picture>
