@@ -22,6 +22,7 @@
   {% assign img_desktop_url = img_url %}
   {% assign img_desktop_url_2x = img_url_2x %}
   {% assign img_url = src | img_url: mobile_size, crop: 'center' %}
+  {% assign img_url_2x = src | img_url: mobile_size, scale: 2, crop: 'center' %}
   {% assign source_mobile = '<source srcset="' | append: img_desktop_url | append: '" media="(min-width: 768px)">' -%}
 {%- endif -%}
 
