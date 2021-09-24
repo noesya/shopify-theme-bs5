@@ -18,7 +18,7 @@
   {%- assign img_tag = img_tag | append: ' loading="lazy"' -%}
 {%- endunless -%}
 {%- if img_class -%}
-  {%- assign img_tag = img_tag | append: ' class="' | apped: img_class | append: '"' -%}
+  {%- assign img_tag = img_tag | append: ' class="' | append: img_class | append: '"' -%}
 {%- endif -%}
 {%- assign img_tag = img_tag | append: '>' -%}
 
