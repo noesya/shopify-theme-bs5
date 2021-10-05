@@ -41,5 +41,8 @@
         </div>
       {% endfor %}
     </div>
+    {% if url != blank %}
+      <a href="{{url}}" class="btn {{cta_style}}">{{cta}}</a>
+    {% endif %}
   </div>
 </div>
