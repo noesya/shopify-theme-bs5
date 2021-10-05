@@ -27,12 +27,15 @@
 <div class="py-5 {{ custom_background }}">
   <div class="container">
     {% if title != blank %}
-      <div class="{{ align_text }}">
-        <h2>{{ title | escape }}</h2>
-        {% if subtitle != blank %}
-          <p>{{ subtitle | escape }}</p>
+      <header class="mb-3 {{ align_text }}">
+        {% if surtitle != blank %}
+          <p class="mb-0">{{ surtitle | escape }}</p>
         {% endif %}
-      </div>
+        <h2 class="mb-0">{{ title | escape }}</h2>
+        {% if subtitle != blank %}
+          <p class="mb-0">{{ subtitle | escape }}</p>
+        {% endif %}
+      </header>
     {% endif %}
     <div class="row row-cols-1 {{ col }} {{ align_col }}">
       {% for block in section.blocks limit: section.blocks.size %}

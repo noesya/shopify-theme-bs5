@@ -1,4 +1,5 @@
 {%- assign grid = section.settings.grid -%}
+{%- assign surtitle = section.settings.surtitle -%}
 {%- assign title = section.settings.title -%}
 {%- assign subtitle = section.settings.subtitle -%}
 {%- assign center = section.settings.center_message -%}
@@ -16,6 +17,14 @@
   "class": "section--featured-pages",
   "max_blocks": 6,
   "settings": [
+    {
+      "type": "text",
+      "id": "surtitle",
+      "label": {
+        "en": "Surtitle",
+        "fr": "Sur-titre"
+      }
+    },
     {
       "type": "text",
       "id": "title",
