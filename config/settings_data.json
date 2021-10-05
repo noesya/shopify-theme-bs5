@@ -117,6 +117,39 @@
           "url": "shopify:\/\/pages\/about-us",
           "cta": "CTA",
           "cta_style": "btn-primary",
+          "center": false,
+          "background": false
+        }
+      },
+      "163343919464ccf639": {
+        "type": "section-reviews",
+        "blocks": {
+          "163343919464ccf639-0": {
+            "type": "block",
+            "settings": {
+              "title": "Arnaud L.",
+              "text": "<p>lorem ipsum dolor sit amet<\/p>",
+              "rating": 5
+            }
+          },
+          "163343919464ccf639-1": {
+            "type": "block",
+            "settings": {
+              "title": "Sébastien M.",
+              "text": "<p>lorem <strong>ipsum lorem ip<\/strong>sum dolor sit amet dolor sit amet lorem ipsum dolor sit lorem ipsum dolor sit amet amet lorem ipsum dolor sit amet<\/p>",
+              "rating": 4
+            }
+          }
+        },
+        "block_order": [
+          "163343919464ccf639-0",
+          "163343919464ccf639-1"
+        ],
+        "settings": {
+          "title": "",
+          "subtitle": "",
+          "grid": 4,
+          "center": false,
           "background": false
         }
       }
@@ -124,7 +157,8 @@
     "content_for_index": [
       "16304200643eacae48",
       "163041873489b86fd0",
-      "1633427828d3043900"
+      "1633427828d3043900",
+      "163343919464ccf639"
     ]
   },
   "presets": {
