@@ -44,13 +44,11 @@
           {% endif %}
           <div class="stars">
             {% assign rate = block.settings.rating %}
-            {% assign rate_empty = 5 | minus: rate %}
-            {{rate}}
-            {% for star in rate %}
+            {% assign rate_remaining = 5 | minus: rate %}
+            {% for i in (1..rate) %}
               <span class="material-icons-outlined">star</span>
             {% endfor %}
-            {{rate_empty}}
-            {% for star in rate_empty %}
+            {% for i in (1..rate_remaining) %}
               <span class="material-icons-outlined">star_border</span>
             {% endfor %}
           </div>
