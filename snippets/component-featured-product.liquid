@@ -1,9 +1,9 @@
-{%- assign product = all_products[id] -%}
+{%- assign product_featured = all_products[id] -%}
 {%- if background -%}
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
 <div class="py-5 {{ custom_background }}">
   <div class="container">
-    {% include 'product', product: product, featured: true %}
+    {% include 'product', item: product_featured, featured: true %}
   </div>
 </div>

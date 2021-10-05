@@ -36,8 +36,8 @@
     <div class="row {{ col }} {{ align_col }} gy-3">
       {% for block in section.blocks limit: section.blocks.size %}
         <div class="col" {{ block.shopify_attributes }}>
-          {%- assign product = all_products[block.settings.id_product] -%}
-          {% include 'product', product: product %}
+          {%- assign product_featured = all_products[block.settings.id_product] -%}
+          {% include 'product', item: product_featured %}
         </div>
       {% endfor %}
     </div>
