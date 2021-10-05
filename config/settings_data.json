@@ -20,9 +20,7 @@
       "top": {
         "type": "top",
         "settings": {
-          "top_message": "",
-          "top_type_message": "warning",
-          "top_align_message": false
+          "top_message": ""
         }
       },
       "header": {
@@ -83,11 +81,50 @@
           "ratio": "ratio-21x9",
           "background": false
         }
+      },
+      "1633427828d3043900": {
+        "type": "section-featured-products",
+        "blocks": {
+          "1633427828d3043900-0": {
+            "type": "featured_product",
+            "settings": {
+              "id_product": "edredon-adele"
+            }
+          },
+          "1633427828d3043900-1": {
+            "type": "featured_product",
+            "settings": {
+              "id_product": "bouteille-de-vin"
+            }
+          },
+          "1633427828d3043900-2": {
+            "type": "featured_product",
+            "settings": {
+              "id_product": "engraving"
+            }
+          }
+        },
+        "block_order": [
+          "1633427828d3043900-0",
+          "1633427828d3043900-1",
+          "1633427828d3043900-2"
+        ],
+        "settings": {
+          "surtitle": "sur",
+          "title": "Products",
+          "subtitle": "sub",
+          "grid": 3,
+          "url": "shopify:\/\/pages\/about-us",
+          "cta": "CTA",
+          "cta_style": "btn-primary",
+          "background": false
+        }
       }
     },
     "content_for_index": [
       "16304200643eacae48",
-      "163041873489b86fd0"
+      "163041873489b86fd0",
+      "1633427828d3043900"
     ]
   },
   "presets": {
