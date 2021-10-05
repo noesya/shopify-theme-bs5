@@ -1,4 +1,5 @@
-/* global Splide */
+import Splide from '@splidejs/splide';
+
 window.stk.carousel = {
     instances: [],
     init: function () {
