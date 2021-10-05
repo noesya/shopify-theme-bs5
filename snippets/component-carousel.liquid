@@ -8,32 +8,38 @@
 {%- endif -%}
 <div class="{{ custom_background }}{{ padding_class }}">
   <div class="{{ container }}">
-    <div class="js-carousel" data-next="<span>{{ 'general.pagination.next' | t }}</span>" data-prev="<span>{{ 'general.pagination.previous' | t }}</span>">
-      {%- for block in blocks -%}
-        {%- assign custom_url = block.settings.url -%}
-        {%- assign image = block.settings.image -%}
-        {%- assign custom_title = block.settings.title -%}
-        {%- assign custom_subtitle = block.settings.subtitle -%}
-        {%- assign position = block.settings.position -%}
-        {%- assign cta = block.settings.cta -%}
-        {%- assign cta_style = block.settings.cta_style -%}
-        {%- assign custom_cta = 'general.navigation.read_more' | t -%}
-        {%- if cta != '' -%}
-          {%- assign custom_cta = cta -%}
-        {%- endif -%}
-        {% case position %}
-          {% when "center" %}
-            {%- assign row_class = "align-items-center" -%}
-            {%- assign col_class = "offset-md-4 text-center" -%}
-          {% when "right" %}
-            {%- assign row_class = "align-items-end" -%}
-            {%- assign col_class = "offset-md-8" -%}
-          {% else %}
-            {%- assign row_class = "align-items-end" -%}
-            {%- assign col_class = "offset-md-1" -%}
-        {% endcase %}
-        {% include 'push' %}
-      {%- endfor -%}
+    <div class="splide js-carousel" data-next="{{ 'general.pagination.next' | t }}" data-prev="{{ 'general.pagination.previous' | t }}">
+      <div class="splide__track">
+        <div class="splide__list">
+
+          {%- for block in blocks -%}
+            {%- assign custom_url = block.settings.url -%}
+            {%- assign image = block.settings.image -%}
+            {%- assign custom_title = block.settings.title -%}
+            {%- assign custom_subtitle = block.settings.subtitle -%}
+            {%- assign position = block.settings.position -%}
+            {%- assign cta = block.settings.cta -%}
+            {%- assign cta_style = block.settings.cta_style -%}
+            {%- assign custom_cta = 'general.navigation.read_more' | t -%}
+            {%- if cta != '' -%}
+              {%- assign custom_cta = cta -%}
+            {%- endif -%}
+            {% case position %}
+              {% when "center" %}
+                {%- assign row_class = "align-items-center" -%}
+                {%- assign col_class = "offset-md-4 text-center" -%}
+              {% when "right" %}
+                {%- assign row_class = "align-items-end" -%}
+                {%- assign col_class = "offset-md-8" -%}
+              {% else %}
+                {%- assign row_class = "align-items-end" -%}
+                {%- assign col_class = "offset-md-1" -%}
+            {% endcase %}
+            {% include 'push' %}
+          {%- endfor -%}
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
