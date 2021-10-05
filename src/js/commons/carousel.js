@@ -1,35 +1,61 @@
-import { tns } from 'tiny-slider/src/tiny-slider';
-
-window.stk.Carousel = {
+/* global Splide */
+window.stk.carousel = {
+    instances: [],
     init: function () {
         'use strict';
-        this.sliderElm = document.querySelector('.js-carousel');
-        if (this.sliderElm !== null) {
-            this.set();
+        this.elm = document.querySelectorAll('.js-carousel');
+        if (this.elm.length === 0) {
+            return;
+        }
+        this.get();
+    },
+
+    get: function () {
+        'use strict';
+        var targetId,
+            i = 0;
+        for (i; i < this.elm.length; i += 1) {
+            targetId = null;
+            if (this.elm[i].dataset.target) {
+                targetId = this.elm[i].dataset.target;
+            }
+            this.set(this.elm[i], targetId);
         }
     },
-    set: function () {
-        'use strict';
-        var controlsText = ['prev', 'next'];
-        if (this.sliderElm.dataset.prev) {
-            controlsText[0] = this.sliderElm.dataset.prev;
-        }
-        if (this.sliderElm.dataset.next) {
-            controlsText[1] = this.sliderElm.dataset.next;
-        }
-        tns({
-            autoplay: true,
-            autoplayButtonOutput: false,
-            container: '.js-carousel',
-            items: 1,
-            loop: false,
-            mouseDrag: true,
-            controlsText: controlsText
-        });
-    }
-};
 
-document.addEventListener('DOMContentLoaded', function () {
+    set: function (elm, targetId) {
+        'use strict';
+        var instance = new Splide(elm);
+        this.instances[elm.id] = instance;
+
+        if (targetId) {
+            this.sync(instance, targetId);
+        }
+
+        instance.mount();
+    },
+
+    sync: function (instance, targetId) {
+        'use strict';
+        var target = new Splide('#' + targetId);
+
+        if (!target) {
+            return null;
+        }
+
+        target.mount();
+        instance.sync(target);
+    },
+
+    invoke: function () {
+        'use strict';
+        return {
+            init: this.init.bind(this)
+        };
+    }
+}.invoke();
+
+(function () {
     'use strict';
-    window.stk.Carousel.init();
-});
+    window.stk.carousel.init();
+}());
