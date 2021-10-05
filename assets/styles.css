@@ -7998,9 +7998,9 @@ a {
       cursor: default;
       opacity: .4; }
   .splide__arrow--next {
-    right: 0; }
+    right: 15px; }
   .splide__arrow--prev {
-    left: 0;
+    left: 15px;
     transform: translateY(-50%) scale(-1, 1); }
   .splide__arrow.splide__arrow--next, .splide__arrow.splide__arrow--prev {
     height: 50px;
