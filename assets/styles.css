@@ -7993,7 +7993,8 @@ a {
   border: 0;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  z-index: 1; }
   .splide__arrow--next:disabled, .splide__arrow--prev:disabled {
     cursor: default;
     opacity: .4; }
