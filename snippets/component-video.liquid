@@ -1,17 +1,25 @@
 {%- if background -%}
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
+
+{% assign video_tag = '<video playsinline' %}
+{% assign video_tag = video_tag | append: ' src="' | append: video | append: '"' %}
+{% assign video_tag = video_tag | append: ' poster="' | append: poster.src | append: '"' %}
+{% if autoplay %}
+  {% assign video_tag = video_tag | append: ' autoplay' %}
+{% endif %}
+{% if controls %}
+  {% assign video_tag = video_tag | append: ' controls' %}
+{% endif %}
+{% if loop %}
+  {% assign video_tag = video_tag | append: ' loop' %}
+{% endif %}
+{% if muted %}
+  {% assign video_tag = video_tag | append: ' muted' %}
+{% endif %}
+
 <div class="py-5 {{ custom_background }}">
   <div class="container text-center">
-    <video
-      poster="{{ poster.src }}"
-      playsinline
-      {% if autoplay %}autoplay{% endif %}
-      {% if controls %}controls{% endif %}
-      {% if loop %}loop{% endif %}
-      {% if muted %}muted{% endif %}
-      >
-      <source src="{{ video }}" type="video/mp4">
-    </video>
+    {{ video_tag }}
   </div>
 </div>
