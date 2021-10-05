@@ -24,6 +24,9 @@
   <div class="container">
     {% if title != blank %}
       <div class="{{ align_text }}">
+        {% if subtitle != blank %}
+          <p>{{ surtitle | escape }}</p>
+        {% endif %}
         <h2>{{ title | escape }}</h2>
         {% if subtitle != blank %}
           <p>{{ subtitle | escape }}</p>
@@ -38,5 +41,8 @@
         </div>
       {% endfor %}
     </div>
+    {% if url != blank %}
+      <a href="{{url}}" class="btn {{cta_style}}">{{cta}}</a>
+    {% endif %}
   </div>
 </div>
