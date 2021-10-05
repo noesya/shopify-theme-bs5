@@ -10,9 +10,9 @@ options:
   max-warnings: 50
 # File Options
 files:
-  include: 'assets/stylesheets/**/*.s+(a|c)ss'
+  include: 'src/styles/**/*.s+(a|c)ss'
   ignore:
-    - 'vendor/**/*.*'
+    - 'src/vendor/**/*.*'
 # Rule Configuration
 rules:
   class-name-format: 0
