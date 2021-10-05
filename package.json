@@ -1,12 +1,12 @@
 {
-  "name": "shopify-themekit",
-  "version": "1.0.0",
+  "name": "shopify-theme-bs5",
+  "version": "1.1.0",
   "private": true,
-  "author": "Sébastien Moulène",
-  "bugs": "https://github.com/sebousan/shopify-themekit/issues",
+  "author": "Noesya",
+  "bugs": "https://github.com/sebousan/shopify-theme-bs5/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebousan/shopify-themekit.git"
+    "url": "https://github.com/noesya/shopify-theme-bs5.git"
   },
   "scripts": {
     "watch": "theme watch",
@@ -14,8 +14,9 @@
   },
   "dependencies": {
     "@shopify/theme-cart": "^4.1.0",
-    "glightbox": "^3.0.9",
-    "tiny-slider": "^2.9.3"
+    "@splidejs/splide": "^2.4.21",
+    "bootstrap": "^5.1.0",
+    "glightbox": "^3.0.9"
   },
   "devDependencies": {
     "del": "^6.0.0",
