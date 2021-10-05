@@ -8008,12 +8008,13 @@ a {
   width: 50px; }
 
 .splide__pagination {
-  bottom: 6px;
+  bottom: 15px;
   display: flex;
+  left: 50%;
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 0; }
+  transform: translateX(-50%); }
   .splide__pagination li {
     display: block;
     margin: 0 10px;
@@ -8030,11 +8031,6 @@ a {
     width: 12px; }
     .splide__pagination__page.is-active {
       background: #000000; }
-
-@media (min-width: 768px) {
-  .splide {
-    left: 5px;
-    right: auto; } }
 
 @media (min-width: 992px) {
   .splide__pagination {
