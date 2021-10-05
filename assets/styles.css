@@ -8003,7 +8003,8 @@ a {
   right: 0; }
 
 .splide__arrow--prev {
-  left: 0; }
+  left: 0;
+  transform: translateY(-50%) scale(-1, 1); }
 
 .splide__arrow.splide__arrow--next, .splide__arrow.splide__arrow--prev {
   height: 50px;
