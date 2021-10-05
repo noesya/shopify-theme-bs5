@@ -7834,9 +7834,11 @@ a {
 .card-img-overlay {
   color: #fff; }
 
-.ratio img,
-.ratio video {
-  object-fit: cover; }
+.ratio:not(.ratio--contain) img,
+.ratio:not(.ratio--contain) video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%; }
 
 .ratio--contain img,
 .ratio--contain video {
