@@ -6,6 +6,7 @@
 {%- assign cta = section.settings.cta -%}
 {%- assign cta_style = section.settings.cta_style -%}
 {%- assign background = section.settings.background -%}
+{%- assign center = section.settings.center -%}
 {%- if section.blocks.size != 0 -%}
   {% include 'component-featured-products' %}
 {%- endif -%}
@@ -58,7 +59,7 @@
       "min": 1,
       "max": 4,
       "step": 1,
-      "default": 2
+      "default": 3
     },
     {
       "type": "url",
@@ -134,6 +135,15 @@
           "label": "Outline dark"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center?",
+        "fr": "Centrer ?"
+      }
     },
     {
       "type": "checkbox",
