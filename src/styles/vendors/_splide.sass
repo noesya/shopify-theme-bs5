@@ -1,4 +1,5 @@
 .splide
+    position: relative
     &__track
         overflow: hidden
     &__list
@@ -14,13 +15,15 @@
             position: absolute
             top: 50%
             transform: translateY(-50%)
+            z-index: 1
             &:disabled
                 cursor: default
                 opacity: .4
         &--next
-            right: 0
+            right: 15px
         &--prev
-            left: 0
+            left: 15px
+            transform: translateY(-50%) scale(-1,1)
     &__arrow
         &.splide__arrow
             &--next,
@@ -29,12 +32,13 @@
                 margin-right: 0
                 width: 50px
     &__pagination
-        bottom: 6px
+        bottom: $grid-gutter-width / 2
         display: flex
+        left: 50%
         margin: 0
         padding: 0
         position: absolute
-        right: 0
+        transform: translateX(-50%)
         li
             display: block
             margin: 0 10px
@@ -51,10 +55,6 @@
             width: 12px
             &.is-active
                 background: $primary
-
-    @include media-breakpoint-up(md)
-        left: 5px
-        right: auto
 
     @include media-breakpoint-up(lg)
         &__pagination
