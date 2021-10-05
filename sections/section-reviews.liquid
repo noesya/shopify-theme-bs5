@@ -1,0 +1,126 @@
+{%- assign grid = section.settings.grid -%}
+{%- assign title = section.settings.title -%}
+{%- assign subtitle = section.settings.subtitle -%}
+{%- assign background = section.settings.background -%}
+{%- assign center = section.settings.center -%}
+{%- if section.blocks.size != 0 -%}
+  {% include 'component-ratings' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": {
+    "en": "Reviews",
+    "fr": "Avis"
+  },
+  "class": "section--reviews",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      }
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": {
+        "en": "Subtitle",
+        "fr": "Sous-titre"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Number of column",
+        "fr": "Nombre de colonne"
+      },
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "center",
+      "default": false,
+      "label": {
+        "en": "Center blocks?",
+        "fr": "Centrer les blocs ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "default": false,
+      "label": {
+        "en": "Grey background?",
+        "fr": "Arrière plan gris ?"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": {
+        "en": "Block",
+        "fr": "Bloc"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "en": "Name",
+            "fr": "Nom"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": {
+            "en": "Text",
+            "fr": "Texte"
+          }
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "max": 5,
+          "min": 0,
+          "step": 1,
+          "default": 4,
+          "label": {
+            "en": "Rating?",
+            "fr": "Évaluation ?"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Reviews block",
+        "fr": "Bloc d’avis"
+      },
+      "category": {
+        "en": "Marketing",
+        "fr": "Marketing"
+      },
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
