@@ -35,7 +35,9 @@
                 {%- assign row_class = "align-items-end" -%}
                 {%- assign col_class = "offset-md-1" -%}
             {% endcase %}
-            {% include 'push' %}
+            <div class="splide__slide">
+              {% include 'push' %}
+            </div>
           {%- endfor -%}
 
         </div>
