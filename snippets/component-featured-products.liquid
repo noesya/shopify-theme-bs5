@@ -24,6 +24,9 @@
   <div class="container">
     {% if title != blank %}
       <div class="{{ align_text }}">
+        {% if subtitle != blank %}
+          <p>{{ surtitle | escape }}</p>
+        {% endif %}
         <h2>{{ title | escape }}</h2>
         {% if subtitle != blank %}
           <p>{{ subtitle | escape }}</p>
