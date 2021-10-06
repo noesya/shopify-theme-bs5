@@ -25,38 +25,45 @@
 <div class="py-5 {{ custom_background }}">
   <div class="container">
     {% if title != blank %}
-      <div class="text-center">
-        <h2>{{ title | escape }}</h2>
-        {% if subtitle != blank %}
-          <p>{{ subtitle | escape }}</p>
+      <header class="mb-3 text-center">
+        {% if surtitle != blank %}
+          <p class="mb-0">{{ surtitle | escape }}</p>
         {% endif %}
-      </div>
+        <h2 class="mb-0">{{ title | escape }}</h2>
+        {% if subtitle != blank %}
+          <p class="mb-0">{{ subtitle | escape }}</p>
+        {% endif %}
+      </header>
     {% endif %}
-    <div class="row row-cols-1 {{ col }} {{ align }}">
-      {% for block in section.blocks limit: section.blocks.size %}
-        {%- assign block_align = '' -%}
-        {%- if block.settings.center -%}
-          {%- assign block_align = 'text-center' -%}
-        {%- endif -%}
-        <div class="col {{ mb }} {{ block_align }}" {{ block.shopify_attributes }}>
-          {% if block.settings.title != blank %}
-            <h3>{{ block.settings.title | escape }}</h3>
-          {% endif %}
-          <div class="stars">
-            {% assign rate = block.settings.rating %}
-            {% assign rate_remaining = 5 | minus: rate %}
-            {% for i in (1..rate) %}
-              <span class="material-icons-outlined">star</span>
-            {% endfor %}
-            {% for i in (1..rate_remaining) %}
-              <span class="material-icons-outlined">star_border</span>
-            {% endfor %}
-          </div>
-          {% if block.settings.text != blank %}
-            <div class="rte">{{ block.settings.text }}</div>
-          {% endif %}
+
+    <div class="splide js-carousel">
+      <div class="splide__track">
+        <div class="splide__list">
+
+          {% for block in section.blocks limit: section.blocks.size %}
+            <div class="splide__slide {{ mb }}" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title | escape }}</h3>
+              {% endif %}
+              <div class="stars">
+                {% assign rate = block.settings.rating %}
+                {% assign rate_remaining = 5 | minus: rate %}
+                {% for i in (1..rate) %}
+                  <span class="material-icons-outlined">star</span>
+                {% endfor %}
+                {% for i in (1..rate_remaining) %}
+                  <span class="material-icons-outlined">star_border</span>
+                {% endfor %}
+              </div>
+              {% if block.settings.text != blank %}
+                <div class="rte">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
         </div>
-      {% endfor %}
+      </div>
     </div>
+
   </div>
 </div>
