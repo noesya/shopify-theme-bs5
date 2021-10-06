@@ -3,6 +3,8 @@
 {%- assign subtitle = section.settings.subtitle -%}
 {%- assign background = section.settings.background -%}
 {%- assign grid = section.settings.grid -%}
+{%- assign grid_mobile = section.settings.grid_mobile -%}
+{%- assign grid_tablet = section.settings.grid_tablet -%}
 {%- assign carousel_autoplay = section.settings.carousel_autoplay -%}
 {%- assign carousel_arrows = section.settings.carousel_arrows -%}
 {%- assign carousel_pagination = section.settings.carousel_pagination -%}
@@ -54,6 +56,30 @@
       "max": 4,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_mobile",
+      "label": {
+        "en": "Number of column on mobile",
+        "fr": "Nombre de colonne sur mobile"
+      },
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "grid_tablet",
+      "label": {
+        "en": "Number of column on tablet",
+        "fr": "Nombre de colonne sur tablet"
+      },
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "default": 1
     },
     {
       "type": "checkbox",
