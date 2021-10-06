@@ -1,21 +1,21 @@
 {% form 'contact' %}
-  {% if form.posted_successfully? %}{{ 'contact.form.post_success' | t }}{% endif %}
+  {% if form.posted_successfully? %}{{ 'general.form.post_success' | t }}{% endif %}
   {{ form.errors | default_errors }}
   <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="ContactFormName" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}"  {% if customer %}value="{{customer.name}}"{% endif %} required>
-    <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+    <input type="text" class="form-control" id="ContactFormName" name="contact[name]" placeholder="{{ 'general.form.name' | t }}"  {% if customer %}value="{{customer.name}}"{% endif %} required>
+    <label for="ContactFormName">{{ 'general.form.name' | t }}</label>
   </div>
   <div class="form-floating mb-3">
-    <input type="email" class="form-control" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" {% if customer %}value="{{customer.email}}"{% endif %} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-    <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+    <input type="email" class="form-control" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'general.form.email' | t }}" {% if customer %}value="{{customer.email}}"{% endif %} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <label for="ContactFormEmail">{{ 'general.form.email' | t }}</label>
   </div>
   <div class="form-floating mb-3">
-    <input type="tel" class="form-control" id="ContactFormPhone" name="contact[phone]" placeholder="{{ 'contact.form.phone' | t }}" {% if customer %}value="{{customer.phone}}"{% endif %}>
-    <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+    <input type="tel" class="form-control" id="ContactFormPhone" name="contact[phone]" placeholder="{{ 'general.form.phone' | t }}" {% if customer %}value="{{customer.phone}}"{% endif %}>
+    <label for="ContactFormPhone">{{ 'general.form.phone' | t }}</label>
   </div>
   <div class="form-floating mb-3">
-    <textarea rows="10" class="form-control" id="ContactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}" style="height: 200px" required></textarea>
-    <label for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+    <textarea rows="10" class="form-control" id="ContactFormMessage" name="contact[body]" placeholder="{{ 'general.form.message' | t }}" style="height: 200px" required></textarea>
+    <label for="ContactFormMessage">{{ 'general.form.message' | t }}</label>
   </div>
-  <input type="submit" value="{{ 'contact.form.send' | t }}" class="btn btn-primary">
+  <input type="submit" value="{{ 'general.form.send' | t }}" class="btn btn-primary">
 {% endform %}

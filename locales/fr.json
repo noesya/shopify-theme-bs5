@@ -5,15 +5,17 @@
       "subtext_html": "Cette page n’existe pas"
     },
     "form": {
-      "name" : "Nom",
-      "email" : "Adresse email",
-      "message" : "Message",
-      "submit" : "Envoyer"
+      "name": "Nom",
+      "email": "Adresse email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer",
+      "post_success": "Votre message a bien été envoyé, merci !"
     },
     "navigation": {
-      "discover_collection" : "Découvrir la collection",
-      "discover_product" : "Découvrir le product",
-      "read_more" : "En savoir plus"
+      "discover_collection": "Découvrir la collection",
+      "discover_product": "Découvrir le product",
+      "read_more": "En savoir plus"
     },
     "newsletter_form": {
       "newsletter_email": "Inscrivez-vous à notre newsletter",
