@@ -1,0 +1,15 @@
+.section
+    &--carousel
+        .splide
+            &__arrow
+                &--next
+                    right: 0
+                &--prev
+                    left: 0
+            &__pagination
+                bottom: $grid-gutter-width / 2
+
+        @include media-breakpoint-up(lg)
+            .splide
+                &__pagination
+                    bottom: $grid-gutter-width

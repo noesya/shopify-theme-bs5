@@ -19,8 +19,10 @@
                 opacity: .4
         &--next
             right: 0
+            transform: translateY(-50%) translateX(100%)
         &--prev
             left: 0
+            transform: translateY(-50%) translateX(-100%)
     &__arrow
         &.splide__arrow
             &--next,
@@ -29,7 +31,7 @@
                 margin-right: 0
                 width: 50px
     &__pagination
-        bottom: 6px
+        bottom: 0
         display: flex
         margin: 0
         padding: 0
@@ -55,7 +57,3 @@
     @include media-breakpoint-up(md)
         left: 5px
         right: auto
-
-    @include media-breakpoint-up(lg)
-        &__pagination
-            bottom: $grid-gutter-width
