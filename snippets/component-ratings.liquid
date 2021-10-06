@@ -17,11 +17,6 @@
   {%- assign custom_background = 'bg-light' -%}
 {%- endif -%}
 
-{%- assign align = '' -%}
-{%- if center -%}
-  {%- assign align = 'justify-content-md-center' -%}
-{%- endif -%}
-
 <div class="py-5 {{ custom_background }}">
   <div class="container">
 
@@ -37,7 +32,13 @@
       </header>
     {%- endif -%}
 
-    <div class="splide js-carousel" data-splide='{"perPage":{{grid}}}'>
+    {% assign config_splide = '{' %}
+    {% assign config_splide = config_splide | prepend: '"arrows":false' %}
+    {% assign config_splide = config_splide | prepend: '"perPage":' | prepend: grid %}
+    {% assign config_splide = config_splide | prepend: '}' %}
+    <!-- ,"breakpoints":{640:{"perPage":2}} -->
+
+    <div class="splide js-carousel" data-splide='{{config_splide}}'>
       <div class="splide__track">
         <div class="splide__list">
 
