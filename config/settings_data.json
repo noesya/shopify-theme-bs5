@@ -173,10 +173,15 @@
           "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac"
         ],
         "settings": {
-          "title": "",
-          "subtitle": "",
+          "surtitle": "",
+          "title": "Les avis des utilisateurs",
+          "subtitle": "Lorem ipsum !",
           "grid": 4,
-          "center": false,
+          "grid_mobile": 1,
+          "grid_tablet": 3,
+          "carousel_autoplay": true,
+          "carousel_arrows": false,
+          "carousel_pagination": true,
           "background": false
         }
       }
