@@ -34,16 +34,6 @@
           "footer_copyright": "Noesya ©"
         }
       },
-      "163041873489b86fd0": {
-        "type": "section-image-text",
-        "disabled": true,
-        "settings": {
-          "title": "Lorem ipsum",
-          "text": "<p>Lorem <strong>ipsum<\/strong><\/p>",
-          "inverse": false,
-          "background": false
-        }
-      },
       "16304200643eacae48": {
         "type": "section-carousel",
         "blocks": {
@@ -194,14 +184,33 @@
           "center_message": true,
           "background": false
         }
+      },
+      "1633535279a01521b1": {
+        "type": "section-quote",
+        "settings": {
+          "title": "Lotus Bleu",
+          "quote": "<p>« <em>Lao-Tseu l’a dit, il faut <\/em><em><strong>trouver la voie<\/strong><\/em><em> !… Moi je l’ai trouvée !… C’est très simple : je vais vous couper la tête !… Alors vous aussi vous connaîtrez la vérité !…<\/em><\/p>",
+          "cite": "jeune chinois dans Tintin",
+          "position": "center",
+          "background": true
+        }
+      },
+      "16335352880beee148": {
+        "type": "section-newsletter",
+        "settings": {
+          "title": "S'inscrire à la newsletter",
+          "subtitle": "<p>Promotions, nouveaux produits et soldes. Directement dans votre boîte de réception.<\/p>",
+          "background": false
+        }
       }
     },
     "content_for_index": [
       "16304200643eacae48",
-      "163041873489b86fd0",
       "1633427828d3043900",
       "1633535195672f1d62",
-      "163343919464ccf639"
+      "1633535279a01521b1",
+      "163343919464ccf639",
+      "16335352880beee148"
     ]
   },
   "presets": {
