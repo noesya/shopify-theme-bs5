@@ -1,0 +1,21 @@
+{%- assign ratio_image = 'ratio-1x1' -%}
+{%- assign image_size = '630x630' -%}
+{%- assign image_size_mobile = '630x630' -%}
+<div class="row row-cols-1">
+  <div class="col">
+    <a href="{{ featured_image | img_url: custom_size_large }}" class="js-glightbox">
+      <div class="ratio {{ratio_image}}">
+        {%- include 'image', src: featured_image, size: image_size, mobile: image_size_mobile, alt: featured_image.alt | escape, class: "img-fluid mb-3", lazy: false -%}
+      </div>
+    </a>
+  </div>
+  {% for image in product.images offset:1 %}
+    <div class="col">
+      <a href="{{ image | img_url: custom_size_large }}" class="js-glightbox">
+        <div class="ratio {{ratio_image}}">
+          {%- include 'image', src: image, size: image_size, mobile: image_size_mobile, alt: featured_image.alt | escape, class: "img-fluid" -%}
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
