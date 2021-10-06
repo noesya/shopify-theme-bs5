@@ -185,12 +185,22 @@
           "carousel_pagination": true,
           "background": false
         }
+      },
+      "1633535195672f1d62": {
+        "type": "section-message",
+        "settings": {
+          "type_message": "warning",
+          "message": "Attention ceci est un message de Warning",
+          "center_message": true,
+          "background": false
+        }
       }
     },
     "content_for_index": [
       "16304200643eacae48",
       "163041873489b86fd0",
       "1633427828d3043900",
+      "1633535195672f1d62",
       "163343919464ccf639"
     ]
   },
