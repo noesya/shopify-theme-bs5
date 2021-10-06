@@ -33,9 +33,17 @@
     {%- endif -%}
 
     {% assign config_splide = '{' %}
-    {% assign config_splide = config_splide | prepend: '"arrows":false' %}
-    {% assign config_splide = config_splide | prepend: '"perPage":' | prepend: grid %}
-    {% assign config_splide = config_splide | prepend: '}' %}
+    {% assign config_splide = config_splide | append: '"perPage":' | append: grid %}
+    {%- if carousel_arrows -%}
+      {% assign config_splide = config_splide | append: '"arrows":true' %}
+    {%- endif -%}
+    {%- if carousel_pagination -%}
+      {% assign config_splide = config_splide | append: '"pagination":true' %}
+    {%- endif -%}
+    {%- if carousel_autoplay -%}
+      {% assign config_splide = config_splide | append: '"autoplay":true' %}
+    {%- endif -%}
+    {% assign config_splide = config_splide | append: '}' %}
     <!-- ,"breakpoints":{640:{"perPage":2}} -->
 
     <div class="splide js-carousel" data-splide='{{config_splide}}'>

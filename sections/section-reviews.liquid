@@ -1,9 +1,11 @@
-{%- assign grid = section.settings.grid -%}
 {%- assign surtitle = section.settings.surtitle -%}
 {%- assign title = section.settings.title -%}
 {%- assign subtitle = section.settings.subtitle -%}
 {%- assign background = section.settings.background -%}
-{%- assign center = section.settings.center -%}
+{%- assign grid = section.settings.grid -%}
+{%- assign carousel_autoplay = section.settings.carousel_autoplay -%}
+{%- assign carousel_arrows = section.settings.carousel_arrows -%}
+{%- assign carousel_pagination = section.settings.carousel_pagination -%}
 {%- if section.blocks.size != 0 -%}
   {% include 'component-ratings' %}
 {%- endif -%}
@@ -55,11 +57,29 @@
     },
     {
       "type": "checkbox",
-      "id": "center",
+      "id": "carousel_autoplay",
       "default": false,
       "label": {
-        "en": "Center blocks?",
-        "fr": "Centrer les blocs ?"
+        "en": "Autoplay carousel?",
+        "fr": "Carousel autoplay ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_arrows",
+      "default": false,
+      "label": {
+        "en": "Arrows carousel?",
+        "fr": "Carousel flêches ?"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_pagination",
+      "default": true,
+      "label": {
+        "en": "Pagination carousel?",
+        "fr": "Carousel pagination ?"
       }
     },
     {
@@ -67,8 +87,8 @@
       "id": "background",
       "default": false,
       "label": {
-        "en": "Grey background?",
-        "fr": "Arrière plan gris ?"
+        "en": "Background?",
+        "fr": "Arrière plan ?"
       }
     }
   ],
