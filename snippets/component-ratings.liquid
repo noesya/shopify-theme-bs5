@@ -32,17 +32,12 @@
       </header>
     {%- endif -%}
 
+    {{carousel_arrows}}
     {% assign config_splide = '{' %}
     {% assign config_splide = config_splide | append: '"perPage":' | append: grid %}
-    {%- if carousel_arrows -%}
-      {% assign config_splide = config_splide | append: ',"arrows":true' %}
-    {%- endif -%}
-    {%- if carousel_pagination -%}
-      {% assign config_splide = config_splide | append: ',"pagination":true' %}
-    {%- endif -%}
-    {%- if carousel_autoplay -%}
-      {% assign config_splide = config_splide | append: ',"autoplay":true' %}
-    {%- endif -%}
+    {% assign config_splide = config_splide | append: ',"arrows":' | append: carousel_arrows %}
+    {% assign config_splide = config_splide | append: ',"pagination":' | append: carousel_pagination %}
+    {% assign config_splide = config_splide | append: ',"autoplay":' | append: carousel_autoplay %}
     {% assign config_splide = config_splide | append: '}' %}
     <!-- ,"breakpoints":{640:{"perPage":2}} -->
 
