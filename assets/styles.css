@@ -7969,6 +7969,9 @@ a {
   .product__widget.show {
     display: block; }
 
+.section--carousel .splide__track {
+  padding-bottom: 0; }
+
 .section--carousel .splide__arrow--next {
   right: 15px;
   transform: translateY(-50%); }
@@ -7996,7 +7999,8 @@ a {
 .splide {
   position: relative; }
   .splide__track {
-    overflow: hidden; }
+    overflow: hidden;
+    padding-bottom: 30px; }
   .splide__list {
     display: flex; }
   .splide__slide {
