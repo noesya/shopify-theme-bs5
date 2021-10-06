@@ -24,7 +24,8 @@
 
 <div class="py-5 {{ custom_background }}">
   <div class="container">
-    {% if title != blank %}
+
+    {%- if title != blank -%}
       <header class="mb-3 text-center">
         {% if surtitle != blank %}
           <p class="mb-0">{{ surtitle | escape }}</p>
@@ -34,14 +35,14 @@
           <p class="mb-0">{{ subtitle | escape }}</p>
         {% endif %}
       </header>
-    {% endif %}
+    {%- endif -%}
 
     <div class="splide js-carousel">
       <div class="splide__track">
         <div class="splide__list">
 
-          {% for block in section.blocks limit: section.blocks.size %}
-            <div class="splide__slide {{ mb }}" {{ block.shopify_attributes }}>
+          {%- for block in section.blocks limit: section.blocks.size -%}
+            <div class="splide__slide" {{ block.shopify_attributes }}>
               {% if block.settings.title != blank %}
                 <h3>{{ block.settings.title | escape }}</h3>
               {% endif %}
@@ -59,7 +60,7 @@
                 <div class="rte">{{ block.settings.text }}</div>
               {% endif %}
             </div>
-          {% endfor %}
+          {%- endfor -%}
 
         </div>
       </div>
