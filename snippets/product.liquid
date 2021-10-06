@@ -2,6 +2,7 @@
 {%- assign featured_image = current_variant.featured_image | default: item.featured_image -%}
 {%- assign featured_media = item.featured_media -%}
 {%- assign poster = "256x150" -%}
+{%- assign image_size = '352x352' -%}
 <div class="card">
 
   {% if featured %}
@@ -14,7 +15,7 @@
     {%- if featured_media -%}
       {% case featured_media.media_type %}
         {% when 'image' %}
-          {% include 'image', src: featured_image, size: '352x352', alt: item.title, img_class: 'card-img-top' %}
+          {% include 'image', src: featured_image, size: image_size, img_class: 'card-img-top' %}
         {% when 'external_video' %}
           {% include 'external-video', media: featured_media %}
         {% when 'video' %}
@@ -32,7 +33,6 @@
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
       <p class="h5 card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">{{ current_variant.price | money }}</p>
-      <p class="card-text">{{ item.description }}</p>
       <a href="{{ item.url | within: collection }}" class="btn btn-secondary stretched-link">{{ 'general.navigation.discover_product' | t }}</a>
     </div>
   {% if featured %}
