@@ -36,6 +36,7 @@
       },
       "163041873489b86fd0": {
         "type": "section-image-text",
+        "disabled": true,
         "settings": {
           "title": "Lorem ipsum",
           "text": "<p>Lorem <strong>ipsum<\/strong><\/p>",
@@ -61,12 +62,13 @@
           "a2d0bc3c-c264-47eb-8942-a645e3ef9844": {
             "type": "slide",
             "settings": {
-              "url": "shopify:\/\/products\/engraving",
+              "url": "shopify:\/\/pages\/a-propos",
               "position": "center",
-              "title": "Lorem",
-              "subtitle": "",
-              "cta": "",
-              "cta_style": "btn-primary"
+              "image": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg",
+              "title": "About us",
+              "subtitle": "Discover more about your favorite team",
+              "cta": "Enjoy :)",
+              "cta_style": "btn-light"
             }
           }
         },
@@ -179,7 +181,7 @@
           "grid_mobile": 1,
           "grid_tablet": 3,
           "carousel_autoplay": true,
-          "carousel_arrows": false,
+          "carousel_arrows": true,
           "carousel_pagination": true,
           "background": false
         }
