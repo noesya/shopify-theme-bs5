@@ -14,6 +14,7 @@
             position: absolute
             top: 50%
             transform: translateY(-50%)
+            z-index: 1
             &:disabled
                 cursor: default
                 opacity: .4
@@ -23,6 +24,8 @@
         &--prev
             left: 0
             transform: translateY(-50%) translateX(-100%)
+            svg
+                transform: scale(-1,1)
     &__arrow
         &.splide__arrow
             &--next,
