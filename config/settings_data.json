@@ -139,11 +139,38 @@
               "text": "<p>lorem <strong>ipsum lorem ip<\/strong>sum dolor sit amet dolor sit amet lorem ipsum dolor sit lorem ipsum dolor sit amet amet lorem ipsum dolor sit amet<\/p>",
               "rating": 4
             }
+          },
+          "4b4d375e-7afd-4ae9-a2b9-3de0051184eb": {
+            "type": "block",
+            "settings": {
+              "title": "Alexis B.",
+              "text": "<p>Lorem<\/p>",
+              "rating": 4
+            }
+          },
+          "41ac00d3-0055-40c5-a2dc-9e7a0dedd806": {
+            "type": "block",
+            "settings": {
+              "title": "Pierre-André B.",
+              "text": "<p>Lorem<\/p>",
+              "rating": 4
+            }
+          },
+          "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac": {
+            "type": "block",
+            "settings": {
+              "title": "Sébastien G.",
+              "text": "<p>Lorem ipsumLorem ipsumLorem ipsumLorem ipsum<\/p>",
+              "rating": 4
+            }
           }
         },
         "block_order": [
           "163343919464ccf639-0",
-          "163343919464ccf639-1"
+          "163343919464ccf639-1",
+          "4b4d375e-7afd-4ae9-a2b9-3de0051184eb",
+          "41ac00d3-0055-40c5-a2dc-9e7a0dedd806",
+          "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac"
         ],
         "settings": {
           "title": "",
