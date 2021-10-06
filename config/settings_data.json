@@ -80,18 +80,25 @@
             "settings": {
               "id_product": "chuck-taylor-all-star-classic-montante"
             }
+          },
+          "a6bf7c4a-b9eb-4ec8-9e29-291c2c6c2b23": {
+            "type": "featured_product",
+            "settings": {
+              "id_product": "chuck-taylor-all-star-converse-x-keith-haring-basse"
+            }
           }
         },
         "block_order": [
-          "1633427828d3043900-0"
+          "1633427828d3043900-0",
+          "a6bf7c4a-b9eb-4ec8-9e29-291c2c6c2b23"
         ],
         "settings": {
           "surtitle": "",
           "title": "Featured products",
           "subtitle": "this is awesome",
-          "grid": 4,
-          "url": "shopify:\/\/collections\/la-selection-du-chef",
-          "cta": "Discover more awesome products",
+          "grid": 3,
+          "url": "shopify:\/\/collections\/chaussures",
+          "cta": "Discover more shoes",
           "cta_style": "btn-primary",
           "center": true,
           "background": false
