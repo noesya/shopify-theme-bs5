@@ -20,7 +20,7 @@
       "top": {
         "type": "top",
         "settings": {
-          "top_message": ""
+          "top_message": "Message informatif sur la fermeture de la boutique"
         }
       },
       "header": {
