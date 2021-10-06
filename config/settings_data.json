@@ -37,7 +37,6 @@
       "163041873489b86fd0": {
         "type": "section-image-text",
         "settings": {
-          "image": "shopify:\/\/shop_images\/phone.jpg",
           "title": "Lorem ipsum",
           "text": "<p>Lorem <strong>ipsum<\/strong><\/p>",
           "inverse": false,
@@ -50,12 +49,12 @@
           "b99ae1c3-b1b3-4bbd-bea1-48be934f14ca": {
             "type": "slide",
             "settings": {
-              "url": "shopify:\/\/collections\/adele",
+              "url": "shopify:\/\/collections\/la-selection-du-chef",
               "position": "center",
-              "image": "shopify:\/\/shop_images\/phone.jpg",
+              "image": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg",
               "title": "Slide 1",
               "subtitle": "Lorem ipsum",
-              "cta": "",
+              "cta": "Read more",
               "cta_style": "btn-primary"
             }
           },
@@ -64,7 +63,6 @@
             "settings": {
               "url": "shopify:\/\/products\/engraving",
               "position": "center",
-              "image": "shopify:\/\/shop_images\/image.jpg",
               "title": "Lorem",
               "subtitle": "",
               "cta": "",
@@ -84,23 +82,24 @@
       },
       "1633427828d3043900": {
         "type": "section-featured-products",
+        "disabled": true,
         "blocks": {
           "1633427828d3043900-0": {
             "type": "featured_product",
             "settings": {
-              "id_product": "edredon-adele"
+              "id_product": ""
             }
           },
           "1633427828d3043900-1": {
             "type": "featured_product",
             "settings": {
-              "id_product": "bouteille-de-vin"
+              "id_product": ""
             }
           },
           "1633427828d3043900-2": {
             "type": "featured_product",
             "settings": {
-              "id_product": "engraving"
+              "id_product": ""
             }
           }
         },
@@ -124,53 +123,53 @@
       "163343919464ccf639": {
         "type": "section-reviews",
         "blocks": {
-          "163343919464ccf639-0": {
-            "type": "block",
-            "settings": {
-              "title": "Arnaud L.",
-              "text": "<p>lorem ipsum dolor sit amet<\/p>",
-              "rating": 5
-            }
-          },
-          "163343919464ccf639-1": {
-            "type": "block",
-            "settings": {
-              "title": "Sébastien M.",
-              "text": "<p>lorem <strong>ipsum lorem ip<\/strong>sum dolor sit amet dolor sit amet lorem ipsum dolor sit lorem ipsum dolor sit amet amet lorem ipsum dolor sit amet<\/p>",
-              "rating": 4
-            }
-          },
           "4b4d375e-7afd-4ae9-a2b9-3de0051184eb": {
             "type": "block",
             "settings": {
               "title": "Alexis B.",
-              "text": "<p>Lorem<\/p>",
+              "text": "<p>Donec eget elit nec dui vestibulum aliquam dignissim accumsan arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<\/p>",
               "rating": 4
+            }
+          },
+          "163343919464ccf639-0": {
+            "type": "block",
+            "settings": {
+              "title": "Arnaud L.",
+              "text": "<p>Cras ut efficitur lorem. <strong>Quisque<\/strong> id libero quis mi fringilla dapibus sed eget ante. <\/p>",
+              "rating": 2
             }
           },
           "41ac00d3-0055-40c5-a2dc-9e7a0dedd806": {
             "type": "block",
             "settings": {
               "title": "Pierre-André B.",
-              "text": "<p>Lorem<\/p>",
-              "rating": 4
+              "text": "<p>Vivamus quam mauris, interdum id finibus quis, condimentum scelerisque lorem.<\/p>",
+              "rating": 5
             }
           },
           "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac": {
             "type": "block",
             "settings": {
               "title": "Sébastien G.",
-              "text": "<p>Lorem ipsumLorem ipsumLorem ipsumLorem ipsum<\/p>",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <\/p><p>Praesent ligula arcu, iaculis sed tellus nec<\/p>",
               "rating": 4
+            }
+          },
+          "163343919464ccf639-1": {
+            "type": "block",
+            "settings": {
+              "title": "Sébastien M.",
+              "text": "<p>Maecenas <em>fringilla<\/em> sed massa finibus sagittis.<\/p>",
+              "rating": 0
             }
           }
         },
         "block_order": [
-          "163343919464ccf639-0",
-          "163343919464ccf639-1",
           "4b4d375e-7afd-4ae9-a2b9-3de0051184eb",
+          "163343919464ccf639-0",
           "41ac00d3-0055-40c5-a2dc-9e7a0dedd806",
-          "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac"
+          "6268d3b4-be8c-4ac4-ad62-fcc7ad95edac",
+          "163343919464ccf639-1"
         ],
         "settings": {
           "surtitle": "",
