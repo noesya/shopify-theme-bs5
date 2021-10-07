@@ -2123,7 +2123,7 @@ textarea.form-control-lg {
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 15px 15px;
+  padding: 15px 30px;
   font-size: 1rem;
   border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
@@ -2546,12 +2546,12 @@ textarea.form-control-lg {
     color: #6c757d; }
 
 .btn-lg, .btn-group-lg > .btn {
-  padding: 30px 30px;
+  padding: 30px 45px;
   font-size: 1.25rem;
   border-radius: 0; }
 
 .btn-sm, .btn-group-sm > .btn {
-  padding: 15px 15px;
+  padding: 12px 15px;
   font-size: 0.875rem;
   border-radius: 0.2rem; }
 
@@ -2879,8 +2879,8 @@ textarea.form-control-lg {
   border-bottom-left-radius: 0; }
 
 .dropdown-toggle-split {
-  padding-right: 11.25px;
-  padding-left: 11.25px; }
+  padding-right: 22.5px;
+  padding-left: 22.5px; }
   .dropdown-toggle-split::after,
   .dropup .dropdown-toggle-split::after,
   .dropend .dropdown-toggle-split::after {
@@ -2893,8 +2893,8 @@ textarea.form-control-lg {
   padding-left: 11.25px; }
 
 .btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
-  padding-right: 22.5px;
-  padding-left: 22.5px; }
+  padding-right: 33.75px;
+  padding-left: 33.75px; }
 
 .btn-group-vertical {
   flex-direction: column;
