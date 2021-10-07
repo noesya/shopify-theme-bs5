@@ -7,16 +7,16 @@
     row_class: 'align-items-center',
     col_class: 'offset-md-4 text-center'-%}
 {%- else -%}
+<header class="mb-5 text-center">
   <h1>{{ collection.title }}</h1>
   <div class="rte">
     {{ collection.description }}
   </div>
+</header>
 {%- endif -%}
 
-<hr>
-
 {% paginate collection.products by 12 %}
-  <div class="d-md-flex justify-content-between">
+  <div class="d-md-flex justify-content-between mb-5">
     <h2>{{ 'collections.products.title' | t }}</h2>
     {%- include 'collection-sorting' -%}
   </div>

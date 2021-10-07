@@ -24,6 +24,7 @@
       <div class="col-md-5">
 
         <h1 itemprop="name">{{ product.title }}</h1>
+        <p>{{ product.vendor }}</p>
 
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
@@ -32,6 +33,7 @@
         </div>
 
         <div class="rte" itemprop="description">{{ product.description | strip }}</div>
+
         <hr>
 
         {% capture "form_classes" %}js-addtocart-form{%- endcapture %}
@@ -49,7 +51,7 @@
               </div>
             </div>
             <div class="col">
-              <button type="submit" name="add" class="btn btn-lg btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
+              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
             </div>
           </div>
 
@@ -57,7 +59,7 @@
             <div class="container">
               <span class="h2">{{ product.title }}</span>
               <span class="js-product-price">{{ current_variant.price | money }}</span>
-              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
+              <button type="submit" name="add" class="btn btn-sm btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
             </div>
           </div>
 
