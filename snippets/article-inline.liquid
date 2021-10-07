@@ -1,7 +1,7 @@
 <div class="card card--article">
   <div class="row g-0">
     <div class="col-md-4">
-      {% include 'image', src: item.image, alt: item.title, size: '412x', img_class: 'img-fluid card-img-top' %}
+      {% include 'image', src: item.image, alt: item.title, size: '430x350', img_class: 'img-fluid card-img-top' %}
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -14,7 +14,7 @@
           <p class="card-text text-muted">{{ item.content | strip_html | truncatewords: 20 }}</p>
         {% endif %}
         <p><a href="{{ item.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.read_more' | t }}</a></p>
-        <p class="card-text"><small class="text-muted">{{ item.created_at | time_tag: format: 'abbreviated_date' }}</small></p>
+        <small class="card-text text-muted">{{ article.author }} — <time datetime="{{ item.created_at | time_tag }}">{{ item.created_at | time_tag: format: 'abbreviated_date' }}</time></small>
       </div>
     </div>
   </div>
