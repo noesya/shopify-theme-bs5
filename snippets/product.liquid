@@ -32,7 +32,6 @@
     <div class="card-body">
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
       <p class="h5 card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
-      <p class="card-text">{{ current_variant.price | money }}</p>
       <p class="card-text">
         {%- if current_variant.compare_at_price != current_variant.price -%}
           <del class="text-danger me-1">{{ current_variant.compare_at_price | money }}</del>
