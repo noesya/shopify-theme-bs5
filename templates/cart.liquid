@@ -31,7 +31,7 @@
                 {% if property_size > 0 %}
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#propertiesModal">
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#propertiesModal">
                   Properties modal
                 </button>
 
@@ -65,6 +65,28 @@
               </td>
               <td class="cart__price">
                 <div class="price">
+                  <pre>
+                    <ul>
+                      <li>{{ item.final_line_price }}</li>
+                      <li>{{ item.final_price }}</li>
+                      <li>{{ item.original_line_price }}</li>
+                      <li>{{ item.original_price }}</li>
+                    </ul>
+                  </pre>
+
+                  <pre>
+                    <ul>
+                      <li>{{ item.selling_plan_allocation.compare_at_price }}</li>
+                      <li>{{ item.selling_plan_allocation.per_delivery_price }}</li>
+                      <li>{{ item.selling_plan_allocation.price }}</li>
+                      <li>{{ item.selling_plan_allocation.price_adjustments }}</li>
+                      <li>{{ item.selling_plan_allocation.selling_plan }}</li>
+                      <li>{{ item.selling_plan_allocation.selling_plan_group_id }}</li>
+                      <li>{{ item.selling_plan_allocation.unit_price }}</li>
+                    </ul>
+                  </pre>
+
+
                   {% if item.original_price != item.price %}
                     <del>{{ item.original_price | money }}</del>
                   {% endif %}
