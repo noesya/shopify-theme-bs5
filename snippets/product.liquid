@@ -33,9 +33,9 @@
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
       <p class="h5 card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">
-        {%- unless current_variant.compare_at_price -%}
+        {%- if current_variant.compare_at_price != '' -%}
           <del class="text-danger me-1">{{ current_variant.compare_at_price | money }}</del>
-        {%- endunless -%}
+        {%- endif -%}
         {{ current_variant.price | money | strip }}
       </p>
       <a href="{{ item.url | within: collection }}" class="btn btn-sm btn-secondary stretched-link">{{ 'general.navigation.discover_product' | t }}</a>
