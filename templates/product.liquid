@@ -33,26 +33,11 @@
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
           <p class="mb-2 lead js-product-price">
             {%- if current_variant.compare_at_price != current_variant.price -%}
-              <del>{{ current_variant.compare_at_price | money }}</del>
+              <del class="text-danger me-1">{{ current_variant.compare_at_price | money }}</del>
             {%- endif -%}
             {{ current_variant.price | money }}
           </p>
         </div>
-
-        <pre>
-          <ul>
-            <li>product.compare_at_price: {{ product.compare_at_price }}</li>
-            <li>product.compare_at_price_min: {{ product.compare_at_price }}</li>
-            <li>product.compare_at_price_max: {{ product.compare_at_price_max }}</li>
-            <li>product.compare_at_price_varies: {{ product.compare_at_price }}</li>
-            <li>product.price: {{ product.price }}</li>
-            <li>product.price_min: {{ product.price_min }}</li>
-            <li>product.price_max: {{ product.price_max }}</li>
-            <li>product.price_varies: {{ product.price_varies }}</li>
-            <li>current_variant.compare_at_price: {{ current_variant.compare_at_price }}</li>
-            <li>current_variant.price: {{ current_variant.price }}</li>
-          </ul>
-        </pre>
 
         <div class="rte" itemprop="description">{{ product.description | strip }}</div>
 
