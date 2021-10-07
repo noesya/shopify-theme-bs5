@@ -3410,7 +3410,7 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem; }
+  padding: 15px 15px; }
 
 .card-title {
   margin-bottom: 0.5rem; }
@@ -3423,10 +3423,10 @@ textarea.form-control-lg {
   margin-bottom: 0; }
 
 .card-link + .card-link {
-  margin-left: 1rem; }
+  margin-left: 15px; }
 
 .card-header {
-  padding: 0.5rem 1rem;
+  padding: 7.5px 15px;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
@@ -3434,21 +3434,21 @@ textarea.form-control-lg {
     border-radius: 0 0 0 0; }
 
 .card-footer {
-  padding: 0.5rem 1rem;
+  padding: 7.5px 15px;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125); }
   .card-footer:last-child {
     border-radius: 0 0 0 0; }
 
 .card-header-tabs {
-  margin-right: -0.5rem;
-  margin-bottom: -0.5rem;
-  margin-left: -0.5rem;
+  margin-right: -7.5px;
+  margin-bottom: -7.5px;
+  margin-left: -7.5px;
   border-bottom: 0; }
 
 .card-header-pills {
-  margin-right: -0.5rem;
-  margin-left: -0.5rem; }
+  margin-right: -7.5px;
+  margin-left: -7.5px; }
 
 .card-img-overlay {
   position: absolute;

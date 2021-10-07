@@ -1,5 +1,7 @@
 <div class="card card--article">
-  {% include 'image', src: item.image, alt: item.title, size: '412x', img_class: 'img-fluid card-img-top' %}
+  <div class="ratio ratio-3x5 bg-light">
+    {% include 'image', src: item.image, alt: item.title, size: '430x350', img_class: 'img-fluid card-img-top' %}
+  </div>
   <div class="card-body">
     {% assign type = item.handle | split: '/' | first %}
     <p class="card-text text-muted small">{{ blogs[type].title }}</p>
