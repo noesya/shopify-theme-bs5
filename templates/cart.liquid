@@ -22,6 +22,14 @@
                 </a>
               </td>
               <td class="cart__product">
+
+                <pre>
+                  <ul>
+                    <li>{{item.discount_allocations}}</li>
+                    <li>{{item.line_level_discount_allocations}}</li>
+                    <li>{{item.line_level_total_discount}}</li>
+                  </ul>
+                </pre>
                 <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
                 {% unless item.product.has_only_default_variant %}
                   <p class="mb-0">{{ item.variant.title }}</p>
@@ -92,7 +100,7 @@
                   {% elsif item.compare_at_price > item.line_price %}
                     <del>{{ item.compare_at_price | money }}</del>
                   {% endif %}
-                  <span>{{ item.line_price | money }}</span>
+                  {{ item.line_price | money | strip }}
                   {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
                 </div>
               </td>
