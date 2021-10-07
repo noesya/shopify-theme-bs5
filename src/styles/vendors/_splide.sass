@@ -15,7 +15,6 @@
             border: 0
             position: absolute
             top: 50%
-            transform: translateY(-50%)
             z-index: 1
             &:disabled
                 cursor: default
@@ -59,3 +58,17 @@
             width: 12px
             &.is-active
                 background: $primary
+
+
+    @include media-breakpoint-down(sm)
+        &__arrow
+            &--next,
+            &--prev
+                bottom: 0
+                top: auto
+                transform: translateY(calc(50% - 6px))
+                svg
+                    transform: scale(.5)
+            &--prev
+                svg
+                    transform: scale(-.5,.5)

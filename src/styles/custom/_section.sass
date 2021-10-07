@@ -5,13 +5,20 @@
                 padding-bottom: 0
             &__arrow
                 &--next
-                    right: $grid-gutter-width / 2
                     transform: translateY(-50%)
                 &--prev
-                    left: $grid-gutter-width / 2
                     transform: translateY(-50%)
             &__pagination
                 bottom: $grid-gutter-width / 2
+
+
+        @include media-breakpoint-up(md)
+            &__arrow
+                &--next
+                    right: $grid-gutter-width / 2
+                &--prev
+                    left: $grid-gutter-width / 2
+
 
         @include media-breakpoint-up(lg)
             .splide
