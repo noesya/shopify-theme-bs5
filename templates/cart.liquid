@@ -23,14 +23,19 @@
               </td>
               <td class="cart__product">
 
-                <pre>
-                  <ul>
-                    <li>{{item.discount_allocations}}</li>
-                    <li>{{item.discount_allocations.title}}</li>
-                    <li>{{item.discount_allocations.discount_application}}</li>
-                  </ul>
-                </pre>
-
+                {%- for discountAllocation in item.discount_allocations -%}
+                  <pre>
+                    <ul>
+                      <li>{{ discountAllocation.target_selection }}</li>
+                      <li>{{ discountAllocation.target_type }}</li>
+                      <li>{{ discountAllocation.title }}</li>
+                      <li>{{ discountAllocation.total_allocated_amount }}</li>
+                      <li>{{ discountAllocation.type }}</li>
+                      <li>{{ discountAllocation.value }}</li>
+                      <li>{{ discountAllocation.value_type }}</li>
+                    </ul>
+                  </pre>
+                {%- endfor -%}
 
                 <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
                 {% unless item.product.has_only_default_variant %}
