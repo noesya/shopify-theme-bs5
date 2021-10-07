@@ -37,7 +37,7 @@
         {% endif %}
       </header>
     {% endif %}
-    <div class="row row-cols-1 {{ col }} {{ align_col }}">
+    <div class="row row-cols-1 {{ col }} {{ align_col }} gy-3">
       {% for block in section.blocks limit: section.blocks.size %}
         <div class="col {{ mb }}" {{ block.shopify_attributes }}>
           {%- assign article = articles[block.settings.id_article] -%}
