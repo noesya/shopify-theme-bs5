@@ -201,6 +201,42 @@
           "subtitle": "<p>Promotions, nouveaux produits et soldes. Directement dans votre boîte de réception.<\/p>",
           "background": false
         }
+      },
+      "1633601798c2d3b3b3": {
+        "type": "section-featured-articles",
+        "blocks": {
+          "1633601798c2d3b3b3-0": {
+            "type": "featured_article",
+            "settings": {
+              "id_article": ""
+            }
+          },
+          "1633601798c2d3b3b3-1": {
+            "type": "featured_article",
+            "settings": {
+              "id_article": ""
+            }
+          },
+          "1633601798c2d3b3b3-2": {
+            "type": "featured_article",
+            "settings": {
+              "id_article": ""
+            }
+          }
+        },
+        "block_order": [
+          "1633601798c2d3b3b3-0",
+          "1633601798c2d3b3b3-1",
+          "1633601798c2d3b3b3-2"
+        ],
+        "settings": {
+          "surtitle": "Blog",
+          "title": "Articles",
+          "subtitle": "",
+          "grid": 1,
+          "center": true,
+          "background": true
+        }
       }
     },
     "content_for_index": [
@@ -209,6 +245,7 @@
       "1633535195672f1d62",
       "1633535279a01521b1",
       "163343919464ccf639",
+      "1633601798c2d3b3b3",
       "16335352880beee148"
     ]
   },
