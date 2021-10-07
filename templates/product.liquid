@@ -40,28 +40,28 @@
         </div>
         <pre>
           <ul>
-            <li>requires_selling_plan {{product.requires_selling_plan}}</li>
-            <li>selected_selling_plan {{product.selected_selling_plan}}</li>
+            <li>requires_selling_plan: {{product.requires_selling_plan}}</li>
+            <li>selected_selling_plan: {{product.selected_selling_plan}}</li>
             <li>
-              selected_or_first_available_selling_plan_allocation
+              selected_or_first_available_selling_plan_allocation:
               {%- for selling_plan_allocation in product.selected_or_first_available_selling_plan_allocation -%}
                   <ul>
-                    <li>compare_at_price {{ selling_plan_allocation.compare_at_price }}</li>
-                    <li>per_delivery_price {{ selling_plan_allocation.per_delivery_price }}</li>
-                    <li>price {{ selling_plan_allocation.price }}</li>
-                    <li>price_adjustments {{ selling_plan_allocation.price_adjustments }}</li>
-                    <li>selling_plan_group_id {{ selling_plan_allocation.selling_plan_group_id }}</li>
-                    <li>unit_price {{ selling_plan_allocation.unit_price }}</li>
+                    <li>compare_at_price: {{ selling_plan_allocation.compare_at_price }}</li>
+                    <li>per_delivery_price: {{ selling_plan_allocation.per_delivery_price }}</li>
+                    <li>price: {{ selling_plan_allocation.price }}</li>
+                    <li>price_adjustments: {{ selling_plan_allocation.price_adjustments }}</li>
+                    <li>selling_plan_group_id: {{ selling_plan_allocation.selling_plan_group_id }}</li>
+                    <li>unit_price: {{ selling_plan_allocation.unit_price }}</li>
                   </ul>
               {%- endfor -%}
             </li>
             <li>selected_selling_plan_allocation: {{product.selected_selling_plan_allocation}}</li>
             <li>
-              selling_plan_group
+              selling_plan_group:
               {%- for selling_plan in product.selling_plan_group -%}
                   <ul>
-                    <li>id {{ selling_plan.id }}</li>
-                    <li>name {{ selling_plan.name }}</li>
+                    <li>id: {{ selling_plan.id }}</li>
+                    <li>name: {{ selling_plan.name }}</li>
                   </ul>
               {%- endfor -%}
             </li>
