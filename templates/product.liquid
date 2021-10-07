@@ -15,6 +15,8 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="priceCurrency" content="{{ currency.iso_code }}">
+  <meta itemprop="price" content="{{ current_variant.compare_at_price | money_without_currency }}">
 
   <div class="container py-5">
     <div class="row">
@@ -29,7 +31,12 @@
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-          <p class="mb-2 lead js-product-price" itemprop="price">{{ current_variant.price | money }}</p>
+          <p class="mb-2 lead js-product-price">
+            {%- if current_variant.compare_at_price != current_variant.price -%}
+              <del>{{ current_variant.compare_at_price | money }}</del>
+            {%- endif -%}
+            {{ current_variant.price | money }}
+          </p>
         </div>
 
         <pre>
@@ -44,8 +51,6 @@
             <li>product.price_varies: {{ product.price_varies }}</li>
             <li>current_variant.compare_at_price: {{ current_variant.compare_at_price }}</li>
             <li>current_variant.price: {{ current_variant.price }}</li>
-            <li>current_variant.unit_price: {{ current_variant.unit_price }}</li>
-            <li>current_variant.unit_price_measurement: {{ current_variant.unit_price_measurement }}</li>
           </ul>
         </pre>
 
