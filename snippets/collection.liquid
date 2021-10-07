@@ -6,7 +6,7 @@
   {% assign collection_image = blank %}
 {% endif %}
 
-<div class="card">
+<div class="card card--collection">
   {% include 'image', src: collection_image, alt: collection.title, img_class: 'img-fluid card-img-top' %}
   <div class="card-body">
     <p class="h2 card-title">{{ collection.title }}</p>
