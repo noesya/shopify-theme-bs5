@@ -86,11 +86,18 @@
             "settings": {
               "id_product": "chuck-taylor-all-star-converse-x-keith-haring-basse"
             }
+          },
+          "5b6fe0a9-cdb3-4a1e-afb5-7eaaefe6a79c": {
+            "type": "featured_product",
+            "settings": {
+              "id_product": "chuck-taylor-all-star-classic-montante-1"
+            }
           }
         },
         "block_order": [
           "1633427828d3043900-0",
-          "a6bf7c4a-b9eb-4ec8-9e29-291c2c6c2b23"
+          "a6bf7c4a-b9eb-4ec8-9e29-291c2c6c2b23",
+          "5b6fe0a9-cdb3-4a1e-afb5-7eaaefe6a79c"
         ],
         "settings": {
           "surtitle": "",
