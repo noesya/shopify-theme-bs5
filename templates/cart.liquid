@@ -26,13 +26,14 @@
                 {%- for discountAllocation in item.discount_allocations -%}
                   <pre>
                     <ul>
-                      <li>{{ discountAllocation.target_selection }}</li>
-                      <li>{{ discountAllocation.target_type }}</li>
-                      <li>{{ discountAllocation.title }}</li>
-                      <li>{{ discountAllocation.total_allocated_amount }}</li>
-                      <li>{{ discountAllocation.type }}</li>
-                      <li>{{ discountAllocation.value }}</li>
-                      <li>{{ discountAllocation.value_type }}</li>
+                      <li>{{ discountAllocation.amount }}</li>
+                      <li>{{ discountAllocation.discount_application.target_selection }}</li>
+                      <li>{{ discountAllocation.discount_application.target_type }}</li>
+                      <li>{{ discountAllocation.discount_application.title }}</li>
+                      <li>{{ discountAllocation.discount_application.total_allocated_amount }}</li>
+                      <li>{{ discountAllocation.discount_application.type }}</li>
+                      <li>{{ discountAllocation.discount_application.value }}</li>
+                      <li>{{ discountAllocation.discount_application.value_type }}</li>
                     </ul>
                   </pre>
                 {%- endfor -%}
