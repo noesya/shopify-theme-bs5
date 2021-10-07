@@ -39,6 +39,30 @@
           </p>
         </div>
 
+        <pre>
+          <ul>
+            <li>{{ current_variant.selling_plan_allocation.compare_at_price }}</li>
+            <li>{{ current_variant.selling_plan_allocation.per_delivery_price }}</li>
+            <li>{{ current_variant.selling_plan_allocation.price }}</li>
+            <li>{{ current_variant.selling_plan_allocation.price_adjustments[0] }}</li>
+            <li>{{ current_variant.selling_plan_allocation.selling_plan }}</li>
+            <li>{{ current_variant.selling_plan_allocation.selling_plan_group_id }}</li>
+            <li>{{ current_variant.selling_plan_allocation.unit_price }}</li>
+          </ul>
+        </pre>
+
+        <pre>
+          <ul>
+            <li>{{ product.selling_plan_allocation.compare_at_price }}</li>
+            <li>{{ product.selling_plan_allocation.per_delivery_price }}</li>
+            <li>{{ product.selling_plan_allocation.price }}</li>
+            <li>{{ product.selling_plan_allocation.price_adjustments[0] }}</li>
+            <li>{{ product.selling_plan_allocation.selling_plan }}</li>
+            <li>{{ product.selling_plan_allocation.selling_plan_group_id }}</li>
+            <li>{{ product.selling_plan_allocation.unit_price }}</li>
+          </ul>
+        </pre>
+
         <div class="rte" itemprop="description">{{ product.description | strip }}</div>
 
         <hr>

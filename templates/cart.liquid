@@ -67,10 +67,7 @@
                 <div class="price">
                   <pre>
                     <ul>
-                      <li>{{ item.final_line_price }}</li>
-                      <li>{{ item.final_price }}</li>
-                      <li>{{ item.original_line_price }}</li>
-                      <li>{{ item.original_price }}</li>
+                      <li>{{ item.product.compare_at_price }}</li>
                     </ul>
                   </pre>
 
@@ -79,7 +76,7 @@
                       <li>{{ item.selling_plan_allocation.compare_at_price }}</li>
                       <li>{{ item.selling_plan_allocation.per_delivery_price }}</li>
                       <li>{{ item.selling_plan_allocation.price }}</li>
-                      <li>{{ item.selling_plan_allocation.price_adjustments }}</li>
+                      <li>{{ item.selling_plan_allocation.price_adjustments[0] }}</li>
                       <li>{{ item.selling_plan_allocation.selling_plan }}</li>
                       <li>{{ item.selling_plan_allocation.selling_plan_group_id }}</li>
                       <li>{{ item.selling_plan_allocation.unit_price }}</li>
