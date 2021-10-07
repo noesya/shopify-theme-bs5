@@ -1,9 +1,14 @@
+{% assign push_size = 'x554' %}
+{%- if container != 'container' -%}
+  {% assign push_size = 'x600' %}
+{%- endif -%}
+
 <div class="card">
   <div class="ratio {{ ratio }} bg-light">
     {%- if image -%}
-      {%- include 'image', src: image, size: 'x450', alt: custom_title, img_class: 'img-fluid' -%}
+      {%- include 'image', src: image, size: push_size, alt: custom_title, img_class: 'img-fluid' -%}
     {%- elsif item.image -%}
-      {%- include 'image', src: item.image, size: 'x450', alt: custom_title, img_class: 'img-fluid' -%}
+      {%- include 'image', src: item.image, size: push_size, alt: custom_title, img_class: 'img-fluid' -%}
     {%- endif -%}
   </div>
   <div class="card-img-overlay">
