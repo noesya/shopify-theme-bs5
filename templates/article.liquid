@@ -13,7 +13,7 @@
         <p class="lead">{{ article.excerpt }}</p>
       {% endif %}
       <p class="mb-0"><strong>{{ article.author }}</strong></p>
-      <p><time class="small card-text">{{ article.published_at | time_tag: format: 'abbreviated_date' }}</small></p>
+      <p><small class="card-text">{{ article.published_at | time_tag: format: 'abbreviated_date' }}</small></p>
       <div>{{ article.content }}</div>
     </article>
 
