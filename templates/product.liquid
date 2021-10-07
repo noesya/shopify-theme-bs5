@@ -32,7 +32,7 @@
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
           <p class="mb-2 lead">
-            {%- if current_variant.compare_at_price != current_variant.price -%}
+            {%- if current_variant.compare_at_price != nil -%}
               <del class="text-danger me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
             {%- endif -%}
             <span class="js-product-price">{{ current_variant.price | money }}</span>
