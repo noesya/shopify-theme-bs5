@@ -39,19 +39,20 @@
           </p>
         </div>
 
-        <pre>
-          <ul>
-            <li>{{ current_variant.selling_plan_allocation }}</li>
-            <li>{{ current_variant.selected_selling_plan_allocation }}</li>
-          </ul>
-        </pre>
-
-        <pre>
-          <ul>
-            <li>{{ product.selling_plan_allocation }}</li>
-            <li>{{ product.selected_selling_plan_allocation }}</li>
-          </ul>
-        </pre>
+        {%- for discountAllocation in product.discount_allocations -%}
+          <pre>
+            <ul>
+              <li>{{ discountAllocation.amount }}</li>
+              <li>{{ discountAllocation.discount_application.target_selection }}</li>
+              <li>{{ discountAllocation.discount_application.target_type }}</li>
+              <li>{{ discountAllocation.discount_application.title }}</li>
+              <li>{{ discountAllocation.discount_application.total_allocated_amount }}</li>
+              <li>{{ discountAllocation.discount_application.type }}</li>
+              <li>{{ discountAllocation.discount_application.value }}</li>
+              <li>{{ discountAllocation.discount_application.value_type }}</li>
+            </ul>
+          </pre>
+        {%- endfor -%}
 
         <div class="rte" itemprop="description">{{ product.description | strip }}</div>
 
