@@ -31,35 +31,25 @@
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-          <p class="mb-2 lead js-product-price">
+          <p class="mb-2 lead">
             {%- if current_variant.compare_at_price != current_variant.price -%}
-              <del class="text-danger me-1">{{ current_variant.compare_at_price | money }}</del>
+              <del class="text-danger me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
             {%- endif -%}
-            {{ current_variant.price | money }}
+            <span class="js-product-price">{{ current_variant.price | money }}</span>
           </p>
         </div>
 
         <pre>
           <ul>
-            <li>{{ current_variant.selling_plan_allocation.compare_at_price }}</li>
-            <li>{{ current_variant.selling_plan_allocation.per_delivery_price }}</li>
-            <li>{{ current_variant.selling_plan_allocation.price }}</li>
-            <li>{{ current_variant.selling_plan_allocation.price_adjustments[0] }}</li>
-            <li>{{ current_variant.selling_plan_allocation.selling_plan }}</li>
-            <li>{{ current_variant.selling_plan_allocation.selling_plan_group_id }}</li>
-            <li>{{ current_variant.selling_plan_allocation.unit_price }}</li>
+            <li>{{ current_variant.selling_plan_allocation }}</li>
+            <li>{{ current_variant.selected_selling_plan_allocation }}</li>
           </ul>
         </pre>
 
         <pre>
           <ul>
-            <li>{{ product.selling_plan_allocation.compare_at_price }}</li>
-            <li>{{ product.selling_plan_allocation.per_delivery_price }}</li>
-            <li>{{ product.selling_plan_allocation.price }}</li>
-            <li>{{ product.selling_plan_allocation.price_adjustments[0] }}</li>
-            <li>{{ product.selling_plan_allocation.selling_plan }}</li>
-            <li>{{ product.selling_plan_allocation.selling_plan_group_id }}</li>
-            <li>{{ product.selling_plan_allocation.unit_price }}</li>
+            <li>{{ product.selling_plan_allocation }}</li>
+            <li>{{ product.selected_selling_plan_allocation }}</li>
           </ul>
         </pre>
 
