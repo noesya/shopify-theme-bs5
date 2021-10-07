@@ -26,12 +26,12 @@
                 <pre>
                   <ul>
                     <li>{{item.discount_allocations}}</li>
-                    <li>{{item.discount_allocations.amount}}</li>
+                    <li>{{item.discount_allocations.title}}</li>
                     <li>{{item.discount_allocations.discount_application}}</li>
-                    <li>{{item.line_level_discount_allocations}}</li>
-                    <li>{{item.line_level_total_discount}}</li>
                   </ul>
                 </pre>
+
+
                 <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
                 {% unless item.product.has_only_default_variant %}
                   <p class="mb-0">{{ item.variant.title }}</p>
