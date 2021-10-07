@@ -9,8 +9,10 @@
 {%- else -%}
 <header class="mb-5 text-center">
   <h1>{{ collection.title }}</h1>
-  <div class="rte">
-    {{ collection.description }}
+  <div class="row">
+    <div class="col-md-10 offset-md-1 rte">
+      {{ collection.description }}
+    </div>
   </div>
 </header>
 {%- endif -%}
