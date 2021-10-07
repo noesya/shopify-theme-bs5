@@ -104,6 +104,8 @@
           "title": "Featured products",
           "subtitle": "this is awesome",
           "grid": 3,
+          "grid_mobile": 1,
+          "grid_tablet": 3,
           "url": "shopify:\/\/collections\/chaussures",
           "cta": "Discover more shoes",
           "cta_style": "btn-primary",
@@ -208,26 +210,12 @@
           "1633601798c2d3b3b3-0": {
             "type": "featured_article",
             "settings": {
-              "id_article": ""
-            }
-          },
-          "1633601798c2d3b3b3-1": {
-            "type": "featured_article",
-            "settings": {
-              "id_article": ""
-            }
-          },
-          "1633601798c2d3b3b3-2": {
-            "type": "featured_article",
-            "settings": {
-              "id_article": ""
+              "id_article": "infos\/shopify-en-france-quoi-de-neuf-en-octobre-2021"
             }
           }
         },
         "block_order": [
-          "1633601798c2d3b3b3-0",
-          "1633601798c2d3b3b3-1",
-          "1633601798c2d3b3b3-2"
+          "1633601798c2d3b3b3-0"
         ],
         "settings": {
           "surtitle": "Blog",
