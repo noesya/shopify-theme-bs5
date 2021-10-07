@@ -234,7 +234,7 @@ kbd {
   font-size: 0.875em;
   color: #fff;
   background-color: #212529;
-  border-radius: 0.2rem; }
+  border-radius: 0; }
   kbd kbd {
     padding: 0;
     font-size: 1em;
@@ -1618,7 +1618,7 @@ progress {
   min-height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-  border-radius: 0.2rem; }
+  border-radius: 0; }
   .form-control-sm::file-selector-button {
     padding: 0.25rem 0.5rem;
     margin: -0.25rem -0.5rem;
@@ -1944,7 +1944,7 @@ textarea.form-control-lg {
 .input-group-sm > .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-  border-radius: 0.2rem; }
+  border-radius: 0; }
 
 .input-group-lg > .form-select,
 .input-group-sm > .form-select {
@@ -2553,7 +2553,7 @@ textarea.form-control-lg {
 .btn-sm, .btn-group-sm > .btn {
   padding: 12px 15px;
   font-size: 0.875rem;
-  border-radius: 0.2rem; }
+  border-radius: 0; }
 
 .fade {
   transition: opacity 0.15s linear; }
@@ -3682,12 +3682,12 @@ textarea.form-control-lg {
   font-size: 0.875rem; }
 
 .pagination-sm .page-item:first-child .page-link {
-  border-top-left-radius: 0.2rem;
-  border-bottom-left-radius: 0.2rem; }
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
 
 .pagination-sm .page-item:last-child .page-link {
-  border-top-right-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem; }
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
 
 .badge {
   display: inline-block;
@@ -6053,7 +6053,7 @@ textarea.form-control-lg {
   border-radius: 0 !important; }
 
 .rounded-1 {
-  border-radius: 0.2rem !important; }
+  border-radius: 0 !important; }
 
 .rounded-2 {
   border-radius: 0 !important; }
