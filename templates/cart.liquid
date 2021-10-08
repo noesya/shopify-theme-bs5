@@ -73,7 +73,7 @@
                 {% unless is_discount_allocations %}
                 <div class="price">
                   {% if item.product.compare_at_price != item.price %}
-                    <del class="text-danger me-1">{{ item.product.compare_at_price | money }}</del>
+                    <del class="text-danger">{{ item.product.compare_at_price | money }}</del>
                   {% endif %}
                   {{ item.price | money | strip }}
                 </div>

@@ -31,8 +31,8 @@
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-          <p class="mb-2 lead">
-            <del class="me-1 js-product-price-discount">{%- if current_variant.compare_at_price != nil -%}
+          <p class="mb-2 lead price">
+            <del class="js-product-price-discount">{%- if current_variant.compare_at_price != nil -%}
               {{ current_variant.compare_at_price | money | strip }}
             {%- endif -%}</del>
             <span class="js-product-price">{{ current_variant.price | money }}</span>
