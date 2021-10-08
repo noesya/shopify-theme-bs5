@@ -6765,6 +6765,8 @@ window.stk.Product = {
                 that.setPrice(option);
                 that.setPriceDiscount(option);
             }
+            console.log(option);
+            console.log(option.disabled);
             if (option.disabled) {
                 isAvailable = true;
             }
