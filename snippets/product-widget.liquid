@@ -4,7 +4,7 @@
       <span class="title">{{ product.title }}</span><br>
       <span class="price">
         {%- if current_variant.compare_at_price != nil -%}
-          <del class="text-danger me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
+          <del class="me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
         {%- endif -%}
         <span class="js-product-price">{{ current_variant.price | money }}</span>
       </span>
