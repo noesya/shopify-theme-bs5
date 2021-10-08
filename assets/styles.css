@@ -7950,10 +7950,10 @@ a {
 .product__widget {
   background-color: #fff;
   bottom: 0;
-  box-shadow: 0 -0.1rem 1rem black;
+  box-shadow: 0 -0.1rem 1rem rgba(0, 0, 0, 0.1);
   display: none;
   left: 0;
-  padding-bottom: env(calc(safe-area-inset-bottom + 15px), 15px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 15px);
   padding-top: 15px;
   position: fixed;
   right: 0;
