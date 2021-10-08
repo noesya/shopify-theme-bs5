@@ -50,7 +50,7 @@
 
           <hr>
 
-          <div class="row align-items-center flex-nowrap">
+          <div class="product__cta">
             <div class="col-4">
               <div class="form-floating">
                 <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty" placeholder="1">
@@ -64,8 +64,15 @@
 
           <div class="product__widget js-addtocart-widget">
             <div class="container">
-              <span class="h2">{{ product.title }}</span>
-              <span class="js-product-price">{{ current_variant.price | money }}</span>
+              <p class="mb-0">
+                <span class="title">{{ product.title }}</span><br>
+                <span class="price">
+                  {%- if current_variant.compare_at_price != nil -%}
+                    <del class="text-danger me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
+                  {%- endif -%}
+                  <span class="js-product-price">{{ current_variant.price | money }}</span>
+                </span>
+              </p>
               <button type="submit" name="add" class="btn btn-sm btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
             </div>
           </div>

@@ -18,6 +18,9 @@
                 &:focus
                     background-color: $gray-100
 
+    &__cta
+        display: none
+
     &__widget
         background-color: $white
         bottom: 0
@@ -32,10 +35,16 @@
         .container
             align-items: center
             display: flex
-        .h2
+        .title
+            @extend .h5
             margin-bottom: 0
-            margin-right: $grid-gutter-width/2
         .btn
             margin-left: auto
+            white-space: nowrap
         &.show
             display: block
+
+    @include media-breakpoint-up(md)
+        &__cta
+            align-items: center
+            display: flex

@@ -90,7 +90,7 @@ hr {
 hr:not([size]) {
   height: 1px; }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .product__widget .title, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Lora", serif;
@@ -121,7 +121,7 @@ h4, .h4 {
     h4, .h4 {
       font-size: 1.5rem; } }
 
-h5, .h5 {
+h5, .h5, .product__widget .title {
   font-size: 1.25rem; }
 
 h6, .h6 {
@@ -7944,6 +7944,9 @@ a {
       .product__variant__radio label:hover, .product__variant__radio label:focus {
         background-color: #f8f9fa; }
 
+.product__cta {
+  display: none; }
+
 .product__widget {
   background-color: #fff;
   bottom: 0;
@@ -7958,13 +7961,18 @@ a {
   .product__widget .container {
     align-items: center;
     display: flex; }
-  .product__widget .h2 {
-    margin-bottom: 0;
-    margin-right: 15px; }
+  .product__widget .title {
+    margin-bottom: 0; }
   .product__widget .btn {
-    margin-left: auto; }
+    margin-left: auto;
+    white-space: nowrap; }
   .product__widget.show {
     display: block; }
+
+@media (min-width: 768px) {
+  .product__cta {
+    align-items: center;
+    display: flex; } }
 
 .section--carousel .splide__track {
   padding-bottom: 0; }
