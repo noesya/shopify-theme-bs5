@@ -108,13 +108,14 @@
                   {% elsif item.compare_at_price > item.line_price %}
                     <del>{{ item.compare_at_price | money }}</del>
                   {% endif %}
-                  {{item.line_price}}
-                  {%- if item.line_price == '000' -%}
+                  {%- if item.line_price == 0 -%}
                     {{ 'products.product.free' | t }}
                   {%- else -%}
                     {{ item.line_price | money | strip }}
                   {%- endif -%}
-                  {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                  {%- for discount in item.discounts -%}
+                    <span clas="badge bg-danger">{{ discount.title }}</span>
+                  {%- endfor -%}
                 </div>
               </td>
               <td class="cart__delete">
