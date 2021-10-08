@@ -7880,14 +7880,18 @@ a {
   background-color: #f8f9fa;
   padding: 15px; }
   .cart__summary table {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
     color: #6c757d;
-    font-size: 0.875rem; }
+    font-size: 0.8125rem; }
   .cart__summary th {
-    font-weight: normal;
-    padding-left: 0; }
+    font-weight: normal; }
+  .cart__summary th,
   .cart__summary td {
-    padding-right: 0;
-    text-align: right; }
+    padding-bottom: 10px;
+    padding-top: 10px; }
+  .cart__summary td {
+    padding-right: 0; }
 
 .cart .cart__delete {
   padding: 0; }
