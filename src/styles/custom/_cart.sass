@@ -17,9 +17,11 @@
             font-family: $headings-font-family
             margin-bottom: 5px
         ul
-            margin-bottom: 0
+            list-style: none
+            margin: 0
+            padding: 0
         li
-            font-size: px2rem(14)
+            font-size: px2rem(12)
             span
                 color: $text-muted
 
@@ -44,6 +46,9 @@
         &__price,
         &__total
             width: 200px
+        &__product
+            li
+                font-size: px2rem(12)
         &__qty
             width: 150px
         &__product__name
