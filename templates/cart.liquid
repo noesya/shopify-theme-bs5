@@ -15,8 +15,7 @@
           {% for item in cart.items %}
             {% assign is_discount_allocations = false %}
             {%- for discountAllocation in item.discount_allocations -%}
-              {{item.discount_allocations.type}}
-              {% if item.discount_allocations.type == 'automatic' %}
+              {% if item.discountAllocation.type == 'automatic' %}
                 {% assign is_discount_allocations = true %}
               {%- endif -%}
             {%- endfor -%}
