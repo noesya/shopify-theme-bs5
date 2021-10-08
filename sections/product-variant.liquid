@@ -1,7 +1,7 @@
 
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
-      <div class="mb-4">
+      <div class="product__variant mb-4">
         {% if section.settings.product_selector == 'radio' %}
           <fieldset>
             <legend>{{ option.name | escape }}</legend>
@@ -31,7 +31,10 @@
           </label>
           <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
             {% for value in option.values %}
-              <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
+              <option
+                {% if option.selected_value == value %} selected="selected"{% endif %}
+                {% if option.selected_value == value %} selected="selected"{% endif %}
+                value="{{ value | escape }}">{{ value | escape }}</option>
             {% endfor %}
           </select>
         {% endif %}
@@ -39,7 +42,7 @@
     {% endfor %}
   {% endunless %}
 
-  <select name="id" class="product__variant js-product-id">
+  <select name="id" class="product__variant__id js-product-id">
     {% for variant in product.variants %}
       <option
         {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}

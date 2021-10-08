@@ -7926,23 +7926,21 @@ a {
   .notif:empty {
     opacity: 0; }
 
-.product__variant {
-  display: none; }
-  .product__variant__radio {
-    display: inline-block;
-    margin-right: 1rem; }
-    .product__variant__radio input {
-      display: none; }
-      .product__variant__radio input:checked + label {
-        background-color: #343a40;
-        color: #fff; }
-    .product__variant__radio label {
-      border: 1px solid #dee2e6;
-      cursor: pointer;
-      padding: 5px 15px;
-      user-select: none; }
-      .product__variant__radio label:hover, .product__variant__radio label:focus {
-        background-color: #f8f9fa; }
+.product__variant__radio {
+  display: inline-block;
+  margin-right: 1rem; }
+  .product__variant__radio input {
+    display: none; }
+    .product__variant__radio input:checked + label {
+      background-color: #343a40;
+      color: #fff; }
+  .product__variant__radio label {
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    padding: 5px 15px;
+    user-select: none; }
+    .product__variant__radio label:hover, .product__variant__radio label:focus {
+      background-color: #f8f9fa; }
 
 .product__cta {
   display: none; }
