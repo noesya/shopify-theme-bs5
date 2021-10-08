@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
-            <tr{% if item.discount_allocations %} class="bg-warning"{% endif %}>
+            <tr{% if item.discount_allocations != nil %} class="bg-warning"{% endif %}>
               <td class="cart__image">
                 <a href="{{ item.url | within: collections.all }}">
                   <div class="ratio ratio-1x1">
