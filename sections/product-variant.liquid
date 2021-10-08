@@ -59,8 +59,8 @@
         {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
         {% unless variant.available %} disabled{% endunless %}
         data-quantity="{{ variant.inventory_quantity }}"
-        data-sku="{{ variant.sku }}"
-        {% unless variant.compare_at_price %} data-compare="{{ variant.compare_at_price | money }}"{% endunless %}
+        data-sku="{{ variant.sku | default: product.sku }}"
+        data-compare="{{ variant.compare_at_price | money }}"
         data-price="{{ variant.price | money }}"
         value="{{ variant.id }}">
         {{ variant.title }}
