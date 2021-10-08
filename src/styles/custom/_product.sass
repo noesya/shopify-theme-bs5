@@ -27,7 +27,7 @@
         box-shadow: $box-shadow
         display: none
         left: 0
-        padding-bottom: env(safe-area-inset-bottom, $grid-gutter-width/2)
+        padding-bottom: env(calc(safe-area-inset-bottom + #{$grid-gutter-width}/2), $grid-gutter-width/2)
         padding-top: $grid-gutter-width/2
         position: fixed
         right: 0
@@ -35,11 +35,18 @@
         .container
             align-items: center
             display: flex
+            @include media-breakpoint-down(md)
+                padding-left: $grid-gutter-width/2
+                padding-right: $grid-gutter-width/2
+
+        p
+            margin-right: auto
         .title
             @extend .h5
+            font-size: px2rem(18)
             margin-bottom: 0
         .btn
-            margin-left: auto
+            margin-left: $grid-gutter-width/2
             white-space: nowrap
         &.show
             display: block
