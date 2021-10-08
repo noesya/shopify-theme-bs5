@@ -7936,8 +7936,10 @@ a {
   .notif:empty {
     opacity: 0; }
 
-.product__content del:empty {
-  display: none; }
+.price del {
+  color: #dc3545; }
+  .price del:empty {
+    display: none; }
 
 .product__variant__radio {
   display: inline-block;
