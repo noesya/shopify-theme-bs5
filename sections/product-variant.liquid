@@ -26,7 +26,7 @@
             {% endfor %}
           </fieldset>
         {% else %}
-          <div class="form-floatting">
+          <div class="form-floating">
             <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
               {% for value in option.values %}
                 {% assign variant_label_state = true %}
@@ -39,7 +39,7 @@
                   value="{{ value | escape }}">{{ value | escape }}</option>
               {% endfor %}
             </select>
-            <label class="form-label" for="variant-{{ forloop.index0 }}">
+            <label for="variant-{{ forloop.index0 }}">
               {{ option.name | escape }}
             </label>
           </div>
