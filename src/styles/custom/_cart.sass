@@ -41,6 +41,10 @@
             padding-top: 10px
         td
             padding-right: 0
+            text-align: right
+
+        .btn
+            display: block
 
     & &__delete
         padding: 0
@@ -56,6 +60,9 @@
             width: 24px
         &__product__name
             font-size: px2rem(18)
+        &__summary
+            position: sticky
+            top: 0
 
     @include media-breakpoint-up(lg)
         &__image
@@ -67,7 +74,7 @@
             li
                 font-size: px2rem(12)
         &__qty
-            width: 150px
+            width: 100px
         &__product__name
             font-size: px2rem(20)
         &__summary
