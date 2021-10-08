@@ -38,7 +38,7 @@
                   </pre>
                 {%- endfor -%}
 
-                <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+                <p class="h4"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
                 {% unless item.product.has_only_default_variant %}
                   <p class="mb-0">{{ item.variant.title }}</p>
                 {% endunless %}

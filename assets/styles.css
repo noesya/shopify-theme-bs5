@@ -7876,8 +7876,10 @@ a {
 @media (min-width: 992px) {
   .cart__image {
     width: calc(200px + 30px); }
-  .cart__price, .cart__qty, .cart__total {
-    width: 200px; } }
+  .cart__price, .cart__total {
+    width: 200px; }
+  .cart__qty {
+    width: 150px; } }
 
 @media (max-width: 575.98px) {
   .cart thead {
