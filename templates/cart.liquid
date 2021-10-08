@@ -13,6 +13,7 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
+            {{item.discount_allocations.type}}
             {% assign is_discount_allocations = false %}
             {%- for discountAllocation in item.discount_allocations -%}
               {% if item.discount_allocations.type == 'automatic' %}
@@ -44,7 +45,7 @@
                   </pre>
                 {%- endfor -%}
 
-                <p class="h4"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
+                <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
                 {% unless item.product.has_only_default_variant %}
                   <p class="mb-0">{{ item.variant.title }}</p>
                 {% endunless %}

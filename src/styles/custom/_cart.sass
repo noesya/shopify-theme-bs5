@@ -12,6 +12,9 @@
     &__qty
         input
             max-width: 100px
+    &__product__name
+        font-family: $headings-font-family
+
     & &__delete
         padding: 0
 
@@ -24,6 +27,8 @@
             width: 100px
         &__delete
             width: 24px
+        &__product__name
+            font-size: px2rem(18)
 
     @include media-breakpoint-up(lg)
         &__image
@@ -33,6 +38,8 @@
             width: 200px
         &__qty
             width: 150px
+        &__product__name
+            font-size: px2rem(20)
 
     @include media-breakpoint-down(sm)
         thead
@@ -41,7 +48,7 @@
             tr
                 border-bottom: $border-width solid $border-color
                 display: grid
-                grid-template-columns: repeat(4, 1fr)
+                grid-template-columns: repeat(5, 1fr)
                 margin: 0 -15px
                 padding: $grid-gutter-width/2 0
                 &:first-child
@@ -55,19 +62,20 @@
         &__qty,
         &__delete
             border: 0
-            grid-column: 3/5
+            grid-column: 3/6
         & &__product,
         & &__price
             padding-bottom: 0
         &__total
-            display: none
+            grid-column: 4
+            grid-row: 3
         &__qty
             grid-column: 3
             grid-row: 3
         &__delete
             align-items: center
             display: flex
-            grid-column: 4
+            grid-column: 5
             grid-row: 3
             justify-content: flex-end
         & &__delete
