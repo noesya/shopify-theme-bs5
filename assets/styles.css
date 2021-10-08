@@ -7926,6 +7926,9 @@ a {
   .notif:empty {
     opacity: 0; }
 
+.product__content del:empty {
+  display: none; }
+
 .product__variant__radio {
   display: inline-block;
   margin-right: 1rem; }

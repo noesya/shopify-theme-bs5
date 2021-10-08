@@ -20,10 +20,10 @@
 
   <div class="container py-5">
     <div class="row">
-      <div class="col-md-7 mb-3 mb-md-0">
+      <div class="col-md-7 mb-3 mb-md-0 product__media">
         {%- include 'product-images' -%}
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 product__content">
 
         <h1 itemprop="name">{{ product.title }}</h1>
         <p>{{ product.vendor }}</p>
@@ -32,9 +32,11 @@
           <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
           <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
           <p class="mb-2 lead">
-            {%- if current_variant.compare_at_price != nil -%}
-              <del class="text-danger me-1 js-product-price-discount">{{ current_variant.compare_at_price | money }}</del>
-            {%- endif -%}
+            <del class="text-danger me-1 js-product-price-discount">
+              {%- if current_variant.compare_at_price != nil -%}
+                {{ current_variant.compare_at_price | money }}
+              {%- endif -%}
+            </del>
             <span class="js-product-price">{{ current_variant.price | money }}</span>
           </p>
         </div>

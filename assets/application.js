@@ -6719,6 +6719,8 @@ window.stk.Product = {
         if (this.formElm !== null) {
             this.addtocartElm = document.querySelectorAll('.js-addtocart');
             this.variantElm = document.querySelectorAll('.js-product-variant');
+            this.priceElm = document.querySelectorAll('.js-product-price');
+            this.priceDiscountElm = document.querySelectorAll('.js-product-price-discount');
             this.qtyElm = document.querySelector('.js-product-qty');
             this.events();
         }
@@ -6764,6 +6766,20 @@ window.stk.Product = {
             }
         });
         this.setAddtocart(isAvailable);
+    },
+    setPrice: function (option) {
+        'use strict';
+        var i;
+        for (i = 0; i < this.priceElm.length; i += 1) {
+            this.priceElm[i].innerHTML = option.dataset.price;
+        }
+    },
+    setPriceDiscount: function (option) {
+        'use strict';
+        var i;
+        for (i = 0; i < this.priceDiscountElm.length; i += 1) {
+            this.priceDiscountElm[i].innerHTML = option.dataset.compare;
+        }
     },
     setAddtocart: function (isAvailable) {
         'use strict';
