@@ -15,7 +15,7 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="priceCurrency" content="{{ currency.iso_code }}">
+  <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
   <meta itemprop="price" content="{{ current_variant.compare_at_price | money_without_currency }}">
 
   <div class="container py-5">

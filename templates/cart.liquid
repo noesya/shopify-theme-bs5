@@ -1,5 +1,5 @@
 
-  <h1>{{ 'cart.general.title' | t }}</h1>
+  <h1>{{ 'cart.general.title' | t }} ({{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }})</h1>
   {% if cart.item_count > 0 %}
 
     <form class="js-cart-form" action="{{ routes.cart_url }}" method="post">
@@ -147,6 +147,16 @@
         </div>
         <div class="col-md-6 text-md-end">
           <p>{{ taxes_shipping_checkout }}</p>
+
+          {% for discount_application in cart.cart_level_discount_applications %}
+          Discount name: {{ discount_application.title }}
+          Savings: -{{ discount_application.total_allocated_amount | money }}
+          {% endfor %}
+
+          {% for discount_application in cart.discount_applications %}
+          Discount name: {{ discount_application.title }}
+          Savings: -{{ discount_application.total_allocated_amount | money }}
+          {% endfor %}
 
           {%- if cart.cart_level_discount_applications != blank -%}
               {% for discount_application in cart.cart_level_discount_applications %}
