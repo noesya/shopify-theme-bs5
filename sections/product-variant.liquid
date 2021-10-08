@@ -2,6 +2,9 @@
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
       <div class="product__variant mb-4">
+        <pre>
+          {{option.name}} - {{option.position}}
+        </pre>
         {% if section.settings.product_selector == 'radio' %}
           <fieldset>
             <legend>{{ option.name | escape }}</legend>
@@ -46,6 +49,7 @@
     {% for variant in product.variants %}
       <option
         {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
+        data-available="{{ variant.available }}"
         data-sku="{{ variant.sku }}"
         value="{{ variant.id }}">
         {{ variant.title }}
