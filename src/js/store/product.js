@@ -48,10 +48,12 @@ window.stk.Product = {
             options = Array.from(this.idElm.options);
         options.forEach(function (option, i) {
             if (option.text === selected) {
-                isAvailable = true;
                 that.idElm.selectedIndex = i;
                 that.setPrice(option);
                 that.setPriceDiscount(option);
+            }
+            if (option.disabled) {
+                isAvailable = true;
             }
         });
         this.setAddtocart(isAvailable);
