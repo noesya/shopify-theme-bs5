@@ -19,7 +19,7 @@
                 {% assign is_discount_allocations = true %}
               {%- endif -%}
             {%- endfor -%}
-            <tr{% if is_discount_allocations %} class="bg-warning"{% endif %}>
+            <tr{% if is_discount_allocations %} class="bg-light"{% endif %}>
               <td class="cart__image">
                 <a href="{{ item.url | within: collections.all }}">
                   <div class="ratio ratio-1x1">
@@ -28,22 +28,6 @@
                 </a>
               </td>
               <td class="cart__product">
-
-                {{is_discount_allocations}}
-
-                {%- for discountAllocation in item.discount_allocations -%}
-                  <pre>
-                    {{ discountAllocation.amount }}<br>
-                    {{ discountAllocation.discount_application.target_selection }}<br>
-                    {{ discountAllocation.discount_application.target_type }}<br>
-                    {{ discountAllocation.discount_application.title }}<br>
-                    {{ discountAllocation.discount_application.total_allocated_amount }}<br>
-                    {{ discountAllocation.discount_application.type }}<br>
-                    {{ discountAllocation.discount_application.value }}<br>
-                    {{ discountAllocation.discount_application.value_type }}
-                  </pre>
-                {%- endfor -%}
-
                 <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
                 {% unless item.product.has_only_default_variant %}
                   <p class="mb-0">{{ item.variant.title }}</p>
@@ -86,12 +70,17 @@
                 {% endif %}
               </td>
               <td class="cart__price">
+                {% unless is_discount_allocations %}
                 <div class="price">
                   {% if item.product.compare_at_price != item.price %}
                     <del class="text-danger me-1">{{ item.product.compare_at_price | money }}</del>
                   {% endif %}
                   {{ item.price | money | strip }}
                 </div>
+                {% endunless %}
+                {%- for discount in item.discounts -%}
+                  <span class="badge bg-danger">{{ discount.title }}</span>
+                {%- endfor -%}
               </td>
               <td class="cart__qty">
                 {% unless is_discount_allocations %}
@@ -121,9 +110,6 @@
                   {%- else -%}
                     {{ item.line_price | money | strip }}
                   {%- endif -%}
-                  {%- for discount in item.discounts -%}
-                    <span class="badge bg-danger">{{ discount.title }}</span>
-                  {%- endfor -%}
                 </div>
               </td>
               <td class="cart__delete">
