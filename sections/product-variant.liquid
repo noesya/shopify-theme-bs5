@@ -1,7 +1,7 @@
 
   {% unless product.has_only_default_variant %}
     {% for option in product.options_with_values %}
-      <div class="product__variant mb-4">
+      <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
         {% if section.settings.product_selector == 'radio' %}
           <fieldset>
             <legend>{{ option.name | escape }}</legend>
