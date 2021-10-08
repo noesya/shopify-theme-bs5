@@ -26,21 +26,23 @@
             {% endfor %}
           </fieldset>
         {% else %}
-          <label class="form-label" for="variant-{{ forloop.index0 }}">
-            {{ option.name | escape }}
-          </label>
-          <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
-            {% for value in option.values %}
-              {% assign variant_label_state = true %}
-              {% unless product.variants[forloop.index0].available  %}
-                {% assign variant_label_state = false %}
-              {% endunless %}
-              <option
-                {% if option.selected_value == value %} selected="selected"{% endif %}
-                data-available="{{ variant_label_state }}"
-                value="{{ value | escape }}">{{ value | escape }}</option>
-            {% endfor %}
-          </select>
+          <div class="form-floatting">
+            <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
+              {% for value in option.values %}
+                {% assign variant_label_state = true %}
+                {% unless product.variants[forloop.index0].available  %}
+                  {% assign variant_label_state = false %}
+                {% endunless %}
+                <option
+                  {% if option.selected_value == value %} selected="selected"{% endif %}
+                  data-available="{{ variant_label_state }}"
+                  value="{{ value | escape }}">{{ value | escape }}</option>
+              {% endfor %}
+            </select>
+            <label class="form-label" for="variant-{{ forloop.index0 }}">
+              {{ option.name | escape }}
+            </label>
+          </div>
         {% endif %}
       </div>
     {% endfor %}
