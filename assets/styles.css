@@ -7903,14 +7903,14 @@ a {
     border: 0;
     grid-row: 1/4;
     grid-column: 1/3; }
-  .cart__product, .cart__price, .cart__qty, .cart__delete {
+  .cart__product, .cart__price, .cart__qty, .cart__delete, .cart__total {
     border: 0;
     grid-column: 3/6; }
   .cart .cart__product,
   .cart .cart__price {
     padding-bottom: 0; }
   .cart__total {
-    grid-column: 4;
+    grid-column: 4/6;
     grid-row: 3; }
   .cart__qty {
     grid-column: 3;
