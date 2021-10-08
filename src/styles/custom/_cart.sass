@@ -25,6 +25,10 @@
             span
                 color: $text-muted
 
+    &__summary
+        background-color: $light
+        padding: $grid-gutter-width/2
+
     & &__delete
         padding: 0
 
@@ -53,6 +57,8 @@
             width: 150px
         &__product__name
             font-size: px2rem(20)
+        &__summary
+            padding: $grid-gutter-width
 
     @include media-breakpoint-down(md)
         thead

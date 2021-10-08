@@ -1,0 +1,122 @@
+<table class="table align-middle cart">
+  <thead>
+    <th class="cart__product" colspan="2">{{ 'cart.label.product' | t }}</th>
+    <th class="cart__price">{{ 'cart.label.price' | t }}</th>
+    <th class="cart__qty">{{ 'cart.label.quantity' | t }}</th>
+    <th class="cart__total">{{ 'cart.label.total' | t }}</th>
+    <th class="cart__delete"></th>
+  </thead>
+  <tbody>
+    {% for item in cart.items %}
+      {% assign is_discount_allocations = false %}
+      {%- for discountAllocation in item.discount_allocations -%}
+        {% if discountAllocation.discount_application.type == 'automatic' %}
+          {% assign is_discount_allocations = true %}
+        {%- endif -%}
+      {%- endfor -%}
+      <tr{% if is_discount_allocations %} class="bg-light"{% endif %}>
+        <td class="cart__image">
+          <a href="{{ item.url | within: collections.all }}">
+            <div class="ratio ratio-1x1">
+              {%- include 'image', src: item, size: '200x200', alt:'{{ item.title | escape }}' -%}
+            </div>
+          </a>
+        </td>
+        <td class="cart__product">
+          <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
+          {% unless item.product.has_only_default_variant %}
+            <ul>
+            {% for option in item.options_with_values %}
+              <li><span>{{ option.name }}:</span> {{ option.value }}</li>
+            {% endfor %}
+            </ul>
+          {% endunless %}
+
+          {% assign property_size = item.properties | size %}
+          {% if property_size > 0 %}
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#propertiesModal">
+            Properties modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="propertiesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="propertiesModalLabel">Properties</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  {% for p in item.properties %}
+                    {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                    {% unless p.last == blank or first_character_in_key == '_' %}
+                      {{ p.first }}:
+                      {% if p.last contains '/uploads/' %}
+                        <a class="js-glightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                        {{ p.last }}
+                      {% endif %}
+                      <br>
+                    {% endunless %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% endif %}
+        </td>
+        <td class="cart__price">
+          {% unless is_discount_allocations %}
+          <div class="price">
+            {% if item.product.compare_at_price != item.price %}
+              <del class="text-danger">{{ item.product.compare_at_price | money }}</del>
+            {% endif %}
+            {{ item.price | money | strip }}
+          </div>
+          {% endunless %}
+          {%- for discount in item.discounts -%}
+            <span class="badge bg-danger">{{ discount.title }}</span>
+          {%- endfor -%}
+        </td>
+        <td class="cart__qty">
+          {% unless is_discount_allocations %}
+          <label for="updates_{{ item.key }}" class="form-label d-none" aria-label="{{ 'cart.label.quantity' | t }}">
+            {{ 'cart.label.qty' | t }} {{ item.successfully_fulfilled_quantity }}
+          </label>
+          <input
+            id="updates_{{ item.key }}"
+            class="form-control form-control-sm js-cart-qty"
+            data-key="{{ item.key }}"
+            max="100"
+            min="1"
+            name="updates[]"
+            type="number"
+            value="{{ item.quantity }}">
+            {% endunless %}
+        </td>
+        <td class="cart__total">
+          <div class="price">
+            {% if item.original_line_price != item.line_price %}
+              <del>{{ item.original_line_price | money }}</del>
+            {% elsif item.compare_at_price > item.line_price %}
+              <del>{{ item.compare_at_price | money }}</del>
+            {% endif %}
+            {%- if item.line_price == 0 -%}
+              {{ 'products.product.free' | t }}
+            {%- else -%}
+              {{ item.line_price | money | strip }}
+            {%- endif -%}
+          </div>
+        </td>
+        <td class="cart__delete">
+          <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-muted" title="{{ 'cart.general.remove' | t }}">
+            <span class="material-icons-outlined">highlight_off</span>
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -7876,6 +7876,10 @@ a {
   .cart__product li span {
     color: #6c757d; }
 
+.cart__summary {
+  background-color: #f8f9fa;
+  padding: 15px; }
+
 .cart .cart__delete {
   padding: 0; }
 
@@ -7899,7 +7903,9 @@ a {
   .cart__qty {
     width: 150px; }
   .cart__product__name {
-    font-size: 1.25rem; } }
+    font-size: 1.25rem; }
+  .cart__summary {
+    padding: 30px; } }
 
 @media (max-width: 767.98px) {
   .cart thead {
