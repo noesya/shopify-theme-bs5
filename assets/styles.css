@@ -7971,7 +7971,8 @@ a {
     text-overflow: ellipsis; }
   .product__widget .title {
     font-size: 1.125rem;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    white-space: nowrap; }
   .product__widget .btn {
     margin-left: 15px;
     white-space: nowrap; }
@@ -7981,7 +7982,8 @@ a {
 @media (min-width: 768px) {
   .product__cta {
     align-items: center;
-    display: flex; } }
+    display: flex;
+    flex-wrap: wrap; } }
 
 @media (min-width: 1200px) {
   .product__widget {
