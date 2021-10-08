@@ -34,9 +34,13 @@
           </label>
           <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
             {% for value in option.values %}
+              {% assign variant_label_state = true %}
+              {% unless product.variants[forloop.index0].available  %}
+                {% assign variant_label_state = false %}
+              {% endunless %}
               <option
                 {% if option.selected_value == value %} selected="selected"{% endif %}
-                {% if option.selected_value == value %} selected="selected"{% endif %}
+                data-available="{{ variant_label_state }}"
                 value="{{ value | escape }}">{{ value | escape }}</option>
             {% endfor %}
           </select>
@@ -50,6 +54,7 @@
       <option
         {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
         data-available="{{ variant.available }}"
+        data-quantity="{{ variant.inventory_quantity }}"
         data-sku="{{ variant.sku }}"
         value="{{ variant.id }}">
         {{ variant.title }}
