@@ -13,13 +13,13 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
-            {% assign discount_allocations = false %}
+            {% assign is_discount_allocations = false %}
             {%- for discountAllocation in item.discount_allocations -%}
               {% if item.discount_allocations.type == 'automatic' %}
-                {% assign discount_allocations = true %}
+                {% assign is_discount_allocations = true %}
               {%- endif -%}
             {%- endfor -%}
-            <tr{% if discount_allocations %} class="bg-warning"{% endif %}>
+            <tr{% if is_discount_allocations %} class="bg-warning"{% endif %}>
               <td class="cart__image">
                 <a href="{{ item.url | within: collections.all }}">
                   <div class="ratio ratio-1x1">
@@ -28,6 +28,8 @@
                 </a>
               </td>
               <td class="cart__product">
+
+                {{is_discount_allocations}}
 
                 {%- for discountAllocation in item.discount_allocations -%}
                   <pre>
