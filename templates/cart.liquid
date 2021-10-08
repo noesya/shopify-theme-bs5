@@ -31,7 +31,7 @@
                 <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
                 {% unless item.product.has_only_default_variant %}
                   <ul>
-                  {% for option in line_item.options_with_values %}
+                  {% for option in item.options_with_values %}
                     <li><span>{{ option.name }}:</span> {{ option.value }}</li>
                   {% endfor %}
                   </ul>
@@ -117,7 +117,7 @@
                 </div>
               </td>
               <td class="cart__delete">
-                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-danger" title="{{ 'cart.general.remove' | t }}">
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-muted" title="{{ 'cart.general.remove' | t }}">
                   <span class="material-icons-outlined">highlight_off</span>
                 </a>
               </td>
