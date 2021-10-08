@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           {% for item in cart.items %}
-            <tr>
+            <tr{% if item.discount_allocations %} class="bg-warning"{% endif %}>
               <td class="cart__image">
                 <a href="{{ item.url | within: collections.all }}">
                   <div class="ratio ratio-1x1">
@@ -25,16 +25,14 @@
 
                 {%- for discountAllocation in item.discount_allocations -%}
                   <pre>
-                    <ul>
-                      <li>{{ discountAllocation.amount }}</li>
-                      <li>{{ discountAllocation.discount_application.target_selection }}</li>
-                      <li>{{ discountAllocation.discount_application.target_type }}</li>
-                      <li>{{ discountAllocation.discount_application.title }}</li>
-                      <li>{{ discountAllocation.discount_application.total_allocated_amount }}</li>
-                      <li>{{ discountAllocation.discount_application.type }}</li>
-                      <li>{{ discountAllocation.discount_application.value }}</li>
-                      <li>{{ discountAllocation.discount_application.value_type }}</li>
-                    </ul>
+                    {{ discountAllocation.amount }}<br>
+                    {{ discountAllocation.discount_application.target_selection }}<br>
+                    {{ discountAllocation.discount_application.target_type }}<br>
+                    {{ discountAllocation.discount_application.title }}<br>
+                    {{ discountAllocation.discount_application.total_allocated_amount }}<br>
+                    {{ discountAllocation.discount_application.type }}<br>
+                    {{ discountAllocation.discount_application.value }}<br>
+                    {{ discountAllocation.discount_application.value_type }}
                   </pre>
                 {%- endfor -%}
 
