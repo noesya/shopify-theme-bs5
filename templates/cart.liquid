@@ -108,6 +108,7 @@
                   {% elsif item.compare_at_price > item.line_price %}
                     <del>{{ item.compare_at_price | money }}</del>
                   {% endif %}
+                  {{item.line_price}}
                   {%- if item.line_price == '000' -%}
                     {{ 'products.product.free' | t }}
                   {%- else -%}
