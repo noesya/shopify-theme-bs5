@@ -7891,10 +7891,9 @@ a {
     padding-bottom: 10px;
     padding-top: 10px; }
   .cart__summary td {
-    padding-right: 0;
     text-align: right; }
   .cart__summary .btn {
-    display: block; }
+    width: 100%; }
 
 .cart .cart__delete {
   padding: 0; }
@@ -7910,7 +7909,7 @@ a {
     font-size: 1.125rem; }
   .cart__summary {
     position: sticky;
-    top: 0; } }
+    top: 15px; } }
 
 @media (min-width: 992px) {
   .cart__image {

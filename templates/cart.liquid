@@ -41,8 +41,8 @@
                 {% for discount_application in cart.discount_applications %}
                   {%- assign amount = discount_application.total_allocated_amount | money -%}
                   <tr>
-                    <th>{{ discount_application.title }}</th>
-                    <td>{{ discount_application.total_allocated_amount | money }}</td>
+                    <th class="text-danger">{{ discount_application.title }}</th>
+                    <td class="text-danger">{{ discount_application.total_allocated_amount | money }}</td>
                   </tr>
                   <p class="text-danger lead"></p>
                 {% endfor %}
