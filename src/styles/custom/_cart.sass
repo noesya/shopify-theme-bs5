@@ -12,9 +12,16 @@
     &__qty
         input
             max-width: 100px
-    &__product__name
-        font-family: $headings-font-family
-        margin-bottom: 5px
+    &__product
+        &__name
+            font-family: $headings-font-family
+            margin-bottom: 5px
+        ul
+            margin-bottom: 0
+        li
+            font-size: px2rem(14)
+            span
+                color: $text-muted
 
     & &__delete
         padding: 0

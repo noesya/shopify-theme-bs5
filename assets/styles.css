@@ -7866,6 +7866,14 @@ a {
   font-family: "Lora", serif;
   margin-bottom: 5px; }
 
+.cart__product ul {
+  margin-bottom: 0; }
+
+.cart__product li {
+  font-size: 0.875rem; }
+  .cart__product li span {
+    color: #6c757d; }
+
 .cart .cart__delete {
   padding: 0; }
 

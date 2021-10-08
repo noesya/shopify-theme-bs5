@@ -30,7 +30,11 @@
               <td class="cart__product">
                 <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
                 {% unless item.product.has_only_default_variant %}
-                  <p class="mb-0">{{ item.variant.title }}</p>
+                  <ul>
+                  {% for option in line_item.options_with_values %}
+                    <li><span>{{ option.name }}:</span> {{ option.value }}</li>
+                  {% endfor %}
+                  </ul>
                 {% endunless %}
 
                 {% assign property_size = item.properties | size %}
