@@ -7953,7 +7953,7 @@ a {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   display: none;
   left: 0;
-  padding-bottom: env(calc(safe-area-inset-bottom + 30px/2), 15px);
+  padding-bottom: env(calc(safe-area-inset-bottom + 15px), 15px);
   padding-top: 15px;
   position: fixed;
   right: 0;
