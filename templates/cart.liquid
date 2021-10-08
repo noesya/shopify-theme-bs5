@@ -42,9 +42,8 @@
                   {%- assign amount = discount_application.total_allocated_amount | money -%}
                   <tr>
                     <th class="text-danger">{{ discount_application.title }}</th>
-                    <td class="text-danger">{{ discount_application.total_allocated_amount | money }}</td>
+                    <td class="text-danger">-{{ discount_application.total_allocated_amount | money }}</td>
                   </tr>
-                  <p class="text-danger lead"></p>
                 {% endfor %}
                 <tr>
                   <th>{{ 'cart.general.subtotal' | t }}</th>
@@ -58,7 +57,7 @@
 
             <button type="submit" name="checkout" class="btn btn-primary"><span class="material-icons-outlined">shopping_cart</span> {{ 'cart.general.checkout' | t }}</button>
 
-            <div class="form-check">
+            <div class="form-check mt-3">
               <input class="form-check-input" type="checkbox" name="attributes[gift]" value="true" id="isGift">
               <label class="form-check-label" for="isGift">
                 {{ 'cart.general.gift' | t }}
