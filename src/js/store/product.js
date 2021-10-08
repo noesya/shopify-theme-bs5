@@ -68,7 +68,7 @@ window.stk.Product = {
         var i;
         for (i = 0; i < this.priceDiscountElm.length; i += 1) {
             if (option.dataset.compare) {
-                this.priceDiscountElm[i].style.display = 'block';
+                this.priceDiscountElm[i].style.display = 'inline';
             } else {
                 this.priceDiscountElm[i].style.display = 'none';
             }
