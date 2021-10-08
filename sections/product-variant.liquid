@@ -1,5 +1,10 @@
 
   {% unless product.has_only_default_variant %}
+    <pre>
+      {{variant.option1}}
+      {{variant.option2}}
+      {{variant.option3}}
+    </pre>
     {% for option in product.options_with_values %}
       <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
         {% if section.settings.product_selector == 'radio' %}
@@ -55,6 +60,8 @@
         {% unless variant.available %} disabled{% endunless %}
         data-quantity="{{ variant.inventory_quantity }}"
         data-sku="{{ variant.sku }}"
+        {% unless variant.compare_at_price %} data-compare="{{ variant.compare_at_price | money }}"{% endunless %}
+        data-price="{{ variant.price | money }}"
         value="{{ variant.id }}">
         {{ variant.title }}
       </option>
