@@ -51,11 +51,9 @@ window.stk.Product = {
                 that.idElm.selectedIndex = i;
                 that.setPrice(option);
                 that.setPriceDiscount(option);
-            }
-            console.log(option);
-            console.log(option.disabled);
-            if (option.disabled) {
-                isAvailable = true;
+                if (!option.disabled) {
+                    isAvailable = true;
+                }
             }
         });
         this.setAddtocart(isAvailable);
