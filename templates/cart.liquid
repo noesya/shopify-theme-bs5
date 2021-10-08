@@ -108,7 +108,11 @@
                   {% elsif item.compare_at_price > item.line_price %}
                     <del>{{ item.compare_at_price | money }}</del>
                   {% endif %}
-                  {{ item.line_price | money | strip }}
+                  {%- if item.line_price == '000' -%}
+                    {{ 'products.product.free' | t }}
+                  {%- else -%}
+                    {{ item.line_price | money | strip }}
+                  {%- endif -%}
                   {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
                 </div>
               </td>

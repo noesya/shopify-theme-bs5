@@ -68,6 +68,7 @@
   },
   "products": {
     "product": {
+      "free": "Gratuit",
       "sold_out": "Épuisé",
       "sale": "Promo",
       "unavailable": "Non disponible",
