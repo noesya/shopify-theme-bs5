@@ -50,6 +50,8 @@ window.stk.Product = {
             if (option.text === selected) {
                 isAvailable = true;
                 that.idElm.selectedIndex = i;
+                that.setPrice(option);
+                //that.setPriceDiscount(option);
             }
         });
         this.setAddtocart(isAvailable);
