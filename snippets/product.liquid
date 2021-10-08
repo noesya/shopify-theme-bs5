@@ -3,7 +3,7 @@
 {%- assign featured_media = item.featured_media -%}
 {%- assign poster = "256x150" -%}
 {%- assign image_size = '352x352' -%}
-<div class="card card--product">
+<a href="{{ item.url | within: collection }}" class="card card--product">
 
   {% if featured %}
     {%- assign poster = "635x400" -%}
@@ -31,17 +31,16 @@
 
     <div class="card-body">
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
-      <p class="h5 card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
+      <p class="card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">
         {%- if current_variant.compare_at_price != nil -%}
           <del class="text-danger me-1">{{ current_variant.compare_at_price | money }}</del>
         {%- endif -%}
         {{ current_variant.price | money | strip }}
       </p>
-      <a href="{{ item.url | within: collection }}" class="btn btn-sm btn-secondary stretched-link">{{ 'general.navigation.discover_product' | t }}</a>
     </div>
   {% if featured %}
       </div>
     </div>
   {% endif %}
-</div>
+</a>

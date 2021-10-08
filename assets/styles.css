@@ -7831,6 +7831,10 @@ a {
 .card-img-overlay {
   color: #fff; }
 
+.card-title {
+  font-family: "Lora", serif;
+  font-size: 1.125rem; }
+
 .ratio img,
 .ratio video {
   height: 100%;

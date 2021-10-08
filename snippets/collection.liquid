@@ -9,7 +9,7 @@
 <div class="card card--collection">
   {% include 'image', src: collection_image, alt: collection.title, img_class: 'img-fluid card-img-top' %}
   <div class="card-body">
-    <p class="h2 card-title">{{ collection.title }}</p>
+    <p class="card-title">{{ collection.title }}</p>
     <a href="{{ collection.url }}" class="btn btn-primary stretched-link">{{ 'general.navigation.discover_collection' | t }}</a>
   </div>
 </div>
