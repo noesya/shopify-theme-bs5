@@ -7879,6 +7879,15 @@ a {
 .cart__summary {
   background-color: #f8f9fa;
   padding: 15px; }
+  .cart__summary table {
+    color: #6c757d;
+    font-size: 0.875rem; }
+  .cart__summary th {
+    font-weight: normal;
+    padding-left: 0; }
+  .cart__summary td {
+    padding-right: 0;
+    text-align: right; }
 
 .cart .cart__delete {
   padding: 0; }
