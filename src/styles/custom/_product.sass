@@ -53,11 +53,19 @@
         &.show
             display: block
 
+
+    @include media-breakpoint-down(lg)
+        &__cta
+            .btn
+                width: 100%
+
+
     @include media-breakpoint-up(md)
         &__cta
             align-items: center
             display: flex
             flex-wrap: wrap
+
 
     @include media-breakpoint-up(xl)
         &__widget

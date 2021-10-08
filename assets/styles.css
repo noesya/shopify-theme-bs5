@@ -7979,6 +7979,10 @@ a {
   .product__widget.show {
     display: block; }
 
+@media (max-width: 991.98px) {
+  .product__cta .btn {
+    width: 100%; } }
+
 @media (min-width: 768px) {
   .product__cta {
     align-items: center;
