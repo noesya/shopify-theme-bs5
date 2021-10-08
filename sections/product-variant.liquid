@@ -50,7 +50,7 @@
     {% for variant in product.variants %}
       <option
         {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
-        {% unless variant.available %} disabled{% endif %}
+        {% unless variant.available %} disabled{% endunless %}
         data-quantity="{{ variant.inventory_quantity }}"
         data-sku="{{ variant.sku }}"
         value="{{ variant.id }}">
