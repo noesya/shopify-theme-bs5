@@ -51,7 +51,7 @@ window.stk.Product = {
                 isAvailable = true;
                 that.idElm.selectedIndex = i;
                 that.setPrice(option);
-                //that.setPriceDiscount(option);
+                that.setPriceDiscount(option);
             }
         });
         this.setAddtocart(isAvailable);
@@ -67,6 +67,11 @@ window.stk.Product = {
         'use strict';
         var i;
         for (i = 0; i < this.priceDiscountElm.length; i += 1) {
+            if (option.dataset.compare) {
+                this.priceDiscountElm[i].style.display = 'block';
+            } else {
+                this.priceDiscountElm[i].style.display = 'none';
+            }
             this.priceDiscountElm[i].innerHTML = option.dataset.compare;
         }
     },

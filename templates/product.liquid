@@ -34,7 +34,7 @@
           <p class="mb-2 lead">
             <del class="text-danger me-1 js-product-price-discount">
               {%- if current_variant.compare_at_price != nil -%}
-                {{ current_variant.compare_at_price | money }}
+                {{ current_variant.compare_at_price | money | strip }}
               {%- endif -%}
             </del>
             <span class="js-product-price">{{ current_variant.price | money }}</span>
