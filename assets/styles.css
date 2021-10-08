@@ -7828,12 +7828,16 @@ a {
   display: inline-block;
   vertical-align: middle; }
 
-.card-img-overlay {
-  color: #fff; }
-
-.card-title {
-  font-family: "Lora", serif;
-  font-size: 1.125rem; }
+.card {
+  text-decoration: none;
+  transition: background ease .3s; }
+  .card:hover {
+    background: #f8f9fa; }
+  .card-img-overlay {
+    color: #fff; }
+  .card-title {
+    font-family: "Lora", serif;
+    font-size: 1.125rem; }
 
 .ratio img,
 .ratio video {
