@@ -9,17 +9,19 @@
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
         {%- if related_1 -%}
         <div class="col">
-          {{related_1}}
+          {%- assign related_1 = all_products[related_1] -%}
           {%- include 'product', item: related_1 -%}
         </div>
         {%- endif -%}
         {%- if related_2 -%}
         <div class="col">
+          {%- assign related_2 = all_products[related_2] -%}
           {%- include 'product', item: related_2 -%}
         </div>
         {%- endif -%}
         {%- if related_3 -%}
         <div class="col">
+          {%- assign related_3 = all_products[related_3] -%}
           {%- include 'product', item: related_3 -%}
         </div>
         {%- endif -%}
