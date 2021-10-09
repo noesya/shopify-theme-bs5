@@ -83,22 +83,37 @@
       <hr>
       <div id="description">
         <h2>{{ 'products.product.description' | t }}</h2>
-        {{product.metafields.descriptors.detail}}
+        {{ product.metafields.descriptors.detail | newline_to_br }}
       </div>
     {%- endif -%}
-
-
 
   </div>
 </section>
 
-{%- if product.metafields.related.product_1 -%}
+{% assign related_1 = product.metafields.related.product_1 %}
+{% assign related_2 = product.metafields.related.product_2 %}
+{% assign related_3 = product.metafields.related.product_3 %}
+{%- if related_1 or related_2 or related_3 -%}
   <section id="related">
     <div class="container py-5">
       <h2>{{ 'products.product.related' | t }}</h2>
-      {{product.metafields.related.product_1}}
-      {{product.metafields.related.product_2}}
-      {{product.metafields.related.product_3}}
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+        {%- if related_1 -%}
+        <div class="col">
+          {%- include 'product', item: related_1 -%}
+        </div>
+        {%- endif -%}
+        {%- if related_2 -%}
+        <div class="col">
+          {%- include 'product', item: related_2 -%}
+        </div>
+        {%- endif -%}
+        {%- if related_3 -%}
+        <div class="col">
+          {%- include 'product', item: related_3 -%}
+        </div>
+        {%- endif -%}
+      </div>
     </div>
   </section>
 {%- endif -%}
