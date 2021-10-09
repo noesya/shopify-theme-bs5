@@ -7987,6 +7987,13 @@ a {
   .price del:empty {
     display: none; }
 
+.product__media {
+  position: relative; }
+  .product__media .badge {
+    position: absolute;
+    right: 15px;
+    top: 15px; }
+
 .product__variant__radio {
   display: inline-block;
   margin-right: 1rem; }

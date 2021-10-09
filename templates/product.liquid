@@ -23,8 +23,9 @@
       <div class="col-md-7 mb-3 mb-md-0">
         <div class="product__media">
           {%- include 'product-images' -%}
+          {{product.metafields.status.web}}
           {%- unless product.metafields.status.web -%}
-            <span class="badge bd-danger">{{ 'products.product.exclu_web' | t }}</span>
+            <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
           {%- endunless -%}
         </div>
       </div>
