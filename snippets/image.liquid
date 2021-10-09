@@ -37,6 +37,7 @@
 {% comment %} IMG TAG {% endcomment %}
 {% assign img_tag = '<img' %}
 {% assign img_tag = img_tag | append: ' src="' | append: img_url | append: '"' %}
+{% assign img_tag = img_tag | append: ' srcset="' | append: img_url_2x | append: ' 2x"' %}
 {% assign img_tag = img_tag | append: ' height="' | append: img_height | append: '"' %}
 {% assign img_tag = img_tag | append: ' width="' | append: img_width | append: '"' %}
 {% assign img_tag = img_tag | append: ' alt="' | append: img_alt | append: '"' %}
