@@ -1,7 +1,8 @@
 {% assign related_1 = product.metafields.related.product_1 %}
 {% assign related_2 = product.metafields.related.product_2 %}
 {% assign related_3 = product.metafields.related.product_3 %}
-{%- if related_1 or related_2 or related_3 -%}
+{% assign related_4 = product.metafields.related.product_4 %}
+{%- if related_1 or related_2 or related_3 or related_4 -%}
   <section id="related">
     <div class="container pb-5">
       <hr>
@@ -24,6 +25,12 @@
           <div class="col">
             {%- assign related_3 = all_products[related_3] -%}
             {%- include 'product', item: related_3 -%}
+          </div>
+          {%- endif -%}
+          {%- if related_4 -%}
+          <div class="col">
+            {%- assign related_4 = all_products[related_4] -%}
+            {%- include 'product', item: related_4 -%}
           </div>
           {%- endif -%}
         </div>

@@ -8073,7 +8073,9 @@ a {
     padding-left: 15px;
     padding-right: 15px; }
     .scroll > .row {
-      flex-wrap: nowrap; } }
+      flex-wrap: nowrap; }
+      .scroll > .row.row-cols-2 > * {
+        width: 64%; } }
 
 .section--carousel .splide__track {
   padding-bottom: 0; }
