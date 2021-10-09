@@ -1,8 +1,9 @@
-@include media-breakpoint-down(lg)
-    .scroll
+.scroll
+    @include media-breakpoint-down(lg)
         -webkit-overflow-scrolling: touch
-        margin-left: -$grid-gutter-width / 2
         overflow: auto
-        padding-left: -$grid-gutter-width / 2
         > .row
             flex-wrap: nowrap
+    @include media-breakpoint-down(md)
+        margin-left: -$grid-gutter-width / 2
+        padding-left: -$grid-gutter-width / 2
