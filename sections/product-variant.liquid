@@ -1,5 +1,23 @@
-{{product.options_with_values.size}}
-{% unless product.has_only_default_variant %}
+<select name="id" class="product__variant__id js-product-id">
+  {% for variant in product.variants %}
+    <option
+      {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
+      {% unless variant.available %} disabled{% endunless %}
+      data-quantity="{{ variant.inventory_quantity }}"
+      {% if variant.sku != nil %} data-sku="{{ variant.sku }}"{% endif %}
+      {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
+      data-price="{{ variant.price | money }}"
+      value="{{ variant.id }}">
+      {{ variant.title }}
+    </option>
+  {% endfor %}
+</select>
+
+{%- if product.options_with_values.size == 1 -%}
+  <div class="input-group">
+{%- endif -%}
+
+{%- unless product.has_only_default_variant -%}
   {% for option in product.options_with_values %}
     <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
       {% if section.settings.product_selector == 'radio' %}
@@ -46,25 +64,13 @@
       {% endif %}
     </div>
   {% endfor %}
-{% endunless %}
+{%- endunless -%}
 
 <button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
 
-
-<select name="id" class="product__variant__id js-product-id">
-  {% for variant in product.variants %}
-    <option
-      {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
-      {% unless variant.available %} disabled{% endunless %}
-      data-quantity="{{ variant.inventory_quantity }}"
-      {% if variant.sku != nil %} data-sku="{{ variant.sku }}"{% endif %}
-      {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
-      data-price="{{ variant.price | money }}"
-      value="{{ variant.id }}">
-      {{ variant.title }}
-    </option>
-  {% endfor %}
-</select>
+{%- if product.options_with_values.size == 1 -%}
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
