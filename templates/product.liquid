@@ -23,10 +23,9 @@
       <div class="col-md-7 mb-3 mb-md-0">
         <div class="product__media">
           {%- include 'product-images' -%}
-          {{product.metafields.status.web}}
-          {%- unless product.metafields.status.web -%}
+          {%- if product.metafields.status.web -%}
             <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
-          {%- endunless -%}
+          {%- endif -%}
         </div>
       </div>
       <div class="col-md-5">
@@ -47,9 +46,9 @@
           </div>
 
           <div class="rte" itemprop="description">{{ product.description | strip }}</div>
-          {%- unless product.metafields.descriptors.detail -%}
+          {%- if product.metafields.descriptors.detail -%}
             <a href="#description" class="small text-muted">Description du produit</a>
-          {%- endunless -%}
+          {%- endif -%}
 
           <hr>
 
@@ -80,20 +79,20 @@
       </div>
     </div>
 
-    {%- unless product.metafields.descriptors.detail -%}
+    {%- if product.metafields.descriptors.detail -%}
       <hr>
       <div id="description">
         <h2>{{ 'products.product.description' | t }}</h2>
         {{product.metafields.descriptors.detail}}
       </div>
-    {%- endunless -%}
+    {%- endif -%}
 
 
 
   </div>
 </section>
 
-{%- unless product.metafields.related.product_1 -%}
+{%- if product.metafields.related.product_1 -%}
   <section id="related">
     <div class="container py-5">
       <h2>{{ 'products.product.related' | t }}</h2>
@@ -102,6 +101,6 @@
       {{product.metafields.related.product_3}}
     </div>
   </section>
-{%- endunless -%}
+{%- endif -%}
 
 {%- section 'product-related' -%}
