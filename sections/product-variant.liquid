@@ -13,10 +13,6 @@
   {% endfor %}
 </select>
 
-{%- if product.options_with_values.size == 1 -%}
-  <div class="input-group">
-{%- endif -%}
-
 {%- unless product.has_only_default_variant -%}
   {% for option in product.options_with_values %}
     <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
@@ -65,12 +61,6 @@
     </div>
   {% endfor %}
 {%- endunless -%}
-
-<button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
-
-{%- if product.options_with_values.size == 1 -%}
-  </div>
-{%- endif -%}
 
 {% schema %}
 {
