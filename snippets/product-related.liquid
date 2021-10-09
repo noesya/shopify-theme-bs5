@@ -6,25 +6,27 @@
     <div class="container pb-5">
       <hr>
       <h2>{{ 'products.product.related' | t }}</h2>
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
-        {%- if related_1 -%}
-        <div class="col">
-          {%- assign related_1 = all_products[related_1] -%}
-          {%- include 'product', item: related_1 -%}
+      <div class="scroll">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 gy-3">
+          {%- if related_1 -%}
+          <div class="col">
+            {%- assign related_1 = all_products[related_1] -%}
+            {%- include 'product', item: related_1 -%}
+          </div>
+          {%- endif -%}
+          {%- if related_2 -%}
+          <div class="col">
+            {%- assign related_2 = all_products[related_2] -%}
+            {%- include 'product', item: related_2 -%}
+          </div>
+          {%- endif -%}
+          {%- if related_3 -%}
+          <div class="col">
+            {%- assign related_3 = all_products[related_3] -%}
+            {%- include 'product', item: related_3 -%}
+          </div>
+          {%- endif -%}
         </div>
-        {%- endif -%}
-        {%- if related_2 -%}
-        <div class="col">
-          {%- assign related_2 = all_products[related_2] -%}
-          {%- include 'product', item: related_2 -%}
-        </div>
-        {%- endif -%}
-        {%- if related_3 -%}
-        <div class="col">
-          {%- assign related_3 = all_products[related_3] -%}
-          {%- include 'product', item: related_3 -%}
-        </div>
-        {%- endif -%}
       </div>
     </div>
   </section>
