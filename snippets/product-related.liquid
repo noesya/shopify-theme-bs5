@@ -7,7 +7,7 @@
       <hr>
       <h2>{{ 'products.product.related' | t }}</h2>
       <div class="scroll">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 gy-3">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
           {%- if related_1 -%}
           <div class="col">
             {%- assign related_1 = all_products[related_1] -%}
