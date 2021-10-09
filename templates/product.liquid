@@ -20,55 +20,87 @@
 
   <div class="container py-5">
     <div class="row">
-      <div class="col-md-7 mb-3 mb-md-0 product__media">
-        {%- include 'product-images' -%}
-      </div>
-      <div class="col-md-5 product__content">
-
-        <h1 itemprop="name">{{ product.title }}</h1>
-        <p>{{ product.vendor }}</p>
-
-        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-          <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
-          <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
-          <p class="mb-2 lead price">
-            <del class="js-product-price-discount">{%- if current_variant.compare_at_price != nil -%}
-              {{ current_variant.compare_at_price | money | strip }}
-            {%- endif -%}</del>
-            <span class="js-product-price">{{ current_variant.price | money }}</span>
-          </p>
+      <div class="col-md-7 mb-3 mb-md-0">
+        <div class="product__media">
+          {%- include 'product-images' -%}
+          {%- unless product.metafields.status.web -%}
+            <span class="badge bd-danger">{{ 'products.product.exclu_web' | t }}</span>
+          {%- endunless -%}
         </div>
+      </div>
+      <div class="col-md-5">
+        <div class="product__content">
 
-        <div class="rte" itemprop="description">{{ product.description | strip }}</div>
+          <h1 itemprop="name">{{ product.title }}</h1>
+          <p>{{ product.vendor }}</p>
 
-        <hr>
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
+            <meta itemprop="priceCurrency" content="{{ cart.currency.iso_code }}">
+            <p class="mb-2 lead price">
+              <del class="js-product-price-discount">{%- if current_variant.compare_at_price != nil -%}
+                {{ current_variant.compare_at_price | money | strip }}
+              {%- endif -%}</del>
+              <span class="js-product-price">{{ current_variant.price | money }}</span>
+            </p>
+          </div>
 
-        {% capture "form_classes" %}js-addtocart-form{%- endcapture %}
-        {% form 'product', product, class:form_classes, data-product-form: '', data-product-handle: product.handle %}
-
-          {%- section 'product-variant' -%}
+          <div class="rte" itemprop="description">{{ product.description | strip }}</div>
+          {%- unless product.metafields.descriptors.detail -%}
+            <a href="#description" class="small text-muted">Description du produit</a>
+          {%- endunless -%}
 
           <hr>
 
-          <div class="product__cta">
-            <div class="col-12 col-lg-4">
-              <div class="form-floating">
-                <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty" placeholder="1">
-                <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
+          {% capture "form_classes" %}js-addtocart-form{%- endcapture %}
+          {% form 'product', product, class:form_classes, data-product-form: '', data-product-handle: product.handle %}
+
+            {%- section 'product-variant' -%}
+
+            <hr>
+
+            <div class="product__cta">
+              <div class="col-12 col-lg-4">
+                <div class="form-floating">
+                  <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty" placeholder="1">
+                  <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
+                </div>
+              </div>
+              <div class="col">
+                <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
               </div>
             </div>
-            <div class="col">
-              <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
-            </div>
-          </div>
 
-          {%- include 'product-widget' -%}
+            {%- include 'product-widget' -%}
 
-        {% endform %}
+          {% endform %}
 
+        </div>
       </div>
     </div>
+
+    {%- unless product.metafields.descriptors.detail -%}
+      <hr>
+      <div id="description">
+        <h2>{{ 'products.product.description' | t }}</h2>
+        {{product.metafields.descriptors.detail}}
+      </div>
+    {%- endunless -%}
+
+
+
   </div>
 </section>
+
+{%- unless product.metafields.related.product_1 -%}
+  <section id="related">
+    <div class="container py-5">
+      <h2>{{ 'products.product.related' | t }}</h2>
+      {{product.metafields.related.product_1}}
+      {{product.metafields.related.product_2}}
+      {{product.metafields.related.product_3}}
+    </div>
+  </section>
+{%- endunless -%}
 
 {%- section 'product-related' -%}

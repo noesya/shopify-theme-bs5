@@ -71,14 +71,16 @@
       "free": "Gratuit",
       "sold_out": "Épuisé",
       "sale": "Promo",
+      "exclu_web": "Exclusivité web",
       "unavailable": "Non disponible",
       "compare_at": "Prix normal",
       "quantity": "Quantité",
       "add_to_cart": "Ajouter au panier",
       "sale_price": "Prix réduit",
       "regular_price": "Prix régulier",
-      "description": "Description",
+      "description": "Description du produit",
       "full_details": "Tous les détails",
+      "related": "Produits en relation",
       "unit_price_label": "Prix unitaire"
     }
   },

@@ -8045,6 +8045,9 @@ a {
     display: block; } }
 
 @media (min-width: 768px) {
+  .product__content {
+    position: sticky;
+    top: 15px; }
   .product__cta {
     align-items: center;
     display: flex;
