@@ -52,20 +52,11 @@
 
           {% capture "form_classes" %}mt-3 js-addtocart-form{%- endcapture %}
           {% form 'product', product, class:form_classes, data-product-form: '', data-product-handle: product.handle %}
+            <input type="hidden" id="Quantity" name="quantity" value="1" class="js-product-qty">
 
             {%- section 'product-variant' -%}
 
-            <div class="product__cta">
-              <div class="col-12 col-lg-4">
-                <div class="form-floating">
-                  <input type="number" id="Quantity" name="quantity" value="1" min="1" max="100" class="form-control js-product-qty" placeholder="1">
-                  <label for="Quantity" class="form-label">{{ "products.product.quantity" | t }}</label>
-                </div>
-              </div>
-              <div class="col">
-                <button type="submit" name="add" class="btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
-              </div>
-            </div>
+            <button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
 
             {%- include 'product-widget' -%}
 

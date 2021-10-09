@@ -1,67 +1,70 @@
-
-  {% unless product.has_only_default_variant %}
-    {% for option in product.options_with_values %}
-      <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
-        {% if section.settings.product_selector == 'radio' %}
-          <fieldset>
-            <legend>{{ option.name | escape }}</legend>
-            {% assign option_index = forloop.index %}
+{{product.options_with_values.size}}
+{% unless product.has_only_default_variant %}
+  {% for option in product.options_with_values %}
+    <div class="product__variant{% unless forloop.last %} mb-1{% endunless %}">
+      {% if section.settings.product_selector == 'radio' %}
+        <fieldset>
+          <legend>{{ option.name | escape }}</legend>
+          {% assign option_index = forloop.index %}
+          {% for value in option.values %}
+            {% assign variant_label_state = true %}
+            {% if product.options.size == 1 %}
+              {% unless product.variants[forloop.index0].available  %}
+                {% assign variant_label_state = false %}
+              {% endunless %}
+            {% endif %}
+            <div class="product__variant__radio">
+              <input type="radio"
+                {% if option.selected_value == value %} checked="checked"{% endif %}
+                {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                value="{{ value | escape }}"
+                name="option{{ option.position }}"
+                class="{% unless variant_label_state %} disabled{% endunless %} js-product-variant"
+                id="variant-{{ option.name | handleize }}-{{ value | escape }}">
+              <label for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
+            </div>
+          {% endfor %}
+        </fieldset>
+      {% else %}
+        <div class="form-floating">
+          <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
             {% for value in option.values %}
               {% assign variant_label_state = true %}
-              {% if product.options.size == 1 %}
-                {% unless product.variants[forloop.index0].available  %}
-                  {% assign variant_label_state = false %}
-                {% endunless %}
-              {% endif %}
-              <div class="product__variant__radio">
-                <input type="radio"
-                  {% if option.selected_value == value %} checked="checked"{% endif %}
-                  {% unless variant_label_state %} disabled="disabled"{% endunless %}
-                  value="{{ value | escape }}"
-                  name="option{{ option.position }}"
-                  class="{% unless variant_label_state %} disabled{% endunless %} js-product-variant"
-                  id="variant-{{ option.name | handleize }}-{{ value | escape }}">
-                <label for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
-              </div>
+              {% unless product.variants[forloop.index0].available  %}
+                {% assign variant_label_state = false %}
+              {% endunless %}
+              <option
+                {% if option.selected_value == value %} selected="selected"{% endif %}
+                data-available="{{ variant_label_state }}"
+                value="{{ value | escape }}">{{ value | escape }}</option>
             {% endfor %}
-          </fieldset>
-        {% else %}
-          <div class="form-floating">
-            <select class="form-select js-product-variant" id="variant-{{ forloop.index0 }}">
-              {% for value in option.values %}
-                {% assign variant_label_state = true %}
-                {% unless product.variants[forloop.index0].available  %}
-                  {% assign variant_label_state = false %}
-                {% endunless %}
-                <option
-                  {% if option.selected_value == value %} selected="selected"{% endif %}
-                  data-available="{{ variant_label_state }}"
-                  value="{{ value | escape }}">{{ value | escape }}</option>
-              {% endfor %}
-            </select>
-            <label for="variant-{{ forloop.index0 }}">
-              {{ option.name | escape }}
-            </label>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  {% endunless %}
+          </select>
+          <label for="variant-{{ forloop.index0 }}">
+            {{ option.name | escape }}
+          </label>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endunless %}
 
-  <select name="id" class="product__variant__id js-product-id">
-    {% for variant in product.variants %}
-      <option
-        {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
-        {% unless variant.available %} disabled{% endunless %}
-        data-quantity="{{ variant.inventory_quantity }}"
-        {% if variant.sku != nil %} data-sku="{{ variant.sku }}"{% endif %}
-        {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
-        data-price="{{ variant.price | money }}"
-        value="{{ variant.id }}">
-        {{ variant.title }}
-      </option>
-    {% endfor %}
-  </select>
+<button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
+
+
+<select name="id" class="product__variant__id js-product-id">
+  {% for variant in product.variants %}
+    <option
+      {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %}
+      {% unless variant.available %} disabled{% endunless %}
+      data-quantity="{{ variant.inventory_quantity }}"
+      {% if variant.sku != nil %} data-sku="{{ variant.sku }}"{% endif %}
+      {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
+      data-price="{{ variant.price | money }}"
+      value="{{ variant.id }}">
+      {{ variant.title }}
+    </option>
+  {% endfor %}
+</select>
 
 {% schema %}
 {

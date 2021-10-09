@@ -8058,9 +8058,7 @@ a {
     position: sticky;
     top: 15px; }
   .product__cta {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap; } }
+    display: block; } }
 
 @media (min-width: 1200px) {
   .product__widget {
