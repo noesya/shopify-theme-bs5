@@ -1,6 +1,7 @@
 {%- assign current_item_variant = item.selected_or_first_available_variant -%}
 {%- assign featured_item_image = current_item_variant.featured_image | default: item.featured_image -%}
 {%- assign featured_item_media = item.featured_media -%}
+{%- assign featured_item_image_hover = item.images[1] -%}
 {%- assign poster = "256x150" -%}
 {%- assign image_size = '352x352' -%}
 {%- assign image_mobile_size = '345x345' -%}
@@ -24,10 +25,12 @@
             {% include 'video', media: featured_item_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
         {% endcase %}
       {%- endif -%}
-      {%- if item.images[1] -%}
-        {% include 'image', src: item.images[1], size: image_size, mobile_size: image_mobile_size, img_class: 'card-img-top' %}
-      {%- endif -%}
     </div>
+    {%- if featured_item_image_hover -%}
+      <div class="ratio ratio-1x1 ratio--contain bg-light">
+        {% include 'image', src: featured_item_image_hover, size: image_size, mobile_size: image_mobile_size, img_class: 'card-img-top' %}
+      </div>
+    {%- endif -%}
     {%- if item.metafields.status.web -%}
       <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
     {%- endif -%}

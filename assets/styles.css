@@ -7834,10 +7834,16 @@ a {
 .card {
   text-decoration: none;
   transition: background ease .3s; }
+  .card:hover .card-media .ratio:first-of-type {
+    display: none; }
+  .card:hover .card-media .ratio:last-of-type {
+    display: block; }
   .card:hover .card-title {
     text-decoration: underline; }
   .card-media {
     position: relative; }
+    .card-media .ratio + .ratio {
+      display: none; }
     .card-media .badge {
       position: absolute;
       right: 15px;

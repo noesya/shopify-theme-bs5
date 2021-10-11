@@ -3,16 +3,16 @@
     transition: background ease .3s
     &:hover
         .card-media
-            img
+            .ratio:first-of-type
                 display: none
-            img + img
+            .ratio:last-of-type
                 display: block
 
         .card-title
             text-decoration: underline
     &-media
         position: relative
-        img + img
+        .ratio + .ratio
             display: none
         .badge
             position: absolute
