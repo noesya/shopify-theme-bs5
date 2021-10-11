@@ -57,13 +57,17 @@
                   </tr>
                 {% endfor %}
 
-                <tr>
-                  <th>{{ 'cart.general.subtotal' | t }}</th>
+                <tr class="total">
+                  <th>{{ 'cart.general.shipping' | t }}</th>
+                  <td>{{ 'cart.general.shipping_calcul' | t }}</td>
+                </tr>
+
+                <tr class="total">
+                  <th>{{ 'cart.general.total' | t }}</th>
                   <td>{{ cart.total_price | money }}</td>
                 </tr>
-                <tr>
-                  <th colspan="2">{{ taxes_shipping_checkout }}</th>
-                </tr>
+
+
               </tbody>
             </table>
 

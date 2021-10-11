@@ -7912,6 +7912,8 @@ a {
     padding-top: 10px; }
   .cart__summary td {
     text-align: right; }
+  .cart__summary .total {
+    color: #000000; }
   .cart__summary .btn {
     width: 100%; }
 
