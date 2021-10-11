@@ -12,6 +12,8 @@
     &__qty
         input
             max-width: 100px
+    &__total
+        display: none
     &__product
         &__name
             font-family: $headings-font-family
@@ -65,11 +67,9 @@
             top: $grid-gutter-width/2
 
     @include media-breakpoint-up(lg)
-        &__image
-            width: calc(200px + #{$grid-gutter-width})
         &__price,
         &__total
-            width: 200px
+            width: 170px
         &__product
             li
                 font-size: px2rem(12)

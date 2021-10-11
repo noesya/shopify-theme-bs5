@@ -7882,6 +7882,9 @@ a {
 .cart__qty input {
   max-width: 100px; }
 
+.cart__total {
+  display: none; }
+
 .cart__product__name {
   font-family: "Lora", serif;
   margin-bottom: 5px; }
@@ -7934,10 +7937,8 @@ a {
     top: 15px; } }
 
 @media (min-width: 992px) {
-  .cart__image {
-    width: calc(200px + 30px); }
   .cart__price, .cart__total {
-    width: 200px; }
+    width: 170px; }
   .cart__product li {
     font-size: 0.75rem; }
   .cart__qty {

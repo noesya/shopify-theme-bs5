@@ -3,7 +3,6 @@
     <th class="cart__product" colspan="2">{{ 'cart.label.product' | t }}</th>
     <th class="cart__price">{{ 'cart.label.price' | t }}</th>
     <th class="cart__qty">{{ 'cart.label.quantity' | t }}</th>
-    <th class="cart__total">{{ 'cart.label.total' | t }}</th>
     <th class="cart__delete"></th>
   </thead>
   <tbody>
@@ -18,7 +17,7 @@
         <td class="cart__image">
           <a href="{{ item.url | within: collections.all }}">
             <div class="ratio ratio-1x1">
-              {%- include 'image', src: item, size: '200x200', alt:'{{ item.title | escape }}' -%}
+              {%- include 'image', src: item, size: '150x150', mobile_size: '120x120', alt:'{{ item.title | escape }}' -%}
             </div>
           </a>
         </td>
@@ -75,6 +74,23 @@
               <del class="text-danger">{{ item.product.compare_at_price | money }}</del>
             {% endif %}
             {{ item.price | money | strip }}
+
+            {% comment %}
+            <div class="price">
+              {{ 'cart.label.total' | t }}
+              {% if item.original_line_price != item.line_price %}
+                <del>{{ item.original_line_price | money }}</del>
+              {% elsif item.compare_at_price > item.line_price %}
+                <del>{{ item.compare_at_price | money }}</del>
+              {% endif %}
+              {%- if item.line_price == 0 -%}
+                {{ 'products.product.free' | t }}
+              {%- else -%}
+                {{ item.line_price | money | strip }}
+              {%- endif -%}
+            </div>
+            {% endcomment %}
+
           </div>
           {% endunless %}
           {%- for discount in item.discounts -%}
@@ -96,20 +112,6 @@
             type="number"
             value="{{ item.quantity }}">
             {% endunless %}
-        </td>
-        <td class="cart__total">
-          <div class="price">
-            {% if item.original_line_price != item.line_price %}
-              <del>{{ item.original_line_price | money }}</del>
-            {% elsif item.compare_at_price > item.line_price %}
-              <del>{{ item.compare_at_price | money }}</del>
-            {% endif %}
-            {%- if item.line_price == 0 -%}
-              {{ 'products.product.free' | t }}
-            {%- else -%}
-              {{ item.line_price | money | strip }}
-            {%- endif -%}
-          </div>
         </td>
         <td class="cart__delete">
           <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-muted" title="{{ 'cart.general.remove' | t }}">
