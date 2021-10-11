@@ -7989,8 +7989,6 @@ a {
 
 .faceted__facet {
   margin-bottom: 30px; }
-  .faceted__facet:last-of-type {
-    margin-bottom: 0; }
   .faceted__facet ul {
     margin: 0;
     padding: 0; }

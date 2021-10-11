@@ -89,7 +89,9 @@
     },
     "faceted": {
       "from": "à partir de",
-      "to": "jusqu’à"
+      "to": "jusqu’à",
+      "reset": "Supprimer les filtres",
+      "submit": "Filtrer"
     }
   },
   "customer": {

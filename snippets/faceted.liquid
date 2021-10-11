@@ -7,7 +7,7 @@
     {%- endif -%}
 
     <a href="{{ filter.url_to_remove }}" class="facets__reset">
-      {{ 'products.facets.reset' | t }}
+      {{ 'products.faceted.reset' | t }}
     </a>
 
   {%- for filter in collection.filters -%}
@@ -95,7 +95,7 @@
     </div>
   {% endfor %}
 
-  <button type="submit" class="btn btn-secondary">{{ 'products.facets.sort_button' | t }}</button>
+  <button type="submit" class="btn btn-secondary">{{ 'products.faceted.submit' | t }}</button>
 
   </form>
 </div>
