@@ -86,6 +86,10 @@
       "full_details": "Tous les détails",
       "related": "Produits en relation",
       "unit_price_label": "Prix unitaire"
+    },
+    "faceted": {
+      "from": "à partir de",
+      "to": "jusqu’à"
     }
   },
   "customer": {

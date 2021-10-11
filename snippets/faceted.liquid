@@ -45,7 +45,7 @@
               {% endif %}
               placeholder="0"
               >
-            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.from' | t }}</label>
           </div>
 
           <div class="form-floating">
@@ -75,7 +75,7 @@
                 placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
               {% endif %}
               >
-            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.to' | t }}</label>
           </div>
         </div>
 
