@@ -46,6 +46,7 @@
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "shipping": "Shipping",
       "shipping_calcul": "Shipping calculated at checkout",
+      "shipping_waiting": "Waiting",
       "update": "Update Cart",
       "checkout": "Check Out",
       "empty": "Your cart is currently empty.",
