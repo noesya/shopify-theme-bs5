@@ -7991,9 +7991,15 @@ a {
   margin-bottom: 30px; }
   .faceted__facet:last-of-type {
     margin-bottom: 0; }
+  .faceted__facet ul {
+    margin: 0;
+    padding: 0; }
 
 .faceted__price-range {
-  display: flex; }
+  display: flex;
+  justify-content: space-between; }
+  .faceted__price-range > div {
+    width: calc(50% - 30px / 2); }
 
 .notif {
   align-items: center;
