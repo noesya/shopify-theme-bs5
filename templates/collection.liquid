@@ -17,21 +17,28 @@
 </header>
 {%- endif -%}
 
-{% paginate collection.products by 12 %}
-  <div class="d-md-flex justify-content-between mb-5">
-    <h2>{{ 'collections.products.title' | t }}</h2>
-    {%- include 'collection-sorting' -%}
+<div class="row">
+  <div class="col-md-4">
+    {%- include 'faceted' -%}
   </div>
-  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-    {% for product in collection.products %}
-      <div class="col">
-        {% include 'product', item: product %}
+  <div class="col-md-8">
+    {% paginate collection.products by 12 %}
+      <div class="d-md-flex justify-content-between mb-5">
+        <h2>{{ 'collections.products.title' | t }}</h2>
+        {%- include 'collection-sorting' -%}
       </div>
-    {% else %}
-      <p>no matches</p>
-    {% endfor %}
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        {% for product in collection.products %}
+          <div class="col">
+            {% include 'product', item: product %}
+          </div>
+        {% else %}
+          <p>no matches</p>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        {%- include 'pagination', paginate: paginate -%}
+      {% endif %}
+    {% endpaginate %}
   </div>
-  {% if paginate.pages > 1 %}
-    {%- include 'pagination', paginate: paginate -%}
-  {% endif %}
-{% endpaginate %}
+</div>

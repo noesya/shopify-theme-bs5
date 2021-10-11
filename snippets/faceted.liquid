@@ -1,0 +1,105 @@
+<div class="faceted">
+  {%- for filter in collection.filters -%}
+    <p class="h5">{{ filter.label | escape }}</p>
+    {% case filter.type %}
+      {% when 'list' %}
+
+      <ul class="faceted__list" role="list">
+        {%- for value in filter.values -%}
+          <li class="list-menu__item facets__item">
+            <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+              <input type="checkbox"
+                name="{{ value.param_name }}"
+                value="{{ value.value }}"
+                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                {% if value.active %}checked{% endif %}
+                {% if value.count == 0 and value.active == false %}disabled{% endif %}
+              >
+
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+              </svg>
+
+              <svg class="icon icon-checkmark"
+                width="11"
+                height="7"
+                viewBox="0 0 11 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+
+              </svg>
+              {{ value.label | escape }} ({{ value.count }})
+            </label>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {% when 'price_range' %}
+        <div class="input-group">
+          <div class="form-floating">
+            <input
+              type="number"
+              name="{{ filter.min_value.param_name }}"
+              id="Filter-{{ filter.label | escape }}-GTE"
+              {%- if filter.min_value.value -%}
+                {%- if uses_comma_decimals -%}
+                  value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                {%- else -%}
+                  value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                {% endif %}
+              {%- endif -%}
+              min="0"
+              {%- if uses_comma_decimals -%}
+                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+              {%- else -%}
+                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+              {% endif %}
+              placeholder="0"
+              >
+            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+          </div>
+          <div class="input-group-text">{{ cart.currency.symbol }}</div>
+        </div>
+
+        <div class="input-group">
+          <div class="form-floating">
+            <input
+              type="number"
+              name="{{ filter.max_value.param_name }}"
+              id="Filter-{{ filter.label | escape }}-GTE"
+              {%- if filter.max_value.value -%}
+                {%- if uses_comma_decimals -%}
+                  value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                {%- else -%}
+                  value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                {% endif %}
+              {%- endif -%}
+              min="0"
+              {%- if uses_comma_decimals -%}
+                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+              {%- else -%}
+                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+              {% endif %}
+              {%- if uses_comma_decimals -%}
+                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+              {%- else -%}
+                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+              {% endif %}
+              >
+            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+          </div>
+          <div class="input-group-text">{{ cart.currency.symbol }}</div>
+        </div>
+
+    {% endcase %}
+  {% endfor %}
+</div>
