@@ -8,7 +8,6 @@
       {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
       data-price="{{ variant.price | money }}"
       data-options="{{ variant.options | json }}"
-
       value="{{ variant.id }}">
       {{ variant.title }}
     </option>
