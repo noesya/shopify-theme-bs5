@@ -31,8 +31,8 @@
       <div class="col-md-5">
         <div class="product__content">
 
+          <p class="product__vendor">{{ product.vendor }}</p>
           <h1 itemprop="name">{{ product.title }}</h1>
-          <p>{{ product.vendor }}</p>
 
           <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             <link itemprop="availability" href="http://schema.org/{% if statut == 'instock' %}InStock{% elsif statut == 'preorder' %}PreOrder{% else %}OutOfStock{% endif %}">
