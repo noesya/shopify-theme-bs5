@@ -12,16 +12,21 @@
       <div class="col-md-6">
   {% endif %}
 
-  <div class="ratio ratio-1x1 ratio--contain bg-light">
-    {%- if featured_item_media -%}
-      {% case featured_item_media.media_type %}
-        {% when 'image' %}
-          {% include 'image', src: featured_item_image, size: image_size, mobile_size: image_mobile_size, img_class: 'card-img-top' %}
-        {% when 'external_video' %}
-          {% include 'external-video', media: featured_item_media %}
-        {% when 'video' %}
-          {% include 'video', media: featured_item_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
-      {% endcase %}
+  <div class="card-media">
+    <div class="ratio ratio-1x1 ratio--contain bg-light">
+      {%- if featured_item_media -%}
+        {% case featured_item_media.media_type %}
+          {% when 'image' %}
+            {% include 'image', src: featured_item_image, size: image_size, mobile_size: image_mobile_size, img_class: 'card-img-top' %}
+          {% when 'external_video' %}
+            {% include 'external-video', media: featured_item_media %}
+          {% when 'video' %}
+            {% include 'video', media: featured_item_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
+        {% endcase %}
+      {%- endif -%}
+    </div>
+    {%- if item.metafields.status.web -%}
+      <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
     {%- endif -%}
   </div>
 
@@ -32,6 +37,7 @@
 
     <div class="card-body">
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
+      <p class="card-subtitle">{{ item.vendor }}</p>
       <p class="card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">
         {%- if current_item_variant.compare_at_price != nil -%}

@@ -2,7 +2,14 @@
     text-decoration: none
     transition: background ease .3s
     &:hover
-        background: $gray-100
+        .card-title
+            text-decoration: underline
+    &-media
+        position: relative
+        .badge
+            position: absolute
+            right: $grid-gutter-width / 2
+            top: $grid-gutter-width / 2
     &-img-overlay
         color: $white
     &-title
