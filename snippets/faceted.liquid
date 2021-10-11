@@ -1,8 +1,19 @@
 <div class="faceted">
   <form id="FacetFiltersForm" class="faceted__form">
+
+    {%- if collection.terms -%}
+      <input type="hidden" name="q" value="{{ collection.terms | escape }}">
+      <input name="options[prefix]" type="hidden" value="last">
+    {%- endif -%}
+
+    <a href="{{ filter.url_to_remove }}" class="facets__reset">
+      {{ 'products.facets.reset' | t }}
+    </a>
+
   {%- for filter in collection.filters -%}
     <p class="h5">{{ filter.label | escape }}</p>
     <div class="faceted__facet">
+
     {% case filter.type %}
 
       {% when 'list' %}
