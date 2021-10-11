@@ -1,7 +1,7 @@
-# shopify-themekit
-Thème basic fournit par themekit.
+# shopify-theme-bs5
+Thème Shopify avec Bootstrap 5
 
-[https://sebousan-test.myshopify.com](https://sebousan-test.myshopify.com) / duremu
+[https://test-noesya.myshopify.com](https://test-noesya.myshopify.com) / test-noesya
 
 ## Configuration
 * Gulp 4
@@ -9,9 +9,8 @@ Thème basic fournit par themekit.
 
 ## Frameworks and plugins front
 * Bootstrap 5
-* Tiny Slider
+* Splide
 * GLightbox
-* Rellax (parallax)
 
 ## Commands
 * Theme watch ```yarn watch```
@@ -24,7 +23,7 @@ Thème basic fournit par themekit.
 
 | Type | Description |
 |---|-------|
-| Carousel | Bloc carousel avec tiny slider, possible de target n'importe quel contenu |
+| Carousel | Bloc carousel avec Splide, possible de target n’importe quel contenu |
 | External video | Bloc embed video |
 | Featured articles | Bloc d’articles blog mises en avant |
 | Featured collections | Bloc de collections mises en avant |
@@ -43,3 +42,16 @@ Thème basic fournit par themekit.
 | Quote | Bloc citation |
 | Texts | Plusieurs bloc texte |
 | Title | Bloc titre |
+
+## Metafields
+
+### Product
+* Description - *Plusieurs lignes de texte* - ```product.metafields.descriptors.detail```
+* Guide d’entretien - *Plusieurs lignes de texte* - ```product.metafields.descriptors.care_guide```
+* Produit en relation (1) - *produit* - ```product.metafields.related.product_1```
+* Produit en relation (2) - *produit* - ```product.metafields.related.product_2```
+* Produit en relation (3) - *produit* - ```product.metafields.related.product_3```
+* Produit en relation (4) - *produit* - ```product.metafields.related.product_4```
+* Exclusivité web - *Vrai ou faux* - ```product.metafields.status.web```
+* Hauteur du produit - *Dimension* - ```product.metafields.dimension.height```
+* Largeur du produit - *Dimension* - ```product.metafields.dimension.width```
