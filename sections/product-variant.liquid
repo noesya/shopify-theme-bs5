@@ -7,7 +7,7 @@
       {% if variant.sku != nil %} data-sku="{{ variant.sku }}"{% endif %}
       {% if variant.compare_at_price != nil %} data-compare="{{ variant.compare_at_price | money }}"{% endif %}
       data-price="{{ variant.price | money }}"
-      data-options="{{ variant.options | json }}"
+      data-options='[{%- for opt in variant.options -%} {%- endfor -%}]'
       value="{{ variant.id }}">
       {{ variant.title }}
     </option>
