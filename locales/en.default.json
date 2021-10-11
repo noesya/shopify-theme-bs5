@@ -37,6 +37,7 @@
       "remove": "Remove",
       "gift": "This is a gift?",
       "note": "Special instructions for seller",
+      "total": "Total",
       "subtotal": "Subtotal",
       "savings_html": "You're saving {{ price }}",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",

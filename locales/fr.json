@@ -37,6 +37,7 @@
       "remove": "Supprimer",
       "note": "Instructions spéciales pour la commande",
       "gift": "Est-ce un cadeau ?",
+      "total": "Total",
       "subtotal": "Sous-total",
       "savings_html": "Vous économisez {{ price }}",
       "taxes_and_shipping_at_checkout": "Taxes et frais de port calculés à l'étape de paiement",
