@@ -6,10 +6,6 @@
       <input name="options[prefix]" type="hidden" value="last">
     {%- endif -%}
 
-    <a href="{{ filter.url_to_remove }}" class="facets__reset">
-      {{ 'products.faceted.reset' | t }}
-    </a>
-
   {%- for filter in collection.filters -%}
     <p class="h5">{{ filter.label | escape }}</p>
     <div class="faceted__facet">
@@ -92,6 +88,11 @@
         </div>
 
     {% endcase %}
+
+    <a href="{{ filter.url_to_remove }}" class="facets__reset">
+      {{- 'products.faceted.reset' | t -}}
+    </a>
+
     </div>
   {% endfor %}
 
