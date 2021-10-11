@@ -28,8 +28,16 @@
         <div class="col-md-4">
           <div class="cart__summary">
             <p class="h5">Récapitulatif de la commande</p>
+            {{cart.total_discount}}
             <table class="table">
               <tbody>
+                {%- if cart.cart_level_discount_applications -%}
+                  {% assign total_without = discount_application.total_allocated_amount | plus: cart.total_price   %}
+                  <tr>
+                    <th>{{ 'cart.general.subtotal' | t }}</th>
+                    <td>{{ 'cart.general.savings_html' | t: price: amount }}</td>
+                  </tr>
+                {%- endif -%}
                 {% for discount_application in cart.cart_level_discount_applications %}
                   {%- assign amount = discount_application.total_allocated_amount | money -%}
                   <tr>
