@@ -7994,8 +7994,8 @@ a {
     padding: 0; }
 
 .faceted__reset {
-  font-size: 0.75rem;
-  text-decoration: #adb5bd; }
+  color: #adb5bd;
+  font-size: 0.75rem; }
 
 .faceted__price-range {
   display: flex;

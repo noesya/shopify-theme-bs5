@@ -24,7 +24,7 @@
   <div class="col-md-8">
     {% paginate collection.products by 12 %}
       <div class="d-md-flex justify-content-between mb-5">
-        <h2>{{ 'collections.products.title' | t }}</h2>
+        <h2>{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
         {%- include 'collection-sorting' -%}
       </div>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
