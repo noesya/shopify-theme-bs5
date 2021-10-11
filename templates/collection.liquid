@@ -27,7 +27,7 @@
         <h2>{{ 'collections.products.title' | t }}</h2>
         {%- include 'collection-sorting' -%}
       </div>
-      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {% for product in collection.products %}
           <div class="col">
             {% include 'product', item: product %}
