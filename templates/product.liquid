@@ -24,7 +24,10 @@
         <div class="product__media">
           {%- include 'product-images' -%}
           {%- if product.metafields.status.web -%}
-            <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
+            <span class="badge bg-light">{{ 'products.product.exclu_web' | t }}</span>
+          {%- endif -%}
+          {%- if current_item_variant.compare_at_price != nil -%}
+            <span class="badge bg-danger">{{ 'products.product.sale' | t }}</span>
           {%- endif -%}
         </div>
       </div>
