@@ -12,6 +12,11 @@
                 bottom: $grid-gutter-width / 2
 
 
+        @include media-breakpoint-down(md)
+            .ratio::before
+                padding-top: 120%
+
+
         @include media-breakpoint-up(md)
             &__arrow
                 &--next

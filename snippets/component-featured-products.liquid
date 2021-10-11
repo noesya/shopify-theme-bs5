@@ -33,13 +33,15 @@
         {% endif %}
       </header>
     {% endif %}
-    <div class="row {{ col }} {{ align_col }} gy-3">
-      {% for block in section.blocks limit: section.blocks.size %}
-        <div class="col" {{ block.shopify_attributes }}>
-          {%- assign product_featured = all_products[block.settings.id_product] -%}
-          {% include 'product', item: product_featured %}
-        </div>
-      {% endfor %}
+    <div class="scroll">
+      <div class="row {{ col }} {{ align_col }} gy-3">
+        {% for block in section.blocks limit: section.blocks.size %}
+          <div class="col" {{ block.shopify_attributes }}>
+            {%- assign product_featured = all_products[block.settings.id_product] -%}
+            {% include 'product', item: product_featured %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
     {% if url != blank %}
       <footer class="mt-3 {{ align_text }}">
