@@ -7993,6 +7993,10 @@ a {
     margin: 0;
     padding: 0; }
 
+.faceted__reset {
+  font-size: 0.75rem;
+  text-decoration: #adb5bd; }
+
 .faceted__price-range {
   display: flex;
   justify-content: space-between; }

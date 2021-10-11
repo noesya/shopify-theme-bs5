@@ -8,7 +8,7 @@
 
   {%- for filter in collection.filters -%}
     <p class="h5">{{ filter.label | escape }}</p>
-    <div class="faceted__facet">
+    <div class="faceted__facet" data-json='{{ filter | json }}'>
 
     {% case filter.type %}
 
