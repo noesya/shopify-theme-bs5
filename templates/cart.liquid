@@ -27,6 +27,7 @@
             <table class="table">
               <tbody>
 
+                {{total_discount}}
                 {%- if cart.total_discount -%}
                   {% assign total_without = cart.total_discount | plus: cart.total_price   %}
                   <tr>
