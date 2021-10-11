@@ -7847,6 +7847,11 @@ a {
   .card-title {
     font-family: "Lora", serif;
     font-size: 1.125rem; }
+  .card-vendor {
+    color: #adb5bd;
+    font-size: 0.75rem;
+    margin-bottom: 0;
+    text-transform: uppercase; }
 
 .ratio img,
 .ratio video {

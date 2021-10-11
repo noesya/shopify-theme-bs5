@@ -2,10 +2,18 @@
     text-decoration: none
     transition: background ease .3s
     &:hover
+        .card-media
+            img
+                display: none
+            img + img
+                display: block
+
         .card-title
             text-decoration: underline
     &-media
         position: relative
+        img + img
+            display: none
         .badge
             position: absolute
             right: $grid-gutter-width / 2
@@ -15,3 +23,9 @@
     &-title
         font-family: $headings-font-family
         font-size: px2rem(18)
+
+    &-vendor
+        color: $gray-500
+        font-size: px2rem(12)
+        margin-bottom: 0
+        text-transform: uppercase

@@ -24,6 +24,9 @@
             {% include 'video', media: featured_item_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
         {% endcase %}
       {%- endif -%}
+      {%- if item.images[1] -%}
+        {% include 'image', src: item.images[1], size: image_size, mobile_size: image_mobile_size, img_class: 'card-img-top' %}
+      {%- endif -%}
     </div>
     {%- if item.metafields.status.web -%}
       <span class="badge bg-danger">{{ 'products.product.exclu_web' | t }}</span>
@@ -37,7 +40,7 @@
 
     <div class="card-body">
       {% unless item.available %}<span class="badge bg-danger">{{ 'products.product.sold_out' | t }}</span>{% endunless %}
-      <p class="card-subtitle">{{ item.vendor }}</p>
+      <p class="card-vendor">{{ item.vendor }}</p>
       <p class="card-title{% if featured %} h1{% endif %}">{{ item.title }}</p>
       <p class="card-text">
         {%- if current_item_variant.compare_at_price != nil -%}
