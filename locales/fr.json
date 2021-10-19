@@ -187,7 +187,7 @@
     },
     "reset_password": {
       "title": "Réinitialiser le mot de passe du compte",
-      "subtext": "Enter a new password for {{ email }}",
+      "subtext": "Entrez un nouveau mot de passe pour {{ email }}",
       "password": "Mot de passe",
       "password_confirm": "Confirme mot de passe",
       "submit": "Réinitialiser le mot de passe"

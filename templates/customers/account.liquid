@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <div id="customer_orders">
-      <h2>Orders</h2>
+      <p>{{ 'customer.orders.title' | t }}</p>
       {% paginate customer.orders by 10 %}
       {% if customer.orders.size != 0 %}
       <div class="table-responsive">
@@ -51,7 +51,7 @@
       </table>
       </div>
       {% else %}
-        <p>You haven't placed any orders yet.</p>
+        <p>{{ 'customer.orders.none' | t }}</p>
       {% endif %}
       {{ paginate | default_pagination }}
       {% endpaginate %}
@@ -64,6 +64,7 @@
       {{ customer.default_address | format_address }}
     {% endif %}
     <p><a href="{{ routes.account_addresses_url }}" class="btn btn-outline-primary">{{ 'customer.addresses.view' | t }}</a></p>
+    <hr>
     {{ 'customer.account.log_out' | t | customer_logout_link | replace: '<a', '<a class="btn btn-outline-danger"' }}
   </div>
 </div>
