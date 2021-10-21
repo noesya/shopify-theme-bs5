@@ -3,7 +3,6 @@
 {%- assign background = section.settings.background -%}
 {%- assign blocks = section.blocks -%}
 {%- if blocks.size > 0 -%}
-  {{ blocks | jsonify }}
   {% include 'component-carousel' %}
 {%- endif -%}
 
@@ -212,12 +211,26 @@
       ]
     },
     {
-      "type": "checkbox",
+      "type": "select",
       "id": "background",
-      "default": false,
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "Blanc"
+        },
+        {
+          "value": "bg-light",
+          "label": "Gris clair"
+        },
+        {
+          "value": "bg-primary",
+          "label": "Noir"
+        }
+      ],
       "label": {
-        "en": "Grey background?",
-        "fr": "Arrière plan gris ?"
+        "en": "Background",
+        "fr": "Arrière plan"
       }
     }
   ],
