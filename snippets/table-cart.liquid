@@ -9,13 +9,13 @@
     {% assign exclude_ids = "" %}
     {%- for item in cart.items -%}
       {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
-      {% assign is_discount_allocations = false %}
+      {% assign is_free_product = false %}
       {%- for discountAllocation in item.discount_allocations -%}
         {%- if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value == 100.0 -%}
-          {% assign is_discount_allocations = true %}
+          {% assign is_free_product = true %}
         {%- endif -%}
       {%- endfor -%}
-      <tr{% if is_discount_allocations %} class="bg-light"{% endif %}>
+      <tr{% if is_free_product %} class="bg-light"{% endif %}>
         <td class="cart__image">
           <a href="{{ item.url | within: collections.all }}">
             <div class="ratio ratio-1x1">
@@ -73,13 +73,12 @@
           {%- endif -%}
         </td>
         <td class="cart__price">
-          {%- unless is_discount_allocations -%}
+          {%- unless is_free_product -%}
           <div class="price">
-            {% if item.product.compare_at_price != item.price %}
+            {%- if item.product.compare_at_price != item.price -%}
               <del class="text-danger">{{ item.product.compare_at_price | money }}</del>
-            {% endif %}
+            {%- endif -%}
             {{ item.price | money | strip }}
-
             {% comment %}
             <div class="price">
               {{ 'cart.label.total' | t }}
@@ -95,7 +94,6 @@
               {%- endif -%}
             </div>
             {% endcomment %}
-
           </div>
           {%- endunless -%}
           {%- for discount in item.discounts -%}
@@ -103,7 +101,7 @@
           {%- endfor -%}
         </td>
         <td class="cart__qty">
-          {% unless is_discount_allocations %}
+          {%- unless is_free_product -%}
           <label for="updates_{{ item.key }}" class="form-label d-none" aria-label="{{ 'cart.label.quantity' | t }}">
             {{ 'cart.label.qty' | t }} {{ item.successfully_fulfilled_quantity }}
           </label>
@@ -116,7 +114,7 @@
             name="updates[]"
             type="number"
             value="{{ item.quantity }}">
-            {% endunless %}
+          {%- endunless -%}
         </td>
         <td class="cart__delete">
           <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="text-muted" title="{{ 'cart.general.remove' | t }}">
