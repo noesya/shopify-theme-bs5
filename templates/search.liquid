@@ -1,5 +1,5 @@
 <h1>{{ 'general.search.title' | t }}</h1>
-<div class="row">
+<div class="row mb-3">
   <div class="col-md-6">
     <form action="/search" method="get" role="search">
       <div class="input-group">
@@ -15,7 +15,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
     {%- for item in search.results -%}
       <div class="col">
-        {%- include 'product', item: product -%}
+        {%- include 'product', item: item -%}
       </div>
     {%- else -%}
       <p>no results</p>
