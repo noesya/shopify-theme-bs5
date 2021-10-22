@@ -6,12 +6,12 @@
     <th class="cart__delete"></th>
   </thead>
   <tbody>
-    {% assign exclude_ids = "" %}
+    {%- assign exclude_ids = "" -%}
     {%- for item in cart.items -%}
       {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
       {% assign is_free_product = false %}
       {%- for discountAllocation in item.discount_allocations -%}
-        {%- if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value > 99 -%}
+        {%- if discountAllocation.discount_application.value_type == 'percentage' and discountAllocation.discount_application.value == 100.0 -%}
           {% assign is_free_product = true %}
         {%- endif -%}
       {%- endfor -%}
@@ -24,10 +24,6 @@
           </a>
         </td>
         <td class="cart__product">
-          {%- for discountAllocation in item.discount_allocations -%}
-          {{discountAllocation.discount_application.value_type}}
-            {{discountAllocation.discount_application.value}}
-          {%- endfor -%}
           <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
           {%- unless item.product.has_only_default_variant -%}
             <ul>
@@ -37,7 +33,7 @@
             </ul>
           {%- endunless -%}
 
-          {% assign property_size = item.properties | size %}
+          {%- assign property_size = item.properties | size -%}
           {%- if property_size > 0 -%}
 
           <!-- Button trigger modal -->
