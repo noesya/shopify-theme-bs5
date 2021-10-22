@@ -1,7 +1,7 @@
 {%- assign featured_product = all_products[section.settings.featured_product] -%}
 {%- assign exclude_ids = "" -%}
 {%- for item in cart.items -%}
-  {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
+  {% assign exclude_ids = exclude_ids | append: ',' | append: item.product.id %}
 {%- endfor -%}
 {%- assign exclude_ids = exclude_ids | split: ',' -%}
 
