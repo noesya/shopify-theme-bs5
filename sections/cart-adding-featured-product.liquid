@@ -5,6 +5,8 @@
 {%- endfor -%}
 {%- assign exclude_ids = exclude_ids | split: ',' -%}
 
+{{exclude_ids}}
+
 {%- if featured_product -%}
   {%- unless exclude_ids contains featured_product.id -%}
 
@@ -13,7 +15,7 @@
     {%- assign featured_product_id = featured_product_variant.id %}
     {%- assign featured_product_image = featured_product_variant.featured_image | default: featured_product.featured_image -%}
     {%- assign featured_product_media = featured_product.featured_media -%}
-    {%- assign poster = "256x150" -%}
+    {%- assign poster = "352x352" -%}
     {%- assign image_size = '352x352' -%}
     {%- assign image_mobile_size = '345x345' -%}
 
