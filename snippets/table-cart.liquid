@@ -11,7 +11,7 @@
       {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
       {% assign is_free_product = false %}
       {%- for discountAllocation in item.discount_allocations -%}
-        {%- if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value == 100.0 -%}
+        {%- if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value == '100.0' -%}
           {% assign is_free_product = true %}
         {%- endif -%}
       {%- endfor -%}
@@ -24,9 +24,6 @@
           </a>
         </td>
         <td class="cart__product">
-          {%- for discountAllocation in item.discount_allocations -%}
-            {{discountAllocation.discount_application.value}}
-          {%- endfor -%}
           <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
           {%- unless item.product.has_only_default_variant -%}
             <ul>
