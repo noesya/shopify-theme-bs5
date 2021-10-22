@@ -1,13 +1,13 @@
-{% assign img_url = null %}
-{% assign img_url_2x = null %}
-{% assign img_desktop_url = null %}
-{% assign img_desktop_url_2x = null %}
-{% assign source_desktop = null %}
+{%- assign img_url = null -%}
+{%- assign img_url_2x = null -%}
+{%- assign img_desktop_url = null -%}
+{%- assign img_desktop_url_2x = null -%}
+{%- assign source_desktop = null -%}
 
-{% assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" %}
+{%- assign breakpoints = "375, 576, 640, 750, 768, 1080, 1152, 1200, 1366, 1440, 1536, 1920" -%}
 
 {% comment %} IMG DATAS {% endcomment %}
-{% assign img_crop = 'center' %}
+{%- assign img_crop = 'center' -%}
 {%- if crop -%}
   {% assign img_crop = crop %}
 {%- endif -%}
@@ -28,7 +28,6 @@
 {%- else -%}
   {% assign img_alt = src.alt | escape %}
 {%- endif -%}
-
 
 {% comment %} MOBILE SOURCE {% endcomment %}
 {%- if mobile_size -%}
@@ -51,7 +50,7 @@
 {%- if img_class -%}
   {% assign img_tag = img_tag | append: ' class="' | append: img_class | append: '"' %}
 {%- endif -%}
-{% assign img_tag = img_tag | append: '>' %}
+{%- assign img_tag = img_tag | append: '>' -%}
 
 <picture>
   {{source_desktop}}
