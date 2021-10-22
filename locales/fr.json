@@ -28,7 +28,8 @@
       "previous": "Précédent"
     },
     "search": {
-      "title": "Recherche"
+      "title": "Rechercher un produit",
+      "submit": "Rechercher"
     }
   },
   "cart": {
