@@ -7,11 +7,11 @@
   </thead>
   <tbody>
     {% assign exclude_ids = "" %}
-    {% for item in cart.items %}
+    {%- for item in cart.items -%}
       {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
       {% assign is_discount_allocations = false %}
       {%- for discountAllocation in item.discount_allocations -%}
-        {% if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value == 100.0 %}
+        {%- if discountAllocation.discount_application.value_type == 'percent' and discountAllocation.discount_application.value == 100.0 -%}
           {% assign is_discount_allocations = true %}
         {%- endif -%}
       {%- endfor -%}
@@ -30,9 +30,9 @@
           <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
           {%- unless item.product.has_only_default_variant -%}
             <ul>
-            {% for option in item.options_with_values %}
+            {%- for option in item.options_with_values -%}
               <li><span>{{ option.name }}:</span> {{ option.value }}</li>
-            {% endfor %}
+            {%- endfor -%}
             </ul>
           {%- endunless -%}
 
@@ -53,7 +53,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  {% for p in item.properties %}
+                  {%- for p in item.properties -%}
                     {% assign first_character_in_key = p.first | truncate: 1, '' %}
                     {% unless p.last == blank or first_character_in_key == '_' %}
                       {{ p.first }}:
@@ -64,7 +64,7 @@
                       {% endif %}
                       <br>
                     {% endunless %}
-                  {% endfor %}
+                  {%- endfor -%}
                 </div>
               </div>
             </div>
@@ -124,6 +124,6 @@
           </a>
         </td>
       </tr>
-    {% endfor %}
+    {%- endfor -%}
   </tbody>
 </table>
