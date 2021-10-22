@@ -1,47 +1,52 @@
 {%- assign featured_product = all_products[section.settings.featured_product] -%}
-{%- assign featured_product_variant = featured_product.selected_or_first_available_variant %}
-{%- assign featured_product_id = featured_product_variant.id %}
-{%- assign featured_product_image = featured_product_variant.featured_image | default: featured_product.featured_image -%}
-{%- assign featured_product_media = featured_product.featured_media -%}
-{%- assign poster = "256x150" -%}
-{%- assign image_size = '352x352' -%}
-{%- assign image_mobile_size = '345x345' -%}
 
-{% form 'product', featured_product, class:"card" %}
-  <input type="hidden" name="id" value="{{ featured_product_id }}">
-  <input type="hidden" name="quantity" value="1">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card-media">
-        <div class="ratio ratio-1x1 ratio--contain">
-          {%- if featured_item_media -%}
-            {% case featured_item_media.media_type %}
-              {% when 'image' %}
-                {% include 'image', src: featured_product_image, size: image_size, mobile_size: image_mobile_size, img_class: 'img-fluid' %}
-              {% when 'external_video' %}
-                {% include 'external-video', media: featured_product_image %}
-              {% when 'video' %}
-                {% include 'video', media: featured_product_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
-            {% endcase %}
+{%- if featured_product -%}
+
+  {%- assign featured_product_variant = featured_product.selected_or_first_available_variant %}
+  {%- assign featured_product_id = featured_product_variant.id %}
+  {%- assign featured_product_image = featured_product_variant.featured_image | default: featured_product.featured_image -%}
+  {%- assign featured_product_media = featured_product.featured_media -%}
+  {%- assign poster = "256x150" -%}
+  {%- assign image_size = '352x352' -%}
+  {%- assign image_mobile_size = '345x345' -%}
+
+  {% form 'product', featured_product, class:"card" %}
+    <input type="hidden" name="id" value="{{ featured_product_id }}">
+    <input type="hidden" name="quantity" value="1">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card-media">
+          <div class="ratio ratio-1x1 ratio--contain">
+            {%- if featured_item_media -%}
+              {% case featured_item_media.media_type %}
+                {% when 'image' %}
+                  {% include 'image', src: featured_product_image, size: image_size, mobile_size: image_mobile_size, img_class: 'img-fluid' %}
+                {% when 'external_video' %}
+                  {% include 'external-video', media: featured_product_image %}
+                {% when 'video' %}
+                  {% include 'video', media: featured_product_media, ratio: false, poster: poster, autoplay: true, mutted: true %}
+              {% endcase %}
+            {%- endif -%}
+          </div>
+          {%- if featured_product.metafields.status.web -%}
+            <span class="badge bg-secondary">{{ 'products.product.exclu_web' | t }}</span>
+          {%- endif -%}
+          {%- if featured_product_variant.compare_at_price != nil -%}
+            <span class="badge bg-danger">{{ 'products.product.sale' | t }}</span>
           {%- endif -%}
         </div>
-        {%- if featured_product.metafields.status.web -%}
-          <span class="badge bg-secondary">{{ 'products.product.exclu_web' | t }}</span>
-        {%- endif -%}
-        {%- if featured_product_variant.compare_at_price != nil -%}
-          <span class="badge bg-danger">{{ 'products.product.sale' | t }}</span>
-        {%- endif -%}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-title">{{featured_product_variant.title}}</p>
+          <button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
+        </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <p class="card-title">{{featured_product_variant.title}}</p>
-        <button type="submit" name="add" class="product__cta btn btn-primary js-addtocart">{{ "products.product.add_to_cart" | t }}</button>
-      </div>
-    </div>
-  </div>
 
-{% endform %}
+  {% endform %}
+
+{%- endif -%}
 
 
 {% schema %}
