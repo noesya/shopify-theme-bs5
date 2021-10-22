@@ -1,85 +1,84 @@
+<h1>{{ 'cart.general.title' | t }} ({{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }})</h1>
+{% if cart.item_count > 0 %}
 
-  <h1>{{ 'cart.general.title' | t }} ({{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }})</h1>
-  {% if cart.item_count > 0 %}
+  {%- capture taxes_shipping_checkout -%}
+    {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
+      {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+    {%- elsif shop.taxes_included -%}
+      {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+    {%- elsif shop.shipping_policy.body != blank -%}
+      {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+    {%- else -%}
+      {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+    {%- endif -%}
+  {%- endcapture -%}
 
-    {%- capture taxes_shipping_checkout -%}
-      {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
-        {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-      {%- elsif shop.taxes_included -%}
-        {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
-      {%- elsif shop.shipping_policy.body != blank -%}
-        {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-      {%- else -%}
-        {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
-      {%- endif -%}
-    {%- endcapture -%}
+  <form class="mb-3 js-cart-form" action="{{ routes.cart_url }}" method="post">
 
-    <form class="mb-3 js-cart-form" action="{{ routes.cart_url }}" method="post">
+    <div class="row">
+      <div class="col-md-8">
+        {%- include 'table-cart' -%}
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-outline-secondary"><span class="material-icons-outlined">arrow_back</span> {{ 'cart.general.continue_shopping' | t }}</a>
+      </div>
+      <div class="col-md-4">
+        <div class="cart__summary">
+          <h2 class="h5">{{ 'cart.general.summary' | t }}</h2>
+          <table class="table">
+            <tbody>
 
-      <div class="row">
-        <div class="col-md-8">
-          {%- include 'table-cart' -%}
-          <a href="{{ routes.all_products_collection_url }}"><span class="material-icons-outlined">arrow_back</span> {{ 'cart.general.continue_shopping' | t }}</a>
-        </div>
-        <div class="col-md-4">
-          <div class="cart__summary">
-            <h2 class="h5">{{ 'cart.general.summary' | t }}</h2>
-            <table class="table">
-              <tbody>
-
-                {%- if cart.total_discount -%}
-                  {% assign total_without = cart.total_discount | plus: cart.total_price   %}
-                  <tr>
-                    <th>{{ 'cart.general.subtotal' | t }}</th>
-                    <td>{{ total_without | money }}</td>
-                  </tr>
-                {%- endif -%}
-
-                {% for discount_application in cart.cart_level_discount_applications %}
-                  {%- assign amount = discount_application.total_allocated_amount | money -%}
-                  <tr>
-                    <td colspan="2" class="text-danger">{{ 'cart.general.savings_html' | t: price: amount }}</td>
-                  </tr>
-                {% endfor %}
-
-                {% for discount_application in cart.discount_applications %}
-                  {%- assign amount = discount_application.total_allocated_amount | money -%}
-                  <tr>
-                    <th class="text-danger">{{ discount_application.title }}</th>
-                    <td class="text-danger">-{{ discount_application.total_allocated_amount | money }}</td>
-                  </tr>
-                {% endfor %}
-
+              {%- if cart.total_discount -%}
+                {% assign total_without = cart.total_discount | plus: cart.total_price   %}
                 <tr>
-                  <th>{{ 'cart.general.shipping' | t }}</th>
-                  <td><span title="{{ 'cart.general.shipping_calcul' | t }}">{{ 'cart.general.shipping_waiting' | t }}</span></td>
+                  <th>{{ 'cart.general.subtotal' | t }}</th>
+                  <td>{{ total_without | money }}</td>
                 </tr>
+              {%- endif -%}
 
-                <tr class="total">
-                  <th>{{ 'cart.general.total' | t }}</th>
-                  <td>{{ cart.total_price | money }}</td>
+              {%- for discount_application in cart.cart_level_discount_applications -%}
+                {%- assign amount = discount_application.total_allocated_amount | money -%}
+                <tr>
+                  <td colspan="2" class="text-danger">{{ 'cart.general.savings_html' | t: price: amount }}</td>
                 </tr>
+              {%- endfor -%}
 
-              </tbody>
-            </table>
+              {%- for discount_application in cart.discount_applications -%}
+                {%- assign amount = discount_application.total_allocated_amount | money -%}
+                <tr>
+                  <th class="text-danger">{{ discount_application.title }}</th>
+                  <td class="text-danger">-{{ discount_application.total_allocated_amount | money }}</td>
+                </tr>
+              {%- endfor -%}
 
-            <button type="submit" name="checkout" class="btn btn-primary"><span class="material-icons-outlined">shopping_cart</span> {{ 'cart.general.checkout' | t }}</button>
+              <tr>
+                <th>{{ 'cart.general.shipping' | t }}</th>
+                <td><span title="{{ 'cart.general.shipping_calcul' | t }}">{{ 'cart.general.shipping_waiting' | t }}</span></td>
+              </tr>
 
-            <div class="form-check mt-3">
-              <input class="form-check-input" type="checkbox" name="attributes[gift]" value="true" id="isGift">
-              <label class="form-check-label" for="isGift">
-                {{ 'cart.general.gift' | t }}
-              </label>
-            </div>
+              <tr class="total">
+                <th>{{ 'cart.general.total' | t }}</th>
+                <td>{{ cart.total_price | money }}</td>
+              </tr>
 
+            </tbody>
+          </table>
+
+          <button type="submit" name="checkout" class="btn btn-primary"><span class="material-icons-outlined">shopping_cart</span> {{ 'cart.general.checkout' | t }}</button>
+
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" name="attributes[gift]" value="true" id="isGift">
+            <label class="form-check-label" for="isGift">
+              {{ 'cart.general.gift' | t }}
+            </label>
           </div>
+
         </div>
       </div>
+    </div>
 
-    </form>
-    {%- section 'cart-adding-featured-product' -%}
-  {% else %}
-    <p>{{ 'cart.general.empty' | t }}</p>
-  {% endif %}
+  </form>
+  {%- section 'cart-adding-featured-product' -%}
+{% else %}
+  <p>{{ 'cart.general.empty' | t }}</p>
+{% endif %}
 
-  {%- section 'reassurance' -%}
+{%- section 'reassurance' -%}
