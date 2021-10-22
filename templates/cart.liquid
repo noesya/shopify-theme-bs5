@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4">
           <div class="cart__summary">
-            <h2 class="h5">Récapitulatif de la commande</h2>
+            <h2 class="h5">{{ 'cart.general.summary' | t }}</h2>
             <table class="table">
               <tbody>
 
@@ -38,10 +38,8 @@
                 {% for discount_application in cart.cart_level_discount_applications %}
                   {%- assign amount = discount_application.total_allocated_amount | money -%}
                   <tr>
-                    <th></th>
-                    <td>{{ 'cart.general.savings_html' | t: price: amount }}</td>
+                    <td colspan="2" class="text-danger">{{ 'cart.general.savings_html' | t: price: amount }}</td>
                   </tr>
-                  <p class="text-danger lead"></p>
                 {% endfor %}
 
                 {% for discount_application in cart.discount_applications %}
