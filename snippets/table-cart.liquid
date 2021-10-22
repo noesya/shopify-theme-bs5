@@ -11,6 +11,7 @@
       {% assign exclude_ids = exclude_ids | append: ',' | append: item.id %}
       {% assign is_discount_allocations = false %}
       {%- for discountAllocation in item.discount_allocations -%}
+        {{ discountAllocation.discount_application | jsonify }}
         {% if discountAllocation.discount_application.type == 'automatic' %}
           {% assign is_discount_allocations = true %}
         {%- endif -%}

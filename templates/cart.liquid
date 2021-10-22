@@ -14,7 +14,7 @@
       {%- endif -%}
     {%- endcapture -%}
 
-    <form class="js-cart-form" action="{{ routes.cart_url }}" method="post">
+    <form class="mb-3 js-cart-form" action="{{ routes.cart_url }}" method="post">
 
       <div class="row">
         <div class="col-md-8">
@@ -79,9 +79,9 @@
       </div>
 
     </form>
+    {%- section 'cart-adding-featured-product' -%}
   {% else %}
     <p>{{ 'cart.general.empty' | t }}</p>
   {% endif %}
 
-  {%- section 'cart-adding-featured-product' -%}
   {%- section 'reassurance' -%}
