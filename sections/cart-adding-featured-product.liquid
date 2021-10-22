@@ -5,7 +5,9 @@
 {%- endfor -%}
 {%- assign exclude_ids = exclude_ids | split: ',' -%}
 
-{{exclude_ids}}
+{{exclude_ids}}<br>
+{{featured_product.id}}<br>
+{{featured_product_variant.id}}
 
 {%- if featured_product -%}
   {%- unless exclude_ids contains featured_product.id -%}
