@@ -19,6 +19,7 @@
       <div class="row">
         <div class="col-md-8">
           {%- include 'table-cart' -%}
+          {%- section 'cart-adding-feauted-product' -%}
           <a href="{{ routes.all_products_collection_url }}"><span class="material-icons-outlined">arrow_back</span> {{ 'cart.general.continue_shopping' | t }}</a>
         </div>
         <div class="col-md-4">
@@ -27,7 +28,6 @@
             <table class="table">
               <tbody>
 
-                {{total_discount}}
                 {%- if cart.total_discount -%}
                   {% assign total_without = cart.total_discount | plus: cart.total_price   %}
                   <tr>
