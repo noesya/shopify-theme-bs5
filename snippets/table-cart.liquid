@@ -24,6 +24,9 @@
           </a>
         </td>
         <td class="cart__product">
+          {%- for discountAllocation in item.discount_allocations -%}
+            {{discountAllocation.discount_application.value}}
+          {%- endfor -%}
           <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
           {% unless item.product.has_only_default_variant %}
             <ul>
