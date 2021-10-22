@@ -28,16 +28,16 @@
             {{discountAllocation.discount_application.value}}
           {%- endfor -%}
           <p class="cart__product__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
-          {% unless item.product.has_only_default_variant %}
+          {%- unless item.product.has_only_default_variant -%}
             <ul>
             {% for option in item.options_with_values %}
               <li><span>{{ option.name }}:</span> {{ option.value }}</li>
             {% endfor %}
             </ul>
-          {% endunless %}
+          {%- endunless -%}
 
           {% assign property_size = item.properties | size %}
-          {% if property_size > 0 %}
+          {%- if property_size > 0 -%}
 
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#propertiesModal">
@@ -70,10 +70,10 @@
             </div>
           </div>
 
-          {% endif %}
+          {%- endif -%}
         </td>
         <td class="cart__price">
-          {% unless is_discount_allocations %}
+          {%- unless is_discount_allocations -%}
           <div class="price">
             {% if item.product.compare_at_price != item.price %}
               <del class="text-danger">{{ item.product.compare_at_price | money }}</del>
@@ -97,7 +97,7 @@
             {% endcomment %}
 
           </div>
-          {% endunless %}
+          {%- endunless -%}
           {%- for discount in item.discounts -%}
             <span class="badge bg-danger">{{ discount.title }}</span>
           {%- endfor -%}
