@@ -4,12 +4,6 @@
       <span class="material-icons-outlined">search</span>
     </a>
   </li>
-  <li class="nav-item">
-    <a href="{{ routes.cart_url }}" class="nav-link cart__notif" title="{{ 'cart.general.title' | t }}">
-      <span class="material-icons-outlined">shopping_bag</span>
-      <span class="notif js-cart-notif">{{ itemCart }}</span>
-    </a>
-  </li>
   {% assign account_url = routes.account_login_url %}
   {% if customer %}
     {% assign account_url = routes.account_url %}
@@ -17,6 +11,12 @@
   <li class="nav-item">
     <a href="{{ account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
       <span class="material-icons-outlined">person_outline</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="{{ routes.cart_url }}" class="nav-link cart__notif" title="{{ 'cart.general.title' | t }}">
+      <span class="material-icons-outlined">shopping_bag</span>
+      <span class="notif js-cart-notif">{{ itemCart }}</span>
     </a>
   </li>
 </ul>
