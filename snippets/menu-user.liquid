@@ -4,12 +4,12 @@
       <span class="material-icons-outlined">search</span>
     </a>
   </li>
-  {% assign account_url = routes.account_login_url %}
+  {% assign user_url = routes.account_login_url %}
   {% if customer %}
-    {% assign account_url = routes.account_url %}
+    {% assign user_url = routes.account_url %}
   {% endif %}
   <li class="nav-item">
-    <a href="{{ account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
+    <a href="{{ user_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
       <span class="material-icons-outlined">person_outline</span>
     </a>
   </li>
