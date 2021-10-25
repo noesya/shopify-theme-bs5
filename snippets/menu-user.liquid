@@ -10,19 +10,13 @@
       <span class="notif js-cart-notif">{{ itemCart }}</span>
     </a>
   </li>
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <li class="nav-item">
-        <a href="{{ routes.account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
-          <span class="material-icons-outlined">person_outline</span>
-        </a>
-      </li>
-    {% else %}
-      <li class="nav-item">
-        <a href="{{ routes.account_login_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
-          <span class="material-icons-outlined">person_outline</span>
-        </a>
-      </li>
-    {% endif %}
+  {% assign account_url = routes.account_login_url %}
+  {% if customer %}
+    {% assign account_url = routes.account_url %}
   {% endif %}
+  <li class="nav-item">
+    <a href="{{ account_url }}" class="nav-link" title="{{ 'customer.account.title' | t }}">
+      <span class="material-icons-outlined">person_outline</span>
+    </a>
+  </li>
 </ul>
