@@ -7909,7 +7909,9 @@ a {
   object-fit: contain; }
 
 .faceted__cta {
+  background-color: #fff;
   bottom: 0;
+  padding-top: 15px;
   position: sticky; }
 
 .faceted__facet {

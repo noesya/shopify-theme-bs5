@@ -20,10 +20,8 @@
 {% paginate collection.products by 16 %}
   <div class="d-md-flex justify-content-between mb-5">
     <h2>{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFaceted" aria-controls="offcanvasFaceted">
-      Filter
-    </button>
     {%- include 'collection-sorting' -%}
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFaceted" aria-controls="offcanvasFaceted">Filter</button>
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
     {% for product in collection.products %}
@@ -39,4 +37,4 @@
   {% endif %}
 {% endpaginate %}
 
-{%- include 'offcanvas-faceted' -%}
+{%- include 'faceted' -%}
