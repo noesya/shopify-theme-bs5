@@ -46,7 +46,7 @@
               "image": "shopify:\/\/shop_images\/hero.jpg",
               "title": "Un style brillant",
               "subtitle": "",
-              "cta": "",
+              "cta": "Acheter",
               "cta_style": "btn-light"
             }
           }
