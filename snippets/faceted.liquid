@@ -1,102 +1,111 @@
-<div class="faceted">
-  <form id="FacetFiltersForm" class="faceted__form">
+<form id="FacetFiltersForm" class="faceted">
 
-    {%- if collection.terms -%}
-      <input type="hidden" name="q" value="{{ collection.terms | escape }}">
-      <input name="options[prefix]" type="hidden" value="last">
-    {%- endif -%}
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFaceted" aria-labelledby="offcanvasFacetedLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasFacetedLabel">Faceted</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
 
-  {%- for filter in collection.filters -%}
-    <p class="h5">{{ filter.label | escape }}</p>
-    <div class="faceted__facet" data-json='{{ filter | json }}'>
+      {%- if collection.terms -%}
+        <input type="hidden" name="q" value="{{ collection.terms | escape }}">
+        <input name="options[prefix]" type="hidden" value="last">
+      {%- endif -%}
 
-    {% case filter.type %}
+      {%- for filter in collection.filters -%}
+        <p class="h5">{{ filter.label | escape }}</p>
+        <div class="faceted__facet" data-json='{{ filter | json }}'>
 
-      {% when 'list' %}
-        <ul class="faceted__list" role="list">
-          {%- for value in filter.values -%}
-            <li class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                name="{{ value.param_name }}"
-                value="{{ value.value }}"
-                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                {% if value.active %}checked{% endif %}
-                {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                >
-              <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="form-check-label">{{ value.label | escape }} ({{ value.count }})</label>
-            </li>
-          {%- endfor -%}
-        </ul>
+        {% case filter.type %}
 
-      {% when 'price_range' %}
-        <div class="faceted__price-range">
-          <div class="form-floating">
-            <input
-              type="number"
-              name="{{ filter.min_value.param_name }}"
-              class="form-control"
-              id="Filter-{{ filter.label | escape }}-GTE"
-              {%- if filter.min_value.value -%}
-                {%- if uses_comma_decimals -%}
-                  value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                {%- else -%}
-                  value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                {% endif %}
-              {%- endif -%}
-              min="0"
-              {%- if uses_comma_decimals -%}
-                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-              {%- else -%}
-                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-              {% endif %}
-              placeholder="0"
-              >
-            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.from' | t }}</label>
-          </div>
+          {% when 'list' %}
+            <ul class="faceted__list" role="list">
+              {%- for value in filter.values -%}
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="{{ value.param_name }}"
+                    value="{{ value.value }}"
+                    id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                    {% if value.active %}checked{% endif %}
+                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                    >
+                  <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="form-check-label">{{ value.label | escape }} ({{ value.count }})</label>
+                </li>
+              {%- endfor -%}
+            </ul>
 
-          <div class="form-floating">
-            <input
-              type="number"
-              name="{{ filter.max_value.param_name }}"
-              class="form-control"
-              id="Filter-{{ filter.label | escape }}-GTE"
-              {%- if filter.max_value.value -%}
-                {%- if uses_comma_decimals -%}
-                  value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                {%- else -%}
-                  value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-                {% endif %}
-              {%- endif -%}
-              min="0"
-              {%- if uses_comma_decimals -%}
-                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-              {%- else -%}
-                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-              {% endif %}
-              {%- if uses_comma_decimals -%}
-                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-              {%- else -%}
-                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-              {% endif %}
-              >
-            <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.to' | t }}</label>
-          </div>
+          {% when 'price_range' %}
+            <div class="faceted__price-range">
+              <div class="form-floating">
+                <input
+                  type="number"
+                  name="{{ filter.min_value.param_name }}"
+                  class="form-control"
+                  id="Filter-{{ filter.label | escape }}-GTE"
+                  {%- if filter.min_value.value -%}
+                    {%- if uses_comma_decimals -%}
+                      value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                    {%- else -%}
+                      value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                    {% endif %}
+                  {%- endif -%}
+                  min="0"
+                  {%- if uses_comma_decimals -%}
+                    max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                  {%- else -%}
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                  {% endif %}
+                  placeholder="0"
+                  >
+                <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.from' | t }}</label>
+              </div>
+
+              <div class="form-floating">
+                <input
+                  type="number"
+                  name="{{ filter.max_value.param_name }}"
+                  class="form-control"
+                  id="Filter-{{ filter.label | escape }}-GTE"
+                  {%- if filter.max_value.value -%}
+                    {%- if uses_comma_decimals -%}
+                      value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                    {%- else -%}
+                      value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                    {% endif %}
+                  {%- endif -%}
+                  min="0"
+                  {%- if uses_comma_decimals -%}
+                    max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                  {%- else -%}
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                  {% endif %}
+                  {%- if uses_comma_decimals -%}
+                    max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                    placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                  {%- else -%}
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                  {% endif %}
+                  >
+                <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.faceted.to' | t }}</label>
+              </div>
+            </div>
+
+        {% endcase %}
+
+        <a href="{{ filter.url_to_remove }}" class="faceted__reset">
+          {{- 'products.faceted.reset' | t -}}
+        </a>
+
         </div>
+      {% endfor %}
 
-    {% endcase %}
-
-    <a href="{{ filter.url_to_remove }}" class="faceted__reset">
-      {{- 'products.faceted.reset' | t -}}
-    </a>
+      <div class="faceted__cta">
+        <button type="submit" class="btn btn-secondary">{{ 'products.faceted.submit' | t }}</button>
+      </div>
 
     </div>
-  {% endfor %}
-
-  <button type="submit" class="btn btn-secondary">{{ 'products.faceted.submit' | t }}</button>
-
-  </form>
-</div>
+  </div>
+</form>
