@@ -30,10 +30,16 @@
                 {%- assign col_class = "offset-md-3 text-center" -%}
               {% when "right" %}
                 {%- assign row_class = "align-items-end" -%}
-                {%- assign col_class = "offset-md-5" -%}
+                {%- assign col_class = "offset-md-6" -%}
+                {%- if offset -%}
+                  {%- assign col_class = "offset-md-6 offset-lg-5" -%}
+                {%- endif -%}
               {% else %}
                 {%- assign row_class = "align-items-end" -%}
-                {%- assign col_class = "offset-md-1" -%}
+                {%- assign col_class = "" -%}
+                {%- if offset -%}
+                  {%- assign col_class = "offset-lg-1" -%}
+                {%- endif -%}
             {% endcase %}
             <div class="splide__slide">
               {% include 'push' %}

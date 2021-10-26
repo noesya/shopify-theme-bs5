@@ -1,0 +1,23 @@
+{%- assign message = section.settings.title -%}
+{%- assign type = "light" -%}
+{% include 'component-message' %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Adding message to cart",
+    "fr": "Ajout d’un message dans le panier"
+  },
+  "class": "section--message",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title",
+        "fr": "Titre"
+      }
+    }
+  ]
+}
+{% endschema %}
