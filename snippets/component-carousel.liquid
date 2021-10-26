@@ -42,7 +42,7 @@
                   {%- assign col_class = "offset-lg-1" -%}
                 {%- endif -%}
             {% endcase %}
-            <div class="splide__slide">
+            <div class="splide__slide" {{ block.shopify_attributes }}>
               {% include 'push' %}
             </div>
           {%- endfor -%}
