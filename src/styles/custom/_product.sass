@@ -14,13 +14,16 @@
 
     &__variant
         margin-bottom: $grid-gutter-width
-        //&__id
-            //display: none
+        &__id
+            display: none
+        &__radios
+            display: flex
         &__radio
-            display: inline-block
-            margin-right: 1rem
             input
                 display: none
+                &:disabled + label
+                    cursor: default
+                    opacity: .3
                 &:checked + label
                     background-color: $gray-800
                     color: $white

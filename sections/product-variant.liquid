@@ -21,6 +21,7 @@
         <fieldset>
           <legend>{{ option.name | escape }}</legend>
           {% assign option_index = forloop.index %}
+          <div class="product__variant__radios">
           {% for value in option.values %}
             {% assign variant_label_state = true %}
             {% if product.options.size == 1 %}
@@ -39,6 +40,7 @@
               <label for="variant-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
             </div>
           {% endfor %}
+          </div>
         </fieldset>
       {% else %}
         <div class="form-floating">
