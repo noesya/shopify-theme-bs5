@@ -49,10 +49,24 @@
               "cta": "Acheter",
               "cta_style": "btn-light"
             }
+          },
+          "25312fbf-957c-456a-96e8-6872b0d0f2d3": {
+            "type": "slide",
+            "settings": {
+              "url": "",
+              "position": "center",
+              "offset": false,
+              "image": "shopify:\/\/shop_images\/hero-2.jpg",
+              "title": "",
+              "subtitle": "",
+              "cta": "",
+              "cta_style": "btn-primary"
+            }
           }
         },
         "block_order": [
-          "6c05977b-0cdd-4da4-a966-4993633fb320"
+          "6c05977b-0cdd-4da4-a966-4993633fb320",
+          "25312fbf-957c-456a-96e8-6872b0d0f2d3"
         ],
         "settings": {
           "container": "container",
