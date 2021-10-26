@@ -209,6 +209,12 @@
           "center": false,
           "background": false
         }
+      },
+      "cart-message": {
+        "type": "cart-message",
+        "settings": {
+          "title": "Livraison Gratuite Pour Toute Commande d'un Montant Supérieur €65. Politique De Retour 30 Jours."
+        }
       }
     },
     "content_for_index": [
