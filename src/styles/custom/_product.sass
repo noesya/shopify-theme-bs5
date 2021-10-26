@@ -17,13 +17,13 @@
         &__id
             display: none
         &__radios
-            @extend .row
-            margin-top: 10px
-            padding-left: 10px
-            padding-right: 10px
+            display: flex
+            flex-direction: column
             legend
                 margin-bottom: 0
         &__radio
+            margin-top: 10px
+            padding-right: 10px
             input
                 display: none
                 &:disabled + label

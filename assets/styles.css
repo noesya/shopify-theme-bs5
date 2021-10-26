@@ -534,7 +534,7 @@ progress {
   .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     max-width: 1320px; } }
 
-.row, .product__variant__radios {
+.row {
   --bs-gutter-x: 30px;
   --bs-gutter-y: 0;
   display: flex;
@@ -542,7 +542,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-.5 * var(--bs-gutter-x));
   margin-left: calc(-.5 * var(--bs-gutter-x)); }
-  .row > *, .product__variant__radios > * {
+  .row > * {
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;
@@ -8094,26 +8094,28 @@ legend {
   .product__variant__id {
     display: none; }
   .product__variant__radios {
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px; }
+    display: flex;
+    flex-direction: column; }
     .product__variant__radios legend {
       margin-bottom: 0; }
-  .product__variant__radio input {
-    display: none; }
-    .product__variant__radio input:disabled + label {
-      cursor: default;
-      opacity: .3; }
-    .product__variant__radio input:checked + label {
-      background-color: #343a40;
-      color: #fff; }
-  .product__variant__radio label {
-    border: 1px solid #dee2e6;
-    cursor: pointer;
-    padding: 5px 15px;
-    user-select: none; }
-    .product__variant__radio label:hover, .product__variant__radio label:focus {
-      background-color: #f8f9fa; }
+  .product__variant__radio {
+    margin-top: 10px;
+    padding-right: 10px; }
+    .product__variant__radio input {
+      display: none; }
+      .product__variant__radio input:disabled + label {
+        cursor: default;
+        opacity: .3; }
+      .product__variant__radio input:checked + label {
+        background-color: #343a40;
+        color: #fff; }
+    .product__variant__radio label {
+      border: 1px solid #dee2e6;
+      cursor: pointer;
+      padding: 5px 15px;
+      user-select: none; }
+      .product__variant__radio label:hover, .product__variant__radio label:focus {
+        background-color: #f8f9fa; }
 
 .product__cta {
   display: none; }
@@ -8175,9 +8177,9 @@ legend {
     overflow: auto;
     padding-left: 15px;
     padding-right: 15px; }
-    .scroll > .row, .scroll > .product__variant__radios {
+    .scroll > .row {
       flex-wrap: nowrap; }
-      .scroll > .row.row-cols-2 > *, .scroll > .row-cols-2.product__variant__radios > * {
+      .scroll > .row.row-cols-2 > * {
         width: 64%; } }
 
 .section--carousel .splide__track {
