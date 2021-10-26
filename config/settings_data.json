@@ -42,8 +42,9 @@
             "settings": {
               "url": "shopify:\/\/products\/chuck-taylor-all-star-classic-montante",
               "position": "left",
+              "offset": true,
               "image": "shopify:\/\/shop_images\/hero.jpg",
-              "title": "",
+              "title": "Un style brillant",
               "subtitle": "",
               "cta": "",
               "cta_style": "btn-light"
