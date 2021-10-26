@@ -41,7 +41,7 @@
             "type": "slide",
             "settings": {
               "url": "shopify:\/\/collections\/la-selection-du-chef",
-              "position": "center",
+              "position": "left",
               "image": "shopify:\/\/shop_images\/hero.jpg",
               "title": "Selection of awesome products",
               "subtitle": "Lorem ipsum",
