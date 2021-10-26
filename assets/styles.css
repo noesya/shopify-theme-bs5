@@ -674,11 +674,11 @@ progress {
 .gy-0 {
   --bs-gutter-y: 0; }
 
-.g-1,
+.g-1, .product__variant__radios,
 .gx-1 {
   --bs-gutter-x: 10px; }
 
-.g-1,
+.g-1, .product__variant__radios,
 .gy-1 {
   --bs-gutter-y: 10px; }
 
@@ -8094,7 +8094,8 @@ legend {
   .product__variant__id {
     display: none; }
   .product__variant__radios {
-    display: flex; }
+    display: flex;
+    flex-wrap: wrap; }
   .product__variant__radio input {
     display: none; }
     .product__variant__radio input:disabled + label {

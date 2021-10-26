@@ -6905,19 +6905,19 @@ window.stk = {};
 
 /***/ 0:
 /*!************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/theme.js ./src/js/store/address.js ./src/js/store/cart.js ./src/js/store/product.js ./src/js/store/sortby.js ./src/js/commons/carousel.js ./src/js/commons/common.js ./src/js/commons/lightbox.js ***!
+  !*** multi ./src/js/theme.js ./src/js/commons/carousel.js ./src/js/commons/common.js ./src/js/commons/lightbox.js ./src/js/store/address.js ./src/js/store/cart.js ./src/js/store/product.js ./src/js/store/sortby.js ***!
   \************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/theme.js */"./src/js/theme.js");
+__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/carousel.js */"./src/js/commons/carousel.js");
+__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/common.js */"./src/js/commons/common.js");
+__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/lightbox.js */"./src/js/commons/lightbox.js");
 __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/store/address.js */"./src/js/store/address.js");
 __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/store/cart.js */"./src/js/store/cart.js");
 __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/store/product.js */"./src/js/store/product.js");
-__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/store/sortby.js */"./src/js/store/sortby.js");
-__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/carousel.js */"./src/js/commons/carousel.js");
-__webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/common.js */"./src/js/commons/common.js");
-module.exports = __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/commons/lightbox.js */"./src/js/commons/lightbox.js");
+module.exports = __webpack_require__(/*! /Users/sebastienmoulene/Sites/NOESYA/shopify-theme-bs5/src/js/store/sortby.js */"./src/js/store/sortby.js");
 
 
 /***/ })
