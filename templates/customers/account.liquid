@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <div id="customer_orders">
+      <h2 class="h3">{{ 'customer.orders.title' | t }}</h2>
       <p>{{ 'customer.orders.title' | t }}</p>
       {% paginate customer.orders by 10 %}
       {% if customer.orders.size != 0 %}

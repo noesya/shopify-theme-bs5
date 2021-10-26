@@ -17,28 +17,26 @@
 </header>
 {%- endif -%}
 
-<div class="row">
-  <div class="col-md-4">
-    {%- include 'faceted' -%}
+{% paginate collection.products by 16 %}
+  <div class="d-md-flex justify-content-between mb-5">
+    <h2>{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFaceted" aria-controls="offcanvasFaceted">
+      Filter
+    </button>
+    {%- include 'collection-sorting' -%}
   </div>
-  <div class="col-md-8">
-    {% paginate collection.products by 12 %}
-      <div class="d-md-flex justify-content-between mb-5">
-        <h2>{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
-        {%- include 'collection-sorting' -%}
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    {% for product in collection.products %}
+      <div class="col">
+        {% include 'product', item: product %}
       </div>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-        {% for product in collection.products %}
-          <div class="col">
-            {% include 'product', item: product %}
-          </div>
-        {% else %}
-          <p>no matches</p>
-        {% endfor %}
-      </div>
-      {% if paginate.pages > 1 %}
-        {%- include 'pagination', paginate: paginate -%}
-      {% endif %}
-    {% endpaginate %}
+    {% else %}
+      <p>no matches</p>
+    {% endfor %}
   </div>
-</div>
+  {% if paginate.pages > 1 %}
+    {%- include 'pagination', paginate: paginate -%}
+  {% endif %}
+{% endpaginate %}
+
+{%- include 'offcanvas-faceted' -%}
