@@ -1,6 +1,7 @@
 {%- assign message = section.settings.title -%}
 {%- assign type = "light" -%}
-{% include 'component-message' %}
+
+<p class="alert bg-{{ type }}" role="alert">{{ message }}</p>
 
 {% schema %}
 {
