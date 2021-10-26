@@ -18,8 +18,8 @@
 {%- endif -%}
 
 {% paginate collection.products by 16 %}
-  <div class="d-md-flex justify-content-between mb-5">
-    <h2>{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
+  <div class="d-md-flex align-items-center justify-content-between mb-3 mb-md-5">
+    <h2 class="mb-md-0">{{ collection.all_products_count }} {{ 'collections.products.title' | t }}</h2>
     {%- include 'collection-sorting' -%}
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFaceted" aria-controls="offcanvasFaceted">Filter</button>
   </div>
