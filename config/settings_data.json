@@ -42,7 +42,7 @@
             "settings": {
               "url": "shopify:\/\/collections\/la-selection-du-chef",
               "position": "center",
-              "image": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg",
+              "image": "shopify:\/\/shop_images\/hero.jpg",
               "title": "Selection of awesome products",
               "subtitle": "Lorem ipsum",
               "cta": "Discover",
@@ -224,6 +224,20 @@
           "grid": 1,
           "center": true,
           "background": true
+        }
+      },
+      "cart-adding-featured-product": {
+        "type": "cart-adding-featured-product",
+        "settings": {
+          "title": "Ne louper pas cette offre !",
+          "featured_product": "t-shirt-pique-et-a-rayures"
+        }
+      },
+      "reassurance": {
+        "type": "reassurance",
+        "settings": {
+          "center": false,
+          "background": false
         }
       }
     },
