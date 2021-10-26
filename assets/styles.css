@@ -8095,7 +8095,7 @@ legend {
     display: none; }
   .product__variant__radios {
     display: flex;
-    flex-direction: column; }
+    flex-wrap: wrap; }
     .product__variant__radios legend {
       margin-bottom: 0; }
   .product__variant__radio {
