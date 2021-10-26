@@ -36,6 +36,23 @@
       },
       "16304200643eacae48": {
         "type": "section-carousel",
+        "blocks": {
+          "6c05977b-0cdd-4da4-a966-4993633fb320": {
+            "type": "slide",
+            "settings": {
+              "url": "shopify:\/\/products\/chuck-taylor-all-star-classic-montante",
+              "position": "left",
+              "image": "shopify:\/\/shop_images\/hero.jpg",
+              "title": "",
+              "subtitle": "",
+              "cta": "",
+              "cta_style": "btn-primary"
+            }
+          }
+        },
+        "block_order": [
+          "6c05977b-0cdd-4da4-a966-4993633fb320"
+        ],
         "settings": {
           "container": "container",
           "ratio": "ratio-21x9",
@@ -208,6 +225,12 @@
         "settings": {
           "center": false,
           "background": false
+        }
+      },
+      "cart-message": {
+        "type": "cart-message",
+        "settings": {
+          "title": "Livraison gratuite pour toute commande d'un montant supérieur €65. Politique de retour 30 jours."
         }
       }
     },
