@@ -247,6 +247,22 @@
         "settings": {
           "title": "Livraison gratuite pour toute commande d'un montant supérieur €65. Politique de retour 30 jours."
         }
+      },
+      "product-variant": {
+        "type": "product-variant",
+        "settings": {
+          "product_selector": "radio"
+        }
+      },
+      "product-same-collection": {
+        "type": "product-same-collection",
+        "settings": {
+          "title": "",
+          "subtitle": "",
+          "grid": 4,
+          "center": false,
+          "background": false
+        }
       }
     },
     "content_for_index": [
