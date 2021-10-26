@@ -3,7 +3,6 @@
 {%- assign background = section.settings.background -%}
 {%- assign blocks = section.blocks -%}
 {%- if blocks.size > 0 -%}
-  {{ blocks | jsonify }}
   {% include 'component-carousel' %}
 {%- endif -%}
 
