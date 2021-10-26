@@ -15,7 +15,7 @@
   "dependencies": {
     "@shopify/theme-cart": "^4.1.0",
     "@splidejs/splide": "^2.4.21",
-    "bootstrap": "^5.1.0",
+    "bootstrap": "^5.1.3",
     "glightbox": "^3.0.9"
   },
   "devDependencies": {
