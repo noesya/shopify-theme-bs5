@@ -31,6 +31,11 @@
           <label for="marketing" class="form-check-label">{{ 'customer.register.marketing' | t }}</label>
         </div>
 
+        <div class="form-check mb-3">
+          <input type="checkbox" name="customer[note][accepts_paper_marketing]" class="form-check-input" value="true" id="paper_marketing" />
+          <label for="paper_marketing" class="form-check-label">{{ 'customer.register.marketing' | t }} PAPER</label>
+        </div>
+
         <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn-primary" />
       {% endform %}
     </div>
