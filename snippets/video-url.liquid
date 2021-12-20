@@ -1,0 +1,34 @@
+{%- assign custom_muted = false -%}
+{%- assign custom_autoplay = false -%}
+{%- assign custom_controls = false -%}
+{%- assign custom_loop = false -%}
+{%- assign custom_preload = 'auto' -%}
+
+{%- if muted -%}
+  {%- assign custom_muted = true -%}
+{%- endif -%}
+
+{%- if autoplay -%}
+  {%- assign custom_autoplay = true -%}
+{%- endif -%}
+
+{%- if loop -%}
+  {%- assign custom_loop = true -%}
+{%- endif -%}
+
+{%- if controls -%}
+  {%- assign custom_controls = true -%}
+{%- endif -%}
+
+{%- if preload -%}
+  {%- assign custom_preload = preload -%}
+{%- endif -%}
+
+<div class="ratio ratio-16x9">
+  <video {% if custom_autoplay %} autoplay{% endif %}{% if custom_loop %} loop{% endif %}{% if custom_muted %} muted{% endif %}{% if custom_controls %} controls{% endif %}{% if poster %} poster="{{ poster | image_url }}"{% endif %} preload="{{custom_preload}}" webkit-playsinline playsinline>
+    {%- if video_webm -%}
+    <source src="{{ video_webm }}" type="video/webm">
+    {%- endif -%}
+    <source src="{{ video }}" type="video/mp4">
+  </video>
+</div>

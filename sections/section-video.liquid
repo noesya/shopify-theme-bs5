@@ -1,10 +1,13 @@
-{%- assign poster = section.settings.video_poster -%}
 {%- assign video = section.settings.video -%}
+{%- assign video_webm = section.settings.video_webm -%}
+{%- assign poster = section.settings.video_poster -%}
 {%- assign autoplay = section.settings.autoplay -%}
 {%- assign controls = section.settings.controls -%}
 {%- assign loop = section.settings.loop -%}
 {%- assign muted = section.settings.muted -%}
+{%- assign preload = section.settings.preload -%}
 {%- assign background = section.settings.background -%}
+{%- assign container = section.settings.container -%}
 {% include 'component-video' %}
 
 {% schema %}
@@ -20,10 +23,19 @@
       "type": "text",
       "id": "video",
       "label": {
-        "en": "Video URL",
-        "fr": "URL de la vidéo"
+        "en": "Video URL (MP4)",
+        "fr": "URL de la vidéo (MP4)"
       }
-    },{
+    },
+    {
+      "type": "text",
+      "id": "video_webm",
+      "label": {
+        "en": "Video URL (WEBM)",
+        "fr": "URL de la vidéo (WEBM)"
+      }
+    },
+    {
       "type": "image_picker",
       "id": "video_poster",
       "label": {
@@ -66,6 +78,58 @@
         "en": "Muted?",
         "fr": "Sans son ?"
       }
+    },
+    {
+      "type": "select",
+      "id": "preload",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "auto"
+        },
+        {
+          "value": "metadata",
+          "label": "metadata"
+        },
+        {
+          "value": "none",
+          "label": "none"
+        }
+      ],
+      "label": {
+        "en": "Preload?",
+        "fr": "Preload ?"
+      }
+    },
+    {
+       "type": "header",
+       "content": "Container"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": {
+        "en": "Which container?",
+        "fr": "Quel container ?"
+      },
+      "default": "container",
+      "options": [
+        {
+          "value": "container-fluid p-0",
+          "label": {
+            "en": "Fluid",
+            "fr": "Fluide"
+          }
+        },
+        {
+          "value": "container",
+          "label": {
+            "en": "Limit",
+            "fr": "Limité"
+          }
+        }
+      ]
     },
     {
       "type": "checkbox",
