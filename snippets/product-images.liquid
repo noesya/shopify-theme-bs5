@@ -3,16 +3,14 @@
 {%- assign image_size_mobile = '345x345' -%}
 {%- assign image_lightbox = '1000x1000' -%}
 
-<a href="{{ featured_image | img_url: image_lightbox }}" class="js-glightbox">
-  <div class="ratio {{ratio_image}}">
-    {%- include 'image', src: featured_image, size: image_size, mobile_size: image_size_mobile, class: "img-fluid mb-3", lazy: false -%}
-  </div>
-</a>
-
-{%- for image in product.images offset:1 -%}
+{%- for image in product.images -%}
   <a href="{{ image | img_url: image_lightbox }}" class="js-glightbox">
     <div class="ratio {{ratio_image}}">
-      {%- include 'image', src: image, size: image_size, mobile_size: image_size_mobile, class: "img-fluid" -%}
+      {% assign no_lazy = false %}
+      {% if forloop.first %}
+        {% assign no_lazy = true %}
+      {% endif %}
+      {%- include 'image', src: image, size: image_size, mobile_size: image_size_mobile, no_lazy: no_lazy -%}
     </div>
   </a>
 {%- endfor -%}
