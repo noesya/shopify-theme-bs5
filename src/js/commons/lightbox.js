@@ -1,5 +1,3 @@
-import GLightbox from 'glightbox';
-
 window.stk.lightbox = {
     init: function () {
         'use strict';
