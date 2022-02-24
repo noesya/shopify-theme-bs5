@@ -1,10 +1,10 @@
 // Gulp module imports
 // ----
-const {task, src, dest, watch, parallel, series} = require('gulp');
+const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const del = require('del');
 const rename = require('gulp-rename');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const minifycss = require('gulp-clean-css');
 const gulpif = require('gulp-if');
@@ -45,24 +45,32 @@ const sources = {
 
 // Styles
 const buildStyles = () => {
-    return src(sources.styles)
-        .pipe(sass.sync().on('error', sass.logError))
+    return gulp.src(sources.styles)
         .pipe(sourcemaps.init())
+        .pipe(sass.sync().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
-        .pipe(dest(dirs.dest));
+        .pipe(gulp.dest(dirs.dest));
 };
 
 const cleanStyles = () => {
-    return src('assets/styles.css')
+    return gulp.src('assets/styles.css')
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(purgecss({
             content: ['./**/*.liquid'],
-            safelist: ['header-mini', 'scroll-up', 'scroll-down', 'modal-backdrop', 'offcanvas-backdrop']
+            safelist: [
+              'header-mini',
+              'scroll-up',
+              'scroll-down',
+              'modal-backdrop',
+              'offcanvas-backdrop',
+              'leaflet-tile-pane',
+              /^icon/
+            ]
         }))
         .pipe(gulpif(production, minifycss()))
-        .pipe(dest(dirs.dest));
+        .pipe(gulp.dest(dirs.dest));
 };
 
 // Scripts
@@ -89,10 +97,10 @@ const webpackProd = webpack({
 });
 
 const buildScripts = () => {
-    return src(sources.scripts)
+    return gulp.src(sources.scripts)
         .pipe(gulpif(!production, webpackDev))
         .pipe(gulpif(production, webpackProd))
-        .pipe(dest(dirs.dest));
+        .pipe(gulp.dest(dirs.dest));
 };
 
 // Clean
@@ -105,5 +113,5 @@ const devWatch = () => {
 };
 
 exports.watch = devWatch;
-exports.dev = series(clean, parallel(buildStyles, buildScripts), devWatch);
-exports.default = series(clean, parallel(buildStyles, buildScripts), cleanStyles);
+exports.dev = gulp.series(clean, gulp.parallel(buildStyles, buildScripts), devWatch);
+exports.default = gulp.series(clean, gulp.parallel(buildStyles, buildScripts), cleanStyles);
