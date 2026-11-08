@@ -53,7 +53,7 @@
             <a href="#description" class="small text-muted">Description du produit</a>
           {%- endif -%}
 
-          {% capture "form_classes" %}mt-3 js-addtocart-form{%- endcapture %}
+          {% capture form_classes %}mt-3 js-addtocart-form{%- endcapture %}
           {% form 'product', product, class:form_classes, data-product-form: '', data-product-handle: product.handle %}
             <input type="hidden" id="Quantity" name="quantity" value="1" class="js-product-qty">
 
@@ -83,3 +83,13 @@
 {%- include 'product-related' -%}
 
 {%- section 'product-same-collection' -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% capture "form_classes" %}'
+  to: "{% capture form_classes %}"
+  position: 2672..2698
+{% endcomment %}
